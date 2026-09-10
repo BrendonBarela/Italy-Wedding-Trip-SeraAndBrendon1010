@@ -41,7 +41,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     stay:{color:"#fff",weight:3,fillColor:"#6f4e3d",fillOpacity:1,radius:10},
     food:{color:"#fff",weight:2,fillColor:"#b24e3a",fillOpacity:1,radius:8},
     station:{color:"#fff",weight:2,fillColor:"#315f74",fillOpacity:1,radius:8},
-    sight:{color:"#fff",weight:2,fillColor:"#6d7b45",fillOpacity:1,radius:7}
+    sight:{color:"#fff",weight:2,fillColor:"#6d7b45",fillOpacity:1,radius:7},
+    coffee:{color:"#fff",weight:2,fillColor:"#8a684f",fillOpacity:1,radius:8},
+    grocery:{color:"#fff",weight:2,fillColor:"#7a8a52",fillOpacity:1,radius:8},
+    pharmacy:{color:"#fff",weight:2,fillColor:"#4e7b72",fillOpacity:1,radius:8},
+    parking:{color:"#fff",weight:2,fillColor:"#6c7481",fillOpacity:1,radius:8}
   };
   const directions=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
   const popup=item=>{
@@ -59,10 +63,14 @@ document.addEventListener("DOMContentLoaded",()=>{
       {kind:"stay",...d.stay},
       ...(d.restaurants||[]).map(x=>({kind:"food",...x})),
       ...(d.station?[{kind:"station",...d.station}]:[]),
-      ...(d.sights||[]).map(x=>({kind:"sight",...x}))
+      ...(d.sights||[]).map(x=>({kind:"sight",...x})),
+      ...(d.coffee||[]).map(x=>({kind:"coffee",...x})),
+      ...(d.grocery||[]).map(x=>({kind:"grocery",...x})),
+      ...(d.pharmacy||[]).map(x=>({kind:"pharmacy",...x})),
+      ...(d.parking||[]).map(x=>({kind:"parking",...x}))
     ].filter(x=>Number.isFinite(Number(x.lat))&&Number.isFinite(Number(x.lng)));
 
-    const layers={stay:L.layerGroup().addTo(map),food:L.layerGroup().addTo(map),station:L.layerGroup().addTo(map),sight:L.layerGroup().addTo(map)};
+    const layers={stay:L.layerGroup().addTo(map),food:L.layerGroup().addTo(map),station:L.layerGroup().addTo(map),sight:L.layerGroup().addTo(map),coffee:L.layerGroup().addTo(map),grocery:L.layerGroup().addTo(map),pharmacy:L.layerGroup().addTo(map),parking:L.layerGroup().addTo(map)};
     const allBounds=[];
     records.forEach(item=>{
       const ll=[Number(item.lat),Number(item.lng)];

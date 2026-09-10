@@ -6,21 +6,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S & B</a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav id="site-nav" class="site-nav">
+<nav id="site-nav" class="site-nav single-trip-nav">
 <a href="index.html">Home</a>
-<a class="today-nav" href="today.html">Today</a>
-<a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
 <a href="santa-margherita.html">Santa Margherita</a>
 <a href="nice.html">Nice</a>
-<a href="transportation.html">Transportation</a>
-<a href="wedding.html">Wedding Day</a>
+<a href="wedding.html">Wedding</a>
+<a href="transportation.html">Transport</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('ispra.svg')">
+<section class="destination-hero real-photo-hero" style="--hero-photo:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ispra.jpg?width=1800');--hero-fallback:url('ispra.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 7–11 • 2026</p>
@@ -47,8 +44,10 @@
 <button class="map-filter" data-filter="stay" type="button">Stay</button>
 <button class="map-filter" data-filter="food" type="button">Food</button>
 <button class="map-filter" data-filter="station" type="button">Transit</button>
-<button class="map-filter" data-filter="sight" type="button">Sights</button>
-</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}]}'></div>
+<button class="map-filter" data-filter="sight" type="button">Sights</button><button class="map-filter" data-filter="coffee" type="button">☕ Coffee</button><button class="map-filter" data-filter="grocery" type="button">🛒 Grocery</button><button class="map-filter" data-filter="pharmacy" type="button">💊 Pharmacy</button><button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
+</div><div class="nearby-essential-links">
+<span>Nearby essentials</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=coffee%20near%20Via%20Valcanale%20504%2C%20Ispra%2C%20Italy">☕ Coffee</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=grocery%20near%20Via%20Valcanale%20504%2C%20Ispra%2C%20Italy">🛒 Grocery</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=pharmacy%20near%20Via%20Valcanale%20504%2C%20Ispra%2C%20Italy">💊 Pharmacy</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=parking%20near%20Via%20Valcanale%20504%2C%20Ispra%2C%20Italy">🅿️ Parking</a>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}], &quot;coffee&quot;: [{&quot;name&quot;: &quot;Pasticceria Angleria&quot;, &quot;address&quot;: &quot;Via Roma 505, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81336, &quot;lng&quot;: 8.6192}], &quot;grocery&quot;: [{&quot;name&quot;: &quot;Tigros di Ispra&quot;, &quot;address&quot;: &quot;Via Roma 505, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81331, &quot;lng&quot;: 8.61945}], &quot;pharmacy&quot;: [{&quot;name&quot;: &quot;Lafarmacia. Ispra&quot;, &quot;address&quot;: &quot;Via Giuseppe Mazzini 351, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81425, &quot;lng&quot;: 8.6153}], &quot;parking&quot;: [{&quot;name&quot;: &quot;Piazzale Ranci Ortigosa parking&quot;, &quot;address&quot;: &quot;Piazzale Ranci Ortigosa, Ispra, Italy&quot;, &quot;lat&quot;: 45.81455, &quot;lng&quot;: 8.60665}]}'></div>
 <div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
 <p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
 <div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Dinner</span><h3>Ristorante dei Limoni</h3><p>4.4★ • Italian, seafood and pizza</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20degli%20Alpini%20990%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Casual pizza</span><h3>Ca&#x27; Dei Baloss</h3><p>4.6★ • Casual local pizzeria</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Tullio%20del%20Grande%2069%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Casual / group</span><h3>La Baita Biergarten</h3><p>4.2★ • Relaxed beer garden and restaurant</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Milite%20Ignoto%20150%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article></div></div>
@@ -104,5 +103,5 @@
     <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Rental car is the easiest way around this stop</li><li>Lakefront walking is the best low-effort activity</li><li>Wedding day: Saturday, October 10</li></ul></aside>
   </div>
 </div>
-</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 11</span><h2>Santa Margherita Ligure</h2><p>Rental car → MXP → train</p></div><a class="button dark" href="santa-margherita.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 11</span><h2>Santa Margherita Ligure</h2><p>Rental car → MXP → train</p></div><a class="button dark" href="santa-margherita.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script></body></html>

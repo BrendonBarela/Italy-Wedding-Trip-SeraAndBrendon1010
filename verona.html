@@ -6,21 +6,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S & B</a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav id="site-nav" class="site-nav">
+<nav id="site-nav" class="site-nav single-trip-nav">
 <a href="index.html">Home</a>
-<a class="today-nav" href="today.html">Today</a>
-<a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
 <a href="santa-margherita.html">Santa Margherita</a>
 <a href="nice.html">Nice</a>
-<a href="transportation.html">Transportation</a>
-<a href="wedding.html">Wedding Day</a>
+<a href="wedding.html">Wedding</a>
+<a href="transportation.html">Transport</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('verona.svg')">
+<section class="destination-hero real-photo-hero" style="--hero-photo:url('https://commons.wikimedia.org/wiki/Special:FilePath/PanoramaVerona.jpg?width=1800');--hero-fallback:url('verona.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 1–4 • 2026</p>
@@ -48,6 +45,8 @@
 <button class="map-filter" data-filter="food" type="button">Food</button>
 <button class="map-filter" data-filter="station" type="button">Transit</button>
 <button class="map-filter" data-filter="sight" type="button">Sights</button>
+</div><div class="nearby-essential-links">
+<span>Nearby essentials</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=coffee%20near%20Via%20del%20Minatore%205%2C%20Verona%2C%20Italy">☕ Coffee</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=grocery%20near%20Via%20del%20Minatore%205%2C%20Verona%2C%20Italy">🛒 Grocery</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=pharmacy%20near%20Via%20del%20Minatore%205%2C%20Verona%2C%20Italy">💊 Pharmacy</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=parking%20near%20Via%20del%20Minatore%205%2C%20Verona%2C%20Italy">🅿️ Parking</a>
 </div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Raggio di Luna Apartment&quot;, &quot;address&quot;: &quot;Via del Minatore, 5, 37122 Verona VR, Italy&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;address&quot;: &quot;Corso Porta Nuova, 46A, Verona&quot;, &quot;lat&quot;: 45.43575, &quot;lng&quot;: 10.99015}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;address&quot;: &quot;Via Guglielmo Marconi, 17, Verona&quot;, &quot;lat&quot;: 45.43735, &quot;lng&quot;: 10.98835}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;address&quot;: &quot;Via Santa Maria in Chiavica, 5, Verona&quot;, &quot;lat&quot;: 45.44455, &quot;lng&quot;: 10.99855}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;lat&quot;: 45.42955, &quot;lng&quot;: 10.98205}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;lat&quot;: 45.43862, &quot;lng&quot;: 10.99447}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;lat&quot;: 45.4431, &quot;lng&quot;: 10.99718}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;lat&quot;: 45.43965, &quot;lng&quot;: 10.98755}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;lat&quot;: 45.44755, &quot;lng&quot;: 11.00018}]}'></div>
 <div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
 <p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
@@ -62,5 +61,5 @@
     <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Main rail hub: Verona Porta Nuova</li><li>Historic center is compact and very walkable</li><li>October: bring a light layer for evenings</li></ul></aside>
   </div>
 </div>
-</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 4</span><h2>Parma</h2><p>Train</p></div><a class="button dark" href="parma.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 4</span><h2>Parma</h2><p>Train</p></div><a class="button dark" href="parma.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script></body></html>

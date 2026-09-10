@@ -78,3 +78,11 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added a View our stay listing button to all five destination pages.
 - Santa Margherita and Beaulieu use the final Vrbo share links supplied by Brendon.
 - Verona and Parma use their Airbnb listings; Ispra uses the Villa Eden Expedia listing.
+
+## v10
+- Simplified to one horizontal navigation bar: Home, Verona, Parma, Ispra, Santa Margherita, Nice, Wedding, Transport.
+- Removed destinations.html from the site/navigation.
+- Destination heroes now use real Wikimedia Commons photography, with the existing local SVG artwork as a fallback.
+- Added a Photo Credits page with source/license attribution.
+- Added Coffee, Grocery, Pharmacy, and Parking quick-find links to every destination map.
+- Added fixed Ispra map pins/toggles for Pasticceria Angleria, Tigros, Lafarmacia Ispra, and Piazzale Ranci Ortigosa parking.

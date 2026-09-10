@@ -178,3 +178,32 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
 /* v9.1 stay listing links */
 .stay-listing{margin:12px 0 0!important}
 .stay-button{display:inline-flex!important;align-items:center;justify-content:center;padding:10px 14px!important;font-size:.82rem!important;text-decoration:none}
+
+/* v10 — one-bar navigation, real destination photography, nearby essentials */
+.real-photo-hero{
+  background-image:linear-gradient(90deg,rgba(38,28,23,.62),rgba(38,28,23,.22)),var(--hero-photo),var(--hero-fallback)!important;
+  background-size:cover!important;background-position:center!important;
+}
+.single-trip-nav{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.single-trip-nav::-webkit-scrollbar{display:none}
+.single-trip-nav a{flex:0 0 auto}
+.menu-toggle{display:none!important}
+.nearby-essential-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px;padding:12px 14px;background:#f7f1eb;border:1px solid var(--line);border-radius:14px}
+.nearby-essential-links>span{font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:var(--brown);margin-right:3px}
+.nearby-essential-links a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 11px;text-decoration:none;color:var(--ink);font-weight:750;font-size:.78rem}
+.nearby-essential-links a:hover{border-color:var(--brown);color:var(--brown)}
+.credit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.credit-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:6px}
+.credit-card span{color:var(--muted);font-size:.86rem}.credit-card a{color:var(--brown);font-weight:800;text-decoration:none;font-size:.82rem}
+.footer-links{display:flex;gap:14px}
+@media(max-width:900px){
+  .site-header{display:grid!important;grid-template-columns:auto 1fr;gap:10px}
+  .single-trip-nav{justify-content:flex-start;padding-bottom:2px}
+}
+@media(max-width:650px){
+  .site-header{display:block!important;padding-bottom:8px}
+  .brand{display:inline-block;margin-bottom:8px}
+  .single-trip-nav{margin:0 -4px;padding:0 4px 2px}
+  .single-trip-nav a{font-size:.78rem;padding:8px 9px}
+  .credit-grid{grid-template-columns:1fr}
+}
