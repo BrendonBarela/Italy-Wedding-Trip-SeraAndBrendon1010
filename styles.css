@@ -207,3 +207,88 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
   .single-trip-nav a{font-size:.78rem;padding:8px 9px}
   .credit-grid{grid-template-columns:1fr}
 }
+
+/* v10.1 — consolidated map categories + revamped navigation */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,252,247,.94);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(111,78,61,.14);
+  box-shadow:0 8px 24px rgba(52,37,29,.055);
+}
+.single-trip-nav{
+  gap:2px!important;
+  padding:5px!important;
+  background:rgba(111,78,61,.055);
+  border:1px solid rgba(111,78,61,.10);
+  border-radius:999px;
+}
+.single-trip-nav a{
+  padding:9px 13px!important;
+  border-radius:999px!important;
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+}
+.single-trip-nav a:hover{background:#fff;transform:translateY(-1px)}
+.single-trip-nav a.active{
+  background:var(--brown,#6f4e3d)!important;
+  color:#fff!important;
+  box-shadow:0 4px 12px rgba(80,53,39,.17);
+}
+.map-filter-bar{
+  display:block!important;
+  margin:0 0 14px;
+}
+.filter-title{
+  display:block;
+  margin:0 0 9px;
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--brown,#6f4e3d);
+}
+.filter-scroll{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:0 0 4px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.filter-scroll::-webkit-scrollbar{display:none}
+.map-filter{
+  flex:0 0 auto;
+  white-space:nowrap;
+  border:1px solid rgba(111,78,61,.20);
+  background:#fff;
+  border-radius:999px;
+  padding:9px 13px;
+  font-weight:700;
+  color:var(--ink);
+}
+.map-filter.active{
+  background:var(--brown,#6f4e3d);
+  border-color:var(--brown,#6f4e3d);
+  color:#fff;
+}
+.map-filter.external-filter::after{
+  content:"↗";
+  font-size:.72em;
+  margin-left:3px;
+}
+.nearby-essential-links{display:none!important}
+.map-popup small{display:block;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:#80695d;margin-bottom:2px}
+@media(max-width:760px){
+  .site-header{padding:8px 10px!important}
+  .brand{margin:0 0 7px 3px!important}
+  .single-trip-nav{
+    width:100%;
+    overflow-x:auto;
+    justify-content:flex-start!important;
+    border-radius:14px!important;
+    padding:4px!important;
+  }
+  .single-trip-nav a{font-size:.78rem!important;padding:8px 10px!important}
+  .filter-scroll{margin-right:-12px;padding-right:12px}
+}

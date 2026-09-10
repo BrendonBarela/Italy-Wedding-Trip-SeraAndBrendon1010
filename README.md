@@ -86,3 +86,10 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added a Photo Credits page with source/license attribution.
 - Added Coffee, Grocery, Pharmacy, and Parking quick-find links to every destination map.
 - Added fixed Ispra map pins/toggles for Pasticceria Angleria, Tigros, Lafarmacia Ispra, and Piazzale Ranci Ortigosa parking.
+
+## v10.1
+- Combined Coffee, Grocery, Pharmacy, and Parking into the Things Near Us filter row.
+- Practical buttons now behave like real map filters instead of a separate link row.
+- Nearby practical places load from OpenStreetMap around each stay and are cached for seven days.
+- If a practical category has no OpenStreetMap results, its button falls back to a nearby Google Maps search.
+- Revamped the single navigation bar with a sticky glass-style header, active-page pill, and swipeable mobile navigation.
