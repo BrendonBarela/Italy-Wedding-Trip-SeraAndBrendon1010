@@ -118,3 +118,10 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Removed horizontal scrolling on mobile.
 - Hid the S & B brand on small screens to give the navigation more room.
 - Kept direct links to every city, Wedding, and Transport visible at once.
+
+## v10.6
+- Rebuilt mobile navigation with strong CSS overrides so older rules cannot change its layout.
+- Mobile navigation is now a true two-column grid with all eight links visible.
+- Replaced transparent/glass navigation backgrounds with solid cream, tan, brown, and muted rose colors.
+- Navigation is separated from destination photography instead of floating visually over the image.
+- Desktop navigation remains unchanged.
