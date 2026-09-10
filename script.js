@@ -62,11 +62,11 @@ document.addEventListener("DOMContentLoaded",()=>{
   function overpassQuery(lat,lng){
     return `[out:json][timeout:12];
     (
-      nwr(around:1400,${lat},${lng})["amenity"="cafe"];
-      nwr(around:1400,${lat},${lng})["shop"="coffee"];
-      nwr(around:1400,${lat},${lng})["shop"~"supermarket|convenience|grocery"];
-      nwr(around:1400,${lat},${lng})["amenity"="pharmacy"];
-      nwr(around:1400,${lat},${lng})["amenity"="parking"];
+      nwr(around:1600,${lat},${lng})["amenity"="cafe"];
+      nwr(around:1600,${lat},${lng})["shop"="coffee"];
+      nwr(around:1600,${lat},${lng})["shop"~"supermarket|convenience|grocery"];
+      nwr(around:1600,${lat},${lng})["amenity"="pharmacy"];
+      nwr(around:1600,${lat},${lng})["amenity"="parking"];
     );
     out center tags;`;
   }
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       // Keep the closest useful results so the map does not get cluttered.
       const distance2=x=>(x.lat-stay.lat)**2+(x.lng-stay.lng)**2;
       const trimmed=practicalKinds.flatMap(kind=>
-        items.filter(x=>x.kind===kind).sort((a,b)=>distance2(a)-distance2(b)).slice(0,5)
+        items.filter(x=>x.kind===kind).sort((a,b)=>distance2(a)-distance2(b)).slice(0,4)
       );
       try{localStorage.setItem(cacheKey,JSON.stringify({saved:Date.now(),items:trimmed}));}catch(e){}
       return trimmed;
@@ -183,11 +183,16 @@ document.addEventListener("DOMContentLoaded",()=>{
       if(!btn) return;
       const has=records.some(x=>x.kind===kind);
       if(!has){
-        btn.classList.add("external-filter");
-        btn.title=`Search ${labels[kind]} nearby`;
+        btn.classList.add("empty-filter");
+        btn.title=`No mapped ${labels[kind].toLowerCase()} found nearby`;
         btn.addEventListener("click",e=>{
           e.stopImmediatePropagation();
-          window.open(directions(`${labels[kind]} near ${d.stay.address||d.stay.name}`),"_blank","noopener");
+          applyFilter(kind,btn);
+          const center=[Number(d.stay.lat),Number(d.stay.lng)];
+          L.popup()
+            .setLatLng(center)
+            .setContent(`<div class="map-popup"><small>${labels[kind]}</small><strong>No mapped places found nearby</strong><span>Try a wider Google Maps search.</span><a target="_blank" rel="noopener" href="${directions(`${labels[kind]} near ${d.stay.address||d.stay.name}`)}">Search nearby ↗</a></div>`)
+            .openOn(map);
         },true);
       }
     });

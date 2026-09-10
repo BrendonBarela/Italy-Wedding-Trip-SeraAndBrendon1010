@@ -420,3 +420,136 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
     color:#fff!important;
   }
 }
+
+/* v10.3 — consistent Things Near Us on every destination */
+.extended-map-legend{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:10px 16px!important;
+  align-items:center;
+  margin-top:14px;
+  padding:13px 14px;
+  border:1px solid rgba(111,78,61,.13);
+  border-radius:14px;
+  background:#fff;
+}
+.extended-map-legend span{
+  display:inline-flex!important;
+  align-items:center;
+  gap:7px;
+  font-size:.78rem;
+  color:var(--muted);
+  white-space:nowrap;
+}
+.legend-dot{
+  display:inline-block;
+  width:11px;
+  height:11px;
+  border-radius:999px;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.05);
+}
+.stay-dot{background:#6f4e3d}
+.food-dot{background:#b24e3a}
+.coffee-dot{background:#8a684f}
+.grocery-dot{background:#6d7b45}
+.pharmacy-dot{background:#3f7f70}
+.station-dot{background:#315f74}
+.parking-dot{background:#596779}
+.sight-dot{background:#7d6d3f}
+.map-help{
+  margin:10px 2px 0;
+  color:var(--muted);
+  font-size:.82rem;
+}
+.map-filter.empty-filter{
+  opacity:.68;
+}
+@media(max-width:760px){
+  .extended-map-legend{
+    gap:9px 12px!important;
+    padding:12px!important;
+  }
+  .extended-map-legend span{font-size:.74rem}
+}
+
+/* v10.4 — stronger mobile nav over hero photos */
+@media (max-width:760px){
+  .site-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:2000!important;
+    padding:8px 8px 10px!important;
+    background:rgba(43,30,24,.96)!important;
+    border-bottom:1px solid rgba(255,255,255,.12)!important;
+    box-shadow:0 10px 28px rgba(0,0,0,.28)!important;
+    backdrop-filter:blur(14px)!important;
+    -webkit-backdrop-filter:blur(14px)!important;
+  }
+
+  .brand{
+    color:#fff!important;
+    margin:0 0 8px 6px!important;
+    font-weight:800!important;
+    text-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+
+  .single-trip-nav{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    gap:6px!important;
+    width:100%!important;
+    padding:5px!important;
+    margin:0!important;
+    background:rgba(255,255,255,.10)!important;
+    border:1px solid rgba(255,255,255,.16)!important;
+    border-radius:14px!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06)!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+
+  .single-trip-nav::-webkit-scrollbar{display:none!important}
+
+  .single-trip-nav a,
+  .site-nav a[href="verona.html"],
+  .site-nav a[href="parma.html"],
+  .site-nav a[href="ispra.html"],
+  .site-nav a[href="santa-margherita.html"],
+  .site-nav a[href="nice.html"],
+  .site-nav a[href="wedding.html"],
+  .site-nav a[href="transportation.html"]{
+    display:inline-flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    flex:0 0 auto!important;
+    min-width:max-content!important;
+    padding:9px 12px!important;
+    border-radius:999px!important;
+    font-size:.79rem!important;
+    font-weight:800!important;
+    color:#fff!important;
+    background:rgba(255,255,255,.08)!important;
+    border:1px solid rgba(255,255,255,.10)!important;
+    text-shadow:0 1px 2px rgba(0,0,0,.22);
+  }
+
+  .single-trip-nav a:hover{
+    background:rgba(255,255,255,.16)!important;
+  }
+
+  .single-trip-nav a.active{
+    background:#fff!important;
+    color:#5f4336!important;
+    border-color:#fff!important;
+    box-shadow:0 3px 10px rgba(0,0,0,.18)!important;
+    text-shadow:none!important;
+  }
+
+  /* Extra contrast where hero photography begins immediately below nav */
+  .real-photo-hero,
+  .destination-hero{
+    margin-top:0!important;
+  }
+}

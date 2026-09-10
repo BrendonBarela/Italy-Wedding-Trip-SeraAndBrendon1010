@@ -98,3 +98,16 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Improved desktop navigation spacing, active-state styling, and hover behavior.
 - Fixed mobile navigation so every city page is always visible in a horizontally swipeable row.
 - Explicitly overrides older CSS rules that previously hid individual city links on small screens.
+
+## v10.3
+- Standardized the Things Near Us controls on Verona, Parma, Ispra, Santa Margherita, and Nice/Beaulieu.
+- Every destination now has the exact same buttons: All, Stay, Food, Coffee, Grocery, Pharmacy, Transit, Parking, Sights.
+- Every destination now has the same expanded legend and map instructions.
+- Coffee, Grocery, Pharmacy, and Parking are loaded consistently from OpenStreetMap around each stay.
+- Empty practical categories now stay in the same filter row and offer a Google Maps fallback instead of behaving like a different kind of link.
+
+## v10.4
+- Made the mobile navigation much more visible against destination photography with a dark translucent sticky header.
+- All city pages are always shown directly in the mobile navigation: Verona, Parma, Ispra, Santa Margherita, and Nice.
+- Kept Wedding and Transport in the same primary navigation so guests never need to return Home just to move around the site.
+- Active page is highlighted with a bright white pill for stronger mobile contrast.
