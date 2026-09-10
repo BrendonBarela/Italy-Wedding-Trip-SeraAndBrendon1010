@@ -1,24 +1,27 @@
 # Italy Wedding Trip — Sera & Brendon
 
-This repository contains the public trip-information website for Sera & Brendon's October 2026 Italy wedding trip.
+Public trip-information website for Sera & Brendon's October 2026 Italy / France wedding trip.
 
-## Files
+## Current route
+Verona → Parma → Ispra / Lake Maggiore → Santa Margherita Ligure → Nice
 
-- `index.html` — page content
-- `styles.css` — styling and mobile layout
-- `script.js` — mobile menu and smooth scrolling
+## New in v3
+- Destination tabs with destination-level maps
+- Updated route with Alba and Cuneo removed
+- Travel Days / Recommended Trains cards
+- Booking-status language so unbooked trains are not mistaken for confirmed tickets
+- Wedding Day itinerary for October 10, 2026
+- Ceremony timing built around approximately one hour before sunset
+- Music cues:
+  - Gathering: Linda Ronstadt — “For Sentimental Reasons”
+  - Aisle walk: “La Vie en Rose” — instrumental
+  - Recessional / just married: “This Will Be (An Everlasting Love)”
+  - First dance: Elton John — “Your Song”
+- Champagne is scheduled before the first dance
+- Golden-hour photo block immediately after the ceremony
 
-## Publish with GitHub Pages
-
-1. Open this repository on GitHub.
-2. Go to **Settings**.
-3. Open **Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/(root)**.
-6. Click **Save**.
-
-GitHub will show the public website URL after deployment finishes.
+## Transportation
+Nothing is booked yet. Exact train numbers, times, transfers, and booking links should be added once the October 2026 schedules are available.
 
 ## Privacy
-
-Do not publish door codes, booking confirmation numbers, passport details, private phone numbers, or other sensitive travel information in this public repository.
+This is a public website. Destination maps are intentionally approximate. Do not publish exact lodging addresses, door codes, booking numbers, passport information, or other sensitive details.

@@ -23,35 +23,35 @@
 
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       <a href="#itinerary">Itinerary</a>
-      <a href="#lodging">Lodging</a>
+      <a href="#destinations">Destinations</a>
       <a href="#transportation">Transportation</a>
-      <a href="#wedding">Wedding</a>
+      <a href="#travel-days">Travel Days</a>
+      <a href="#wedding-day">Wedding Day</a>
+      <a href="#wedding">Wedding Info</a>
       <a href="#links">Useful Links</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="hero-overlay"></div>
-
       <div class="hero-content">
-        <p class="eyebrow">Italy • October 2026</p>
+        <p class="eyebrow">Italy & France • October 2026</p>
         <h1>Sera & Brendon's<br>Wedding Trip</h1>
         <p class="hero-copy">
-          One place for the itinerary, lodging, transportation, wedding details,
-          and helpful travel links.
+          One place for the itinerary, lodging, destination maps, transportation plans,
+          wedding details, and helpful links.
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#itinerary">View the trip</a>
-          <a class="button button-secondary" href="#wedding">Wedding details</a>
+          <a class="button button-primary" href="#destinations">Explore destinations</a>
+          <a class="button button-secondary" href="#transportation">Transportation plan</a>
         </div>
       </div>
 
       <div class="hero-card">
-        <span class="hero-card-label">Wedding week</span>
-        <strong>Lake Maggiore</strong>
-        <span>October 2026</span>
+        <span class="hero-card-label">Trip dates</span>
+        <strong>Oct 1–18, 2026</strong>
+        <span>Verona → Parma → Ispra → Santa Margherita Ligure → Nice</span>
       </div>
     </section>
 
@@ -59,8 +59,8 @@
       <p class="section-kicker">Welcome</p>
       <h2>Everything for the trip, in one place.</h2>
       <p class="section-lead">
-        Save this page before the trip so you can quickly check where we are going next,
-        where everyone is staying, and how we are getting there.
+        Save this page before the trip so everyone can quickly check where we are going next,
+        where we are staying, and how we are getting there.
       </p>
     </section>
 
@@ -73,13 +73,21 @@
         <span class="section-note">October 1–18, 2026</span>
       </div>
 
+      <div class="route-strip" aria-label="Trip route">
+        <span>Verona</span><b>→</b>
+        <span>Parma</span><b>→</b>
+        <span>Ispra</span><b>→</b>
+        <span>Santa Margherita Ligure</span><b>→</b>
+        <span>Nice</span>
+      </div>
+
       <div class="timeline">
         <article class="timeline-card">
           <div class="date-badge"><span>OCT</span><strong>1–4</strong></div>
           <div>
             <p class="timeline-type">First stop</p>
             <h3>Verona</h3>
-            <p>Arrive in Italy, settle in, explore Verona on foot, and ease into the trip.</p>
+            <p>Arrive in Italy, settle in, and explore Verona.</p>
           </div>
         </article>
 
@@ -88,10 +96,7 @@
           <div>
             <p class="timeline-type">Food stop</p>
             <h3>Parma</h3>
-            <p>
-              Three nights in Emilia-Romagna with plenty of time for Parmigiano Reggiano,
-              prosciutto, and the historic center.
-            </p>
+            <p>Three nights in Emilia-Romagna with time for the historic center and local food.</p>
           </div>
         </article>
 
@@ -100,10 +105,7 @@
           <div>
             <p class="timeline-type">Wedding</p>
             <h3>Ispra • Lake Maggiore</h3>
-            <p>
-              Wedding festivities and time together at Lake Maggiore. The group travels
-              through Milan and Malpensa Airport before driving to Ispra.
-            </p>
+            <p>Wedding festivities and time together at Lake Maggiore. Wedding day: October 10, 2026.</p>
           </div>
         </article>
 
@@ -111,11 +113,8 @@
           <div class="date-badge"><span>OCT</span><strong>11–14</strong></div>
           <div>
             <p class="timeline-type">Italian Riviera</p>
-            <h3>Liguria</h3>
-            <p>
-              A romantic coastal stop before continuing west toward France.
-              Add the final town and lodging here once the group details are finalized.
-            </p>
+            <h3>Santa Margherita Ligure</h3>
+            <p>A relaxed coastal stop on the Ligurian coast before continuing to France.</p>
           </div>
         </article>
 
@@ -124,85 +123,122 @@
           <div>
             <p class="timeline-type">Final stop</p>
             <h3>Nice & the French Riviera</h3>
-            <p>
-              Four nights for Nice, Èze, the coast, and an easy departure from
-              Nice Côte d'Azur Airport.
-            </p>
+            <p>Four nights for Nice, Èze, the coast, and departure from Nice Côte d'Azur Airport.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="lodging" class="section-alt">
+    <section id="destinations" class="section-alt">
       <div class="section-shell section-block">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">Where we're staying</p>
-            <h2>Lodging</h2>
+            <p class="section-kicker">Destination guide</p>
+            <h2>Where we're staying</h2>
           </div>
-          <span class="section-note">Public trip summary</span>
+          <span class="section-note">Tap a destination</span>
         </div>
 
-        <div class="card-grid">
-          <article class="info-card">
-            <span class="card-city">Verona</span>
-            <h3>Raggio di Luna Apartment</h3>
-            <p>Oct 1–4 • Sera, Brendon, Megan & Anna</p>
+        <div class="destination-tabs" role="tablist" aria-label="Destinations">
+          <button class="destination-tab active" role="tab" aria-selected="true" data-target="verona">Verona</button>
+          <button class="destination-tab" role="tab" aria-selected="false" data-target="parma">Parma</button>
+          <button class="destination-tab" role="tab" aria-selected="false" data-target="ispra">Ispra</button>
+          <button class="destination-tab" role="tab" aria-selected="false" data-target="santa-margherita">Santa Margherita</button>
+          <button class="destination-tab" role="tab" aria-selected="false" data-target="nice">Nice</button>
+        </div>
+
+        <article id="verona" class="destination-panel active" role="tabpanel">
+          <div class="destination-copy">
+            <p class="card-city">Oct 1–4</p>
+            <h3>Verona</h3>
+            <p><strong>Lodging:</strong> Raggio di Luna Apartment</p>
+            <p><strong>Staying here:</strong> Sera, Brendon, Megan & Anna</p>
             <p class="small-copy">Washer + dryer</p>
-            <a href="https://www.airbnb.com/rooms/33595017" target="_blank" rel="noopener">
-              View property ↗
-            </a>
-          </article>
+            <a class="text-link" href="https://www.airbnb.com/rooms/33595017" target="_blank" rel="noopener">View property ↗</a>
+            <div class="arrival-note"><strong>Next travel day:</strong> Train from Verona to Parma.</div>
+          </div>
+          <div class="map-card">
+            <iframe title="Map of Verona" src="https://www.google.com/maps?q=Verona%2C%20Italy&output=embed" loading="lazy"></iframe>
+            <p>Approximate destination map. Exact lodging location is intentionally not shown publicly.</p>
+          </div>
+        </article>
 
-          <article class="info-card">
-            <span class="card-city">Parma</span>
-            <h3>150 MQ Apartment + Depandance</h3>
-            <p>Oct 4–7 • Sera, Brendon, Megan & Anna • Katie joins Oct 6</p>
+        <article id="parma" class="destination-panel" role="tabpanel">
+          <div class="destination-copy">
+            <p class="card-city">Oct 4–7</p>
+            <h3>Parma</h3>
+            <p><strong>Lodging:</strong> 150 MQ Apartment + Depandance</p>
+            <p><strong>Staying here:</strong> Sera, Brendon, Megan & Anna; Katie joins Oct 6</p>
             <p class="small-copy">Washer</p>
-            <a href="https://www.airbnb.com/rooms/1684795982326693057" target="_blank" rel="noopener">
-              View property ↗
-            </a>
-          </article>
-
-          <article class="info-card">
-            <span class="card-city">Ispra</span>
-            <h3>Villa Eden 8</h3>
-            <p>Wedding villa on Lake Maggiore.</p>
-            <div class="link-row">
-              <a href="https://www.emmavillas.com/en/lombardy/villa-eden-8" target="_blank" rel="noopener">
-                Emma Villas ↗
-              </a>
-              <a href="https://www.expedia.com/Ispra-Hotels-Villa-Eden-8-Emma-Villas.h100163693.Hotel-Information" target="_blank" rel="noopener">
-                Expedia ↗
-              </a>
+            <a class="text-link" href="https://www.airbnb.com/rooms/1684795982326693057" target="_blank" rel="noopener">View property ↗</a>
+            <div class="arrival-note">
+              <strong>Next travel day:</strong> Train Parma → Milano Centrale → Malpensa Airport, then rental car to Ispra.
             </div>
-          </article>
+          </div>
+          <div class="map-card">
+            <iframe title="Map of Parma" src="https://www.google.com/maps?q=Parma%2C%20Italy&output=embed" loading="lazy"></iframe>
+            <p>Approximate destination map. Exact lodging location is intentionally not shown publicly.</p>
+          </div>
+        </article>
 
-          <article class="info-card muted-card">
-            <span class="card-city">Ispra</span>
-            <h3>Friend Villa</h3>
-            <p>Anna, Megan & Katie.</p>
-            <p class="small-copy">Add the Airbnb link here once ready.</p>
-          </article>
+        <article id="ispra" class="destination-panel" role="tabpanel">
+          <div class="destination-copy">
+            <p class="card-city">Oct 7–11</p>
+            <h3>Ispra • Lake Maggiore</h3>
+            <p><strong>Main lodging:</strong> Villa Eden 8</p>
+            <p>Wedding week on Lake Maggiore.</p>
+            <div class="link-row">
+              <a class="text-link" href="https://www.emmavillas.com/en/lombardy/villa-eden-8" target="_blank" rel="noopener">Emma Villas ↗</a>
+              <a class="text-link" href="https://www.expedia.com/Ispra-Hotels-Villa-Eden-8-Emma-Villas.h100163693.Hotel-Information" target="_blank" rel="noopener">Expedia ↗</a>
+            </div>
+            <div class="arrival-note">
+              <strong>Next travel day:</strong> Drive back to MXP, return rental car, then take trains toward Santa Margherita Ligure.
+            </div>
+          </div>
+          <div class="map-card">
+            <iframe title="Map of Ispra" src="https://www.google.com/maps?q=Ispra%2C%20Italy&output=embed" loading="lazy"></iframe>
+            <p>Approximate destination map. Exact private lodging details are kept off the public site.</p>
+          </div>
+        </article>
 
-          <article class="info-card muted-card">
-            <span class="card-city">Liguria</span>
-            <h3>Coastal Stay</h3>
-            <p>Oct 11–14</p>
-            <p class="small-copy">Add final property name and link here.</p>
-          </article>
+        <article id="santa-margherita" class="destination-panel" role="tabpanel">
+          <div class="destination-copy">
+            <p class="card-city">Oct 11–14</p>
+            <h3>Santa Margherita Ligure</h3>
+            <p><strong>Lodging:</strong> Property details to be added.</p>
+            <p>Italian Riviera stay with easy access to the surrounding Ligurian coast.</p>
+            <div class="arrival-note">
+              <strong>Arrival plan:</strong> Trains from MXP, most likely connecting through Milan and/or Genoa.
+            </div>
+            <div class="arrival-note">
+              <strong>Next travel day:</strong> Train from Santa Margherita Ligure toward Nice.
+            </div>
+          </div>
+          <div class="map-card">
+            <iframe title="Map of Santa Margherita Ligure" src="https://www.google.com/maps?q=Santa%20Margherita%20Ligure%2C%20Italy&output=embed" loading="lazy"></iframe>
+            <p>Approximate destination map. Exact lodging can stay private even after the property is added.</p>
+          </div>
+        </article>
 
-          <article class="info-card muted-card">
-            <span class="card-city">Nice Area</span>
-            <h3>French Riviera Stay</h3>
-            <p>Oct 14–18</p>
-            <p class="small-copy">Add final property name and link here.</p>
-          </article>
-        </div>
+        <article id="nice" class="destination-panel" role="tabpanel">
+          <div class="destination-copy">
+            <p class="card-city">Oct 14–18</p>
+            <h3>Nice & the French Riviera</h3>
+            <p><strong>Lodging:</strong> Property details to be added.</p>
+            <p>Final honeymoon stop for Nice, Èze, the Mediterranean coast, and the flight home.</p>
+            <div class="arrival-note">
+              <strong>Arrival plan:</strong> Train from Santa Margherita Ligure to Nice, with final routing to be chosen once schedules are published.
+            </div>
+          </div>
+          <div class="map-card">
+            <iframe title="Map of Nice" src="https://www.google.com/maps?q=Nice%2C%20France&output=embed" loading="lazy"></iframe>
+            <p>Approximate destination map. Exact lodging location is intentionally not shown publicly.</p>
+          </div>
+        </article>
 
         <p class="privacy-note">
-          For privacy, exact street addresses, door codes, confirmation numbers,
-          and other sensitive booking details should not be posted on this public site.
+          This is a public website, so exact street addresses, door codes, reservation numbers,
+          passport details, and other sensitive information should stay off the page.
         </p>
       </div>
     </section>
@@ -211,8 +247,9 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">Getting around</p>
-          <h2>Transportation</h2>
+          <h2>Transportation Plan</h2>
         </div>
+        <span class="section-note">Planning stage • exact trains not booked yet</span>
       </div>
 
       <div class="travel-list">
@@ -220,7 +257,7 @@
           <div class="travel-number">1</div>
           <div>
             <h3>Verona → Parma</h3>
-            <p>Regional train • about 2 hours</p>
+            <p>Train • exact departure to be chosen later</p>
           </div>
         </article>
 
@@ -228,15 +265,15 @@
           <div class="travel-number">2</div>
           <div>
             <h3>Parma → Milano Centrale</h3>
-            <p>Train • about 1 hour</p>
+            <p>Train • likely the first leg toward Malpensa Airport</p>
           </div>
         </article>
 
         <article class="travel-step yellow">
           <div class="travel-number">3</div>
           <div>
-            <h3>Milan → Malpensa Airport</h3>
-            <p>Malpensa Express • about 50 minutes • pick up rental car at MXP</p>
+            <h3>Milano Centrale → Malpensa Airport (MXP)</h3>
+            <p>Malpensa Express • then pick up rental car at the airport</p>
           </div>
         </article>
 
@@ -244,41 +281,202 @@
           <div class="travel-number">4</div>
           <div>
             <h3>MXP → Ispra</h3>
-            <p>Rental car • about 35 minutes</p>
+            <p>Rental car • keep the car during the Ispra wedding stay</p>
           </div>
         </article>
 
         <article class="travel-step blue">
           <div class="travel-number">5</div>
           <div>
-            <h3>Ispra → Alba</h3>
-            <p>Rental car • about 2.5 hours</p>
+            <h3>Ispra → MXP</h3>
+            <p>Drive back to Malpensa Airport and return the rental car</p>
           </div>
         </article>
 
         <article class="travel-step purple">
           <div class="travel-number">6</div>
           <div>
-            <h3>Alba → Cuneo</h3>
-            <p>Taxi • about 1 hour • rental car drop-off in Alba</p>
+            <h3>MXP → Santa Margherita Ligure</h3>
+            <p>Train • routing and departure time to be selected once schedules are available</p>
           </div>
         </article>
 
         <article class="travel-step pink">
           <div class="travel-number">7</div>
           <div>
-            <h3>Cuneo → Nice</h3>
-            <p>Train des Merveilles • about 4 hours</p>
+            <h3>Santa Margherita Ligure → Nice</h3>
+            <p>Train • likely via the Ligurian coast and Ventimiglia; exact itinerary TBD</p>
           </div>
         </article>
       </div>
 
-      <div class="tip-box">
-        <strong>Travel tip</strong>
-        <p>
-          Keep passports and train tickets easy to reach on travel days. Italian train
-          platforms can change shortly before departure, so check the station boards before boarding.
-        </p>
+      <div class="planner-box">
+        <div>
+          <p class="section-kicker">Train planner</p>
+          <h3>We'll choose the actual trains closer to the trip.</h3>
+          <p>
+            October 2026 schedules may change before booking opens. This site can be updated
+            later with exact train numbers, departure times, transfers, seat reservations,
+            and which tickets need to be purchased in advance.
+          </p>
+        </div>
+        <div class="planner-links">
+          <a href="https://www.trenitalia.com/" target="_blank" rel="noopener">Trenitalia ↗</a>
+          <a href="https://www.italotreno.com/" target="_blank" rel="noopener">Italo ↗</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="travel-days" class="section-alt">
+      <div class="section-shell section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">What to book</p>
+            <h2>Travel Days & Recommended Trains</h2>
+          </div>
+          <span class="section-note">We’ll lock exact departures in once schedules are available</span>
+        </div>
+
+        <div class="booking-status">
+          <div><span class="status-dot planned"></span><strong>Planned</strong><small>Route decided, ticket not booked</small></div>
+          <div><span class="status-dot wait"></span><strong>Wait to book</strong><small>Exact train still to be selected</small></div>
+          <div><span class="status-dot car"></span><strong>Rental car</strong><small>Airport pickup / return day</small></div>
+        </div>
+
+        <div class="train-card-grid">
+          <article class="train-card">
+            <div class="train-card-top">
+              <div>
+                <p class="card-city">Oct 4</p>
+                <h3>Verona → Parma</h3>
+              </div>
+              <span class="pill planned-pill">Planned</span>
+            </div>
+            <dl class="train-facts">
+              <div><dt>Preferred departure</dt><dd>Late morning / around lunch</dd></div>
+              <div><dt>Goal</dt><dd>Easy travel day with minimal transfers</dd></div>
+              <div><dt>Operator</dt><dd>Trenitalia / regional or intercity options</dd></div>
+              <div><dt>Booking</dt><dd>Exact train TBD</dd></div>
+            </dl>
+            <p class="train-note">Choose the simplest itinerary over shaving a few minutes off the trip.</p>
+          </article>
+
+          <article class="train-card">
+            <div class="train-card-top">
+              <div>
+                <p class="card-city">Oct 7</p>
+                <h3>Parma → MXP → Ispra</h3>
+              </div>
+              <span class="pill car-pill">Train + Car</span>
+            </div>
+            <dl class="train-facts">
+              <div><dt>Leg 1</dt><dd>Parma → Milano Centrale</dd></div>
+              <div><dt>Leg 2</dt><dd>Milano Centrale → Malpensa Airport</dd></div>
+              <div><dt>At MXP</dt><dd>Pick up rental car</dd></div>
+              <div><dt>Final leg</dt><dd>Drive MXP → Ispra</dd></div>
+            </dl>
+            <p class="train-note">Build in airport-car-rental buffer time rather than aiming for a tight connection.</p>
+          </article>
+
+          <article class="train-card">
+            <div class="train-card-top">
+              <div>
+                <p class="card-city">Oct 11</p>
+                <h3>Ispra → MXP → Santa Margherita Ligure</h3>
+              </div>
+              <span class="pill wait-pill">Wait to book</span>
+            </div>
+            <dl class="train-facts">
+              <div><dt>First</dt><dd>Drive Ispra → MXP</dd></div>
+              <div><dt>At MXP</dt><dd>Return rental car</dd></div>
+              <div><dt>Rail route</dt><dd>MXP → Milan / Genoa area → Santa Margherita Ligure</dd></div>
+              <div><dt>Priority</dt><dd>Fewest transfers + comfortable connection times</dd></div>
+            </dl>
+            <p class="train-note">This is the travel day where we should compare exact schedules carefully before buying.</p>
+          </article>
+
+          <article class="train-card">
+            <div class="train-card-top">
+              <div>
+                <p class="card-city">Oct 14</p>
+                <h3>Santa Margherita Ligure → Nice</h3>
+              </div>
+              <span class="pill wait-pill">Wait to book</span>
+            </div>
+            <dl class="train-facts">
+              <div><dt>Likely route</dt><dd>West along Liguria → Ventimiglia → Nice</dd></div>
+              <div><dt>Preferred departure</dt><dd>Morning</dd></div>
+              <div><dt>Priority</dt><dd>Low-stress transfers and daylight arrival</dd></div>
+              <div><dt>Booking</dt><dd>Exact itinerary TBD</dd></div>
+            </dl>
+            <p class="train-note">We’ll favor the itinerary with the cleanest border connection, not necessarily the absolute fastest.</p>
+          </article>
+
+          <article class="train-card">
+            <div class="train-card-top">
+              <div>
+                <p class="card-city">Oct 18</p>
+                <h3>Nice → Nice Côte d’Azur Airport</h3>
+              </div>
+              <span class="pill planned-pill">Plan later</span>
+            </div>
+            <dl class="train-facts">
+              <div><dt>Mode</dt><dd>Local transit / taxi depending on final lodging</dd></div>
+              <div><dt>Priority</dt><dd>Simple airport arrival with luggage</dd></div>
+              <div><dt>Departure buffer</dt><dd>Set after flight time is confirmed</dd></div>
+              <div><dt>Booking</dt><dd>No action yet</dd></div>
+            </dl>
+            <p class="train-note">Once the final Nice lodging and flight time are confirmed, we can make this a precise door-to-terminal plan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="wedding-day" class="wedding-day-section">
+      <div class="section-shell section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">October 10, 2026</p>
+            <h2>Wedding Day Itinerary</h2>
+          </div>
+          <span class="section-note">Ceremony planned for about one hour before sunset</span>
+        </div>
+
+        <div class="wedding-day-intro">
+          <div>
+            <h3>Late-afternoon ceremony, golden-hour portraits, then champagne & dancing.</h3>
+            <p>This timing keeps the ceremony relaxed while protecting the best evening light for photographs. Exact times can shift slightly once the photographer confirms the final photo plan and we verify the sunset time closer to the wedding.</p>
+          </div>
+          <div class="sunset-callout">
+            <span>Target ceremony</span>
+            <strong>~5:40–5:45 PM</strong>
+            <small>About one hour before sunset</small>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <article><time>2:00 PM</time><div><h3>Photographer arrives</h3><p>Getting-ready, detail, and candid photos begin.</p></div></article>
+          <article><time>3:00 PM</time><div><h3>Getting ready & details</h3><p>Rings, attire, flowers, villa details, and individual portraits.</p></div></article>
+          <article><time>4:00 PM</time><div><h3>Pre-ceremony portraits</h3><p>Family / wedding-party combinations that can be photographed before the ceremony.</p></div></article>
+          <article><time>5:00 PM</time><div><h3>Guests begin gathering</h3><p>Welcome period and pre-ceremony atmosphere.</p><div class="music-chip">♫ Linda Ronstadt — “For Sentimental Reasons”</div></div></article>
+          <article><time>5:30 PM</time><div><h3>Guests settle for the ceremony</h3><p>Final cue for the wedding party and photographer.</p></div></article>
+          <article class="highlight-event"><time>~5:40 PM</time><div><h3>Aisle walk</h3><div class="music-chip">♫ “La Vie en Rose” — instrumental</div></div></article>
+          <article class="highlight-event"><time>~5:45 PM</time><div><h3>Ceremony</h3><p>Short, intimate ceremony timed for late-day light.</p></div></article>
+          <article><time>~6:05 PM</time><div><h3>Pronounced married</h3><div class="music-chip">♫ “This Will Be (An Everlasting Love)”</div></div></article>
+          <article><time>6:10 PM</time><div><h3>Champagne & congratulations</h3><p>Toast together before the first dance.</p></div></article>
+          <article class="photo-event"><time>6:15–6:45 PM</time><div><h3>Golden-hour newlywed photos</h3><p>Portrait time while the light is at its best. Guests can continue enjoying champagne.</p></div></article>
+          <article><time>~7:00 PM</time><div><h3>Rejoin guests</h3><p>Transition from portraits into the evening celebration.</p></div></article>
+          <article class="highlight-event"><time>~7:15 PM</time><div><h3>First dance</h3><div class="music-chip">♫ Elton John — “Your Song”</div></div></article>
+          <article><time>After</time><div><h3>Dinner & celebration</h3><p>Meal, music, dancing, and the rest of the night.</p></div></article>
+        </div>
+
+        <div class="wedding-notes-grid">
+          <div><span>Photography priority</span><strong>Protect golden hour</strong><p>Keep post-ceremony portraits flexible so the photographer can react to the light.</p></div>
+          <div><span>Guest transition</span><strong>Champagne before first dance</strong><p>This creates a natural break while the couple is away taking portraits.</p></div>
+          <div><span>Timing note</span><strong>Final schedule TBD</strong><p>Confirm sunset, ceremony length, and photographer arrival time closer to October.</p></div>
+        </div>
       </div>
     </section>
 
@@ -287,9 +485,9 @@
         <p class="section-kicker light">The reason we're all here</p>
         <h2>Wedding Week at Lake Maggiore</h2>
         <p>
-          Our wedding portion of the trip is centered around Ispra on the southeastern
-          side of Lake Maggiore. This section can hold the wedding schedule, attire guidance,
-          transportation notes, and any group plans.
+          Our wedding portion of the trip is centered around Ispra on Lake Maggiore.
+          This section can hold the wedding schedule, attire guidance, transportation notes,
+          and group plans as they are finalized.
         </p>
 
         <div class="wedding-grid">
@@ -303,11 +501,11 @@
           </div>
           <div>
             <span>Timing</span>
-            <strong>October 2026</strong>
+            <strong>October 10, 2026</strong>
           </div>
         </div>
 
-        <p class="coming-soon">Detailed wedding-day schedule coming soon.</p>
+        <p class="coming-soon">See the Wedding Day section above for the working ceremony and photography timeline.</p>
       </div>
     </section>
 
@@ -321,23 +519,16 @@
 
       <div class="links-grid">
         <a class="quick-link" href="https://www.trenitalia.com/" target="_blank" rel="noopener">
-          <span>Italian trains</span>
-          <strong>Trenitalia ↗</strong>
+          <span>Italian trains</span><strong>Trenitalia ↗</strong>
         </a>
-
         <a class="quick-link" href="https://www.italotreno.com/" target="_blank" rel="noopener">
-          <span>High-speed rail</span>
-          <strong>Italo ↗</strong>
+          <span>High-speed rail</span><strong>Italo ↗</strong>
         </a>
-
         <a class="quick-link" href="https://www.google.com/maps" target="_blank" rel="noopener">
-          <span>Navigation</span>
-          <strong>Google Maps ↗</strong>
+          <span>Navigation</span><strong>Google Maps ↗</strong>
         </a>
-
         <a class="quick-link" href="https://travel.state.gov/content/travel/en/international-travel.html" target="_blank" rel="noopener">
-          <span>Travel information</span>
-          <strong>U.S. State Department ↗</strong>
+          <span>Travel information</span><strong>U.S. State Department ↗</strong>
         </a>
       </div>
     </section>
