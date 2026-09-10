@@ -111,3 +111,10 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - All city pages are always shown directly in the mobile navigation: Verona, Parma, Ispra, Santa Margherita, and Nice.
 - Kept Wedding and Transport in the same primary navigation so guests never need to return Home just to move around the site.
 - Active page is highlighted with a bright white pill for stronger mobile contrast.
+
+## v10.5
+- Kept the desktop navigation from v10.4 unchanged.
+- Reworked mobile navigation into a compact two-row 4-column grid.
+- Removed horizontal scrolling on mobile.
+- Hid the S & B brand on small screens to give the navigation more room.
+- Kept direct links to every city, Wedding, and Transport visible at once.
