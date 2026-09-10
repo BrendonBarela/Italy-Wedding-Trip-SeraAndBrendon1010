@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-label="Parma travel illustration">
+    <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d7ded4"/><stop offset="1" stop-color="#f3e6d5"/></linearGradient></defs>
+    <rect width="1400" height="800" fill="url(#sky)"/>
+    <circle cx="1150" cy="125" r="78" fill="#f4d7a1" opacity=".85"/>
+    
+        <rect x="0" y="510" width="1400" height="290" fill="#caa77f"/>
+        <rect x="360" y="270" width="440" height="300" rx="6" fill="#eadbc7"/>
+        <path d="M360 270 L580 145 L800 270Z" fill="#eadbc7"/>
+        <circle cx="580" cy="305" r="50" fill="none" stroke="#87624b" stroke-width="16"/>
+        <rect x="850" y="155" width="105" height="415" fill="#b48d68"/>
+        <path d="M850 155 L903 85 L955 155Z" fill="#87624b"/>
+        <rect x="205" y="300" width="120" height="270" fill="#d9b993"/><path d="M205 300 L265 225 L325 300Z" fill="#d9b993"/>
+        <path d="M0 585 H1400" stroke="#a77c59" stroke-width="12"/>
+        
+    <rect x="0" y="0" width="1400" height="800" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="10"/>
+    </svg>

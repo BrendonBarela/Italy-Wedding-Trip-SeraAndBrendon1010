@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-label="Ispra • Lake Maggiore travel illustration">
+    <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ccdbe1"/><stop offset="1" stop-color="#f3e6d5"/></linearGradient></defs>
+    <rect width="1400" height="800" fill="url(#sky)"/>
+    <circle cx="1150" cy="125" r="78" fill="#f4d7a1" opacity=".85"/>
+    
+        <path d="M0 380 L180 190 330 315 505 145 690 315 870 175 1060 330 1220 220 1400 345 L1400 530 L0 530Z" fill="#92a3a7"/>
+        <path d="M0 470 C240 420 465 490 700 445 C920 405 1130 475 1400 425 L1400 800 L0 800Z" fill="#6e99a8"/>
+        <path d="M0 560 C250 515 440 590 700 545 C930 505 1120 565 1400 520" fill="none" stroke="#aac5cf" stroke-width="12" opacity=".8"/>
+        <path d="M0 500 Q230 420 410 490 L430 800 H0Z" fill="#8b9b7d"/>
+        <circle cx="235" cy="425" r="55" fill="#5e6c56"/><rect x="225" y="455" width="20" height="90" fill="#5e6c56"/>
+        
+    <rect x="0" y="0" width="1400" height="800" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="10"/>
+    </svg>

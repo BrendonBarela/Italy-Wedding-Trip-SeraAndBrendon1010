@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-label="Beaulieu-sur-Mer travel illustration">
+    <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c8dbe2"/><stop offset="1" stop-color="#f3e6d5"/></linearGradient></defs>
+    <rect width="1400" height="800" fill="url(#sky)"/>
+    <circle cx="1150" cy="125" r="78" fill="#f4d7a1" opacity=".85"/>
+    
+        <path d="M0 320 Q320 120 620 280 T1020 250 T1400 300 L1400 515 L0 515Z" fill="#8da178"/>
+        <path d="M0 480 C260 430 490 510 730 465 C1000 415 1175 490 1400 445 L1400 800 L0 800Z" fill="#4d91aa"/>
+        <rect x="140" y="355" width="960" height="170" fill="#e1c7aa"/>
+        <rect x="180" y="320" width="160" height="205" fill="#d2a176"/><rect x="360" y="345" width="180" height="180" fill="#e4bc8b"/>
+        <rect x="560" y="305" width="175" height="220" fill="#d39b78"/><rect x="760" y="335" width="180" height="190" fill="#dfb27e"/>
+        <path d="M1040 635 Q1120 565 1200 635Z" fill="#f4efe7"/><path d="M1120 635 L1120 520" stroke="#775d52" stroke-width="8"/>
+        
+    <rect x="0" y="0" width="1400" height="800" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="10"/>
+    </svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-label="Verona travel illustration">
+    <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c9d6df"/><stop offset="1" stop-color="#f3e6d5"/></linearGradient></defs>
+    <rect width="1400" height="800" fill="url(#sky)"/>
+    <circle cx="1150" cy="125" r="78" fill="#f4d7a1" opacity=".85"/>
+    
+        <path d="M0 450 C220 390 420 470 650 420 C900 360 1080 420 1400 350 L1400 800 L0 800Z" fill="#7e9aa6"/>
+        <path d="M0 380 L170 350 250 370 370 330 500 350 620 310 740 340 860 300 1010 335 1160 285 1400 320 L1400 520 L0 520Z" fill="#b27a5b"/>
+        <rect x="910" y="135" width="80" height="210" rx="6" fill="#7d4f3a"/><rect x="925" y="100" width="50" height="55" fill="#7d4f3a"/>
+        <path d="M140 480 Q700 255 1260 455" fill="none" stroke="#efe4d7" stroke-width="32" stroke-linecap="round"/>
+        <path d="M205 462 Q235 410 265 454M430 400 Q465 340 500 390M675 345 Q710 285 745 340M925 350 Q960 295 995 345M1160 420 Q1195 360 1230 415" fill="none" stroke="#7d4f3a" stroke-width="11"/>
+        
+    <rect x="0" y="0" width="1400" height="800" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="10"/>
+    </svg>
