@@ -133,3 +133,10 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added a Wedding Crew / Who's Doing What checklist.
 - Brendon's sister is assigned as officiant and Sera's dad is assigned to walk Sera out.
 - Champagne, music, rings, photographer contact, ceremony setup, and cleanup remain clearly marked Needs an owner.
+
+## v11.1
+- Replaced the large mobile navigation grid with a compact Menu dropdown.
+- Mobile header now shows S & B plus one solid-brown Menu button.
+- Tapping Menu reveals direct links to every city, Wedding, and Transport.
+- Menu closes after a destination is selected.
+- Desktop navigation remains unchanged.
