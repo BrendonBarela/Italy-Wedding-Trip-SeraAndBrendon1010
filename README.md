@@ -93,3 +93,8 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Nearby practical places load from OpenStreetMap around each stay and are cached for seven days.
 - If a practical category has no OpenStreetMap results, its button falls back to a nearby Google Maps search.
 - Revamped the single navigation bar with a sticky glass-style header, active-page pill, and swipeable mobile navigation.
+
+## v10.2
+- Improved desktop navigation spacing, active-state styling, and hover behavior.
+- Fixed mobile navigation so every city page is always visible in a horizontally swipeable row.
+- Explicitly overrides older CSS rules that previously hid individual city links on small screens.

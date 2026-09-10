@@ -292,3 +292,131 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
   .single-trip-nav a{font-size:.78rem!important;padding:8px 10px!important}
   .filter-scroll{margin-right:-12px;padding-right:12px}
 }
+
+/* v10.2 — desktop navigation polish + mobile city-link fix */
+
+/* Desktop: cleaner segmented navigation with better spacing and hierarchy */
+@media (min-width: 761px){
+  .site-header{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:24px!important;
+    padding:12px 28px!important;
+  }
+
+  .brand{
+    flex:0 0 auto;
+    margin:0!important;
+    font-size:1.15rem!important;
+    letter-spacing:.08em;
+  }
+
+  .single-trip-nav{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex-wrap:wrap!important;
+    gap:6px!important;
+    padding:0!important;
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    overflow:visible!important;
+  }
+
+  .single-trip-nav a{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:40px;
+    padding:9px 14px!important;
+    border:1px solid transparent;
+    border-radius:999px!important;
+    font-size:.84rem!important;
+    font-weight:700!important;
+    color:var(--ink)!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+
+  .single-trip-nav a:hover{
+    background:#fff!important;
+    border-color:rgba(111,78,61,.14)!important;
+    color:var(--brown,#6f4e3d)!important;
+    transform:translateY(-1px);
+    box-shadow:0 5px 14px rgba(70,48,38,.08)!important;
+  }
+
+  .single-trip-nav a.active{
+    background:var(--brown,#6f4e3d)!important;
+    border-color:var(--brown,#6f4e3d)!important;
+    color:#fff!important;
+    box-shadow:0 5px 14px rgba(80,53,39,.16)!important;
+  }
+}
+
+/* Mobile: always show every city link in one swipeable row */
+@media (max-width: 760px){
+  .site-header{
+    display:block!important;
+    padding:8px 10px 10px!important;
+    overflow:visible!important;
+  }
+
+  .brand{
+    display:inline-flex!important;
+    margin:0 0 8px 4px!important;
+  }
+
+  .single-trip-nav{
+    display:flex!important;
+    width:100%!important;
+    max-width:none!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    gap:6px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+    padding:4px!important;
+    margin:0!important;
+    background:rgba(111,78,61,.055)!important;
+    border:1px solid rgba(111,78,61,.10)!important;
+    border-radius:14px!important;
+  }
+
+  .single-trip-nav::-webkit-scrollbar{display:none!important}
+
+  .single-trip-nav a,
+  .site-nav a,
+  .site-nav a:nth-child(n){
+    display:inline-flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:max-content!important;
+    padding:9px 11px!important;
+    margin:0!important;
+    font-size:.79rem!important;
+    white-space:nowrap!important;
+  }
+
+  /* Override older mobile rules that hid individual city nav items */
+  .site-nav a[href="verona.html"],
+  .site-nav a[href="parma.html"],
+  .site-nav a[href="ispra.html"],
+  .site-nav a[href="santa-margherita.html"],
+  .site-nav a[href="nice.html"],
+  .site-nav a[href="wedding.html"],
+  .site-nav a[href="transportation.html"]{
+    display:inline-flex!important;
+  }
+
+  .single-trip-nav a.active{
+    background:var(--brown,#6f4e3d)!important;
+    color:#fff!important;
+  }
+}
