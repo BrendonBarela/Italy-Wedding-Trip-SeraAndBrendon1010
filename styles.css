@@ -174,3 +174,7 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
   .day-card{grid-template-columns:54px 1fr 18px;padding:13px}.day-card span{font-size:.76rem}
   .weekend-days{grid-template-columns:1fr}
 }
+
+/* v9.1 stay listing links */
+.stay-listing{margin:12px 0 0!important}
+.stay-button{display:inline-flex!important;align-items:center;justify-content:center;padding:10px 14px!important;font-size:.82rem!important;text-decoration:none}

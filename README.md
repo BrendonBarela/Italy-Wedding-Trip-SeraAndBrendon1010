@@ -73,3 +73,8 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added automatic trip/wedding countdown to the homepage and Today page.
 - Added detailed Getting Around Ispra section and Oct 7–8 ferry-status notice.
 - Added Oct 7–10 Wedding Weekend mini-agenda.
+
+## v9.1
+- Added a View our stay listing button to all five destination pages.
+- Santa Margherita and Beaulieu use the final Vrbo share links supplied by Brendon.
+- Verona and Parma use their Airbnb listings; Ispra uses the Villa Eden Expedia listing.
