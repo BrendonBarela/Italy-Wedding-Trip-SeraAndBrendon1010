@@ -1,0 +1,631 @@
+:root {
+  --ink: #27231f;
+  --muted: #6f6a64;
+  --paper: #fbf8f4;
+  --sand: #efe7dd;
+  --cream: #f6f0e8;
+  --brown: #6f4e3d;
+  --brown-dark: #4d3529;
+  --line: #ded4c8;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(49, 38, 28, 0.08);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: clamp(3.4rem, 10vw, 6.6rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 5vw;
+  background: rgba(251, 248, 244, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(111, 78, 61, 0.12);
+}
+
+.brand {
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--brown);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font: inherit;
+  font-weight: 600;
+}
+
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 80px 5vw;
+  background:
+    linear-gradient(135deg, rgba(47, 34, 27, 0.84), rgba(92, 67, 53, 0.5)),
+    radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 38%),
+    linear-gradient(135deg, #7d654f, #b18e73);
+  color: var(--white);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 55%, rgba(255,255,255,0.05) 55% 56%, transparent 56% 100%),
+    linear-gradient(25deg, transparent 0 68%, rgba(255,255,255,0.04) 68% 69%, transparent 69% 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(980px, 100%);
+}
+
+.eyebrow,
+.section-kicker,
+.timeline-type,
+.card-city {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.eyebrow {
+  color: #f2ddc6;
+  margin-bottom: 18px;
+}
+
+.hero-copy {
+  max-width: 700px;
+  margin: 26px 0 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: rgba(255,255,255,0.88);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 19px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: var(--white);
+  color: var(--brown-dark);
+}
+
+.button-secondary {
+  border: 1px solid rgba(255,255,255,0.5);
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+.hero-card {
+  position: absolute;
+  right: 5vw;
+  bottom: 36px;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  min-width: 220px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.hero-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+}
+
+.hero-card span {
+  color: rgba(255,255,255,0.82);
+}
+
+.hero-card-label {
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 10vw));
+  margin: 0 auto;
+}
+
+.intro {
+  padding-top: 88px;
+  padding-bottom: 34px;
+}
+
+.section-block {
+  padding-top: 72px;
+  padding-bottom: 88px;
+}
+
+.section-alt {
+  background: var(--cream);
+}
+
+.section-kicker {
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.section-kicker.light {
+  color: #efdcc8;
+}
+
+.section-lead {
+  max-width: 760px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.section-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 16px;
+}
+
+.timeline-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.timeline-card.featured {
+  border-color: #b69a82;
+  background: linear-gradient(135deg, #fff, #f4ebe2);
+}
+
+.date-badge {
+  display: grid;
+  place-items: center;
+  min-height: 76px;
+  border-radius: 18px;
+  background: var(--sand);
+  color: var(--brown-dark);
+}
+
+.date-badge span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.date-badge strong {
+  font-size: 1.35rem;
+}
+
+.timeline-type {
+  color: var(--brown);
+  margin-bottom: 4px;
+}
+
+.timeline-card p:last-child {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: var(--muted);
+}
+
+.info-card a {
+  color: var(--brown);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.card-city {
+  color: var(--brown);
+}
+
+.small-copy {
+  font-size: 0.9rem;
+}
+
+.muted-card {
+  background: rgba(255,255,255,0.55);
+  border-style: dashed;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.privacy-note {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.travel-list {
+  display: grid;
+  gap: 12px;
+}
+
+.travel-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left-width: 7px;
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.travel-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  font-weight: 800;
+}
+
+.travel-step p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.brown { border-left-color: #7d5a45; }
+.orange { border-left-color: #d88446; }
+.yellow { border-left-color: #d9ba4e; }
+.green { border-left-color: #6f9a63; }
+.blue { border-left-color: #4d94d6; }
+.purple { border-left-color: #71538c; }
+.pink { border-left-color: #d77a9e; }
+
+.tip-box {
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: var(--sand);
+}
+
+.tip-box p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.wedding-section {
+  background:
+    linear-gradient(135deg, rgba(55, 39, 31, 0.96), rgba(86, 62, 49, 0.93)),
+    linear-gradient(45deg, #5f4739, #3f2e26);
+  color: var(--white);
+}
+
+.wedding-content {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.wedding-content > p:not(.section-kicker):not(.coming-soon) {
+  max-width: 780px;
+  margin-top: 22px;
+  color: rgba(255,255,255,0.8);
+}
+
+.wedding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.wedding-grid div {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+}
+
+.wedding-grid span {
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+}
+
+.wedding-grid strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+}
+
+.coming-soon {
+  margin-top: 26px;
+  font-weight: 700;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.quick-link span {
+  color: var(--muted);
+}
+
+.quick-link strong {
+  color: var(--brown);
+}
+
+footer {
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.footer-inner div {
+  display: grid;
+  gap: 3px;
+}
+
+.footer-inner span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer-inner a {
+  color: var(--brown);
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .site-header {
+    min-height: 64px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 64px;
+    left: 5vw;
+    right: 5vw;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 13px 12px;
+    border-radius: 12px;
+  }
+
+  .site-nav a:hover {
+    background: var(--cream);
+  }
+
+  .hero {
+    min-height: 72vh;
+    padding-top: 72px;
+    padding-bottom: 120px;
+    align-items: start;
+  }
+
+  .hero-card {
+    left: 5vw;
+    right: 5vw;
+    bottom: 22px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .card-grid,
+  .links-grid,
+  .wedding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .section-shell {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-nav {
+    left: 16px;
+    right: 16px;
+  }
+
+  .timeline-card {
+    grid-template-columns: 1fr;
+  }
+
+  .date-badge {
+    width: 86px;
+  }
+
+  .travel-step {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .footer-inner {
+    align-items: start;
+    flex-direction: column;
+  }
+}
