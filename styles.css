@@ -13,3 +13,21 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
 .leaflet-popup-content strong{font-family:Inter,sans-serif}.leaflet-popup-content small{display:block;color:#666;margin-top:3px}
 @media(max-width:800px){.menu-toggle{display:block}.site-nav{display:none;position:absolute;top:64px;left:5vw;right:5vw;flex-direction:column;gap:0;padding:8px;background:white;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.site-nav.open{display:flex}.site-nav a{padding:12px}.home-grid,.travel-grid,.guest-grid,.quick-links,.three-notes{grid-template-columns:1fr}.dest-panel.active{grid-template-columns:1fr}.ceremony-callout{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.map{height:390px}}
 @media(max-width:560px){.shell{width:calc(100% - 32px)}.site-header{padding:0 16px}.site-nav{left:16px;right:16px}.day-timeline article{grid-template-columns:1fr;gap:2px}.travel-card dl{grid-template-columns:1fr;gap:2px}.map{height:340px}.footer-inner{flex-direction:column}}
+
+.destination-home-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.destination-home-card{min-height:210px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:22px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);text-decoration:none}
+.destination-home-card span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--brown)}
+.destination-home-card h3{font-size:2rem;margin:6px 0}.destination-home-card p{font-size:.86rem;color:var(--muted);margin:0}
+.destination-home-card:hover{transform:translateY(-3px);transition:.2s}
+.home-secondary{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.city-intro{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-bottom:24px}
+.city-intro>div:first-child p:last-child{color:var(--muted);max-width:700px}
+.privacy-pin{min-width:230px;padding:18px;border-radius:18px;background:var(--brown);color:white;display:grid}
+.privacy-pin span,.privacy-pin small{color:#ead8ca}.privacy-pin strong{font:700 1.5rem "Cormorant Garamond"}
+.city-map-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;align-items:start}.city-map{height:590px}
+.restaurant-heading{font-size:2.5rem;margin-bottom:15px}.restaurant-card-list{display:grid;gap:10px}
+.restaurant-card{padding:17px;border:1px solid var(--line);border-radius:17px;background:white}
+.restaurant-card span{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--brown)}
+.restaurant-card h3{font-size:1.45rem;margin:4px 0}.restaurant-card p{color:var(--muted);font-size:.88rem;margin:0}
+@media(max-width:1000px){.destination-home-grid{grid-template-columns:repeat(2,1fr)}.city-map-layout{grid-template-columns:1fr}.city-map{height:480px}}
+@media(max-width:600px){.destination-home-grid,.home-secondary,.city-intro{grid-template-columns:1fr}.privacy-pin{min-width:0}.city-map{height:390px}}

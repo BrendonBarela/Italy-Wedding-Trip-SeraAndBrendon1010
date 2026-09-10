@@ -1,134 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#6f4e3d">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#6f4e3d">
 <title>Destinations | Sera & Brendon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body id="top">
-
-<header class="site-header">
-  <a class="brand" href="index.html">S & B</a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-  <nav id="site-nav" class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="destinations.html">Destinations</a>
-    <a href="transportation.html">Transportation</a>
-    <a href="wedding.html">Wedding Day</a>
-    <a href="guest-info.html">Guest Info</a>
-  </nav>
-</header>
-
-<main>
-<section class="page-hero"><div class="shell"><p class="eyebrow">October 2026</p><h1>Destinations</h1><p>Where we're staying — without publishing exactly where we're staying.</p></div></section>
-<section class="shell section">
-  <div class="section-head"><div><p class="kicker">Neighborhood guide</p><h2>Our stays & nearby favorites</h2></div><p>Tap a destination to switch maps.</p></div>
-  <div class="dest-tabs"><button class="dest-tab active" data-target="verona">Verona</button><button class="dest-tab " data-target="parma">Parma</button><button class="dest-tab " data-target="ispra">Ispra</button><button class="dest-tab " data-target="santa">Santa Margherita Ligure</button><button class="dest-tab " data-target="beaulieu">Beaulieu-sur-Mer</button></div>
-  
-    <article id="verona" class="dest-panel active">
-      <div class="dest-info">
-        <p class="kicker">Oct 1–4</p>
-        <h2>Verona</h2>
-        <p><strong>Lodging:</strong> Raggio di Luna Apartment</p>
-        <p><strong>Group:</strong> Sera, Brendon, Megan & Anna</p>
-        <div class="landmark-box"><span>📍 Privacy-safe map pin</span><strong>Porta Nuova</strong><small>about a 5-minute walk from the stay. The exact lodging address is intentionally not displayed.</small></div>
-        <a class="text-link" href="https://www.airbnb.com/rooms/33595017" target="_blank" rel="noopener">View property listing ↗</a>
-        <h3 class="rest-title">Nearby restaurant picks</h3>
-        <ul class="restaurant-list"><li><span class="rest-dot"></span><div><strong>Il Vicoletto Trattoria</strong><small>Traditional Veronese cooking • 4.8★</small></div></li><li><span class="rest-dot"></span><div><strong>La Taverna di Via Stella</strong><small>Classic Verona osteria • 4.4★</small></div></li><li><span class="rest-dot"></span><div><strong>Locanda Nascosta Ristorante & Enoteca</strong><small>Wine-forward, intimate Italian • 4.5★</small></div></li></ul>
-      </div>
-      <div class="map-wrap">
-        <div class="map" data-map='{"landmark": {"name": "We're staying near Porta Nuova", "query": "Porta Nuova, Verona, Italy"}, "restaurants": [{"name": "Il Vicoletto Trattoria", "query": "Via Santa Maria in Chiavica, 5, Verona, Italy"}, {"name": "La Taverna di Via Stella", "query": "Via Stella, 5/C, Verona, Italy"}, {"name": "Locanda Nascosta Ristorante & Enoteca", "query": "Via Stella, 20, Verona, Italy"}]}' aria-label="Map near Verona"></div>
-        <div class="map-legend"><span><i class="legend-home"></i> Stay landmark</span><span><i class="legend-food"></i> Recommended restaurant</span></div>
-        <p class="map-note">Pins are based only on public landmarks and restaurant addresses. No lodging address is sent to or displayed by the map.</p>
-      </div>
-    </article>
-    
-    <article id="parma" class="dest-panel ">
-      <div class="dest-info">
-        <p class="kicker">Oct 4–7</p>
-        <h2>Parma</h2>
-        <p><strong>Lodging:</strong> 150 MQ Apartment + Depandance</p>
-        <p><strong>Group:</strong> Sera, Brendon, Megan & Anna; Katie joins Oct 6</p>
-        <div class="landmark-box"><span>📍 Privacy-safe map pin</span><strong>Parma Cathedral</strong><small>about a 2-minute walk from the stay. The exact lodging address is intentionally not displayed.</small></div>
-        <a class="text-link" href="https://www.airbnb.com/rooms/1684795982326693057" target="_blank" rel="noopener">View property listing ↗</a>
-        <h3 class="rest-title">Nearby restaurant picks</h3>
-        <ul class="restaurant-list"><li><span class="rest-dot"></span><div><strong>Cortex Bistrot</strong><small>Creative Parma cooking • 4.6★</small></div></li><li><span class="rest-dot"></span><div><strong>Osteria dei Servi</strong><small>Housemade pasta & Parma classics • 4.3★</small></div></li><li><span class="rest-dot"></span><div><strong>Soj - Vino e Cucina</strong><small>Small chef-run, wine-forward spot • 4.8★</small></div></li></ul>
-      </div>
-      <div class="map-wrap">
-        <div class="map" data-map='{"landmark": {"name": "We're staying near Parma Cathedral", "query": "Parma Cathedral, Parma, Italy"}, "restaurants": [{"name": "Cortex Bistrot", "query": "Borgo del Correggio, 20/B, Parma, Italy"}, {"name": "Osteria dei Servi", "query": "Piazza Ghiaia, 1M, Parma, Italy"}, {"name": "Soj - Vino e Cucina", "query": "Borgo del Parmigianino, 26, Parma, Italy"}]}' aria-label="Map near Parma"></div>
-        <div class="map-legend"><span><i class="legend-home"></i> Stay landmark</span><span><i class="legend-food"></i> Recommended restaurant</span></div>
-        <p class="map-note">Pins are based only on public landmarks and restaurant addresses. No lodging address is sent to or displayed by the map.</p>
-      </div>
-    </article>
-    
-    <article id="ispra" class="dest-panel ">
-      <div class="dest-info">
-        <p class="kicker">Oct 7–11</p>
-        <h2>Ispra • Lake Maggiore</h2>
-        <p><strong>Lodging:</strong> Villa Eden 8</p>
-        <p><strong>Group:</strong> Wedding stay</p>
-        <div class="landmark-box"><span>📍 Privacy-safe map pin</span><strong>Ispra Lakefront</strong><small>public lakefront landmark in the same Ispra area. The exact lodging address is intentionally not displayed.</small></div>
-        <a class="text-link" href="https://www.emmavillas.com/en/lombardy/villa-eden-8" target="_blank" rel="noopener">View property listing ↗</a>
-        <h3 class="rest-title">Nearby restaurant picks</h3>
-        <ul class="restaurant-list"><li><span class="rest-dot"></span><div><strong>Ristorante dei Limoni</strong><small>Italian restaurant & pizzeria • 4.4★</small></div></li><li><span class="rest-dot"></span><div><strong>Ca' Dei Baloss</strong><small>Local pizzeria • 4.6★</small></div></li><li><span class="rest-dot"></span><div><strong>Osteria del Lago</strong><small>Local Ispra restaurant</small></div></li></ul>
-      </div>
-      <div class="map-wrap">
-        <div class="map" data-map='{"landmark": {"name": "We're staying near Ispra Lakefront", "query": "Lungolago di Ispra, Ispra, Italy"}, "restaurants": [{"name": "Ristorante dei Limoni", "query": "Via degli Alpini, 990, Ispra, Italy"}, {"name": "Ca' Dei Baloss", "query": "Via Tullio del Grande, 69, Ispra, Italy"}, {"name": "Osteria del Lago", "query": "Osteria del Lago, Ispra, Italy"}]}' aria-label="Map near Ispra • Lake Maggiore"></div>
-        <div class="map-legend"><span><i class="legend-home"></i> Stay landmark</span><span><i class="legend-food"></i> Recommended restaurant</span></div>
-        <p class="map-note">Pins are based only on public landmarks and restaurant addresses. No lodging address is sent to or displayed by the map.</p>
-      </div>
-    </article>
-    
-    <article id="santa" class="dest-panel ">
-      <div class="dest-info">
-        <p class="kicker">Oct 11–14</p>
-        <h2>Santa Margherita Ligure</h2>
-        <p><strong>Lodging:</strong> Painted Blue by PortofinoVip</p>
-        <p><strong>Group:</strong> Italian Riviera stay</p>
-        <div class="landmark-box"><span>📍 Privacy-safe map pin</span><strong>Santa Margherita Ligure Castle</strong><small>about a 2-minute walk from the stay. The exact lodging address is intentionally not displayed.</small></div>
-        <a class="text-link" href="https://www.vrbo.com/da-dk/feriehus/p12013629" target="_blank" rel="noopener">View property listing ↗</a>
-        <h3 class="rest-title">Nearby restaurant picks</h3>
-        <ul class="restaurant-list"><li><span class="rest-dot"></span><div><strong>Madachí</strong><small>Mediterranean / seafood • 4.8★</small></div></li><li><span class="rest-dot"></span><div><strong>Ristorante Karalis</strong><small>Ligurian + Sardinian seafood • 4.7★</small></div></li><li><span class="rest-dot"></span><div><strong>Il Leccio</strong><small>Refined Mediterranean</small></div></li></ul>
-      </div>
-      <div class="map-wrap">
-        <div class="map" data-map='{"landmark": {"name": "We're staying near Santa Margherita Ligure Castle", "query": "Castello di Santa Margherita Ligure, Italy"}, "restaurants": [{"name": "Madach\u00ed", "query": "Via Cairoli, 3, Santa Margherita Ligure, Italy"}, {"name": "Ristorante Karalis", "query": "Corso Matteotti, 26, Santa Margherita Ligure, Italy"}, {"name": "Il Leccio", "query": "Via Privata dei Giuntini 14T2, Santa Margherita Ligure, Italy"}]}' aria-label="Map near Santa Margherita Ligure"></div>
-        <div class="map-legend"><span><i class="legend-home"></i> Stay landmark</span><span><i class="legend-food"></i> Recommended restaurant</span></div>
-        <p class="map-note">Pins are based only on public landmarks and restaurant addresses. No lodging address is sent to or displayed by the map.</p>
-      </div>
-    </article>
-    
-    <article id="beaulieu" class="dest-panel ">
-      <div class="dest-info">
-        <p class="kicker">Oct 14–18</p>
-        <h2>Beaulieu-sur-Mer / Nice</h2>
-        <p><strong>Lodging:</strong> Penthouse for 2</p>
-        <p><strong>Group:</strong> Final honeymoon stay</p>
-        <div class="landmark-box"><span>📍 Privacy-safe map pin</span><strong>Beaulieu-sur-Mer Station</strong><small>about a 4-minute walk from the stay. The exact lodging address is intentionally not displayed.</small></div>
-        <a class="text-link" href="https://www.vrbo.com/en-ca/cottage-rental/p5373511" target="_blank" rel="noopener">View property listing ↗</a>
-        <h3 class="rest-title">Nearby restaurant picks</h3>
-        <ul class="restaurant-list"><li><span class="rest-dot"></span><div><strong>Maonas</strong><small>Fresh Mediterranean / Italian • 4.8★</small></div></li><li><span class="rest-dot"></span><div><strong>La Pignatelle</strong><small>French Mediterranean brasserie • 4.5★</small></div></li><li><span class="rest-dot"></span><div><strong>Le Trois Quarts</strong><small>Marina-side Mediterranean • 4.8★</small></div></li></ul>
-      </div>
-      <div class="map-wrap">
-        <div class="map" data-map='{"landmark": {"name": "We're staying near Beaulieu-sur-Mer Station", "query": "Beaulieu-sur-Mer train station, France"}, "restaurants": [{"name": "Maonas", "query": "18 Avenue Albert 1er, Beaulieu-sur-Mer, France"}, {"name": "La Pignatelle", "query": "10 Rue de Quincenet, Beaulieu-sur-Mer, France"}, {"name": "Le Trois Quarts", "query": "Port de Plaisance, Beaulieu-sur-Mer, France"}]}' aria-label="Map near Beaulieu-sur-Mer / Nice"></div>
-        <div class="map-legend"><span><i class="legend-home"></i> Stay landmark</span><span><i class="legend-food"></i> Recommended restaurant</span></div>
-        <p class="map-note">Pins are based only on public landmarks and restaurant addresses. No lodging address is sent to or displayed by the map.</p>
-      </div>
-    </article>
-    
-  <div class="research-note"><strong>Restaurant note:</strong> These are highly rated nearby options selected from current local-search results. Ratings and opening days can change before October, so we'll re-check them closer to the trip.</div>
-</section>
-</main>
-
-<footer>
-  <div class="shell footer-inner">
-    <div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div>
-    <a href="#top">Back to top ↑</a>
-  </div>
-</footer>
-<script src="script.js"></script></body></html>
+<link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
+<a class="brand" href="index.html">S & B</a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" class="site-nav">
+<a href="index.html">Home</a>
+<a href="verona.html">Verona</a>
+<a href="parma.html">Parma</a>
+<a href="ispra.html">Ispra</a>
+<a href="santa-margherita.html">Santa Margherita</a>
+<a href="nice.html">Nice</a>
+<a href="transportation.html">Transportation</a>
+<a href="wedding.html">Wedding Day</a>
+</nav></header><main><section class="page-hero"><div class="shell"><p class="eyebrow">Five stops</p><h1>Destinations</h1><p>Each destination now has its own page.</p></div></section><section class="shell section"><div class="destination-home-grid"><a class="destination-home-card" href="verona.html"><span>October 1–4</span><h3>Verona</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card" href="parma.html"><span>October 4–7</span><h3>Parma</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card" href="ispra.html"><span>October 7–11</span><h3>Ispra</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card" href="santa-margherita.html"><span>October 11–14</span><h3>Santa Margherita Ligure</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card" href="nice.html"><span>October 14–18</span><h3>Nice & Beaulieu-sur-Mer</h3><p>Stay area, map & restaurant picks →</p></a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="script.js"></script></body></html>

@@ -1,27 +1,23 @@
-# Sera & Brendon — Italy Wedding Trip Website v4
+# Sera & Brendon Wedding Trip — v5
 
-## Multi-page structure
-- index.html — Home
-- destinations.html — Lodging, privacy-safe landmark maps, nearby restaurants
-- transportation.html — Travel days and train planning
-- wedding.html — October 10 wedding-day itinerary
-- guest-info.html — Practical guest information
-- styles.css — Shared styling
-- script.js — Mobile navigation, destination tabs, and interactive maps
+This version gives every destination its own page:
+- verona.html
+- parma.html
+- ispra.html
+- santa-margherita.html
+- nice.html
 
-## Privacy-safe maps
-The site does NOT put exact lodging addresses into the map code.
-Each stay is represented by a nearby public landmark:
-- Verona: Porta Nuova
-- Parma: Parma Cathedral
-- Ispra: Ispra lakefront
-- Santa Margherita Ligure: Santa Margherita Ligure Castle
-- Beaulieu-sur-Mer: Beaulieu-sur-Mer train station
+Each page contains:
+- a privacy-safe nearby public landmark representing the stay area
+- an interactive map
+- three researched nearby restaurant recommendations plotted on that map
+- no exact lodging address in the map data
 
-Restaurant pins use public restaurant addresses. Maps use OpenStreetMap tiles and Nominatim geocoding.
+Other pages:
+- index.html
+- transportation.html
+- wedding.html
+- guest-info.html
+- destinations.html (destination chooser)
 
-## Restaurant recommendations
-Restaurant picks were researched in September 2026. Ratings, hours, and seasonal openings can change, so re-check before the trip.
-
-## GitHub Pages
-Upload all 7 files to the repository root. GitHub Pages will use index.html as the homepage.
+Upload ALL files in this ZIP to the root of the GitHub repository, replacing existing files.
