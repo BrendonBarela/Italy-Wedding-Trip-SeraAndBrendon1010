@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=12"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
@@ -48,7 +48,7 @@
 <button class="map-filter" data-filter="food" type="button">Food</button>
 <button class="map-filter" data-filter="station" type="button">Transit</button>
 <button class="map-filter" data-filter="sight" type="button">Sights</button>
-</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Raggio di Luna Apartment&quot;, &quot;address&quot;: &quot;Via del Minatore, 5, 37122 Verona VR, Italy&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;address&quot;: &quot;Corso Porta Nuova, 46A, Verona&quot;, &quot;lat&quot;: 45.43575, &quot;lng&quot;: 10.99015}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;address&quot;: &quot;Via Guglielmo Marconi, 17, Verona&quot;, &quot;lat&quot;: 45.43735, &quot;lng&quot;: 10.98835}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;address&quot;: &quot;Via Santa Maria in Chiavica, 5, Verona&quot;, &quot;lat&quot;: 45.44455, &quot;lng&quot;: 10.99855}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;lat&quot;: 45.42955, &quot;lng&quot;: 10.98205}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;lat&quot;: 45.43862, &quot;lng&quot;: 10.99447}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;lat&quot;: 45.4431, &quot;lng&quot;: 10.99718}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;lat&quot;: 45.43965, &quot;lng&quot;: 10.98755}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;lat&quot;: 45.44755, &quot;lng&quot;: 11.00018}]}'></div>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Raggio di Luna Apartment&quot;, &quot;address&quot;: &quot;Via del Minatore, 5, 37122 Verona VR, Italy&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;address&quot;: &quot;Corso Porta Nuova, 46A, Verona&quot;, &quot;lat&quot;: 45.43575, &quot;lng&quot;: 10.99015}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;address&quot;: &quot;Via Guglielmo Marconi, 17, Verona&quot;, &quot;lat&quot;: 45.43735, &quot;lng&quot;: 10.98835}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;address&quot;: &quot;Via Santa Maria in Chiavica, 5, Verona&quot;, &quot;lat&quot;: 45.44455, &quot;lng&quot;: 10.99855}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;lat&quot;: 45.42955, &quot;lng&quot;: 10.98205}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;lat&quot;: 45.43862, &quot;lng&quot;: 10.99447}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;lat&quot;: 45.4431, &quot;lng&quot;: 10.99718}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;lat&quot;: 45.43965, &quot;lng&quot;: 10.98755}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;lat&quot;: 45.44755, &quot;lng&quot;: 11.00018}], &quot;events&quot;: [{&quot;name&quot;: &quot;Frida Kahlo – A Revolutionary Life&quot;, &quot;date&quot;: &quot;Oct 3–4&quot;, &quot;address&quot;: &quot;Teatro Ristori, Via Teatro Ristori 7, Verona&quot;, &quot;lat&quot;: 45.4374, &quot;lng&quot;: 10.9862, &quot;url&quot;: &quot;https://www.visitverona.it/en/get_include/FILTER_EVENTS_AJAX_NEW_2021/&quot;}]}'></div>
 <div class="map-legend extended-map-legend" aria-label="Map legend">
 <span><i class="legend-dot stay-dot"></i>Our stay</span>
 <span><i class="legend-dot food-dot"></i>Restaurant</span>
@@ -57,9 +57,11 @@
 <span><i class="legend-dot pharmacy-dot"></i>Pharmacy</span>
 <span><i class="legend-dot station-dot"></i>Transit</span>
 <span><i class="legend-dot parking-dot"></i>Parking</span>
+<span><i class="legend-dot event-dot"></i>Event</span>
 <span><i class="legend-dot sight-dot"></i>Sight</span>
 </div>
-<p class="map-help">Tap a category above to show only those places. Tap any pin for details and directions.</p></div>
+<p class="map-help">Tap a category above to show only those places. Tap any pin for details and directions.</p>
+<p class="event-map-note"><strong>🎉 Events:</strong> Event pins are researched for the dates we’re in town. Schedules can change, so open a pin for the event listing.</p></div>
 <div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Local dinner</span><h3>Osteria Miola</h3><p>4.7★ • Veronese tradition with a modern touch</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Corso%20Porta%20Nuova%2C%2046A%2C%20Verona%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Wine &amp; date night</span><h3>Bistro con Amore Vini e Cucina</h3><p>4.8★ • Intimate Italian bistro and wine-focused dinner</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Guglielmo%20Marconi%2C%2017%2C%20Verona%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Romantic dinner</span><h3>Il Vicoletto Trattoria</h3><p>4.8★ • Traditional Verona / Veneto specialties</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Santa%20Maria%20in%20Chiavica%2C%205%2C%20Verona%2C%20Italy">Directions ↗</a></div></article></div></div>
 </div>
 </section>
@@ -72,4 +74,4 @@
   </div>
 </div>
 </section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 4</span><h2>Parma</h2><p>Train</p></div><a class="button dark" href="parma.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js"></script></body></html>
+<script src="script.js?v=12"></script></body></html>

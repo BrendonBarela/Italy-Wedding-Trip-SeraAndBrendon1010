@@ -140,3 +140,19 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Tapping Menu reveals direct links to every city, Wedding, and Transport.
 - Menu closes after a destination is selected.
 - Desktop navigation remains unchanged.
+
+## v11.2
+- Fixed the mobile Menu button JavaScript so it actually opens and closes the navigation.
+- Mobile navigation is hidden by default and only appears after tapping Menu.
+- Added strong final CSS overrides for the dropdown.
+- Added cache-busting query strings to styles.css and script.js so phones do not keep serving the older grid-menu files.
+- Desktop navigation is unchanged.
+
+## v12
+- Added 🎉 Events to Things Near Us on every destination map.
+- Verona: Frida Kahlo – A Revolutionary Life at Teatro Ristori (Oct 3–4).
+- Parma: Mercanteinfiera Fall 2026 and Festival Verdi.
+- Ispra: no confirmed public event matched Oct 7–11 as of this research update; the site says so rather than inventing one.
+- Santa Margherita: nearby Madonna dei Gotti festival in Camogli on Oct 11.
+- Nice/Beaulieu: Forró de Nice (Oct 15–18) and Festival CaraïbAzur (Oct 17).
+- Event pins include dates, directions, and event-info links.

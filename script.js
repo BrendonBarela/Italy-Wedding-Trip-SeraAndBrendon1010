@@ -1,6 +1,39 @@
 
 document.addEventListener("DOMContentLoaded",()=>{
-  const toggle=document.querySelector(".menu-toggle");
+  
+  // Mobile dropdown navigation
+  const header = document.querySelector(".site-header");
+  const mobileToggle = document.querySelector(".mobile-nav-toggle");
+  const mobileNav = document.getElementById("site-nav");
+
+  if (header && mobileToggle && mobileNav) {
+    const setMenuState = (open) => {
+      header.classList.toggle("nav-open", open);
+      mobileToggle.setAttribute("aria-expanded", String(open));
+      const label = mobileToggle.querySelector(".mobile-nav-label");
+      const icon = mobileToggle.querySelector(".mobile-nav-icon");
+      if (label) label.textContent = open ? "Close" : "Menu";
+      if (icon) icon.textContent = open ? "✕" : "☰";
+    };
+
+    setMenuState(false);
+
+    mobileToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setMenuState(!header.classList.contains("nav-open"));
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) setMenuState(false);
+    });
+  }
+
+const toggle=document.querySelector(".menu-toggle");
   const nav=document.querySelector(".site-nav");
   if(toggle&&nav){
     toggle.addEventListener("click",()=>{
@@ -45,15 +78,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     pharmacy:{color:"#fff",weight:2,fillColor:"#3f7f70",fillOpacity:1,radius:8},
     station:{color:"#fff",weight:2,fillColor:"#315f74",fillOpacity:1,radius:8},
     parking:{color:"#fff",weight:2,fillColor:"#596779",fillOpacity:1,radius:8},
-    sight:{color:"#fff",weight:2,fillColor:"#7d6d3f",fillOpacity:1,radius:8}
+    sight:{color:"#fff",weight:2,fillColor:"#7d6d3f",fillOpacity:1,radius:8},
+    event:{color:"#fff",weight:2,fillColor:"#9a4f78",fillOpacity:1,radius:9}
   };
 
-  const labels={stay:"Our stay",food:"Restaurant",coffee:"Coffee",grocery:"Grocery",pharmacy:"Pharmacy",station:"Transit",parking:"Parking",sight:"Sight"};
+  const labels={stay:"Our stay",food:"Restaurant",coffee:"Coffee",grocery:"Grocery",pharmacy:"Pharmacy",station:"Transit",parking:"Parking",sight:"Sight",event:"Event"};
   const directions=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
   const popup=item=>{
     const address=item.address||"";
     const q=address||item.name||`${item.lat},${item.lng}`;
-    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${address?`<span>${address}</span>`:""}<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a></div>`;
+    const date=item.date?`<span class="event-date">${item.date}</span>`:"";
+    const info=item.url?`<a target="_blank" rel="noopener" href="${item.url}">Event info ↗</a>`:"";
+    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${address?`<span>${address}</span>`:""}<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>${info}</div>`;
   };
 
   const overpassEndpoint="https://overpass-api.de/api/interpreter";
@@ -127,6 +163,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       ...(d.restaurants||[]).map(x=>({kind:"food",...x})),
       ...(d.station?[{kind:"station",...d.station}]:[]),
       ...(d.sights||[]).map(x=>({kind:"sight",...x})),
+      ...(d.events||[]).map(x=>({kind:"event",...x})),
       ...(d.coffee||[]).map(x=>({kind:"coffee",...x})),
       ...(d.grocery||[]).map(x=>({kind:"grocery",...x})),
       ...(d.pharmacy||[]).map(x=>({kind:"pharmacy",...x})),
