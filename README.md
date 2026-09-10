@@ -21,3 +21,16 @@ Other pages:
 - destinations.html (destination chooser)
 
 Upload ALL files in this ZIP to the root of the GitHub repository, replacing existing files.
+
+
+## v5.1 map fix
+The original v5 loaded Leaflet's CSS but accidentally omitted the Leaflet JavaScript library.
+v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps render correctly.
+
+## v6 visual refresh
+- Added large destination photography to each city page.
+- Added photographic destination cards on the homepage.
+- Added destination taglines and quick-glance chips.
+- Added Map / Restaurants jump links.
+- Refined map cards, spacing, typography, shadows, and mobile layout.
+- Keeps the v5.1 Leaflet JavaScript map fix.

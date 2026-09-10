@@ -31,3 +31,40 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
 .restaurant-card h3{font-size:1.45rem;margin:4px 0}.restaurant-card p{color:var(--muted);font-size:.88rem;margin:0}
 @media(max-width:1000px){.destination-home-grid{grid-template-columns:repeat(2,1fr)}.city-map-layout{grid-template-columns:1fr}.city-map{height:480px}}
 @media(max-width:600px){.destination-home-grid,.home-secondary,.city-intro{grid-template-columns:1fr}.privacy-pin{min-width:0}.city-map{height:390px}}
+
+/* v6 visual refresh */
+.destination-hero{
+  min-height:540px; position:relative; display:flex; align-items:flex-end;
+  background-image:var(--hero-image); background-size:cover; background-position:center;
+  color:white; isolation:isolate;
+}
+.destination-hero-overlay{
+  position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg,rgba(27,20,17,.12) 10%,rgba(27,20,17,.34) 48%,rgba(27,20,17,.86) 100%);
+}
+.destination-hero-content{padding-top:110px;padding-bottom:54px}
+.destination-hero .eyebrow{color:#f3dfce}
+.destination-kicker{text-transform:uppercase;letter-spacing:.16em;font-weight:800;font-size:.75rem;margin:0 0 8px}
+.destination-hero h1{font-size:clamp(3.5rem,8vw,6.7rem);line-height:.88;margin:0 0 18px;text-shadow:0 2px 18px rgba(0,0,0,.18)}
+.destination-lede{font-family:"Cormorant Garamond",serif;font-size:1.55rem;max-width:660px;line-height:1.28;margin:0 0 18px}
+.destination-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.destination-chips span{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;font-size:.78rem;font-weight:700}
+.destination-stay{font-size:.82rem;opacity:.88;margin:0}
+.page-jumps{display:flex;gap:10px;flex-wrap:wrap;margin:-5px 0 25px}
+.page-jumps a{padding:10px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:#fff;font-weight:700;font-size:.82rem}
+.city-page{padding-top:44px}
+.city-map-layout{margin-top:0}
+.map-wrap{background:#fff;padding:10px;border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.city-map{border-radius:17px;overflow:hidden}
+.restaurant-card{box-shadow:0 6px 20px rgba(63,43,31,.05);transition:transform .2s ease, box-shadow .2s ease}
+.restaurant-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(63,43,31,.1)}
+.destination-photo-card{position:relative;overflow:hidden;color:white;border:0;background-image:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.75)),var(--card-image);background-size:cover;background-position:center;min-height:280px}
+.destination-photo-card h3,.destination-photo-card p,.destination-photo-card span{color:white;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.destination-photo-card:after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.25);border-radius:22px;pointer-events:none}
+@media(max-width:600px){
+ .destination-hero{min-height:500px}
+ .destination-hero-content{padding-bottom:36px}
+ .destination-hero h1{font-size:3.65rem}
+ .destination-lede{font-size:1.3rem}
+ .destination-photo-card{min-height:230px}
+}
