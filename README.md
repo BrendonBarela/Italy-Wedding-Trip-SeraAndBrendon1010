@@ -34,3 +34,11 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added Map / Restaurants jump links.
 - Refined map cards, spacing, typography, shadows, and mobile layout.
 - Keeps the v5.1 Leaflet JavaScript map fix.
+
+## v7 trip guide upgrade
+- Home page now includes a chronological itinerary timeline.
+- Every destination map now includes the stay area, restaurants, the main transit point, and major sights.
+- Map popups include a Directions link.
+- Added Things to Do and Good to Know sections to each destination.
+- Ispra now has a dedicated Wedding Weekend callout.
+- Geocoding is sequential and cached locally after the first successful visit for better reliability.

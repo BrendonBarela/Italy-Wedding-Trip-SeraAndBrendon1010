@@ -68,3 +68,30 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
  .destination-lede{font-size:1.3rem}
  .destination-photo-card{min-height:230px}
 }
+
+/* v7 trip-guide upgrade */
+.itinerary-timeline{display:flex;align-items:stretch;gap:8px;margin-top:28px;overflow-x:auto;padding:5px 2px 18px}
+.itinerary-timeline>a,.flight-stop{min-width:150px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 6px 20px rgba(63,43,31,.05)}
+.itinerary-timeline i{align-self:center;font-style:normal;color:var(--muted);font-size:1.3rem}
+.itinerary-timeline b{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brown)}
+.itinerary-timeline strong{font-family:"Cormorant Garamond",serif;font-size:1.55rem;margin:5px 0}
+.itinerary-timeline span{font-size:.78rem;color:var(--muted)}
+.itinerary-timeline .wedding-stop{background:#f7eee8;border-color:#d7b9a6}
+.destination-guide{padding:70px 0;background:#f6f1eb;margin-top:55px}
+.guide-heading{max-width:720px}.guide-heading>p:last-child{color:var(--muted);font-size:1.02rem}
+.guide-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;margin-top:28px}
+.sight-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sight-card{display:flex;gap:14px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:19px}
+.sight-number{height:34px;width:34px;min-width:34px;border-radius:50%;display:grid;place-items:center;background:#6d7b45;color:#fff;font-weight:800}
+.sight-card h3{margin:0 0 5px;font-size:1.4rem}.sight-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+.practical-card{padding:24px;background:var(--brown);color:#fff;border-radius:22px;align-self:start}
+.practical-card .kicker{color:#efdacc}.practical-card h3{font-size:2rem;margin-top:6px}
+.practical-card ul{padding-left:18px;margin:18px 0 0}.practical-card li{margin:12px 0;color:#f4eae4;line-height:1.4}
+.wedding-weekend{padding:0 0 10px}.wedding-weekend-inner{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:#f2e3da;border:1px solid #d9bbaa;border-radius:26px;padding:34px;margin-top:10px}
+.wedding-weekend h2{margin:4px 0 8px;font-size:2.8rem}.wedding-weekend p:last-child{max-width:760px;color:var(--muted)}
+.map-pin-wrap{background:transparent;border:none}.map-pin{height:34px;width:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:grid;place-items:center;color:#fff;border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.28)}
+.map-pin>*{transform:rotate(45deg)}.map-pin.home{background:#6f4e3d}.map-pin.food{background:#a74632}.map-pin.station{background:#315f74}.map-pin.sight{background:#6d7b45}
+.map-pin{font-size:14px}.map-pin::first-letter{transform:rotate(45deg)}
+.legend-station,.legend-sight{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.legend-station{background:#315f74}.legend-sight{background:#6d7b45}
+.map-popup{display:grid;gap:5px;min-width:170px}.map-popup strong{font-size:1rem}.map-popup span{font-size:.78rem;color:#666}.map-popup a{font-weight:700;text-decoration:none;color:#6f4e3d}
+@media(max-width:850px){.guide-grid{grid-template-columns:1fr}.sight-list{grid-template-columns:1fr}.wedding-weekend-inner{grid-template-columns:1fr}.itinerary-timeline{scroll-snap-type:x mandatory}.itinerary-timeline>a,.flight-stop{scroll-snap-align:start}}
