@@ -740,3 +740,162 @@ footer{border-top:1px solid var(--line)}.footer-inner{display:flex;justify-conte
     margin-top:0!important;
   }
 }
+
+/* v11 — FINAL MOBILE NAV OVERRIDE: fully opaque, never overlays transparently */
+@media screen and (max-width:760px){
+  html body header.site-header{
+    position:relative!important;
+    inset:auto!important;
+    z-index:9999!important;
+    display:block!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    padding:10px!important;
+    margin:0!important;
+    background-color:#F3E5D8!important;
+    background-image:none!important;
+    opacity:1!important;
+    border:0!important;
+    border-bottom:3px solid #6F4E3D!important;
+    box-shadow:0 3px 0 rgba(111,78,61,.10)!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+
+  html body header.site-header::before,
+  html body header.site-header::after{
+    display:none!important;
+    content:none!important;
+  }
+
+  html body header.site-header .brand{
+    display:block!important;
+    margin:1px auto 9px!important;
+    width:max-content!important;
+    color:#5B4034!important;
+    opacity:1!important;
+    text-shadow:none!important;
+  }
+
+  html body header.site-header nav#site-nav{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    gap:7px!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:auto!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:visible!important;
+    background-color:#F3E5D8!important;
+    background-image:none!important;
+    opacity:1!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+
+  html body header.site-header nav#site-nav > a,
+  html body header.site-header nav#site-nav > a:link,
+  html body header.site-header nav#site-nav > a:visited{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:44px!important;
+    padding:10px 7px!important;
+    margin:0!important;
+    color:#4D352A!important;
+    background-color:#DFC3AC!important;
+    background-image:none!important;
+    opacity:1!important;
+    border:2px solid #C7A78D!important;
+    border-radius:9px!important;
+    box-shadow:none!important;
+    text-shadow:none!important;
+    font-size:.79rem!important;
+    font-weight:800!important;
+    line-height:1.1!important;
+    text-align:center!important;
+    white-space:normal!important;
+  }
+
+  html body header.site-header nav#site-nav > a.active,
+  html body header.site-header nav#site-nav > a[aria-current="page"]{
+    color:#FFFFFF!important;
+    background-color:#6F4E3D!important;
+    background-image:none!important;
+    border-color:#6F4E3D!important;
+  }
+
+  html body header.site-header nav#site-nav > a[href="wedding.html"]:not(.active){
+    color:#FFFFFF!important;
+    background-color:#9A6255!important;
+    border-color:#865247!important;
+  }
+
+  html body header.site-header nav#site-nav > a[href="transportation.html"]:not(.active){
+    color:#4D352A!important;
+    background-color:#D2B49B!important;
+    border-color:#B99579!important;
+  }
+
+  /* Hero starts after the opaque menu rather than showing through it. */
+  html body main,
+  html body .real-photo-hero,
+  html body .destination-hero,
+  html body .wedding-home-hero{
+    position:relative!important;
+    margin-top:0!important;
+  }
+}
+
+/* v11 wedding crew */
+.wedding-task-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:22px;
+}
+.wedding-task{
+  padding:20px;
+  border-radius:16px;
+  border:1px solid #e1d2c5;
+  background:#fffaf5;
+}
+.wedding-task > span{
+  display:block;
+  color:#7a5b4b;
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:7px;
+}
+.wedding-task h3{margin:0 0 9px}
+.wedding-task strong{
+  display:inline-block;
+  margin-bottom:8px;
+  color:#65483a;
+}
+.wedding-task p{margin:0;color:var(--muted);font-size:.88rem}
+.wedding-task.open strong{
+  padding:5px 8px;
+  border-radius:999px;
+  background:#efe1d5;
+  color:#8a574a;
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.wedding-task.assigned{
+  border-color:#cdb39f;
+  background:#f6ece3;
+}
+@media(max-width:900px){.wedding-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wedding-task-grid{grid-template-columns:1fr}}

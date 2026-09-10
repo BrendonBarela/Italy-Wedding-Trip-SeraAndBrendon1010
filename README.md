@@ -125,3 +125,11 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Replaced transparent/glass navigation backgrounds with solid cream, tan, brown, and muted rose colors.
 - Navigation is separated from destination photography instead of floating visually over the image.
 - Desktop navigation remains unchanged.
+
+## v11
+- Mobile navigation now uses fully opaque solid colors with explicit background-image and opacity overrides.
+- Hero photography can no longer show through the mobile header or navigation buttons.
+- Desktop navigation remains unchanged.
+- Added a Wedding Crew / Who's Doing What checklist.
+- Brendon's sister is assigned as officiant and Sera's dad is assigned to walk Sera out.
+- Champagne, music, rings, photographer contact, ceremony setup, and cleanup remain clearly marked Needs an owner.
