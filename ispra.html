@@ -9,6 +9,7 @@
 <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="site-nav">
 <a href="index.html">Home</a>
+<a class="today-nav" href="today.html">Today</a>
 <a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
@@ -19,7 +20,7 @@
 <a href="wedding.html">Wedding Day</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('images/ispra.svg')">
+<section class="destination-hero" style="--hero-image:url('ispra.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 7–11 • 2026</p>
@@ -33,23 +34,69 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Villa Eden 8</h2>
-<p class="stay-address"><strong>Address:</strong> Via Valcanale 504, 21027 Ispra VA, Italy</p></div>
+<p class="stay-address"><strong>Address:</strong> Via Valcanale 504, 21027 Ispra VA, Italy</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Valcanale%20504%2C%2021027%20Ispra%20VA%2C%20Italy">Directions to stay ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Villa Eden 8</strong><small>Exact address shown</small></div>
 </div>
 <div class="page-jumps">
-<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
+<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a><a href="#getting-around">Getting around</a><a href="#weekend">Wedding weekend</a>
 </div>
 <div class="city-map-layout" id="map">
-<div class="map-wrap"><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}]}'></div>
+<div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
+<span>Things near us</span>
+<button class="map-filter active" data-filter="all" type="button">All</button>
+<button class="map-filter" data-filter="stay" type="button">Stay</button>
+<button class="map-filter" data-filter="food" type="button">Food</button>
+<button class="map-filter" data-filter="station" type="button">Transit</button>
+<button class="map-filter" data-filter="sight" type="button">Sights</button>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}]}'></div>
 <div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
 <p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
-<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Recommended</span><h3>Ristorante dei Limoni</h3><p>4.4★ • Italian, seafood and pizza</p></article><article class="restaurant-card"><span>Recommended</span><h3>Ca&#x27; Dei Baloss</h3><p>4.6★ • Casual local pizzeria</p></article><article class="restaurant-card"><span>Recommended</span><h3>La Baita Biergarten</h3><p>4.2★ • Relaxed beer garden and restaurant</p></article></div></div>
+<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Dinner</span><h3>Ristorante dei Limoni</h3><p>4.4★ • Italian, seafood and pizza</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20degli%20Alpini%20990%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Casual pizza</span><h3>Ca&#x27; Dei Baloss</h3><p>4.6★ • Casual local pizzeria</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Tullio%20del%20Grande%2069%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Casual / group</span><h3>La Baita Biergarten</h3><p>4.2★ • Relaxed beer garden and restaurant</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Milite%20Ignoto%20150%2C%20Ispra%2C%20Italy">Directions ↗</a></div></article></div></div>
 </div>
 </section>
-<section class="wedding-weekend"><div class="shell wedding-weekend-inner">
+
+<section class="shell section ispra-transport" id="getting-around">
+  <div class="section-heading">
+    <p class="kicker">Getting around Ispra</p>
+    <h2>The rental car will be the easiest option</h2>
+    <p>Ispra is much less transit-oriented than Verona or Parma. For the wedding weekend, plan on the rental car for groceries, nearby towns and most outings; use the lakefront on foot when staying local.</p>
+  </div>
+  <div class="transport-choice-grid">
+    <article class="transport-choice best">
+      <span>Best overall</span><h3>🚗 Rental car</h3>
+      <p>Most flexible for the villas, errands, Santa Caterina del Sasso and nearby lake towns.</p>
+    </article>
+    <article class="transport-choice">
+      <span>In town</span><h3>🚶 Walk</h3>
+      <p>Best for the Ispra lakefront, harbor and a relaxed evening close to the villa.</p>
+    </article>
+    <article class="transport-choice">
+      <span>When running</span><h3>⛴️ Ferry</h3>
+      <p>Ispra has a lake landing, but October service is seasonal. Check the official timetable before relying on it.</p>
+    </article>
+  </div>
+  <div class="ferry-status">
+    <div>
+      <span class="status-dot"></span>
+      <div><p class="kicker">October 7–8 ferry status</p><h3>Fall 2026 Lake Maggiore schedule is not published yet</h3>
+      <p>The currently published Lake Maggiore timetable ends October 4, 2026. We’ll update this section when the Oct. 7–8 schedule appears.</p></div>
+    </div>
+    <div class="ferry-actions">
+      <a class="button dark" target="_blank" rel="noopener" href="https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-maggiore/">Official ferry schedule ↗</a>
+      <a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Imbarcadero%20Ispra%2C%20Ispra%2C%20Italy">Directions to Ispra ferry landing ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="wedding-weekend" id="weekend"><div class="shell wedding-weekend-inner">
 <div><p class="kicker">Saturday • October 10</p><h2>The reason we're all here 🤍</h2><p>Wedding day at Lake Maggiore. Ceremony is planned for roughly one hour before sunset, followed by champagne, golden-hour photos, dinner and our first dance.</p></div>
 <a class="button primary" href="wedding.html">See the wedding-day plan</a>
-</div></section><section class="destination-guide">
+<div class="weekend-days">
+      <article><b>Oct 7</b><strong>Arrival day</strong><span>Pick up rental car at MXP → Ispra → settle in</span></article>
+      <article><b>Oct 8</b><strong>Lake day</strong><span>Easy Ispra / Lake Maggiore exploring; ferry only if fall service is confirmed</span></article>
+      <article><b>Oct 9</b><strong>Open day</strong><span>Relax, nearby outing, groceries and wedding prep</span></article>
+      <article class="wedding-day-mini"><b>Oct 10</b><strong>Wedding day 💍</strong><span>Ceremony before sunset → champagne → photos → dinner → first dance</span></article>
+    </div></div></section><section class="destination-guide">
 <div class="shell">
   <div class="guide-heading"><p class="kicker">While we're here</p><h2>Lake Maggiore & wedding weekend</h2><p>This stop is intentionally slower. The lake, the villas, and the wedding are the focus.</p></div>
   <div class="guide-grid">

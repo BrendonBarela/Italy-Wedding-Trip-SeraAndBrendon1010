@@ -9,6 +9,7 @@
 <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="site-nav">
 <a href="index.html">Home</a>
+<a class="today-nav" href="today.html">Today</a>
 <a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
@@ -19,7 +20,7 @@
 <a href="wedding.html">Wedding Day</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('images/beaulieu.svg')">
+<section class="destination-hero" style="--hero-image:url('beaulieu.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 14–18 • 2026</p>
@@ -33,17 +34,24 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Penthouse for 2</h2>
-<p class="stay-address"><strong>Address:</strong> Boulevard Eugène Gauthier, 06260 Beaulieu-sur-Mer, France</p></div>
+<p class="stay-address"><strong>Address:</strong> Boulevard Eugène Gauthier, 06260 Beaulieu-sur-Mer, France</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Boulevard%20Eug%C3%A8ne%20Gauthier%2C%2006260%20Beaulieu-sur-Mer%2C%20France">Directions to stay ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Penthouse for 2</strong><small>Exact address shown</small></div>
 </div>
 <div class="page-jumps">
 <a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
-<div class="map-wrap"><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Penthouse for 2&quot;, &quot;address&quot;: &quot;Boulevard Eugène Gauthier, 06260 Beaulieu-sur-Mer, France&quot;, &quot;lat&quot;: 43.7088, &quot;lng&quot;: 7.3315}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Maonas&quot;, &quot;address&quot;: &quot;18 Av. Albert 1er, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7055, &quot;lng&quot;: 7.3312}, {&quot;name&quot;: &quot;Le Trois Quarts&quot;, &quot;address&quot;: &quot;Port de Plaisance, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7033, &quot;lng&quot;: 7.3329}, {&quot;name&quot;: &quot;La Table de Julien&quot;, &quot;address&quot;: &quot;5 Bd du Maréchal Leclerc, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7069, &quot;lng&quot;: 7.3336}], &quot;station&quot;: {&quot;name&quot;: &quot;Beaulieu-sur-Mer Station&quot;, &quot;lat&quot;: 43.70675, &quot;lng&quot;: 7.3311}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Kérylos&quot;, &quot;lat&quot;: 43.7018, &quot;lng&quot;: 7.3338}, {&quot;name&quot;: &quot;Baie des Fourmis&quot;, &quot;lat&quot;: 43.7009, &quot;lng&quot;: 7.3322}, {&quot;name&quot;: &quot;Èze Village&quot;, &quot;lat&quot;: 43.7278, &quot;lng&quot;: 7.3619}, {&quot;name&quot;: &quot;Promenade des Anglais&quot;, &quot;lat&quot;: 43.6957, &quot;lng&quot;: 7.2656}]}'></div>
+<div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
+<span>Things near us</span>
+<button class="map-filter active" data-filter="all" type="button">All</button>
+<button class="map-filter" data-filter="stay" type="button">Stay</button>
+<button class="map-filter" data-filter="food" type="button">Food</button>
+<button class="map-filter" data-filter="station" type="button">Transit</button>
+<button class="map-filter" data-filter="sight" type="button">Sights</button>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Penthouse for 2&quot;, &quot;address&quot;: &quot;Boulevard Eugène Gauthier, 06260 Beaulieu-sur-Mer, France&quot;, &quot;lat&quot;: 43.7088, &quot;lng&quot;: 7.3315}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Maonas&quot;, &quot;address&quot;: &quot;18 Av. Albert 1er, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7055, &quot;lng&quot;: 7.3312}, {&quot;name&quot;: &quot;Le Trois Quarts&quot;, &quot;address&quot;: &quot;Port de Plaisance, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7033, &quot;lng&quot;: 7.3329}, {&quot;name&quot;: &quot;La Table de Julien&quot;, &quot;address&quot;: &quot;5 Bd du Maréchal Leclerc, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7069, &quot;lng&quot;: 7.3336}], &quot;station&quot;: {&quot;name&quot;: &quot;Beaulieu-sur-Mer Station&quot;, &quot;lat&quot;: 43.70675, &quot;lng&quot;: 7.3311}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Kérylos&quot;, &quot;lat&quot;: 43.7018, &quot;lng&quot;: 7.3338}, {&quot;name&quot;: &quot;Baie des Fourmis&quot;, &quot;lat&quot;: 43.7009, &quot;lng&quot;: 7.3322}, {&quot;name&quot;: &quot;Èze Village&quot;, &quot;lat&quot;: 43.7278, &quot;lng&quot;: 7.3619}, {&quot;name&quot;: &quot;Promenade des Anglais&quot;, &quot;lat&quot;: 43.6957, &quot;lng&quot;: 7.2656}]}'></div>
 <div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
 <p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
-<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Recommended</span><h3>Maonas</h3><p>4.8★ • Mediterranean / Italian, relaxed and romantic</p></article><article class="restaurant-card"><span>Recommended</span><h3>Le Trois Quarts</h3><p>4.8★ • Marina-side Mediterranean restaurant</p></article><article class="restaurant-card"><span>Recommended</span><h3>La Table de Julien</h3><p>9.6/10 • Highly rated French bistro</p></article></div></div>
+<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Romantic dinner</span><h3>Maonas</h3><p>4.8★ • Mediterranean / Italian, relaxed and romantic</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=18%20Avenue%20Albert%201er%2C%20Beaulieu-sur-Mer%2C%20France">Directions ↗</a></div></article><article class="restaurant-card"><span>Waterfront</span><h3>Le Trois Quarts</h3><p>4.8★ • Marina-side Mediterranean restaurant</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Port%20de%20Plaisance%2C%20Beaulieu-sur-Mer%2C%20France">Directions ↗</a></div></article><article class="restaurant-card"><span>Special occasion</span><h3>La Table de Julien</h3><p>9.6/10 • Highly rated French bistro</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=5%20Boulevard%20du%20Mar%C3%A9chal%20Leclerc%2C%20Beaulieu-sur-Mer%2C%20France">Directions ↗</a></div></article></div></div>
 </div>
 </section>
 <section class="destination-guide">

@@ -62,3 +62,14 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 ## v8.1 lodging address update
 - Santa Margherita Ligure: updated to Via Partigiani D'Italia, 25 and placed the stay dot at the property coordinates.
 - Beaulieu-sur-Mer: updated to Boulevard Eugène Gauthier. The supplied address does not include a building number, so the dot is placed on the correct boulevard rather than pretending to identify an exact doorway.
+
+## v9
+- Destination artwork is referenced from the repository root (verona.svg, parma.svg, etc.), so no images folder is required for phone uploads.
+- Added map toggle buttons: All / Stay / Food / Transit / Sights.
+- Map dots continue to use fixed coordinates and simple Leaflet circle markers; no geocoding API is used.
+- Added one-tap Google Maps directions for stays and restaurants.
+- Restaurant cards now have useful categories such as date night, casual local, or special occasion.
+- Added Today & Daily Itinerary page with all Oct 1–18 dates and automatic current-day highlighting.
+- Added automatic trip/wedding countdown to the homepage and Today page.
+- Added detailed Getting Around Ispra section and Oct 7–8 ferry-status notice.
+- Added Oct 7–10 Wedding Weekend mini-agenda.

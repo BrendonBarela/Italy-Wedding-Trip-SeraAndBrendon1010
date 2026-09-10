@@ -9,6 +9,7 @@
 <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="site-nav">
 <a href="index.html">Home</a>
+<a class="today-nav" href="today.html">Today</a>
 <a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
@@ -19,7 +20,7 @@
 <a href="wedding.html">Wedding Day</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('images/santa-margherita.svg')">
+<section class="destination-hero" style="--hero-image:url('santa-margherita.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 11–14 • 2026</p>
@@ -33,17 +34,24 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Painted Blue by PortofinoVip</h2>
-<p class="stay-address"><strong>Address:</strong> Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy</p></div>
+<p class="stay-address"><strong>Address:</strong> Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Partigiani%20D%27Italia%2C%2025%2C%2016038%20Santa%20Margherita%20Ligure%2C%20Liguria%2C%20Italy">Directions to stay ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Painted Blue by PortofinoVip</strong><small>Exact address shown</small></div>
 </div>
 <div class="page-jumps">
 <a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
-<div class="map-wrap"><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Painted Blue by PortofinoVip&quot;, &quot;address&quot;: &quot;Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Madachí&quot;, &quot;address&quot;: &quot;Via Cairoli 3, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3346, &quot;lng&quot;: 9.2121}, {&quot;name&quot;: &quot;Ristorante Karalis&quot;, &quot;address&quot;: &quot;Corso Matteotti 26, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3339, &quot;lng&quot;: 9.2111}, {&quot;name&quot;: &quot;Zi’ Ninella Ristorante Gourmet&quot;, &quot;address&quot;: &quot;Via Anton Maria Maragliano 15/17, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3352, &quot;lng&quot;: 9.2107}], &quot;station&quot;: {&quot;name&quot;: &quot;Santa Margherita Ligure–Portofino&quot;, &quot;lat&quot;: 44.33275, &quot;lng&quot;: 9.2079}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Durazzo&quot;, &quot;lat&quot;: 44.33455, &quot;lng&quot;: 9.21405}, {&quot;name&quot;: &quot;Waterfront Promenade&quot;, &quot;lat&quot;: 44.3337, &quot;lng&quot;: 9.2128}, {&quot;name&quot;: &quot;Portofino&quot;, &quot;lat&quot;: 44.3032, &quot;lng&quot;: 9.20975}, {&quot;name&quot;: &quot;Paraggi Bay&quot;, &quot;lat&quot;: 44.3111, &quot;lng&quot;: 9.2124}]}'></div>
+<div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
+<span>Things near us</span>
+<button class="map-filter active" data-filter="all" type="button">All</button>
+<button class="map-filter" data-filter="stay" type="button">Stay</button>
+<button class="map-filter" data-filter="food" type="button">Food</button>
+<button class="map-filter" data-filter="station" type="button">Transit</button>
+<button class="map-filter" data-filter="sight" type="button">Sights</button>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Painted Blue by PortofinoVip&quot;, &quot;address&quot;: &quot;Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Madachí&quot;, &quot;address&quot;: &quot;Via Cairoli 3, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3346, &quot;lng&quot;: 9.2121}, {&quot;name&quot;: &quot;Ristorante Karalis&quot;, &quot;address&quot;: &quot;Corso Matteotti 26, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3339, &quot;lng&quot;: 9.2111}, {&quot;name&quot;: &quot;Zi’ Ninella Ristorante Gourmet&quot;, &quot;address&quot;: &quot;Via Anton Maria Maragliano 15/17, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3352, &quot;lng&quot;: 9.2107}], &quot;station&quot;: {&quot;name&quot;: &quot;Santa Margherita Ligure–Portofino&quot;, &quot;lat&quot;: 44.33275, &quot;lng&quot;: 9.2079}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Durazzo&quot;, &quot;lat&quot;: 44.33455, &quot;lng&quot;: 9.21405}, {&quot;name&quot;: &quot;Waterfront Promenade&quot;, &quot;lat&quot;: 44.3337, &quot;lng&quot;: 9.2128}, {&quot;name&quot;: &quot;Portofino&quot;, &quot;lat&quot;: 44.3032, &quot;lng&quot;: 9.20975}, {&quot;name&quot;: &quot;Paraggi Bay&quot;, &quot;lat&quot;: 44.3111, &quot;lng&quot;: 9.2124}]}'></div>
 <div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
 <p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
-<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Recommended</span><h3>Madachí</h3><p>4.8★ • Refined Mediterranean and seafood</p></article><article class="restaurant-card"><span>Recommended</span><h3>Ristorante Karalis</h3><p>4.7★ • Ligurian + Sardinian seafood</p></article><article class="restaurant-card"><span>Recommended</span><h3>Zi’ Ninella Ristorante Gourmet</h3><p>4.7★ • Romantic chef-led gourmet dinner</p></article></div></div>
+<div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Special dinner</span><h3>Madachí</h3><p>4.8★ • Refined Mediterranean and seafood</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Cairoli%203%2C%20Santa%20Margherita%20Ligure%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Seafood / date night</span><h3>Ristorante Karalis</h3><p>4.7★ • Ligurian + Sardinian seafood</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Corso%20Matteotti%2026%2C%20Santa%20Margherita%20Ligure%2C%20Italy">Directions ↗</a></div></article><article class="restaurant-card"><span>Gourmet</span><h3>Zi’ Ninella Ristorante Gourmet</h3><p>4.7★ • Romantic chef-led gourmet dinner</p><div class="restaurant-actions"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Anton%20Maria%20Maragliano%2015/17%2C%20Santa%20Margherita%20Ligure%2C%20Italy">Directions ↗</a></div></article></div></div>
 </div>
 </section>
 <section class="destination-guide">
