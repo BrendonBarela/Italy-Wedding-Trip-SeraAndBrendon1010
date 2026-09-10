@@ -3,12 +3,13 @@
 <title>Verona | Sera & Brendon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S & B</a>
 <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="site-nav">
 <a href="index.html">Home</a>
+<a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -18,7 +19,7 @@
 <a href="wedding.html">Wedding Day</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('https://images.24ur.com/media/images/884xX/Sep2019/57c5317084_62319267.jpg?v=d41d')">
+<section class="destination-hero" style="--hero-image:url('images/verona.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 1–4 • 2026</p>
@@ -31,17 +32,17 @@
 </section>
 <section class="shell section city-page">
 <div class="city-intro">
-<div><p class="kicker">Where we're staying</p><h2>We're staying near Porta Nuova</h2>
-<p>Nearby public landmark used instead of the apartment address. The exact lodging address is intentionally kept off this public website.</p></div>
-<div class="privacy-pin"><span>📍 Map pin</span><strong>Porta Nuova</strong><small>Approximate stay area</small></div>
+<div><p class="kicker">Where we're staying</p><h2>Raggio di Luna Apartment</h2>
+<p class="stay-address"><strong>Address:</strong> Via del Minatore, 5, 37122 Verona VR, Italy</p></div>
+<div class="address-card"><span>Stay</span><strong>Raggio di Luna Apartment</strong><small>Exact address shown</small></div>
 </div>
 <div class="page-jumps">
-<a href="#map">Map & stay area</a><a href="#restaurants">Restaurants</a>
+<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
-<div class="map-wrap"><div class="map city-map" data-map='{&quot;landmark&quot;: {&quot;name&quot;: &quot;We&#x27;re staying near Porta Nuova&quot;, &quot;query&quot;: &quot;Porta Nuova, Verona, Italy&quot;}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;query&quot;: &quot;Corso Porta Nuova, 46A, 37122 Verona VR, Italy&quot;}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;query&quot;: &quot;Via Guglielmo Marconi, 17, 37122 Verona VR, Italy&quot;}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;query&quot;: &quot;Via Santa Maria in Chiavica, 5, 37121 Verona VR, Italy&quot;}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;query&quot;: &quot;Piazzale XXV Aprile, Verona, Italy&quot;}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;query&quot;: &quot;Piazza Bra, Verona, Italy&quot;, &quot;note&quot;: &quot;Roman amphitheater and Verona&#x27;s signature landmark.&quot;}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;query&quot;: &quot;Piazza delle Erbe, Verona, Italy&quot;, &quot;note&quot;: &quot;Historic market square\u2014great for an easy wander and aperitivo.&quot;}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;query&quot;: &quot;Corso Castelvecchio 2, Verona, Italy&quot;, &quot;note&quot;: &quot;Medieval castle, museum and photogenic bridge over the Adige.&quot;}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;query&quot;: &quot;Ponte Pietra, Verona, Italy&quot;, &quot;note&quot;: &quot;Beautiful Roman-era bridge and riverside views.&quot;}]}'></div>
-<div class="map-legend"><span><i class="legend-home"></i> Where we're staying near</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
-<p class="map-note">The brown pin is a nearby public landmark, not our lodging. Restaurant pins show public restaurant locations.</p></div>
+<div class="map-wrap"><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Raggio di Luna Apartment&quot;, &quot;address&quot;: &quot;Via del Minatore, 5, 37122 Verona VR, Italy&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;address&quot;: &quot;Corso Porta Nuova, 46A, Verona&quot;, &quot;lat&quot;: 45.43575, &quot;lng&quot;: 10.99015}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;address&quot;: &quot;Via Guglielmo Marconi, 17, Verona&quot;, &quot;lat&quot;: 45.43735, &quot;lng&quot;: 10.98835}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;address&quot;: &quot;Via Santa Maria in Chiavica, 5, Verona&quot;, &quot;lat&quot;: 45.44455, &quot;lng&quot;: 10.99855}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;lat&quot;: 45.42955, &quot;lng&quot;: 10.98205}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;lat&quot;: 45.43862, &quot;lng&quot;: 10.99447}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;lat&quot;: 45.4431, &quot;lng&quot;: 10.99718}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;lat&quot;: 45.43965, &quot;lng&quot;: 10.98755}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;lat&quot;: 45.44755, &quot;lng&quot;: 11.00018}]}'></div>
+<div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
+<p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
 <div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Recommended</span><h3>Osteria Miola</h3><p>4.7★ • Veronese tradition with a modern touch</p></article><article class="restaurant-card"><span>Recommended</span><h3>Bistro con Amore Vini e Cucina</h3><p>4.8★ • Intimate Italian bistro and wine-focused dinner</p></article><article class="restaurant-card"><span>Recommended</span><h3>Il Vicoletto Trattoria</h3><p>4.8★ • Traditional Verona / Veneto specialties</p></article></div></div>
 </div>
 </section>
@@ -53,5 +54,5 @@
     <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Main rail hub: Verona Porta Nuova</li><li>Historic center is compact and very walkable</li><li>October: bring a light layer for evenings</li></ul></aside>
   </div>
 </div>
-</section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 4</span><h2>Parma</h2><p>Train</p></div><a class="button dark" href="parma.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script></body></html>

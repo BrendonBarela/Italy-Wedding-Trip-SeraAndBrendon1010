@@ -3,12 +3,13 @@
 <title>Ispra | Sera & Brendon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S & B</a>
 <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="site-nav">
 <a href="index.html">Home</a>
+<a class="destinations-nav" href="destinations.html">Destinations</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -18,7 +19,7 @@
 <a href="wedding.html">Wedding Day</a>
 </nav></header>
 <main>
-<section class="destination-hero" style="--hero-image:url('https://images.trvl-media.com/lodging/77000000/76730000/76727200/76727124/99b9e3ff.jpg?impolicy=resizecrop&ra=fill&rh=1000&rw=1600')">
+<section class="destination-hero" style="--hero-image:url('images/ispra.svg')">
   <div class="destination-hero-overlay"></div>
   <div class="shell destination-hero-content">
     <p class="eyebrow">October 7–11 • 2026</p>
@@ -31,17 +32,17 @@
 </section>
 <section class="shell section city-page">
 <div class="city-intro">
-<div><p class="kicker">Where we're staying</p><h2>We're staying near Ispra Lakefront</h2>
-<p>A public lakefront landmark in Ispra is used instead of the villa address. The exact lodging address is intentionally kept off this public website.</p></div>
-<div class="privacy-pin"><span>📍 Map pin</span><strong>Ispra Lakefront</strong><small>Approximate stay area</small></div>
+<div><p class="kicker">Where we're staying</p><h2>Villa Eden 8</h2>
+<p class="stay-address"><strong>Address:</strong> Via Valcanale 504, 21027 Ispra VA, Italy</p></div>
+<div class="address-card"><span>Stay</span><strong>Villa Eden 8</strong><small>Exact address shown</small></div>
 </div>
 <div class="page-jumps">
-<a href="#map">Map & stay area</a><a href="#restaurants">Restaurants</a>
+<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
-<div class="map-wrap"><div class="map city-map" data-map='{&quot;landmark&quot;: {&quot;name&quot;: &quot;We&#x27;re staying near Ispra Lakefront&quot;, &quot;query&quot;: &quot;Lungolago di Ispra, Ispra, Italy&quot;}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;query&quot;: &quot;Via degli Alpini, 990, 21027 Ispra VA, Italy&quot;}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;query&quot;: &quot;Via Tullio del Grande, 69, 21027 Ispra VA, Italy&quot;}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;query&quot;: &quot;Via Milite Ignoto, 150, 21027 Ispra VA, Italy&quot;}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;query&quot;: &quot;Piazza San Martino, Ispra, Italy&quot;}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;query&quot;: &quot;Lungolago di Ispra, Ispra, Italy&quot;, &quot;note&quot;: &quot;The town&#x27;s main attraction: a long, scenic pedestrian lakeside promenade.&quot;}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;query&quot;: &quot;Porto di Ispra, Ispra, Italy&quot;, &quot;note&quot;: &quot;Easy lake views and a relaxed place for a stroll.&quot;}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;query&quot;: &quot;Via Santa Caterina 13, Leggiuno, Italy&quot;, &quot;note&quot;: &quot;Clifftop hermitage overlooking Lake Maggiore; a memorable nearby outing.&quot;}]}'></div>
-<div class="map-legend"><span><i class="legend-home"></i> Where we're staying near</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
-<p class="map-note">The brown pin is a nearby public landmark, not our lodging. Restaurant pins show public restaurant locations.</p></div>
+<div class="map-wrap"><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}]}'></div>
+<div class="map-legend"><span><i class="legend-home"></i> Our stay</span><span><i class="legend-food"></i> Restaurant</span><span><i class="legend-station"></i> Station</span><span><i class="legend-sight"></i> Sight</span></div>
+<p class="map-note">Stay, restaurant, station, and sightseeing pins are shown directly on the map.</p></div>
 <div id="restaurants"><p class="kicker">Nearby food</p><h2 class="restaurant-heading">Recommended restaurants</h2><div class="restaurant-card-list"><article class="restaurant-card"><span>Recommended</span><h3>Ristorante dei Limoni</h3><p>4.4★ • Italian, seafood and pizza</p></article><article class="restaurant-card"><span>Recommended</span><h3>Ca&#x27; Dei Baloss</h3><p>4.6★ • Casual local pizzeria</p></article><article class="restaurant-card"><span>Recommended</span><h3>La Baita Biergarten</h3><p>4.2★ • Relaxed beer garden and restaurant</p></article></div></div>
 </div>
 </section>
@@ -56,5 +57,5 @@
     <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Rental car is the easiest way around this stop</li><li>Lakefront walking is the best low-effort activity</li><li>Wedding day: Saturday, October 10</li></ul></aside>
   </div>
 </div>
-</section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+</section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 11</span><h2>Santa Margherita Ligure</h2><p>Rental car → MXP → train</p></div><a class="button dark" href="santa-margherita.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="index.html">Home</a></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script></body></html>
