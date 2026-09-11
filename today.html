@@ -3,13 +3,14 @@
 <title>Today & Daily Itinerary | Sera & Brendon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=13"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
 </button>
 <nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation">
 <a href="index.html">Home</a>
+<a class="today-nav trip-today-link" href="today.html" hidden>Today</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -24,24 +25,36 @@
 <div id="trip-countdown" class="countdown-card" data-start="2026-10-01" data-wedding="2026-10-10" data-end="2026-10-18">
   <span>Trip countdown</span><strong>Italy is getting close.</strong><small>Dates update automatically on your phone.</small>
 </div>
+
+<div class="trip-weather-card today-trip-weather" id="today-weather" data-weather-route="[{&quot;name&quot;: &quot;Verona&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755, &quot;start&quot;: &quot;2026-10-01&quot;, &quot;end&quot;: &quot;2026-10-04&quot;}, {&quot;name&quot;: &quot;Parma&quot;, &quot;lat&quot;: 44.8017, &quot;lng&quot;: 10.3273, &quot;start&quot;: &quot;2026-10-04&quot;, &quot;end&quot;: &quot;2026-10-07&quot;}, {&quot;name&quot;: &quot;Ispra / Lake Maggiore&quot;, &quot;lat&quot;: 45.81225, &quot;lng&quot;: 8.6171, &quot;start&quot;: &quot;2026-10-07&quot;, &quot;end&quot;: &quot;2026-10-11&quot;}, {&quot;name&quot;: &quot;Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919, &quot;start&quot;: &quot;2026-10-11&quot;, &quot;end&quot;: &quot;2026-10-14&quot;}, {&quot;name&quot;: &quot;Beaulieu-sur-Mer / Nice&quot;, &quot;lat&quot;: 43.7088, &quot;lng&quot;: 7.3315, &quot;start&quot;: &quot;2026-10-14&quot;, &quot;end&quot;: &quot;2026-10-18&quot;}]">
+  <div class="weather-card-head">
+    <div><p class="kicker">Trip weather</p><h2>Weather for where we are</h2></div>
+    <span class="weather-live-badge">Auto updates</span>
+  </div>
+  <div class="weather-body" aria-live="polite">
+    <div class="weather-loading">Checking the trip forecast…</div>
+  </div>
+  <p class="weather-source">This card automatically follows the trip from Verona to the French Riviera. Forecast data via <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>.</p>
+</div>
+
 <div class="today-key"><span class="today-dot"></span> The current day will highlight automatically during the trip.</div>
 <div class="day-list"><a class="day-card" data-date="2026-10-01" href="verona.html"><b>Oct 1</b><div><strong>Verona</strong><span>Arrival / settle in</span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-02" href="verona.html"><b>Oct 2</b><div><strong>Verona</strong><span>Explore the historic center</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-03" href="verona.html"><b>Oct 3</b><div><strong>Verona</strong><span>Open Verona day</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-04" href="transportation.html"><b>Oct 4</b><div><strong>Travel → Parma</strong><span>Late morning / around lunch train</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-05" href="parma.html"><b>Oct 5</b><div><strong>Parma</strong><span>Food + historic center</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-06" href="parma.html"><b>Oct 6</b><div><strong>Parma</strong><span>Katie joins the group</span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-03" href="verona.html"><b>Oct 3</b><div><strong>Verona</strong><span>Open Verona day</span><span class="day-event-stack"><span class="day-event-chip">🎉 Frida Kahlo — A Revolutionary Life</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-04" href="transportation.html"><b>Oct 4</b><div><strong>Travel → Parma</strong><span>Late morning / around lunch train</span><span class="day-event-stack"><span class="day-event-chip">🎉 Mercanteinfiera</span><span class="day-event-chip">🎭 Festival Verdi</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-05" href="parma.html"><b>Oct 5</b><div><strong>Parma</strong><span>Food + historic center</span><span class="day-event-stack"><span class="day-event-chip">🎉 Mercanteinfiera</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-06" href="parma.html"><b>Oct 6</b><div><strong>Parma</strong><span>Katie joins the group</span><span class="day-event-stack"><span class="day-event-chip">🎉 Mercanteinfiera</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-07" href="transportation.html"><b>Oct 7</b><div><strong>Travel → Ispra</strong><span>Train to Milan → MXP → rental car → villa</span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-08" href="ispra.html"><b>Oct 8</b><div><strong>Ispra / Lake Maggiore</strong><span>Easy lake day; ferry only if fall service is confirmed</span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-09" href="ispra.html"><b>Oct 9</b><div><strong>Ispra</strong><span>Open day + wedding prep</span></div><em>→</em></a>
 <a class="day-card wedding-day-card" data-date="2026-10-10" href="wedding.html"><b>Oct 10</b><div><strong>Wedding Day 💍</strong><span>Ceremony before sunset → champagne → photos → dinner → first dance</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-11" href="transportation.html"><b>Oct 11</b><div><strong>Travel → Santa Margherita</strong><span>Drive to MXP → return car → train to the Riviera</span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-11" href="transportation.html"><b>Oct 11</b><div><strong>Travel → Santa Margherita</strong><span>Drive to MXP → return car → train to the Riviera</span><span class="day-event-stack"><span class="day-event-chip">🎉 Madonna dei Gotti — Camogli (if timing works)</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-12" href="santa-margherita.html"><b>Oct 12</b><div><strong>Santa Margherita Ligure</strong><span>Riviera day / Portofino option</span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-13" href="santa-margherita.html"><b>Oct 13</b><div><strong>Santa Margherita Ligure</strong><span>Relaxed Ligurian coast day</span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-14" href="transportation.html"><b>Oct 14</b><div><strong>Travel → Beaulieu-sur-Mer</strong><span>Train west via Liguria / Ventimiglia</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-15" href="nice.html"><b>Oct 15</b><div><strong>French Riviera</strong><span>Nice / Beaulieu day</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-16" href="nice.html"><b>Oct 16</b><div><strong>French Riviera</strong><span>Èze option</span></div><em>→</em></a>
-<a class="day-card" data-date="2026-10-17" href="nice.html"><b>Oct 17</b><div><strong>French Riviera</strong><span>Final honeymoon day</span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-15" href="nice.html"><b>Oct 15</b><div><strong>French Riviera</strong><span>Nice / Beaulieu day</span><span class="day-event-stack"><span class="day-event-chip">💃 Forró de Nice</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-16" href="nice.html"><b>Oct 16</b><div><strong>French Riviera</strong><span>Èze option</span><span class="day-event-stack"><span class="day-event-chip">💃 Forró de Nice</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
+<a class="day-card" data-date="2026-10-17" href="nice.html"><b>Oct 17</b><div><strong>French Riviera</strong><span>Final honeymoon day</span><span class="day-event-stack"><span class="day-event-chip">💃 Forró de Nice</span><span class="day-event-chip">🎉 Festival CaraïbAzur</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-18" href="transportation.html"><b>Oct 18</b><div><strong>Fly home</strong><span>Nice Côte d’Azur Airport</span></div><em>→</em></a></div>
 </section>
-</main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="script.js?v=12"></script></body></html>
+</main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="script.js?v=13"></script></body></html>

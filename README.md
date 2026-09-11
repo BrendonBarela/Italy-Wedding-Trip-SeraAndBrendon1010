@@ -156,3 +156,13 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Santa Margherita: nearby Madonna dei Gotti festival in Camogli on Oct 11.
 - Nice/Beaulieu: Forró de Nice (Oct 15–18) and Festival CaraïbAzur (Oct 17).
 - Event pins include dates, directions, and event-info links.
+
+## v13
+- Standardized Things Near Us filters on every destination: All, Stay, Food, Coffee, Grocery, Pharmacy, Transit, Parking, Events, Sights.
+- Homepage destination cards now use the same real Wikimedia destination photography as the city heroes, with local SVG fallback art underneath.
+- Added a Today navigation shortcut that becomes prominent automatically during Oct 1–18; it is also visible while viewing today.html.
+- Added researched event chips to the relevant dates on the Today itinerary, linked conceptually to each city's Events map filter.
+- Removed guest-info.html from the package; destinations.html was already absent from the package.
+- Added dynamic weather cards to all five destination pages and the Today page.
+- Weather uses Open-Meteo's no-key forecast API and displays trip dates automatically once they enter its 16-day forecast window.
+- Weather cards show condition, high/low in °F and °C, and precipitation probability.

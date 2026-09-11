@@ -4,13 +4,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=12"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=13"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
 </button>
 <nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation">
 <a href="index.html">Home</a>
+<a class="today-nav trip-today-link" href="today.html" hidden>Today</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -37,17 +38,33 @@
 <p class="stay-address"><strong>Address:</strong> Borgo Montassù, 3, Parma, Emilia-Romagna, Italy</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Borgo%20Montass%C3%B9%2C%203%2C%20Parma%2C%20Emilia-Romagna%2C%20Italy">Directions to stay ↗</a></p><p class="stay-listing"><a class="button stay-button" target="_blank" rel="noopener" href="https://www.airbnb.com/rooms/1684795982326693057">View our Parma stay on Airbnb ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Casa Nadia / 150 MQ Apartment + Depandance</strong><small>Exact address shown</small></div>
 </div>
+
+<div class="trip-weather-card" id="weather" data-weather="{&quot;name&quot;: &quot;Parma&quot;, &quot;lat&quot;: 44.8017, &quot;lng&quot;: 10.3273, &quot;start&quot;: &quot;2026-10-04&quot;, &quot;end&quot;: &quot;2026-10-07&quot;}">
+  <div class="weather-card-head">
+    <div><p class="kicker">Weather</p><h2>Parma forecast</h2></div>
+    <span class="weather-live-badge">16-day forecast</span>
+  </div>
+  <div class="weather-body" aria-live="polite">
+    <div class="weather-loading">Checking the forecast…</div>
+  </div>
+  <p class="weather-source">Forecast updates automatically from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>. Trip-day forecasts appear as the dates enter the 16-day forecast window.</p>
+</div>
 <div class="page-jumps">
-<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
+<a href="#weather">Weather</a><a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
 <div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
 <span>Things near us</span>
 <button class="map-filter active" data-filter="all" type="button">All</button>
-<button class="map-filter" data-filter="stay" type="button">Stay</button>
-<button class="map-filter" data-filter="food" type="button">Food</button>
-<button class="map-filter" data-filter="station" type="button">Transit</button>
-<button class="map-filter" data-filter="sight" type="button">Sights</button>
+<button class="map-filter" data-filter="stay" type="button">🏠 Stay</button>
+<button class="map-filter" data-filter="food" type="button">🍴 Food</button>
+<button class="map-filter" data-filter="coffee" type="button">☕ Coffee</button>
+<button class="map-filter" data-filter="grocery" type="button">🛒 Grocery</button>
+<button class="map-filter" data-filter="pharmacy" type="button">💊 Pharmacy</button>
+<button class="map-filter" data-filter="station" type="button">🚆 Transit</button>
+<button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
+<button class="map-filter" data-filter="event" type="button">🎉 Events</button>
+<button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Casa Nadia / 150 MQ Apartment + Depandance&quot;, &quot;address&quot;: &quot;Borgo Montassù, 3, Parma, Emilia-Romagna, Italy&quot;, &quot;lat&quot;: 44.80315, &quot;lng&quot;: 10.33055}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Cortex Bistrot&quot;, &quot;address&quot;: &quot;Borgo del Correggio 20/B, Parma&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.33025}, {&quot;name&quot;: &quot;Angiol d&#x27;Or&quot;, &quot;address&quot;: &quot;Via Scutellari 1, Parma&quot;, &quot;lat&quot;: 44.80315, &quot;lng&quot;: 10.32965}, {&quot;name&quot;: &quot;Trattoria Corrieri Parma&quot;, &quot;address&quot;: &quot;Strada Conservatorio 1, Parma&quot;, &quot;lat&quot;: 44.79905, &quot;lng&quot;: 10.32645}], &quot;station&quot;: {&quot;name&quot;: &quot;Parma Station&quot;, &quot;lat&quot;: 44.80955, &quot;lng&quot;: 10.32805}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Parma Cathedral&quot;, &quot;lat&quot;: 44.80305, &quot;lng&quot;: 10.33055}, {&quot;name&quot;: &quot;Baptistery of Parma&quot;, &quot;lat&quot;: 44.80318, &quot;lng&quot;: 10.33005}, {&quot;name&quot;: &quot;Palazzo della Pilotta&quot;, &quot;lat&quot;: 44.80515, &quot;lng&quot;: 10.32625}, {&quot;name&quot;: &quot;Teatro Regio&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.32695}], &quot;events&quot;: [{&quot;name&quot;: &quot;Mercanteinfiera Fall 2026&quot;, &quot;date&quot;: &quot;Oct 4–7 while we&#x27;re in Parma&quot;, &quot;address&quot;: &quot;Fiere di Parma, Viale delle Esposizioni 393A, Parma&quot;, &quot;lat&quot;: 44.846, &quot;lng&quot;: 10.3235, &quot;url&quot;: &quot;https://www.mercanteinfiera.it/en&quot;}, {&quot;name&quot;: &quot;Festival Verdi&quot;, &quot;date&quot;: &quot;Oct 4 • performances &amp; city events&quot;, &quot;address&quot;: &quot;Teatro Regio, Strada Giuseppe Garibaldi 16/A, Parma&quot;, &quot;lat&quot;: 44.8044, &quot;lng&quot;: 10.3278, &quot;url&quot;: &quot;https://teatroregioparma.it/en/calendar/?c_month=10&amp;c_year=2026&quot;}]}'></div>
 <div class="map-legend extended-map-legend" aria-label="Map legend">
 <span><i class="legend-dot stay-dot"></i>Our stay</span>
@@ -74,4 +91,4 @@
   </div>
 </div>
 </section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 7</span><h2>Ispra / Lake Maggiore</h2><p>Train → MXP → rental car</p></div><a class="button dark" href="ispra.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=12"></script></body></html>
+<script src="script.js?v=13"></script></body></html>

@@ -4,13 +4,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=12"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=13"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
 </button>
 <nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation">
 <a href="index.html">Home</a>
+<a class="today-nav trip-today-link" href="today.html" hidden>Today</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -37,17 +38,33 @@
 <p class="stay-address"><strong>Address:</strong> Via del Minatore, 5, 37122 Verona VR, Italy</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20del%20Minatore%2C%205%2C%2037122%20Verona%20VR%2C%20Italy">Directions to stay ↗</a></p><p class="stay-listing"><a class="button stay-button" target="_blank" rel="noopener" href="https://www.airbnb.com/rooms/33595017">View our Verona stay on Airbnb ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Raggio di Luna Apartment</strong><small>Exact address shown</small></div>
 </div>
+
+<div class="trip-weather-card" id="weather" data-weather="{&quot;name&quot;: &quot;Verona&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755, &quot;start&quot;: &quot;2026-10-01&quot;, &quot;end&quot;: &quot;2026-10-04&quot;}">
+  <div class="weather-card-head">
+    <div><p class="kicker">Weather</p><h2>Verona forecast</h2></div>
+    <span class="weather-live-badge">16-day forecast</span>
+  </div>
+  <div class="weather-body" aria-live="polite">
+    <div class="weather-loading">Checking the forecast…</div>
+  </div>
+  <p class="weather-source">Forecast updates automatically from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>. Trip-day forecasts appear as the dates enter the 16-day forecast window.</p>
+</div>
 <div class="page-jumps">
-<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
+<a href="#weather">Weather</a><a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a>
 </div>
 <div class="city-map-layout" id="map">
 <div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
 <span>Things near us</span>
 <button class="map-filter active" data-filter="all" type="button">All</button>
-<button class="map-filter" data-filter="stay" type="button">Stay</button>
-<button class="map-filter" data-filter="food" type="button">Food</button>
-<button class="map-filter" data-filter="station" type="button">Transit</button>
-<button class="map-filter" data-filter="sight" type="button">Sights</button>
+<button class="map-filter" data-filter="stay" type="button">🏠 Stay</button>
+<button class="map-filter" data-filter="food" type="button">🍴 Food</button>
+<button class="map-filter" data-filter="coffee" type="button">☕ Coffee</button>
+<button class="map-filter" data-filter="grocery" type="button">🛒 Grocery</button>
+<button class="map-filter" data-filter="pharmacy" type="button">💊 Pharmacy</button>
+<button class="map-filter" data-filter="station" type="button">🚆 Transit</button>
+<button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
+<button class="map-filter" data-filter="event" type="button">🎉 Events</button>
+<button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Raggio di Luna Apartment&quot;, &quot;address&quot;: &quot;Via del Minatore, 5, 37122 Verona VR, Italy&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Osteria Miola&quot;, &quot;address&quot;: &quot;Corso Porta Nuova, 46A, Verona&quot;, &quot;lat&quot;: 45.43575, &quot;lng&quot;: 10.99015}, {&quot;name&quot;: &quot;Bistro con Amore Vini e Cucina&quot;, &quot;address&quot;: &quot;Via Guglielmo Marconi, 17, Verona&quot;, &quot;lat&quot;: 45.43735, &quot;lng&quot;: 10.98835}, {&quot;name&quot;: &quot;Il Vicoletto Trattoria&quot;, &quot;address&quot;: &quot;Via Santa Maria in Chiavica, 5, Verona&quot;, &quot;lat&quot;: 45.44455, &quot;lng&quot;: 10.99855}], &quot;station&quot;: {&quot;name&quot;: &quot;Verona Porta Nuova&quot;, &quot;lat&quot;: 45.42955, &quot;lng&quot;: 10.98205}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Arena di Verona&quot;, &quot;lat&quot;: 45.43862, &quot;lng&quot;: 10.99447}, {&quot;name&quot;: &quot;Piazza delle Erbe&quot;, &quot;lat&quot;: 45.4431, &quot;lng&quot;: 10.99718}, {&quot;name&quot;: &quot;Castelvecchio&quot;, &quot;lat&quot;: 45.43965, &quot;lng&quot;: 10.98755}, {&quot;name&quot;: &quot;Ponte Pietra&quot;, &quot;lat&quot;: 45.44755, &quot;lng&quot;: 11.00018}], &quot;events&quot;: [{&quot;name&quot;: &quot;Frida Kahlo – A Revolutionary Life&quot;, &quot;date&quot;: &quot;Oct 3–4&quot;, &quot;address&quot;: &quot;Teatro Ristori, Via Teatro Ristori 7, Verona&quot;, &quot;lat&quot;: 45.4374, &quot;lng&quot;: 10.9862, &quot;url&quot;: &quot;https://www.visitverona.it/en/get_include/FILTER_EVENTS_AJAX_NEW_2021/&quot;}]}'></div>
 <div class="map-legend extended-map-legend" aria-label="Map legend">
 <span><i class="legend-dot stay-dot"></i>Our stay</span>
@@ -74,4 +91,4 @@
   </div>
 </div>
 </section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 4</span><h2>Parma</h2><p>Train</p></div><a class="button dark" href="parma.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=12"></script></body></html>
+<script src="script.js?v=13"></script></body></html>

@@ -33,14 +33,26 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
 
-const toggle=document.querySelector(".menu-toggle");
-  const nav=document.querySelector(".site-nav");
-  if(toggle&&nav){
-    toggle.addEventListener("click",()=>{
-      const open=toggle.getAttribute("aria-expanded")==="true";
-      toggle.setAttribute("aria-expanded",String(!open));
-      nav.classList.toggle("open",!open);
-    });
+
+
+  // Current page + trip-only Today shortcut.
+  const currentPage = (window.location.pathname.split("/").pop() || "index.html").split("?")[0];
+  document.querySelectorAll("#site-nav a").forEach(link => {
+    const href = (link.getAttribute("href") || "").split("#")[0];
+    const active = href === currentPage;
+    link.classList.toggle("active", active);
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+
+  const tripTodayLink = document.querySelector(".trip-today-link");
+  if (tripTodayLink) {
+    const nowForTrip = new Date();
+    const tripDateKey = `${nowForTrip.getFullYear()}-${String(nowForTrip.getMonth()+1).padStart(2,"0")}-${String(nowForTrip.getDate()).padStart(2,"0")}`;
+    const duringTrip = tripDateKey >= "2026-10-01" && tripDateKey <= "2026-10-18";
+    const showToday = duringTrip || currentPage === "today.html";
+    tripTodayLink.hidden = !showToday;
+    tripTodayLink.classList.toggle("trip-live", duringTrip);
   }
 
   // Countdown / trip-state card
@@ -63,6 +75,116 @@ const toggle=document.querySelector(".menu-toggle");
   document.querySelectorAll(".day-card[data-date]").forEach(card=>{
     if(card.dataset.date===key){card.classList.add("is-today");card.scrollIntoView({block:"center"});}
   });
+
+
+  // Trip weather — Open-Meteo provides up to a 16-day forecast.
+  const weatherCards = [...document.querySelectorAll(".trip-weather-card")];
+
+  const weatherCode = code => {
+    if (code === 0) return ["☀️","Clear"];
+    if ([1,2].includes(code)) return ["🌤️","Partly cloudy"];
+    if (code === 3) return ["☁️","Cloudy"];
+    if ([45,48].includes(code)) return ["🌫️","Fog"];
+    if ([51,53,55,56,57].includes(code)) return ["🌦️","Drizzle"];
+    if ([61,63,65,66,67,80,81,82].includes(code)) return ["🌧️","Rain"];
+    if ([71,73,75,77,85,86].includes(code)) return ["🌨️","Snow"];
+    if ([95,96,99].includes(code)) return ["⛈️","Thunderstorms"];
+    return ["🌤️","Variable"];
+  };
+
+  const shortDate = iso => {
+    const [y,m,d] = iso.split("-").map(Number);
+    return new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric"}).format(new Date(y,m-1,d));
+  };
+
+  const unlockDate = startISO => {
+    const [y,m,d] = startISO.split("-").map(Number);
+    const dt = new Date(y,m-1,d);
+    dt.setDate(dt.getDate()-15);
+    return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric"}).format(dt);
+  };
+
+  function resolveTodayWeatherRoute(card){
+    try{
+      const route = JSON.parse(card.dataset.weatherRoute || "[]");
+      if(!route.length) return null;
+      const now = new Date();
+      const key = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+      return route.find(x => key >= x.start && key <= x.end)
+        || route.find(x => key < x.start)
+        || route[route.length-1];
+    }catch(e){ return null; }
+  }
+
+  async function loadWeather(card){
+    let cfg;
+    try{
+      cfg = card.dataset.weather ? JSON.parse(card.dataset.weather) : resolveTodayWeatherRoute(card);
+    }catch(e){ cfg=null; }
+    const body = card.querySelector(".weather-body");
+    if(!cfg || !body) return;
+
+    const now = new Date();
+    const todayKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+    const sourceStart = cfg.start;
+    const sourceEnd = cfg.end;
+
+    try{
+      const url = new URL("https://api.open-meteo.com/v1/forecast");
+      url.searchParams.set("latitude", cfg.lat);
+      url.searchParams.set("longitude", cfg.lng);
+      url.searchParams.set("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max");
+      url.searchParams.set("temperature_unit", "fahrenheit");
+      url.searchParams.set("timezone", "auto");
+      url.searchParams.set("forecast_days", "16");
+
+      const res = await fetch(url);
+      if(!res.ok) throw new Error("Weather service unavailable");
+      const data = await res.json();
+      const daily = data.daily || {};
+      const days = (daily.time || []).map((iso,i)=>({
+        iso,
+        code:daily.weather_code?.[i],
+        high:daily.temperature_2m_max?.[i],
+        low:daily.temperature_2m_min?.[i],
+        rain:daily.precipitation_probability_max?.[i]
+      })).filter(x => x.iso >= sourceStart && x.iso <= sourceEnd);
+
+      if(!days.length){
+        const past = todayKey > sourceEnd;
+        if(past){
+          body.innerHTML = `<div class="weather-not-ready"><strong>${cfg.name}</strong><span>These trip dates have passed.</span></div>`;
+        }else{
+          body.innerHTML = `<div class="weather-not-ready"><strong>${cfg.name}</strong><span>Live forecast should begin appearing around ${unlockDate(sourceStart)}.</span><small>Forecasts are only useful close to the trip, so this will update automatically.</small></div>`;
+        }
+        return;
+      }
+
+      const dayCards = days.map(day=>{
+        const [icon,label] = weatherCode(Number(day.code));
+        const hi = Number.isFinite(Number(day.high)) ? Math.round(day.high) : "—";
+        const lo = Number.isFinite(Number(day.low)) ? Math.round(day.low) : "—";
+        const hiC = hi === "—" ? "—" : Math.round((hi-32)*5/9);
+        const loC = lo === "—" ? "—" : Math.round((lo-32)*5/9);
+        const rain = Number.isFinite(Number(day.rain)) ? Math.round(day.rain) : "—";
+        const isToday = day.iso === todayKey ? " weather-day-today" : "";
+        return `<article class="weather-day${isToday}">
+          <span class="weather-date">${shortDate(day.iso)}</span>
+          <span class="weather-icon" aria-hidden="true">${icon}</span>
+          <strong>${label}</strong>
+          <span class="weather-temp">${hi}° / ${lo}°F</span>
+          <small>${hiC}° / ${loC}°C • ${rain}% rain</small>
+        </article>`;
+      }).join("");
+
+      body.innerHTML = `<div class="weather-location-line"><strong>${cfg.name}</strong><span>${days.length}-day trip forecast</span></div><div class="weather-days">${dayCards}</div>`;
+    }catch(e){
+      body.innerHTML = `<div class="weather-not-ready"><strong>Weather temporarily unavailable</strong><span>The rest of the trip page still works normally. Try refreshing later.</span></div>`;
+    }
+  }
+
+  weatherCards.forEach(loadWeather);
+
 
   const maps=[...document.querySelectorAll(".city-map[data-map]")];
   if(!maps.length) return;

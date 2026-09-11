@@ -4,13 +4,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=12"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=13"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
 </button>
 <nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation">
 <a href="index.html">Home</a>
+<a class="today-nav trip-today-link" href="today.html" hidden>Today</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -37,17 +38,33 @@
 <p class="stay-address"><strong>Address:</strong> Via Valcanale 504, 21027 Ispra VA, Italy</p><p class="stay-directions"><a class="mini-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via%20Valcanale%20504%2C%2021027%20Ispra%20VA%2C%20Italy">Directions to stay ↗</a></p><p class="stay-listing"><a class="button stay-button" target="_blank" rel="noopener" href="https://www.expedia.com/Ispra-Hotels-Villa-Eden-8-Emma-Villas.h100163693.Hotel-Information">View Villa Eden listing ↗</a></p></div>
 <div class="address-card"><span>Stay</span><strong>Villa Eden 8</strong><small>Exact address shown</small></div>
 </div>
+
+<div class="trip-weather-card" id="weather" data-weather="{&quot;name&quot;: &quot;Ispra / Lake Maggiore&quot;, &quot;lat&quot;: 45.81225, &quot;lng&quot;: 8.6171, &quot;start&quot;: &quot;2026-10-07&quot;, &quot;end&quot;: &quot;2026-10-11&quot;}">
+  <div class="weather-card-head">
+    <div><p class="kicker">Weather</p><h2>Ispra / Lake Maggiore forecast</h2></div>
+    <span class="weather-live-badge">16-day forecast</span>
+  </div>
+  <div class="weather-body" aria-live="polite">
+    <div class="weather-loading">Checking the forecast…</div>
+  </div>
+  <p class="weather-source">Forecast updates automatically from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>. Trip-day forecasts appear as the dates enter the 16-day forecast window.</p>
+</div>
 <div class="page-jumps">
-<a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a><a href="#getting-around">Getting around</a><a href="#weekend">Wedding weekend</a>
+<a href="#weather">Weather</a><a href="#map">Map & nearby places</a><a href="#restaurants">Restaurants</a><a href="#getting-around">Getting around</a><a href="#weekend">Wedding weekend</a>
 </div>
 <div class="city-map-layout" id="map">
 <div class="map-wrap"><div class="map-filter-bar" aria-label="Map filters">
 <span>Things near us</span>
 <button class="map-filter active" data-filter="all" type="button">All</button>
-<button class="map-filter" data-filter="stay" type="button">Stay</button>
-<button class="map-filter" data-filter="food" type="button">Food</button>
-<button class="map-filter" data-filter="station" type="button">Transit</button>
-<button class="map-filter" data-filter="sight" type="button">Sights</button><button class="map-filter" data-filter="coffee" type="button">☕ Coffee</button><button class="map-filter" data-filter="grocery" type="button">🛒 Grocery</button><button class="map-filter" data-filter="pharmacy" type="button">💊 Pharmacy</button><button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
+<button class="map-filter" data-filter="stay" type="button">🏠 Stay</button>
+<button class="map-filter" data-filter="food" type="button">🍴 Food</button>
+<button class="map-filter" data-filter="coffee" type="button">☕ Coffee</button>
+<button class="map-filter" data-filter="grocery" type="button">🛒 Grocery</button>
+<button class="map-filter" data-filter="pharmacy" type="button">💊 Pharmacy</button>
+<button class="map-filter" data-filter="station" type="button">🚆 Transit</button>
+<button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
+<button class="map-filter" data-filter="event" type="button">🎉 Events</button>
+<button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Villa Eden 8&quot;, &quot;address&quot;: &quot;Via Valcanale 504, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.8143, &quot;lng&quot;: 8.6121}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante dei Limoni&quot;, &quot;address&quot;: &quot;Via degli Alpini 990, Ispra&quot;, &quot;lat&quot;: 45.8133, &quot;lng&quot;: 8.6112}, {&quot;name&quot;: &quot;Ca&#x27; Dei Baloss&quot;, &quot;address&quot;: &quot;Via Tullio del Grande 69, Ispra&quot;, &quot;lat&quot;: 45.8157, &quot;lng&quot;: 8.6166}, {&quot;name&quot;: &quot;La Baita Biergarten&quot;, &quot;address&quot;: &quot;Via Milite Ignoto 150, Ispra&quot;, &quot;lat&quot;: 45.8163, &quot;lng&quot;: 8.6197}], &quot;station&quot;: {&quot;name&quot;: &quot;Ispra town center&quot;, &quot;lat&quot;: 45.8149, &quot;lng&quot;: 8.6129}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Ispra Lakefront&quot;, &quot;lat&quot;: 45.8156, &quot;lng&quot;: 8.6028}, {&quot;name&quot;: &quot;Ispra Harbor&quot;, &quot;lat&quot;: 45.8151, &quot;lng&quot;: 8.6043}, {&quot;name&quot;: &quot;Santa Caterina del Sasso&quot;, &quot;lat&quot;: 45.8875, &quot;lng&quot;: 8.5986}], &quot;coffee&quot;: [{&quot;name&quot;: &quot;Pasticceria Angleria&quot;, &quot;address&quot;: &quot;Via Roma 505, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81336, &quot;lng&quot;: 8.6192}], &quot;grocery&quot;: [{&quot;name&quot;: &quot;Tigros di Ispra&quot;, &quot;address&quot;: &quot;Via Roma 505, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81331, &quot;lng&quot;: 8.61945}], &quot;pharmacy&quot;: [{&quot;name&quot;: &quot;Lafarmacia. Ispra&quot;, &quot;address&quot;: &quot;Via Giuseppe Mazzini 351, 21027 Ispra VA, Italy&quot;, &quot;lat&quot;: 45.81425, &quot;lng&quot;: 8.6153}], &quot;parking&quot;: [{&quot;name&quot;: &quot;Piazzale Ranci Ortigosa parking&quot;, &quot;address&quot;: &quot;Piazzale Ranci Ortigosa, Ispra, Italy&quot;, &quot;lat&quot;: 45.81455, &quot;lng&quot;: 8.60665}], &quot;events&quot;: []}'></div>
 <div class="map-legend extended-map-legend" aria-label="Map legend">
 <span><i class="legend-dot stay-dot"></i>Our stay</span>
@@ -116,4 +133,4 @@
   </div>
 </div>
 </section><section class="shell next-stop"><p class="kicker">Next up</p><div class="next-stop-card"><div><span>October 11</span><h2>Santa Margherita Ligure</h2><p>Rental car → MXP → train</p></div><a class="button dark" href="santa-margherita.html">See next stop →</a></div></section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=12"></script></body></html>
+<script src="script.js?v=13"></script></body></html>
