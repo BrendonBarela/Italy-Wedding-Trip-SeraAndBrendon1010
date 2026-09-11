@@ -1,0 +1,26 @@
+LATEST WEDDING SITE UPDATE — PWA + RESTAURANTS & EVENTS
+
+Repository:
+BrendonBarela/Italy-Wedding-Trip-SeraAndBrendon1010
+
+Upload these SIX files to the ROOT of the SAME repository:
+- index.html                 REPLACE existing
+- recommendations.html       NEW
+- manifest.webmanifest       NEW (or replace if you already uploaded the prior PWA package)
+- sw.js                      NEW / REPLACE
+- app-icon-192.png           NEW / REPLACE
+- app-icon-512.png           NEW / REPLACE
+
+Do NOT delete the existing city pages, styles.css, script.js, today.html, wedding.html,
+transportation.html, SVG files, or any other current files.
+
+This package supersedes the earlier PWA ZIP: it includes the installable Android/PWA
+changes AND the new Food & Events hub in one version.
+
+After upload:
+1. Commit to main.
+2. Wait for GitHub Pages to redeploy.
+3. Open the homepage and tap Restaurants & Events.
+4. On Android Chrome, reload the homepage and install the app when prompted.
+
+The recommendations page has direct event/ticket/calendar and Google Maps links.
