@@ -177,3 +177,12 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Each leg now has route-specific Omio, Trainline, SNCF, or official Malpensa Express links.
 - Today travel-day cards now jump directly to the matching travel-plan section.
 - All train times are labeled as planning targets / current timetable patterns and should be verified on the linked booking page before purchase.
+
+## v14.1
+- Added Oct 1 Verona arrival transfer from Verona Airport (VRN) to Raggio di Luna Apartment.
+- Recommended direct taxi after the 12:45 PM Air Dolomiti EN 8210 arrival; included official airport taxi link.
+- Added AirLink 199 as the low-cost alternative: airport → Verona Porta Nuova, then short walk to the stay.
+- Changed primary train-search buttons to Trainline's documented date/time deep-link format so the travel date and target departure time are prefilled.
+- Kept Omio as a secondary comparison on useful routes.
+- Explained why ordinary Omio links do not reliably preserve a future date, while Omio's date-prefilled affiliate widget requires a valid partner ID.
+- Oct 1 on the Today page now jumps directly to the airport-transfer plan.
