@@ -3,7 +3,7 @@
 <title>Today & Daily Itinerary | Sera & Brendon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=14.1"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=15"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
@@ -26,6 +26,64 @@
   <span>Trip countdown</span><strong>Italy is getting close.</strong><small>Dates update automatically on your phone.</small>
 </div>
 
+
+<section class="trip-command-center" id="trip-dashboard">
+  <div class="dashboard-topline">
+    <div>
+      <p class="kicker">Today dashboard</p>
+      <h2 id="dashboard-title">Your trip at a glance</h2>
+      <p id="dashboard-subtitle">This becomes your quick-reference screen during the trip.</p>
+    </div>
+    <span class="dashboard-date" id="dashboard-date">October 2026</span>
+  </div>
+
+  <div class="dashboard-grid">
+    <article class="dashboard-card dashboard-primary">
+      <span class="dashboard-label">📍 Where we are</span>
+      <strong id="dashboard-location">Verona is first</strong>
+      <small id="dashboard-stay">Trip begins October 1</small>
+      <a id="dashboard-city-link" class="dashboard-link" href="verona.html">Open destination →</a>
+    </article>
+
+    <article class="dashboard-card">
+      <span class="dashboard-label">🌤️ Today's weather</span>
+      <strong id="dashboard-weather">Forecast will appear closer to the trip</strong>
+      <small id="dashboard-weather-detail">The live forecast card updates automatically.</small>
+      <a class="dashboard-link" href="#today-weather">See forecast →</a>
+    </article>
+
+    <article class="dashboard-card">
+      <span class="dashboard-label">🎉 What's happening</span>
+      <strong id="dashboard-events">No event selected for today</strong>
+      <small id="dashboard-events-detail">We'll surface researched events here automatically.</small>
+      <a id="dashboard-events-link" class="dashboard-link" href="#daily-plan">See today's plan →</a>
+    </article>
+
+    <article class="dashboard-card">
+      <span class="dashboard-label">🚆 Next transportation</span>
+      <strong id="dashboard-transport">Arrival in Verona</strong>
+      <small id="dashboard-transport-detail">Airport → apartment</small>
+      <a id="dashboard-transport-link" class="dashboard-link" href="transportation.html#oct-01">Open travel plan →</a>
+    </article>
+
+    <article class="dashboard-card dashboard-directions">
+      <span class="dashboard-label">🧳 Get back to our stay</span>
+      <strong id="dashboard-stay-name">Raggio di Luna Apartment</strong>
+      <small id="dashboard-address">Via del Minatore, 5, Verona</small>
+      <a id="dashboard-directions-link" class="dashboard-action" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Via%20del%20Minatore%2C%205%2C%20Verona%2C%20Italy">Directions →</a>
+    </article>
+
+    <article class="dashboard-card">
+      <span class="dashboard-label">✨ Easy idea for today</span>
+      <strong id="dashboard-idea">Settle in and wander Verona</strong>
+      <small id="dashboard-idea-detail">Keep the first day intentionally easy.</small>
+      <a id="dashboard-idea-link" class="dashboard-link" href="verona.html#map">See nearby places →</a>
+    </article>
+  </div>
+</section>
+
+<div id="daily-plan"></div>
 <div class="trip-weather-card today-trip-weather" id="today-weather" data-weather-route="[{&quot;name&quot;: &quot;Verona&quot;, &quot;lat&quot;: 45.43315, &quot;lng&quot;: 10.98755, &quot;start&quot;: &quot;2026-10-01&quot;, &quot;end&quot;: &quot;2026-10-04&quot;}, {&quot;name&quot;: &quot;Parma&quot;, &quot;lat&quot;: 44.8017, &quot;lng&quot;: 10.3273, &quot;start&quot;: &quot;2026-10-04&quot;, &quot;end&quot;: &quot;2026-10-07&quot;}, {&quot;name&quot;: &quot;Ispra / Lake Maggiore&quot;, &quot;lat&quot;: 45.81225, &quot;lng&quot;: 8.6171, &quot;start&quot;: &quot;2026-10-07&quot;, &quot;end&quot;: &quot;2026-10-11&quot;}, {&quot;name&quot;: &quot;Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919, &quot;start&quot;: &quot;2026-10-11&quot;, &quot;end&quot;: &quot;2026-10-14&quot;}, {&quot;name&quot;: &quot;Beaulieu-sur-Mer / Nice&quot;, &quot;lat&quot;: 43.7088, &quot;lng&quot;: 7.3315, &quot;start&quot;: &quot;2026-10-14&quot;, &quot;end&quot;: &quot;2026-10-18&quot;}]">
   <div class="weather-card-head">
     <div><p class="kicker">Trip weather</p><h2>Weather for where we are</h2></div>
@@ -57,4 +115,4 @@
 <a class="day-card" data-date="2026-10-17" href="nice.html"><b>Oct 17</b><div><strong>French Riviera</strong><span>Final honeymoon day</span><span class="day-event-stack"><span class="day-event-chip">💃 Forró de Nice</span><span class="day-event-chip">🎉 Festival CaraïbAzur</span><span class="day-event-more">See event on map →</span></span></div><em>→</em></a>
 <a class="day-card" data-date="2026-10-18" href="transportation.html#oct-18"><b>Oct 18</b><div><strong>Fly home</strong><span>Nice Côte d’Azur Airport</span></div><em>→</em></a></div>
 </section>
-</main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="script.js?v=14.1"></script></body></html>
+</main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="script.js?v=15"></script></body></html>

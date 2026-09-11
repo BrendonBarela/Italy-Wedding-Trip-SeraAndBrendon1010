@@ -77,6 +77,74 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 
 
+
+  // Today dashboard: follows the itinerary using the device's local date.
+  const dashboard = document.getElementById("trip-dashboard");
+  if (dashboard) {
+    const tripDays = {
+      "2026-10-01": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Settle in + easy Verona wander", ideaDetail:"Aperitivo and an early night after arrival.", ideaLink:"verona.html#map", transport:"Arrive in Verona", transportDetail:"VRN airport → taxi to apartment", transportLink:"transportation.html#oct-01"},
+      "2026-10-02": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Historic-center day", ideaDetail:"Arena, Piazza delle Erbe and a relaxed evening.", ideaLink:"verona.html#map", transport:"Next travel: Parma", transportDetail:"Oct 4 • target ~12:02 PM train", transportLink:"transportation.html#oct-04"},
+      "2026-10-03": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Open Verona day", ideaDetail:"Keep room for the Frida Kahlo event if it appeals.", ideaLink:"verona.html#map", transport:"Next travel: Parma", transportDetail:"Tomorrow • target ~12:02 PM", transportLink:"transportation.html#oct-04"},
+      "2026-10-04": {city:"Travel → Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Check in + first Parma dinner", ideaDetail:"Keep the arrival afternoon easy.", ideaLink:"parma.html#restaurants", transport:"Verona → Parma", transportDetail:"Checkout 11:00 • target ~12:02 PM", transportLink:"transportation.html#oct-04"},
+      "2026-10-05": {city:"Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Food + historic center", ideaDetail:"This is the day to lean into Parma's specialties.", ideaLink:"parma.html#restaurants", transport:"Next travel: Ispra", transportDetail:"Oct 7 • Parma → Milan → MXP", transportLink:"transportation.html#oct-07"},
+      "2026-10-06": {city:"Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Easy Parma day", ideaDetail:"Katie joins today; leave time to regroup.", ideaLink:"parma.html#map", transport:"Next travel: Ispra", transportDetail:"Tomorrow • target ~10:39 AM", transportLink:"transportation.html#oct-07"},
+      "2026-10-07": {city:"Travel → Ispra", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Villa arrival + lake evening", ideaDetail:"Pick up the rental car at MXP and settle in.", ideaLink:"ispra.html#map", transport:"Parma → Ispra", transportDetail:"Milan → MXP → rental car", transportLink:"transportation.html#oct-07"},
+      "2026-10-08": {city:"Ispra / Lake Maggiore", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Easy lake day", ideaDetail:"Use the car; ferry only if fall service is confirmed.", ideaLink:"ispra.html#map", transport:"Next travel: Santa Margherita", transportDetail:"Oct 11 • car return + trains", transportLink:"transportation.html#oct-11"},
+      "2026-10-09": {city:"Ispra", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Wedding prep + low-key day", ideaDetail:"Protect the evening and keep logistics simple.", ideaLink:"wedding.html", transport:"Next travel: Santa Margherita", transportDetail:"Oct 11 • after the wedding", transportLink:"transportation.html#oct-11"},
+      "2026-10-10": {city:"Wedding Day 💍", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"wedding.html", idea:"Get married", ideaDetail:"Ceremony → champagne → golden hour → dinner.", ideaLink:"wedding.html", transport:"Tomorrow: Ligurian coast", transportDetail:"Drive to MXP → return car → train", transportLink:"transportation.html#oct-11"},
+      "2026-10-11": {city:"Travel → Santa Margherita", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Check in + Riviera evening", ideaDetail:"No need to force sightseeing after the travel day.", ideaLink:"santa-margherita.html#map", transport:"Ispra → Santa Margherita", transportDetail:"MXP car return → Milan → Santa", transportLink:"transportation.html#oct-11"},
+      "2026-10-12": {city:"Santa Margherita Ligure", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Portofino option", ideaDetail:"Go if the weather is good; otherwise enjoy Santa slowly.", ideaLink:"santa-margherita.html#map", transport:"Next travel: France", transportDetail:"Oct 14 • Ventimiglia connection", transportLink:"transportation.html#oct-14"},
+      "2026-10-13": {city:"Santa Margherita Ligure", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Relaxed Ligurian coast day", ideaDetail:"Long lunch, waterfront and honeymoon pace.", ideaLink:"santa-margherita.html#restaurants", transport:"Next travel: Beaulieu", transportDetail:"Tomorrow • target ~10:55 AM", transportLink:"transportation.html#oct-14"},
+      "2026-10-14": {city:"Travel → French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Check in + waterfront evening", ideaDetail:"Arrive around 3 PM and keep the first evening local.", ideaLink:"nice.html#map", transport:"Santa → Beaulieu", transportDetail:"Ventimiglia → French TER", transportLink:"transportation.html#oct-14"},
+      "2026-10-15": {city:"Beaulieu / Nice", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Nice day", ideaDetail:"Old Nice, waterfront and Forró if you want dancing.", ideaLink:"nice.html#map", transport:"Airport day", transportDetail:"Oct 18 • train to Nice St-Augustin", transportLink:"transportation.html#oct-18"},
+      "2026-10-16": {city:"French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Èze option", ideaDetail:"A good day for the hill village if energy and weather cooperate.", ideaLink:"nice.html#map", transport:"Airport day", transportDetail:"Oct 18 • checkout ~9:00 AM", transportLink:"transportation.html#oct-18"},
+      "2026-10-17": {city:"French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Final honeymoon day", ideaDetail:"Keep it romantic and low-pressure; dance events are available.", ideaLink:"nice.html#map", transport:"Tomorrow: Nice Airport", transportDetail:"Target ~9:28 AM TER", transportLink:"transportation.html#oct-18"},
+      "2026-10-18": {city:"Fly home ✈️", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Airport morning", ideaDetail:"Checkout ~9:00 and head directly toward NCE.", ideaLink:"transportation.html#oct-18", transport:"Beaulieu → NCE Terminal 2", transportDetail:"Target ~9:28 AM TER • flight 12:35 PM", transportLink:"transportation.html#oct-18"}
+    };
+
+    const n = new Date();
+    const todayKeyDash = `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}-${String(n.getDate()).padStart(2,"0")}`;
+    const keys = Object.keys(tripDays);
+    let selectedKey = todayKeyDash;
+    let cfg = tripDays[selectedKey];
+
+    if (!cfg) {
+      selectedKey = todayKeyDash < keys[0] ? keys[0] : keys[keys.length-1];
+      cfg = tripDays[selectedKey];
+    }
+
+    const isLiveTripDay = Boolean(tripDays[todayKeyDash]);
+    const niceDate = new Intl.DateTimeFormat("en-US",{weekday:"long",month:"short",day:"numeric"}).format(
+      new Date(Number(selectedKey.slice(0,4)),Number(selectedKey.slice(5,7))-1,Number(selectedKey.slice(8,10)))
+    );
+
+    const $ = id => document.getElementById(id);
+    if ($("dashboard-title")) $("dashboard-title").textContent = isLiveTripDay ? cfg.city : "Next up: Verona";
+    if ($("dashboard-subtitle")) $("dashboard-subtitle").textContent = isLiveTripDay ? "Everything useful for today in one place." : "This dashboard will automatically follow the itinerary once the trip begins.";
+    if ($("dashboard-date")) $("dashboard-date").textContent = isLiveTripDay ? niceDate : "Trip starts Oct 1";
+    if ($("dashboard-location")) $("dashboard-location").textContent = cfg.city;
+    if ($("dashboard-stay")) $("dashboard-stay").textContent = cfg.stay;
+    if ($("dashboard-city-link")) $("dashboard-city-link").href = cfg.page;
+    if ($("dashboard-stay-name")) $("dashboard-stay-name").textContent = cfg.stay;
+    if ($("dashboard-address")) $("dashboard-address").textContent = cfg.address;
+    if ($("dashboard-directions-link")) $("dashboard-directions-link").href = directions(cfg.address);
+    if ($("dashboard-idea")) $("dashboard-idea").textContent = cfg.idea;
+    if ($("dashboard-idea-detail")) $("dashboard-idea-detail").textContent = cfg.ideaDetail;
+    if ($("dashboard-idea-link")) $("dashboard-idea-link").href = cfg.ideaLink;
+    if ($("dashboard-transport")) $("dashboard-transport").textContent = cfg.transport;
+    if ($("dashboard-transport-detail")) $("dashboard-transport-detail").textContent = cfg.transportDetail;
+    if ($("dashboard-transport-link")) $("dashboard-transport-link").href = cfg.transportLink;
+
+    if (isLiveTripDay) {
+      const dayCard = document.querySelector(`.day-card[data-date="${todayKeyDash}"]`);
+      const eventNames = dayCard ? [...dayCard.querySelectorAll(".day-event-chip")].map(x=>x.textContent.trim()) : [];
+      if ($("dashboard-events")) $("dashboard-events").textContent = eventNames.length ? eventNames.join(" • ") : "No researched event today";
+      if ($("dashboard-events-detail")) $("dashboard-events-detail").textContent = eventNames.length ? "Tap below for the full daily plan." : "Use the destination map for food, sights and nearby places.";
+      if ($("dashboard-events-link")) $("dashboard-events-link").href = eventNames.length ? "#daily-plan" : `${cfg.page}#map`;
+    }
+  }
+
+
   // Trip weather — Open-Meteo provides up to a 16-day forecast.
   const weatherCards = [...document.querySelectorAll(".trip-weather-card")];
 
@@ -178,6 +246,19 @@ document.addEventListener("DOMContentLoaded",()=>{
       }).join("");
 
       body.innerHTML = `<div class="weather-location-line"><strong>${cfg.name}</strong><span>${days.length}-day trip forecast</span></div><div class="weather-days">${dayCards}</div>`;
+
+      // Feed today's forecast into the Today dashboard.
+      const todayForecast = days.find(day => day.iso === todayKey);
+      const dashboardWeather = document.getElementById("dashboard-weather");
+      const dashboardWeatherDetail = document.getElementById("dashboard-weather-detail");
+      if (todayForecast && dashboardWeather && dashboardWeatherDetail) {
+        const [icon,label] = weatherCode(Number(todayForecast.code));
+        const hi = Number.isFinite(Number(todayForecast.high)) ? Math.round(todayForecast.high) : "—";
+        const lo = Number.isFinite(Number(todayForecast.low)) ? Math.round(todayForecast.low) : "—";
+        const rain = Number.isFinite(Number(todayForecast.rain)) ? Math.round(todayForecast.rain) : "—";
+        dashboardWeather.textContent = `${icon} ${label} • ${hi}° / ${lo}°F`;
+        dashboardWeatherDetail.textContent = `${rain}% chance of precipitation`;
+      }
     }catch(e){
       body.innerHTML = `<div class="weather-not-ready"><strong>Weather temporarily unavailable</strong><span>The rest of the trip page still works normally. Try refreshing later.</span></div>`;
     }
@@ -206,12 +287,34 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   const labels={stay:"Our stay",food:"Restaurant",coffee:"Coffee",grocery:"Grocery",pharmacy:"Pharmacy",station:"Transit",parking:"Parking",sight:"Sight",event:"Event"};
   const directions=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
-  const popup=item=>{
+  const kmBetween=(a,b)=>{
+    const R=6371, toRad=x=>x*Math.PI/180;
+    const dLat=toRad(Number(b.lat)-Number(a.lat));
+    const dLng=toRad(Number(b.lng)-Number(a.lng));
+    const la1=toRad(Number(a.lat)), la2=toRad(Number(b.lat));
+    const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
+    return 2*R*Math.asin(Math.sqrt(h));
+  };
+
+  const distanceFromStay=(item,stay)=>{
+    if(!stay || item.kind==="stay") return "";
+    // Straight-line distance adjusted upward to better approximate a real walking route.
+    const routeKm=kmBetween(stay,item)*1.18;
+    const miles=routeKm*0.621371;
+    if(routeKm<=4.5){
+      const mins=Math.max(2,Math.round((routeKm/4.7)*60/2)*2);
+      return `<span class="walk-estimate">≈ ${mins} min walk • ${miles.toFixed(miles<1?1:1)} mi from stay</span>`;
+    }
+    return `<span class="walk-estimate">≈ ${miles.toFixed(1)} mi from stay</span>`;
+  };
+
+  const popup=(item,stay)=>{
     const address=item.address||"";
     const q=address||item.name||`${item.lat},${item.lng}`;
     const date=item.date?`<span class="event-date">${item.date}</span>`:"";
+    const distance=distanceFromStay(item,stay);
     const info=item.url?`<a target="_blank" rel="noopener" href="${item.url}">Event info ↗</a>`:"";
-    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${address?`<span>${address}</span>`:""}<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>${info}</div>`;
+    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${distance}${address?`<span>${address}</span>`:""}<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>${info}</div>`;
   };
 
   const overpassEndpoint="https://overpass-api.de/api/interpreter";
@@ -299,7 +402,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       seen.add(key);
       records.push(item);
       L.circleMarker([Number(item.lat),Number(item.lng)],styles[item.kind])
-        .bindPopup(popup(item)).addTo(layers[item.kind]);
+        .bindPopup(popup(item,d.stay)).addTo(layers[item.kind]);
     };
 
     // Render built-in trip pins first.

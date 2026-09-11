@@ -186,3 +186,11 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Kept Omio as a secondary comparison on useful routes.
 - Explained why ordinary Omio links do not reliably preserve a future date, while Omio's date-prefilled affiliate widget requires a valid partner ID.
 - Oct 1 on the Today page now jumps directly to the airport-transfer plan.
+
+## v15
+- Added a Today Dashboard / trip command center with current city, lodging directions, today's live weather, events, next transportation step, and one easy activity suggestion.
+- Dashboard follows the itinerary automatically based on the device date during Oct 1–18.
+- Added approximate distance / walking-time estimates from the stay to map pins; live Directions remains the source of truth.
+- Rebuilt each city page's Next Stop section with checkout time, recommended travel target, expected arrival, and a direct link to that day's transport plan.
+- Performed a CSS cleanup by removing several superseded mobile-navigation experiments and retaining one authoritative dropdown implementation.
+- Kept the working desktop navigation and the current solid mobile dropdown design.
