@@ -166,3 +166,14 @@ v5.1 adds Leaflet JS before script.js on every HTML page so the interactive maps
 - Added dynamic weather cards to all five destination pages and the Today page.
 - Weather uses Open-Meteo's no-key forecast API and displays trip dates automatically once they enter its 16-day forecast window.
 - Weather cards show condition, high/low in °F and °C, and precipitation probability.
+
+## v14
+- Rebuilt Transportation as a check-in/check-out based Travel Day Planner.
+- Oct 4 Verona → Parma: target roughly noon departure, timed to Parma's 3 PM check-in.
+- Oct 7 Parma → Milan → Malpensa → Ispra: direct Parma–Milan recommendation plus Malpensa Express and rental-car timing.
+- Oct 11 Ispra → MXP → Milan → Santa Margherita: rental return buffer, airport train, and buffered Milan connection.
+- Oct 14 Santa Margherita → Ventimiglia → Beaulieu: recommended cross-border connection timed to 3 PM check-in.
+- Oct 18 Beaulieu → Nice Saint-Augustin → NCE Terminal 2: planned around ~9 AM checkout and the 12:35 PM Air Canada flight.
+- Each leg now has route-specific Omio, Trainline, SNCF, or official Malpensa Express links.
+- Today travel-day cards now jump directly to the matching travel-plan section.
+- All train times are labeled as planning targets / current timetable patterns and should be verified on the linked booking page before purchase.

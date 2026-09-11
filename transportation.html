@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body id="top">
 
@@ -30,21 +30,195 @@
 <a href="transportation.html">Transport</a>
 </nav></header>
 
+
 <main>
-<section class="page-hero"><div class="shell"><p class="eyebrow">Nothing booked yet</p><h1>Transportation</h1><p>The route is decided. Exact trains and ticket links will be added as schedules are finalized.</p></div></section>
-<section class="shell section">
-<p class="kicker">Travel days</p><h2>Recommended plan</h2>
-<div class="travel-grid">
-  <article class="travel-card"><p>Oct 4</p><h3>Verona → Parma</h3><dl><dt>Mode</dt><dd>Train</dd><dt>Preference</dt><dd>Late morning / around lunch</dd><dt>Priority</dt><dd>Simple itinerary, minimal transfers</dd><dt>Status</dt><dd><span class="status">Exact train TBD</span></dd></dl></article>
-  <article class="travel-card"><p>Oct 7</p><h3>Parma → MXP → Ispra</h3><dl><dt>Leg 1</dt><dd>Train to Milano Centrale</dd><dt>Leg 2</dt><dd>Malpensa Express to MXP</dd><dt>At MXP</dt><dd>Pick up rental car</dd><dt>Final</dt><dd>Drive to Ispra</dd></dl></article>
-  <article class="travel-card"><p>Oct 11</p><h3>Ispra → MXP → Santa Margherita</h3><dl><dt>First</dt><dd>Drive to MXP</dd><dt>At MXP</dt><dd>Return rental car</dd><dt>Then</dt><dd>Train toward Milan / Genoa / Santa Margherita</dd><dt>Priority</dt><dd>Fewest transfers + safe connection times</dd></dl></article>
-  <article class="travel-card"><p>Oct 14</p><h3>Santa Margherita → Beaulieu-sur-Mer</h3><dl><dt>Mode</dt><dd>Train</dd><dt>Likely route</dt><dd>Liguria → Ventimiglia → French Riviera</dd><dt>Preference</dt><dd>Morning departure</dd><dt>Priority</dt><dd>Low-stress transfer + daylight arrival</dd></dl></article>
-  <article class="travel-card"><p>Oct 18</p><h3>Beaulieu-sur-Mer → NCE Airport</h3><dl><dt>Mode</dt><dd>Local transit / taxi</dd><dt>Priority</dt><dd>Easy luggage handling</dd><dt>Timing</dt><dd>Set from flight departure</dd><dt>Status</dt><dd><span class="status">Plan later</span></dd></dl></article>
-</div>
-<div class="callout"><h3>Booking strategy</h3><p>We won't invent train numbers before the October timetable is reliable. When the schedules are available, this page can show a recommended train, a backup train, departure/arrival times, transfers, seat-reservation requirements, and direct booking links.</p>
-<div class="button-row"><a class="button dark" href="https://www.trenitalia.com/" target="_blank" rel="noopener">Trenitalia ↗</a><a class="button dark" href="https://www.italotreno.com/" target="_blank" rel="noopener">Italo ↗</a></div></div>
+<section class="page-hero transport-hero">
+  <div class="shell">
+    <p class="eyebrow">Built around our lodging times</p>
+    <h1>Transportation</h1>
+    <p>Recommended train windows, airport transfers, backup options, and route-specific booking searches for every travel day.</p>
+  </div>
+</section>
+
+<section class="shell section travel-planner">
+  <div class="transport-intro">
+    <div>
+      <p class="kicker">How to use this page</p>
+      <h2>Low-stress travel, not the absolute fastest train</h2>
+      <p>These recommendations are chosen around checkout, check-in, luggage, transfers, and a little delay protection. The times below are planning targets based on currently published timetable patterns. Always confirm the exact October service before purchasing.</p>
+    </div>
+    <div class="transport-key">
+      <span><i class="best-dot"></i> Best fit</span>
+      <span><i class="backup-dot"></i> Backup</span>
+      <span><i class="transfer-dot"></i> Airport / transfer</span>
+    </div>
+  </div>
+
+  <article class="journey-card" id="oct-04">
+    <div class="journey-date"><span>OCT</span><strong>04</strong><small>Sunday</small></div>
+    <div class="journey-content">
+      <div class="journey-heading">
+        <div><p class="kicker">Verona → Parma</p><h2>Checkout at 11:00 AM → check-in at 3:00 PM</h2></div>
+        <span class="best-fit-badge">Best fit</span>
+      </div>
+      <div class="journey-summary">
+        <div><span>Leave stay</span><strong>By 11:00</strong><small>Walk / short taxi to Verona Porta Nuova</small></div>
+        <div><span>Target train</span><strong>~12:02 PM</strong><small>1 change • current pattern ~2h47</small></div>
+        <div><span>Parma</span><strong>~2:49 PM</strong><small>Then ~10–15 min to the apartment</small></div>
+      </div>
+      <div class="recommended-route">
+        <span class="route-line"><b>Raggio di Luna</b><i>→</i> Verona Porta Nuova <i>→</i> <b>Parma</b></span>
+        <p><strong>Why this one:</strong> checking out at 11 gives plenty of time to reach the station without rushing, and a roughly noon departure lands almost exactly at the 3 PM check-in window.</p>
+      </div>
+      <div class="backup-route"><strong>Backup:</strong> a current timetable pattern also shows about <b>12:26 → 3:13 PM</b>. Arriving a few minutes after check-in is completely fine.</div>
+      <div class="booking-search">
+        <div><span>Search settings</span><strong>Oct 4 • Verona Porta Nuova → Parma • depart around noon</strong></div>
+        <div class="booking-buttons">
+          <a class="button dark" target="_blank" rel="noopener" href="https://www.omio.com/trains/verona/parma">Compare on Omio ↗</a>
+          <a class="button outline" target="_blank" rel="noopener" href="https://www.thetrainline.com/en-us/train-times/verona-porta-nuova-to-parma">Trainline route ↗</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="journey-card" id="oct-07">
+    <div class="journey-date"><span>OCT</span><strong>07</strong><small>Wednesday</small></div>
+    <div class="journey-content">
+      <div class="journey-heading">
+        <div><p class="kicker">Parma → Milan → MXP → Ispra</p><h2>Checkout at 10:00 AM → Villa check-in at 4:00 PM</h2></div>
+        <span class="best-fit-badge">Best fit</span>
+      </div>
+      <div class="journey-summary four">
+        <div><span>Parma</span><strong>~10:39 AM</strong><small>Intercity • direct</small></div>
+        <div><span>Milano Centrale</span><strong>~12:15 PM</strong><small>Comfortable airport connection</small></div>
+        <div><span>Malpensa Express</span><strong>~12:55 PM</strong><small>~51–56 min to T1</small></div>
+        <div><span>Ispra</span><strong>~3:00–3:30 PM</strong><small>Rental pickup + drive</small></div>
+      </div>
+      <div class="recommended-route">
+        <span class="route-line"><b>Parma</b><i>→</i> Milano Centrale <i>→</i> MXP <i>→</i> 🚗 <b>Ispra</b></span>
+        <p><strong>Why this one:</strong> the ~10:39 Intercity is direct and avoids paying Frecciarossa prices just to save about 40 minutes. It should leave a comfortable connection for the Malpensa Express and enough time to collect the car before the 4 PM villa check-in.</p>
+      </div>
+      <div class="transfer-box">
+        <span>✈️ Airport transfer</span>
+        <p>Malpensa Express trains from Milano Centrale normally leave at <strong>:25 and :55</strong> each hour and take about 51–56 minutes. Target the <strong>12:55 PM</strong>; don't force a 10-minute connection to an earlier airport train.</p>
+      </div>
+      <div class="backup-route"><strong>Value backup:</strong> ~<b>11:00 AM Parma → 12:45 PM Milan</b>, then target the <b>1:25 PM Malpensa Express</b>. That should still put you in Ispra close to check-in.</div>
+      <div class="booking-search split-search">
+        <div><span>Leg 1 • Oct 7</span><strong>Parma → Milano Centrale • depart ~10:30–11:00</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.omio.com/trains/parma/milan-centrale-jqnos">Open this route on Omio ↗</a>
+        </div>
+        <div><span>Leg 2 • Airport</span><strong>Milano Centrale → Malpensa Airport</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.trenord.it/en/routes-and-timetables/services/airport-routes-mxp/">Official Malpensa Express ↗</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="journey-card" id="oct-11">
+    <div class="journey-date"><span>OCT</span><strong>11</strong><small>Sunday</small></div>
+    <div class="journey-content">
+      <div class="journey-heading">
+        <div><p class="kicker">Ispra → MXP → Milan → Santa Margherita</p><h2>Checkout at 10:00 AM → check-in from 3:00 PM</h2></div>
+        <span class="best-fit-badge">Best fit</span>
+      </div>
+      <div class="journey-summary four">
+        <div><span>Leave Ispra</span><strong>~9:45–10:00</strong><small>Drive to MXP</small></div>
+        <div><span>Car return</span><strong>By ~11:15</strong><small>Allow time for fuel / return</small></div>
+        <div><span>MXP → Milan</span><strong>11:43 / 12:13</strong><small>Either works well</small></div>
+        <div><span>Milan → Santa</span><strong>~1:55 PM</strong><small>Target arrival ~4:41 PM</small></div>
+      </div>
+      <div class="recommended-route">
+        <span class="route-line"><b>Ispra</b><i>→</i> 🚗 MXP <i>→</i> Milano Centrale <i>→</i> <b>Santa Margherita</b></span>
+        <p><strong>Why this one:</strong> this deliberately builds in time for the rental-car return. The 11:43 or 12:13 airport train reaches Milan with a useful cushion before the roughly 1:55 PM train toward Santa Margherita.</p>
+      </div>
+      <div class="transfer-box">
+        <span>✈️ Rental car + airport train</span>
+        <p>From Malpensa T1, the Centrale-bound service is roughly every 30 minutes. Current timetable patterns show <strong>11:43 → 12:37</strong> and <strong>12:13 → 1:07</strong>. Either gives us much better protection than trying to make the 1 PM onward train.</p>
+      </div>
+      <div class="backup-route"><strong>Easy backup:</strong> if the car return runs long, there are later Milan departures. A current pattern includes a <b>3:55 PM direct Intercity → 6:14 PM</b> with no changes.</div>
+      <div class="booking-search split-search">
+        <div><span>Leg 1 • Airport</span><strong>Malpensa T1 → Milano Centrale</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.trenord.it/en/routes-and-timetables/most-searched-lines/malpensa-aeroporto-t1-milano-centrale-route/">Official Malpensa Express ↗</a>
+        </div>
+        <div><span>Leg 2 • Oct 11</span><strong>Milano Centrale → Santa Margherita Ligure-Portofino • ~1:55 PM</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.omio.com/trains/milan-centrale/santa-margherita-ligure-8hgoh">Open this route on Omio ↗</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="journey-card" id="oct-14">
+    <div class="journey-date"><span>OCT</span><strong>14</strong><small>Wednesday</small></div>
+    <div class="journey-content">
+      <div class="journey-heading">
+        <div><p class="kicker">Santa Margherita → Ventimiglia → Beaulieu-sur-Mer</p><h2>Checkout at 10:00 AM → check-in at 3:00 PM</h2></div>
+        <span class="best-fit-badge">Best fit</span>
+      </div>
+      <div class="journey-summary four">
+        <div><span>Santa Margherita</span><strong>~10:55 AM</strong><small>Current pattern • 1 change</small></div>
+        <div><span>Ventimiglia</span><strong>~1:54 PM</strong><small>Cross-border transfer</small></div>
+        <div><span>French TER</span><strong>~2:11 PM</strong><small>Direct to Beaulieu</small></div>
+        <div><span>Beaulieu</span><strong>~2:57 PM</strong><small>Almost perfect for check-in</small></div>
+      </div>
+      <div class="recommended-route">
+        <span class="route-line"><b>Santa Margherita</b><i>→</i> Ventimiglia <i>→</i> 🇫🇷 TER <i>→</i> <b>Beaulieu-sur-Mer</b></span>
+        <p><strong>Why this one:</strong> it uses the room until checkout and gets us to Beaulieu almost exactly at 3 PM. Ventimiglia is the logical place to switch from the Italian rail network to the French Riviera TER.</p>
+      </div>
+      <div class="transfer-box">
+        <span>🇮🇹 → 🇫🇷 Cross-border connection</span>
+        <p>The planned connection is about 17 minutes. If the Italian train is late, don't panic: the Riviera TER is frequent. A current pattern shows another <strong>2:40 PM → 3:26 PM</strong> direct train to Beaulieu.</p>
+      </div>
+      <div class="booking-search split-search">
+        <div><span>Leg 1 • Oct 14</span><strong>Santa Margherita Ligure-Portofino → Ventimiglia • ~10:55 AM</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.thetrainline.com/en/train-times/santa-margherita-ligure-portofino-to-ventimiglia">Trainline route ↗</a>
+        </div>
+        <div><span>Leg 2 • France</span><strong>Ventimiglia → Beaulieu-sur-Mer • ~2:10 PM</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.sncf-connect.com/train/horaires/vintimille/beaulieu-sur-mer">SNCF route ↗</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="journey-card airport-day" id="oct-18">
+    <div class="journey-date"><span>OCT</span><strong>18</strong><small>Sunday</small></div>
+    <div class="journey-content">
+      <div class="journey-heading">
+        <div><p class="kicker">Beaulieu-sur-Mer → Nice Airport</p><h2>Checkout around 9:00 AM → 12:35 PM flight</h2></div>
+        <span class="best-fit-badge">Airport day</span>
+      </div>
+      <div class="journey-summary four">
+        <div><span>Checkout</span><strong>~9:00 AM</strong><small>Head straight to Beaulieu station</small></div>
+        <div><span>Recommended TER</span><strong>~9:28 AM</strong><small>Direct • no change</small></div>
+        <div><span>Nice St-Augustin</span><strong>~9:47 AM</strong><small>Airport rail stop</small></div>
+        <div><span>Air Canada</span><strong>12:35 PM</strong><small>Nice Airport • Terminal 2</small></div>
+      </div>
+      <div class="recommended-route">
+        <span class="route-line"><b>Beaulieu-sur-Mer</b><i>→</i> Nice Saint-Augustin <i>→</i> 🚊 <b>NCE Terminal 2</b></span>
+        <p><strong>Why this one:</strong> the 9:28 target is realistic after a 9 AM checkout and should put us at Terminal 2 around 10 AM—roughly 2½ hours before departure.</p>
+      </div>
+      <div class="transfer-box">
+        <span>✈️ Nice Airport transfer</span>
+        <p>Nice Saint-Augustin is the airport rail station. From the Grand Arénas interchange, trams to Terminal 1 and Terminal 2 are free. Air Canada currently operates from <strong>Terminal 2</strong>.</p>
+      </div>
+      <div class="backup-route"><strong>More cushion:</strong> if we're ready early, target <b>9:16 → 9:36</b>. <strong>If we miss 9:28:</strong> a current pattern has <b>9:48 → 10:07</b>; it should still meet the airport's two-hour recommendation, but with less margin.</div>
+      <div class="booking-search split-search">
+        <div><span>Train • Oct 18</span><strong>Beaulieu-sur-Mer → Nice St-Augustin • depart ~9:15–9:30 AM</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.thetrainline.com/en/train-times/beaulieu-sur-mer-to-nice-st-augustin">Trainline route ↗</a>
+        </div>
+        <div><span>Airport connection</span><strong>Nice Saint-Augustin → NCE terminals</strong>
+          <a class="mini-search-link" target="_blank" rel="noopener" href="https://www.nice.aeroport.fr/en/directions/train">Official airport instructions ↗</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="transport-warning">
+    <strong>Before buying</strong>
+    <p>Open each route, set the date shown on the card, and verify the departure/arrival times. Third-party route pages reliably prefill the cities or stations, but they do not always preserve a future date in a shareable URL. The schedule targets above are therefore our planning recommendation—not a claim that a specific October train is locked in yet.</p>
+  </div>
 </section>
 </main>
+
 
 <footer>
   <div class="shell footer-inner">
@@ -53,4 +227,4 @@
   </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="script.js?v=13"></script></body></html>
+<script src="script.js?v=14"></script></body></html>
