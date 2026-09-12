@@ -20,6 +20,7 @@
 <a href="index.html">Home</a>
 <a class="today-nav trip-today-link" href="today.html" hidden>Today</a>
 <a href="recommendations.html">Food & Events</a>
+<a href="essentials.html">Essentials</a>
 <a href="verona.html">Verona</a>
 <a href="parma.html">Parma</a>
 <a href="ispra.html">Ispra</a>
@@ -35,7 +36,8 @@
 <div class="countdown-card" id="trip-countdown" data-start="2026-10-01" data-wedding="2026-10-10" data-end="2026-10-18">
 <span>Trip countdown</span><strong>Italy is getting close.</strong><small>Updates automatically.</small></div>
 <a class="button dark" href="today.html">See today's plan →</a>
-<button id="install-app-button" class="button dark" type="button" hidden>Install wedding app</button>
+<button id="install-app-button" class="button dark" type="button">Install wedding app</button>
+<div id="install-app-help" style="flex-basis:100%;margin-top:4px;padding:10px 14px;border-radius:12px;background:#f4e9df;color:#6b554a;font-size:.78rem;line-height:1.45;max-width:760px;" aria-live="polite">Install this trip on your phone for an app-like home-screen experience. If Chrome is ready, the button opens the install prompt; otherwise it shows the exact steps.</div>
 </section>
 <section class="shell section trip-story">
 <p class="kicker">The whole trip</p><h2>From Verona to the French Riviera</h2>
@@ -49,34 +51,9 @@
 </div>
 </section>
 <section class="shell section"><p class="kicker">Our trip</p><h2>Choose a destination</h2><div class="destination-home-grid"><a class="destination-home-card destination-photo-card" href="verona.html" style="--card-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/PanoramaVerona.jpg?width=1200');--card-fallback:url('verona.svg')"><span>October 1–4</span><h3>Verona</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card destination-photo-card" href="parma.html" style="--card-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_of_Piazza_del_Duomo%2C_Parma_%2836646145762%29.jpg?width=1200');--card-fallback:url('parma.svg')"><span>October 4–7</span><h3>Parma</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card destination-photo-card" href="ispra.html" style="--card-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ispra.jpg?width=1200');--card-fallback:url('ispra.svg')"><span>October 7–11</span><h3>Ispra</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card destination-photo-card" href="santa-margherita.html" style="--card-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Santa_Margherita_Ligure.jpg?width=1200');--card-fallback:url('santa-margherita.svg')"><span>October 11–14</span><h3>Santa Margherita Ligure</h3><p>Stay area, map & restaurant picks →</p></a><a class="destination-home-card destination-photo-card" href="nice.html" style="--card-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Beaulieu-sur-Mer.JPG?width=1200');--card-fallback:url('beaulieu.svg')"><span>October 14–18</span><h3>Nice & Beaulieu-sur-Mer</h3><p>Stay area, map & restaurant picks →</p></a></div>
-<div class="home-secondary"><a class="feature-card accent" href="recommendations.html"><span>Curated for our dates</span><h3>Restaurants & Events</h3><p>Our best meals, date nights, concerts, festivals and dance picks.</p></a><a class="feature-card" href="transportation.html"><span>Travel</span><h3>Transportation</h3><p>Trains, rental car, and travel-day plan.</p></a>
+<div class="home-secondary"><a class="feature-card accent" href="recommendations.html"><span>Curated for our dates</span><h3>Restaurants & Events</h3><p>Our best meals, date nights, concerts, festivals and dance picks.</p></a><a class="feature-card" href="essentials.html"><span>Saved for offline use</span><h3>Trip Essentials</h3><p>Addresses, travel-day timing, wedding details and airport plan—even when cell service is bad.</p></a><a class="feature-card" href="transportation.html"><span>Travel</span><h3>Transportation</h3><p>Trains, rental car, and travel-day plan.</p></a>
 <a class="feature-card accent" href="wedding.html"><span>October 10</span><h3>Wedding Day</h3><p>Ceremony, champagne, photos, music, and first dance.</p></a></div></section></main>
 <footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="script.js?v=15"></script>
-<script>
-(() => {
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js").catch((error) => console.warn("Service worker:", error));
-    });
-  }
-  let deferredInstallPrompt = null;
-  const installButton = document.getElementById("install-app-button");
-  window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    deferredInstallPrompt = event;
-    if (installButton) installButton.hidden = false;
-  });
-  installButton?.addEventListener("click", async () => {
-    if (!deferredInstallPrompt) return;
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt = null;
-    installButton.hidden = true;
-  });
-  window.addEventListener("appinstalled", () => {
-    deferredInstallPrompt = null;
-    if (installButton) installButton.hidden = true;
-  });
-})();
-</script></body></html>
+<script src="enhancements.js?v=4"></script>
+</body></html>
