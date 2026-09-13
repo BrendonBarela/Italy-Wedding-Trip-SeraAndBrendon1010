@@ -1,7 +1,7 @@
-const CACHE_NAME = "sera-brendon-wedding-v4";
+const CACHE_NAME = "sera-brendon-wedding-v5";
 const CORE_ASSETS = [
   "./","./index.html","./recommendations.html","./essentials.html","./enhancements.js",
-  "./styles.css","./script.js","./today.html","./verona.html","./parma.html","./ispra.html",
+  "./styles.css","./script.js","./ux.css","./ux.js","./today.html","./verona.html","./parma.html","./ispra.html",
   "./santa-margherita.html","./nice.html","./wedding.html","./transportation.html","./credits.html",
   "./verona.svg","./parma.svg","./ispra.svg","./santa-margherita.svg","./beaulieu.svg",
   "./app-icon-192.png","./app-icon-512.png","./manifest.webmanifest"
@@ -31,8 +31,14 @@ const enhanceHtml = async response => {
     html = html.replace(/<\/head>/i,
       '<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png"></head>');
   }
+  if (!html.includes("ux.css")) {
+    html = html.replace(/<\/head>/i, '<link rel="stylesheet" href="ux.css?v=18"></head>');
+  }
   if (!html.includes("enhancements.js")) {
     html = html.replace(/<\/body>/i, '<script src="enhancements.js?v=4"></script></body>');
+  }
+  if (!html.includes("ux.js")) {
+    html = html.replace(/<\/body>/i, '<script src="ux.js?v=18"></script></body>');
   }
 
   const headers = new Headers(response.headers);
@@ -59,7 +65,7 @@ self.addEventListener("fetch", event => {
   if (event.request.mode === "navigate") {
     event.respondWith((async () => {
       let response = await networkFirst(event.request);
-      if (!response) response = await caches.match("./index.html");
+      if (!response) response = await caches.match("./today.html") || await caches.match("./index.html");
       return enhanceHtml(response);
     })());
     return;
@@ -67,7 +73,7 @@ self.addEventListener("fetch", event => {
 
   if (url.origin !== self.location.origin) return;
 
-  const freshFirst = /(?:enhancements\.js|script\.js|styles\.css|manifest\.webmanifest)$/i.test(url.pathname);
+  const freshFirst = /(?:enhancements\.js|script\.js|styles\.css|ux\.js|ux\.css|manifest\.webmanifest)$/i.test(url.pathname);
   if (freshFirst) {
     event.respondWith(networkFirst(event.request));
     return;
