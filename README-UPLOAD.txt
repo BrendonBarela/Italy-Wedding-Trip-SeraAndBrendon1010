@@ -1,17 +1,18 @@
-Wedding Trip Site v18 — Simplified UX
+WEDDING TRIP SITE v19 — TRAVEL + STORY UPDATE
 
-Upload ALL files in this folder to the ROOT of the GitHub repository and replace files with the same names.
+Upload these 4 files to the ROOT of the GitHub repository and replace the existing files:
+- transportation.html
+- ux.js
+- ux.css
+- sw.js
 
-Files:
-- index.html — keeps the full trip overview, adds the compact navigation immediately.
-- today.html — simplified four-card Today screen; weather and full itinerary are tucked into expandable sections.
-- ispra.html — includes the three-lodging-pin map fix plus the simplified mobile experience.
-- ux.css — new visual hierarchy and mobile progressive-disclosure styles.
-- ux.js — compact Home / Today / Trip / Wedding / More navigation; mobile Explore Nearby controls; collapsible recommendations.
-- manifest.webmanifest — installed app now launches to Today and adds Today/Wedding/Transport app shortcuts.
-- sw.js — cache v5 and automatically injects ux.css/ux.js into all other existing pages after the service worker takes control.
+WHAT CHANGED
+- Added the booked DEN → Munich → Verona flight itinerary to Transportation.
+- Added the booked Hertz Malpensa rental pickup/return details and shifted Oct 11 timing around the 11:30 AM return.
+- Added return-flight legs from Nice through Montreal to Denver.
+- Added a Private Booking Codes locker that saves confirmation numbers ONLY in the current phone/browser via localStorage; the codes are not included in the public GitHub source.
+- Replaced generic destination hero tags at runtime with short romantic/history “Why it feels like us” notes for Verona, Parma, Ispra, Santa Margherita and Beaulieu.
+- Bumped the PWA cache to v6 and UX asset version to v19.
 
-Nothing was removed. Detailed maps, food/events, transportation, wedding information and the complete itinerary are still available.
-No analytics or view counter was added.
-
-After uploading, hard-refresh the website once. Existing installed PWAs may need to be closed and reopened after the service worker updates.
+AFTER UPLOAD
+Open Transportation on the phone you will travel with, expand “Private booking codes,” enter the three codes from ChatGPT, and tap Save on this device. They will remain on that browser/app unless site data is cleared or the app/browser is reinstalled.

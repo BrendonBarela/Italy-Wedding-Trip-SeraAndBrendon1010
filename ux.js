@@ -173,8 +173,79 @@
     });
   };
 
+
+  const destinationLoveNotes = () => {
+    const notes = {
+      'verona.html': {
+        kicker: 'Why it feels like us',
+        text: 'A Roman city with a 1st-century arena and the love story that made Verona famous. Two thousand years of history, but somehow it still feels built for an evening walk together.'
+      },
+      'parma.html': {
+        kicker: 'Why it feels like us',
+        text: 'Once an elegant little duchy and a stop on Europe’s Grand Tour, Parma is now a UNESCO Creative City of Gastronomy. In other words: art, opera, cheese, prosciutto, and a very convincing case for falling in love over dinner.'
+      },
+      'ispra.html': {
+        kicker: 'Why it feels like us',
+        text: 'This quiet Lake Maggiore village has prehistoric and Roman roots, plus old lime kilns along the shore from its 19th-century industrial days. Now the lake has a softer job: being the backdrop for our wedding.'
+      },
+      'santa-margherita.html': {
+        kicker: 'Why it feels like us',
+        text: 'Villa Durazzo has looked over the Gulf of Tigullio since 1678, surrounded by gardens, sea air and grand Riviera style. Santa Margherita feels polished without trying too hard — basically a honeymoon town that already knows how to dress for dinner.'
+      },
+      'nice.html': {
+        kicker: 'Why it feels like us',
+        text: 'Beaulieu grew into a Belle Époque winter escape for European royalty and still carries that old Riviera elegance. It is our quiet little “pearl of the Côte d’Azur” between Nice and Monaco — a fitting place to let the honeymoon slow down.'
+      }
+    };
+    const cfg = notes[currentPage()];
+    const chips = document.querySelector('.destination-chips');
+    if (!cfg || !chips) return;
+    const note = document.createElement('div');
+    note.className = 'destination-love-note';
+    note.innerHTML = `<span>${cfg.kicker}</span><p>${cfg.text}</p>`;
+    chips.replaceWith(note);
+  };
+
+  const privateBookingLocker = () => {
+    const locker = document.getElementById('private-booking-codes');
+    if (!locker) return;
+    const status = document.getElementById('private-code-status');
+    const fields = [...locker.querySelectorAll('[data-private-code]')];
+    fields.forEach(input => {
+      try { input.value = localStorage.getItem(`sb-private-${input.dataset.privateCode}`) || ''; } catch {}
+    });
+    const say = message => {
+      if (!status) return;
+      status.textContent = message;
+      clearTimeout(say.timer);
+      say.timer = setTimeout(() => { status.textContent = ''; }, 3000);
+    };
+    locker.querySelector('[data-save-private]')?.addEventListener('click', () => {
+      try {
+        fields.forEach(input => localStorage.setItem(`sb-private-${input.dataset.privateCode}`, input.value.trim()));
+        say('Saved only on this device ✓');
+      } catch { say('This browser could not save the codes.'); }
+    });
+    locker.querySelector('[data-clear-private]')?.addEventListener('click', () => {
+      try {
+        fields.forEach(input => { localStorage.removeItem(`sb-private-${input.dataset.privateCode}`); input.value=''; });
+        say('Private codes cleared from this device.');
+      } catch {}
+    });
+    locker.querySelectorAll('[data-copy-private]').forEach(button => {
+      button.addEventListener('click', async () => {
+        const input = locker.querySelector(`[data-private-code="${button.dataset.copyPrivate}"]`);
+        if (!input?.value.trim()) { say('Enter and save that code first.'); return; }
+        try { await navigator.clipboard.writeText(input.value.trim()); say('Copied ✓'); }
+        catch { input.select(); document.execCommand('copy'); say('Copied ✓'); }
+      });
+    });
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     compactNavigation();
+    destinationLoveNotes();
+    privateBookingLocker();
     tripMode();
     destinationProgressiveDisclosure();
     collapseRecommendations();

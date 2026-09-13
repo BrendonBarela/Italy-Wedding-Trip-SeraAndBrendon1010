@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v5";
+const CACHE_NAME = "sera-brendon-wedding-v6";
 const CORE_ASSETS = [
   "./","./index.html","./recommendations.html","./essentials.html","./enhancements.js",
   "./styles.css","./script.js","./ux.css","./ux.js","./today.html","./verona.html","./parma.html","./ispra.html",
@@ -32,13 +32,13 @@ const enhanceHtml = async response => {
       '<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png"></head>');
   }
   if (!html.includes("ux.css")) {
-    html = html.replace(/<\/head>/i, '<link rel="stylesheet" href="ux.css?v=18"></head>');
+    html = html.replace(/<\/head>/i, '<link rel="stylesheet" href="ux.css?v=19"></head>');
   }
   if (!html.includes("enhancements.js")) {
     html = html.replace(/<\/body>/i, '<script src="enhancements.js?v=4"></script></body>');
   }
   if (!html.includes("ux.js")) {
-    html = html.replace(/<\/body>/i, '<script src="ux.js?v=18"></script></body>');
+    html = html.replace(/<\/body>/i, '<script src="ux.js?v=19"></script></body>');
   }
 
   const headers = new Headers(response.headers);

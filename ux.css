@@ -59,3 +59,20 @@
   .ux-today-dashboard .dashboard-grid{grid-template-columns:1fr!important}
   .ux-today-dashboard .ux-today-location{grid-row:auto}
 }
+
+
+/* v19 — destination story notes + device-only booking codes */
+.destination-love-note{max-width:760px;margin:0 0 18px;padding:14px 16px;border-left:3px solid rgba(255,255,255,.72);background:rgba(31,22,18,.26);backdrop-filter:blur(8px);border-radius:0 14px 14px 0}
+.destination-love-note span{display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;font-weight:850;color:#f2d9c4}
+.destination-love-note p{margin:0!important;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.13rem;line-height:1.35;color:#fff!important}
+.private-booking-locker{margin:22px 0 28px;border:1px solid #d8c9bd;border-radius:20px;background:#fff;box-shadow:0 10px 28px rgba(50,35,25,.06);overflow:hidden}
+.private-booking-locker>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:850;color:#493329}
+.private-booking-locker>summary::-webkit-details-marker{display:none}.private-booking-locker>summary::after{content:'＋';color:#6f4e3d;font-size:1.25rem}.private-booking-locker[open]>summary::after{content:'−'}
+.private-booking-locker>summary span{display:block;font-size:.76rem;font-weight:650;color:#716a63;margin-left:auto}
+.private-code-body{padding:0 20px 20px}.private-code-body>p{color:#716a63;font-size:.86rem;max-width:780px}
+.private-code-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.private-code-item{display:grid;gap:6px;padding:14px;border:1px solid #e4d8cf;border-radius:14px;background:#fbf8f4}
+.private-code-item>span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;color:#6f4e3d}
+.private-code-row{display:flex;gap:7px}.private-code-row input{min-width:0;flex:1;border:1px solid #d4c5ba;border-radius:10px;padding:10px 11px;font:750 .92rem Inter,system-ui,sans-serif;text-transform:uppercase;background:#fff}.private-code-row button,.private-code-actions button{border:0;border-radius:999px;padding:9px 12px;font:800 .76rem Inter,system-ui,sans-serif;cursor:pointer}.private-code-row button{background:#6f4e3d;color:#fff}.private-code-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.private-code-actions [data-save-private]{background:#6f4e3d;color:#fff}.private-code-actions [data-clear-private]{background:#f0e7df;color:#6f4e3d}.private-code-status{font-size:.78rem;font-weight:750;color:#4f6b43;min-height:1.2em}
+.flight-leg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.flight-leg{padding:16px;border:1px solid #e1d4ca;border-radius:16px;background:#fff}.flight-leg span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;color:#6f4e3d}.flight-leg strong{display:block;font-size:1.05rem;margin:5px 0}.flight-leg small{display:block;color:#716a63}.rental-confirmed{border-left:4px solid #6f4e3d!important}
+@media(max-width:760px){.private-booking-locker>summary{align-items:flex-start}.private-booking-locker>summary span{display:none}.private-code-grid,.flight-leg-grid{grid-template-columns:1fr}.destination-love-note{font-size:.95rem}}
