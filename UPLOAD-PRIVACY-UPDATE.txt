@@ -1,0 +1,38 @@
+PRIVACY + CLEANUP UPDATE — UPLOAD THESE FILES TO THE REPOSITORY ROOT
+
+GitHub write access from ChatGPT returned HTTP 403, so this ZIP is the fallback package.
+
+Replace existing files:
+- README.md
+- script.js
+- ux.js
+- sw.js
+- today.html
+- essentials.html
+- transportation.html
+- verona.html
+- parma.html
+- ispra.html
+- santa-margherita.html
+- nice.html
+
+Add new files:
+- trip-data.js
+- private.js
+- private-trip.enc
+
+Upload steps:
+1. Open the GitHub repository.
+2. Add file → Upload files.
+3. Drag ALL files from this package into the repository root.
+4. GitHub should show the replacement files as modified and the 3 privacy files as new.
+5. Commit the upload.
+6. Wait for GitHub Pages to refresh, then open the website once in Chrome while online.
+7. If the PWA was already installed, close/reopen it and accept the “Trip update available” refresh if shown.
+8. In the installed PWA, use the Private Trip Mode bar to unlock exact lodging locations.
+
+Important:
+- The password is NOT stored in these files.
+- Confirmation numbers, ticket numbers, access codes, phone numbers and Wi-Fi passwords are NOT in private-trip.enc.
+- The wedding venue address remains public so guests can find the ceremony.
+- Old Git history may still contain previously committed exact addresses. This upload cleans the current branch/live site but does not rewrite history.

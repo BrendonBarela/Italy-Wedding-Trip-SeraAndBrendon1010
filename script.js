@@ -1,13 +1,17 @@
+document.addEventListener("DOMContentLoaded", () => {
+  "use strict";
 
-document.addEventListener("DOMContentLoaded",()=>{
-  
-  // Mobile dropdown navigation
+  const trip = window.SB_TRIP || null;
+  const currentPage = (window.location.pathname.split("/").pop() || "index.html").split("?")[0];
+  const dateKey = (date = new Date()) =>
+    `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
+
+  // Mobile navigation.
   const header = document.querySelector(".site-header");
   const mobileToggle = document.querySelector(".mobile-nav-toggle");
   const mobileNav = document.getElementById("site-nav");
-
   if (header && mobileToggle && mobileNav) {
-    const setMenuState = (open) => {
+    const setMenuState = open => {
       header.classList.toggle("nav-open", open);
       mobileToggle.setAttribute("aria-expanded", String(open));
       const label = mobileToggle.querySelector(".mobile-nav-label");
@@ -15,28 +19,16 @@ document.addEventListener("DOMContentLoaded",()=>{
       if (label) label.textContent = open ? "Close" : "Menu";
       if (icon) icon.textContent = open ? "✕" : "☰";
     };
-
     setMenuState(false);
-
-    mobileToggle.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    mobileToggle.addEventListener("click", event => {
+      event.preventDefault(); event.stopPropagation();
       setMenuState(!header.classList.contains("nav-open"));
     });
-
-    mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMenuState(false));
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!header.contains(event.target)) setMenuState(false);
-    });
+    mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenuState(false)));
+    document.addEventListener("click", event => { if (!header.contains(event.target)) setMenuState(false); });
   }
 
-
-
   // Current page + trip-only Today shortcut.
-  const currentPage = (window.location.pathname.split("/").pop() || "index.html").split("?")[0];
   document.querySelectorAll("#site-nav a").forEach(link => {
     const href = (link.getAttribute("href") || "").split("#")[0];
     const active = href === currentPage;
@@ -44,236 +36,182 @@ document.addEventListener("DOMContentLoaded",()=>{
     if (active) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
-
   const tripTodayLink = document.querySelector(".trip-today-link");
-  if (tripTodayLink) {
-    const nowForTrip = new Date();
-    const tripDateKey = `${nowForTrip.getFullYear()}-${String(nowForTrip.getMonth()+1).padStart(2,"0")}-${String(nowForTrip.getDate()).padStart(2,"0")}`;
-    const duringTrip = tripDateKey >= "2026-10-01" && tripDateKey <= "2026-10-18";
-    const showToday = duringTrip || currentPage === "today.html";
-    tripTodayLink.hidden = !showToday;
+  if (tripTodayLink && trip) {
+    const key = dateKey();
+    const duringTrip = key >= trip.start && key <= trip.end;
+    tripTodayLink.hidden = !(duringTrip || currentPage === "today.html");
     tripTodayLink.classList.toggle("trip-live", duringTrip);
   }
 
-  // Countdown / trip-state card
-  document.querySelectorAll("#trip-countdown").forEach(card=>{
-    const now=new Date();
-    const localToday=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
-    const start=parse(card.dataset.start), wedding=parse(card.dataset.wedding), end=parse(card.dataset.end);
-    const days=(a,b)=>Math.round((b-a)/86400000);
-    const strong=card.querySelector("strong"), small=card.querySelector("small");
-    if(localToday<start){ const n=days(localToday,start); strong.textContent=`${n} day${n===1?"":"s"} until Italy 🇮🇹`; small.textContent="Verona is our first stop."; }
-    else if(+localToday===+wedding){ strong.textContent="Wedding Day 💍"; small.textContent="Lake Maggiore • October 10"; card.classList.add("wedding-now"); }
-    else if(localToday<=end){ const n=days(localToday,wedding); strong.textContent=n>0?`${n} day${n===1?"":"s"} until the wedding`:"We're on the honeymoon 🤍"; small.textContent="Tap Today for the current plan."; }
-    else { strong.textContent="What a trip 🤍"; small.textContent="Italy & France • October 2026"; }
-  });
-
-  // Highlight current itinerary day.
-  const t=new Date(), yyyy=t.getFullYear(), mm=String(t.getMonth()+1).padStart(2,"0"), dd=String(t.getDate()).padStart(2,"0");
-  const key=`${yyyy}-${mm}-${dd}`;
-  document.querySelectorAll(".day-card[data-date]").forEach(card=>{
-    if(card.dataset.date===key){card.classList.add("is-today");card.scrollIntoView({block:"center"});}
-  });
-
-
-
-  // Today dashboard: follows the itinerary using the device's local date.
-  const dashboard = document.getElementById("trip-dashboard");
-  if (dashboard) {
-    const tripDays = {
-      "2026-10-01": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Settle in + easy Verona wander", ideaDetail:"Aperitivo and an early night after arrival.", ideaLink:"verona.html#map", transport:"Arrive in Verona", transportDetail:"VRN airport → taxi to apartment", transportLink:"transportation.html#oct-01"},
-      "2026-10-02": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Historic-center day", ideaDetail:"Arena, Piazza delle Erbe and a relaxed evening.", ideaLink:"verona.html#map", transport:"Next travel: Parma", transportDetail:"Oct 4 • target ~12:02 PM train", transportLink:"transportation.html#oct-04"},
-      "2026-10-03": {city:"Verona", stay:"Raggio di Luna Apartment", address:"Via del Minatore, 5, Verona, Italy", page:"verona.html", idea:"Open Verona day", ideaDetail:"Keep room for the Frida Kahlo event if it appeals.", ideaLink:"verona.html#map", transport:"Next travel: Parma", transportDetail:"Tomorrow • target ~12:02 PM", transportLink:"transportation.html#oct-04"},
-      "2026-10-04": {city:"Travel → Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Check in + first Parma dinner", ideaDetail:"Keep the arrival afternoon easy.", ideaLink:"parma.html#restaurants", transport:"Verona → Parma", transportDetail:"Checkout 11:00 • target ~12:02 PM", transportLink:"transportation.html#oct-04"},
-      "2026-10-05": {city:"Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Food + historic center", ideaDetail:"This is the day to lean into Parma's specialties.", ideaLink:"parma.html#restaurants", transport:"Next travel: Ispra", transportDetail:"Oct 7 • Parma → Milan → MXP", transportLink:"transportation.html#oct-07"},
-      "2026-10-06": {city:"Parma", stay:"Parma apartment", address:"Borgo Montassù, 3, Parma, Italy", page:"parma.html", idea:"Easy Parma day", ideaDetail:"Katie joins today; leave time to regroup.", ideaLink:"parma.html#map", transport:"Next travel: Ispra", transportDetail:"Tomorrow • target ~10:39 AM", transportLink:"transportation.html#oct-07"},
-      "2026-10-07": {city:"Travel → Ispra", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Villa arrival + lake evening", ideaDetail:"Pick up the rental car at MXP and settle in.", ideaLink:"ispra.html#map", transport:"Parma → Ispra", transportDetail:"Milan → MXP → rental car", transportLink:"transportation.html#oct-07"},
-      "2026-10-08": {city:"Ispra / Lake Maggiore", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Easy lake day", ideaDetail:"Use the car; ferry only if fall service is confirmed.", ideaLink:"ispra.html#map", transport:"Next travel: Santa Margherita", transportDetail:"Oct 11 • car return + trains", transportLink:"transportation.html#oct-11"},
-      "2026-10-09": {city:"Ispra", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"ispra.html", idea:"Wedding prep + low-key day", ideaDetail:"Protect the evening and keep logistics simple.", ideaLink:"wedding.html", transport:"Next travel: Santa Margherita", transportDetail:"Oct 11 • after the wedding", transportLink:"transportation.html#oct-11"},
-      "2026-10-10": {city:"Wedding Day 💍", stay:"Villa Eden 8", address:"Via Valcanale 504, Ispra, Italy", page:"wedding.html", idea:"Get married", ideaDetail:"Ceremony → champagne → golden hour → dinner.", ideaLink:"wedding.html", transport:"Tomorrow: Ligurian coast", transportDetail:"Drive to MXP → return car → train", transportLink:"transportation.html#oct-11"},
-      "2026-10-11": {city:"Travel → Santa Margherita", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Check in + Riviera evening", ideaDetail:"No need to force sightseeing after the travel day.", ideaLink:"santa-margherita.html#map", transport:"Ispra → Santa Margherita", transportDetail:"MXP car return → Milan → Santa", transportLink:"transportation.html#oct-11"},
-      "2026-10-12": {city:"Santa Margherita Ligure", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Portofino option", ideaDetail:"Go if the weather is good; otherwise enjoy Santa slowly.", ideaLink:"santa-margherita.html#map", transport:"Next travel: France", transportDetail:"Oct 14 • Ventimiglia connection", transportLink:"transportation.html#oct-14"},
-      "2026-10-13": {city:"Santa Margherita Ligure", stay:"Painted Blue / PortofinoVip", address:"Via Partigiani D'Italia, 25, Santa Margherita Ligure, Italy", page:"santa-margherita.html", idea:"Relaxed Ligurian coast day", ideaDetail:"Long lunch, waterfront and honeymoon pace.", ideaLink:"santa-margherita.html#restaurants", transport:"Next travel: Beaulieu", transportDetail:"Tomorrow • target ~10:55 AM", transportLink:"transportation.html#oct-14"},
-      "2026-10-14": {city:"Travel → French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Check in + waterfront evening", ideaDetail:"Arrive around 3 PM and keep the first evening local.", ideaLink:"nice.html#map", transport:"Santa → Beaulieu", transportDetail:"Ventimiglia → French TER", transportLink:"transportation.html#oct-14"},
-      "2026-10-15": {city:"Beaulieu / Nice", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Nice day", ideaDetail:"Old Nice, waterfront and Forró if you want dancing.", ideaLink:"nice.html#map", transport:"Airport day", transportDetail:"Oct 18 • train to Nice St-Augustin", transportLink:"transportation.html#oct-18"},
-      "2026-10-16": {city:"French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Èze option", ideaDetail:"A good day for the hill village if energy and weather cooperate.", ideaLink:"nice.html#map", transport:"Airport day", transportDetail:"Oct 18 • checkout ~9:00 AM", transportLink:"transportation.html#oct-18"},
-      "2026-10-17": {city:"French Riviera", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Final honeymoon day", ideaDetail:"Keep it romantic and low-pressure; dance events are available.", ideaLink:"nice.html#map", transport:"Tomorrow: Nice Airport", transportDetail:"Target ~9:28 AM TER", transportLink:"transportation.html#oct-18"},
-      "2026-10-18": {city:"Fly home ✈️", stay:"Beaulieu-sur-Mer penthouse", address:"Boulevard Eugène Gauthier, Beaulieu-sur-Mer, France", page:"nice.html", idea:"Airport morning", ideaDetail:"Checkout ~9:00 and head directly toward NCE.", ideaLink:"transportation.html#oct-18", transport:"Beaulieu → NCE Terminal 2", transportDetail:"Target ~9:28 AM TER • flight 12:35 PM", transportLink:"transportation.html#oct-18"}
-    };
-
-    const n = new Date();
-    const todayKeyDash = `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}-${String(n.getDate()).padStart(2,"0")}`;
-    const keys = Object.keys(tripDays);
-    let selectedKey = todayKeyDash;
-    let cfg = tripDays[selectedKey];
-
-    if (!cfg) {
-      selectedKey = todayKeyDash < keys[0] ? keys[0] : keys[keys.length-1];
-      cfg = tripDays[selectedKey];
-    }
-
-    const isLiveTripDay = Boolean(tripDays[todayKeyDash]);
-    const niceDate = new Intl.DateTimeFormat("en-US",{weekday:"long",month:"short",day:"numeric"}).format(
-      new Date(Number(selectedKey.slice(0,4)),Number(selectedKey.slice(5,7))-1,Number(selectedKey.slice(8,10)))
-    );
-
-    const $ = id => document.getElementById(id);
-    if ($("dashboard-title")) $("dashboard-title").textContent = isLiveTripDay ? cfg.city : "Next up: Verona";
-    if ($("dashboard-subtitle")) $("dashboard-subtitle").textContent = isLiveTripDay ? "Everything useful for today in one place." : "This dashboard will automatically follow the itinerary once the trip begins.";
-    if ($("dashboard-date")) $("dashboard-date").textContent = isLiveTripDay ? niceDate : "Trip starts Oct 1";
-    if ($("dashboard-location")) $("dashboard-location").textContent = cfg.city;
-    if ($("dashboard-stay")) $("dashboard-stay").textContent = cfg.stay;
-    if ($("dashboard-city-link")) $("dashboard-city-link").href = cfg.page;
-    if ($("dashboard-stay-name")) $("dashboard-stay-name").textContent = cfg.stay;
-    if ($("dashboard-address")) $("dashboard-address").textContent = cfg.address;
-    if ($("dashboard-directions-link")) $("dashboard-directions-link").href = directions(cfg.address);
-    if ($("dashboard-idea")) $("dashboard-idea").textContent = cfg.idea;
-    if ($("dashboard-idea-detail")) $("dashboard-idea-detail").textContent = cfg.ideaDetail;
-    if ($("dashboard-idea-link")) $("dashboard-idea-link").href = cfg.ideaLink;
-    if ($("dashboard-transport")) $("dashboard-transport").textContent = cfg.transport;
-    if ($("dashboard-transport-detail")) $("dashboard-transport-detail").textContent = cfg.transportDetail;
-    if ($("dashboard-transport-link")) $("dashboard-transport-link").href = cfg.transportLink;
-
-    if (isLiveTripDay) {
-      const dayCard = document.querySelector(`.day-card[data-date="${todayKeyDash}"]`);
-      const eventNames = dayCard ? [...dayCard.querySelectorAll(".day-event-chip")].map(x=>x.textContent.trim()) : [];
-      if ($("dashboard-events")) $("dashboard-events").textContent = eventNames.length ? eventNames.join(" • ") : "No researched event today";
-      if ($("dashboard-events-detail")) $("dashboard-events-detail").textContent = eventNames.length ? "Tap below for the full daily plan." : "Use the destination map for food, sights and nearby places.";
-      if ($("dashboard-events-link")) $("dashboard-events-link").href = eventNames.length ? "#daily-plan" : `${cfg.page}#map`;
-    }
-  }
-
-
-  // Trip weather — Open-Meteo provides up to a 16-day forecast.
-  const weatherCards = [...document.querySelectorAll(".trip-weather-card")];
-
-  const weatherCode = code => {
-    if (code === 0) return ["☀️","Clear"];
-    if ([1,2].includes(code)) return ["🌤️","Partly cloudy"];
-    if (code === 3) return ["☁️","Cloudy"];
-    if ([45,48].includes(code)) return ["🌫️","Fog"];
-    if ([51,53,55,56,57].includes(code)) return ["🌦️","Drizzle"];
-    if ([61,63,65,66,67,80,81,82].includes(code)) return ["🌧️","Rain"];
-    if ([71,73,75,77,85,86].includes(code)) return ["🌨️","Snow"];
-    if ([95,96,99].includes(code)) return ["⛈️","Thunderstorms"];
-    return ["🌤️","Variable"];
-  };
-
-  const shortDate = iso => {
-    const [y,m,d] = iso.split("-").map(Number);
-    return new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric"}).format(new Date(y,m-1,d));
-  };
-
-  const unlockDate = startISO => {
-    const [y,m,d] = startISO.split("-").map(Number);
-    const dt = new Date(y,m-1,d);
-    dt.setDate(dt.getDate()-15);
-    return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric"}).format(dt);
-  };
-
-  function resolveTodayWeatherRoute(card){
-    try{
-      const route = JSON.parse(card.dataset.weatherRoute || "[]");
-      if(!route.length) return null;
-      const now = new Date();
-      const key = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
-      return route.find(x => key >= x.start && key <= x.end)
-        || route.find(x => key < x.start)
-        || route[route.length-1];
-    }catch(e){ return null; }
-  }
-
-  async function loadWeather(card){
-    let cfg;
-    try{
-      cfg = card.dataset.weather ? JSON.parse(card.dataset.weather) : resolveTodayWeatherRoute(card);
-    }catch(e){ cfg=null; }
-    const body = card.querySelector(".weather-body");
-    if(!cfg || !body) return;
-
+  // Countdown.
+  document.querySelectorAll("#trip-countdown").forEach(card => {
+    const parse = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
     const now = new Date();
-    const todayKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
-    const sourceStart = cfg.start;
-    const sourceEnd = cfg.end;
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const start = parse(card.dataset.start || trip?.start || "2026-10-01");
+    const wedding = parse(card.dataset.wedding || trip?.wedding || "2026-10-10");
+    const end = parse(card.dataset.end || trip?.end || "2026-10-18");
+    const days = (a,b) => Math.round((b-a)/86400000);
+    const strong = card.querySelector("strong");
+    const small = card.querySelector("small");
+    if (!strong || !small) return;
+    if (today < start) {
+      const n = days(today,start);
+      strong.textContent = `${n} day${n===1?"":"s"} until Italy 🇮🇹`;
+      small.textContent = "Verona is our first stop.";
+    } else if (+today === +wedding) {
+      strong.textContent = "Wedding Day 💍";
+      small.textContent = "Lake Maggiore • October 10";
+      card.classList.add("wedding-now");
+    } else if (today <= end) {
+      const n = days(today,wedding);
+      strong.textContent = n > 0 ? `${n} day${n===1?"":"s"} until the wedding` : "We're on the honeymoon 🤍";
+      small.textContent = "Open Today for the current plan.";
+    } else {
+      strong.textContent = "What a trip 🤍";
+      small.textContent = "Italy & France • October 2026";
+    }
+  });
 
-    try{
-      const url = new URL("https://api.open-meteo.com/v1/forecast");
-      url.searchParams.set("latitude", cfg.lat);
-      url.searchParams.set("longitude", cfg.lng);
-      url.searchParams.set("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max");
-      url.searchParams.set("temperature_unit", "fahrenheit");
-      url.searchParams.set("timezone", "auto");
-      url.searchParams.set("forecast_days", "16");
+  // Canonical Today dashboard from trip-data.js.
+  const dashboard = document.getElementById("trip-dashboard");
+  if (dashboard && trip) {
+    const keys = Object.keys(trip.days).sort();
+    const todayKey = dateKey();
+    const selectedKey = trip.days[todayKey] ? todayKey : (todayKey < keys[0] ? keys[0] : keys[keys.length-1]);
+    const cfg = trip.days[selectedKey];
+    const stay = trip.stays[cfg.stayKey];
+    const live = Boolean(trip.days[todayKey]);
+    const fmt = new Intl.DateTimeFormat("en-US",{weekday:"long",month:"short",day:"numeric"});
+    const [yy,mm,dd] = selectedKey.split("-").map(Number);
+    const niceDate = fmt.format(new Date(yy,mm-1,dd));
+    const set = (id,value) => { const el=document.getElementById(id); if(el) el.textContent=value; };
+    const href = (id,value) => { const el=document.getElementById(id); if(el) el.href=value; };
 
+    set("dashboard-title", live ? cfg.city : "Next up: Verona");
+    set("dashboard-subtitle", live ? "Everything useful for today in one place." : "This dashboard follows the itinerary automatically once the trip begins.");
+    set("dashboard-date", live ? niceDate : "Trip starts Oct 1");
+    set("dashboard-location", cfg.city);
+    set("dashboard-stay", stay?.name || "Our stay");
+    set("dashboard-address", "Exact address is private in the installed app.");
+    href("dashboard-city-link", stay?.page || "index.html");
+    href("dashboard-directions-link", "#private-location");
+    set("dashboard-idea", cfg.idea);
+    set("dashboard-idea-detail", cfg.ideaDetail);
+    href("dashboard-idea-link", cfg.ideaLink);
+    set("dashboard-transport", cfg.transport);
+    set("dashboard-transport-detail", cfg.transportDetail);
+    href("dashboard-transport-link", cfg.transportLink);
+
+    const events = cfg.events || [];
+    set("dashboard-events", events.length ? events.join(" • ") : "No researched event today");
+    set("dashboard-events-detail", events.length ? "Optional event ideas for today." : "Use the destination guide for food, sights and nearby places.");
+
+    // Next action on travel days.
+    const nextAction = document.getElementById("dashboard-next-action");
+    if (nextAction && cfg.nextAction) nextAction.textContent = cfg.nextAction;
+  }
+
+  // Canonical travel-day list used by Essentials.
+  const travelDays = document.getElementById("canonical-travel-days");
+  if (travelDays && trip) {
+    travelDays.innerHTML = trip.travelDays.map(item => `
+      <div class="travel-line">
+        <b>${item.date}</b>
+        <span><strong>${item.title}</strong> <em style="font-style:normal;font-size:.75rem;font-weight:800;color:#6f4e3d">• ${item.status}</em><br>${item.detail} <a href="${item.link}">Plan →</a></span>
+      </div>`).join("");
+  }
+
+  // Build compact daily itinerary if requested.
+  const generatedDays = document.getElementById("generated-day-list");
+  if (generatedDays && trip) {
+    generatedDays.innerHTML = Object.entries(trip.days).map(([key,cfg]) => {
+      const [y,m,d] = key.split("-").map(Number);
+      const date = new Date(y,m-1,d);
+      const label = date.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+      const events = (cfg.events || []).map(e => `<span class="day-event-chip">🎉 ${e}</span>`).join("");
+      return `<a class="day-card${key===trip.wedding?" wedding-day-card":""}" data-date="${key}" href="${cfg.transportLink || cfg.ideaLink || "index.html"}">
+        <b>${label}</b><div><strong>${cfg.city}</strong><span>${cfg.idea}</span>${events ? `<span class="day-event-stack">${events}</span>` : ""}</div><em>→</em>
+      </a>`;
+    }).join("");
+  }
+
+  // Highlight current itinerary day without forcing the viewport before layout settles.
+  const todayKey = dateKey();
+  document.querySelectorAll(".day-card[data-date]").forEach(card => {
+    if (card.dataset.date === todayKey) card.classList.add("is-today");
+  });
+
+  // Weather.
+  const weatherCodeLabel = code => {
+    if (code === 0) return "Clear";
+    if ([1,2].includes(code)) return "Mostly clear";
+    if (code === 3) return "Cloudy";
+    if ([45,48].includes(code)) return "Fog";
+    if ([51,53,55,56,57].includes(code)) return "Drizzle";
+    if ([61,63,65,66,67,80,81,82].includes(code)) return "Rain";
+    if ([71,73,75,77,85,86].includes(code)) return "Snow";
+    if ([95,96,99].includes(code)) return "Thunderstorms";
+    return "Forecast";
+  };
+  const fToC = f => Math.round((f-32)*5/9);
+
+  async function loadWeather(card) {
+    let cfg;
+    try {
+      if (card.dataset.weather) cfg = JSON.parse(card.dataset.weather);
+      else if (card.dataset.weatherRoute) {
+        const route = JSON.parse(card.dataset.weatherRoute);
+        const key = dateKey();
+        cfg = route.find(x => key >= x.start && key <= x.end) || route[0];
+      }
+    } catch {}
+    if (!cfg) return;
+    const body = card.querySelector(".weather-body");
+    if (!body) return;
+
+    const start = cfg.start, end = cfg.end;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(cfg.lat)}&longitude=${encodeURIComponent(cfg.lng)}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&timezone=auto&start_date=${start}&end_date=${end}`;
+    try {
       const res = await fetch(url);
-      if(!res.ok) throw new Error("Weather service unavailable");
+      if (!res.ok) throw new Error("weather");
       const data = await res.json();
       const daily = data.daily || {};
-      const days = (daily.time || []).map((iso,i)=>({
-        iso,
-        code:daily.weather_code?.[i],
-        high:daily.temperature_2m_max?.[i],
-        low:daily.temperature_2m_min?.[i],
-        rain:daily.precipitation_probability_max?.[i]
-      })).filter(x => x.iso >= sourceStart && x.iso <= sourceEnd);
-
-      if(!days.length){
-        const past = todayKey > sourceEnd;
-        if(past){
-          body.innerHTML = `<div class="weather-not-ready"><strong>${cfg.name}</strong><span>These trip dates have passed.</span></div>`;
-        }else{
-          body.innerHTML = `<div class="weather-not-ready"><strong>${cfg.name}</strong><span>Live forecast should begin appearing around ${unlockDate(sourceStart)}.</span><small>Forecasts are only useful close to the trip, so this will update automatically.</small></div>`;
-        }
-        return;
-      }
-
-      const dayCards = days.map(day=>{
-        const [icon,label] = weatherCode(Number(day.code));
-        const hi = Number.isFinite(Number(day.high)) ? Math.round(day.high) : "—";
-        const lo = Number.isFinite(Number(day.low)) ? Math.round(day.low) : "—";
-        const hiC = hi === "—" ? "—" : Math.round((hi-32)*5/9);
-        const loC = lo === "—" ? "—" : Math.round((lo-32)*5/9);
-        const rain = Number.isFinite(Number(day.rain)) ? Math.round(day.rain) : "—";
-        const isToday = day.iso === todayKey ? " weather-day-today" : "";
-        return `<article class="weather-day${isToday}">
-          <span class="weather-date">${shortDate(day.iso)}</span>
-          <span class="weather-icon" aria-hidden="true">${icon}</span>
-          <strong>${label}</strong>
-          <span class="weather-temp">${hi}° / ${lo}°F</span>
-          <small>${hiC}° / ${loC}°C • ${rain}% rain</small>
-        </article>`;
-      }).join("");
-
-      body.innerHTML = `<div class="weather-location-line"><strong>${cfg.name}</strong><span>${days.length}-day trip forecast</span></div><div class="weather-days">${dayCards}</div>`;
-
-      // Feed today's forecast into the Today dashboard.
-      const todayForecast = days.find(day => day.iso === todayKey);
+      const dates = daily.time || [];
+      if (!dates.length) throw new Error("range");
+      body.innerHTML = `<div class="weather-forecast-strip">${dates.map((date,i) => {
+        const d = new Date(`${date}T12:00:00`);
+        const high = Math.round(daily.temperature_2m_max?.[i]);
+        const low = Math.round(daily.temperature_2m_min?.[i]);
+        const rain = daily.precipitation_probability_max?.[i] ?? 0;
+        const code = daily.weather_code?.[i];
+        return `<article class="weather-day"><strong>${d.toLocaleDateString("en-US",{weekday:"short"})}</strong><span>${d.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><b>${weatherCodeLabel(code)}</b><span>${high}° / ${low}°F</span><small>${fToC(high)}° / ${fToC(low)}°C • ${rain}% precip.</small></article>`;
+      }).join("")}</div>`;
       const dashboardWeather = document.getElementById("dashboard-weather");
       const dashboardWeatherDetail = document.getElementById("dashboard-weather-detail");
-      if (todayForecast && dashboardWeather && dashboardWeatherDetail) {
-        const [icon,label] = weatherCode(Number(todayForecast.code));
-        const hi = Number.isFinite(Number(todayForecast.high)) ? Math.round(todayForecast.high) : "—";
-        const lo = Number.isFinite(Number(todayForecast.low)) ? Math.round(todayForecast.low) : "—";
-        const rain = Number.isFinite(Number(todayForecast.rain)) ? Math.round(todayForecast.rain) : "—";
-        dashboardWeather.textContent = `${icon} ${label} • ${hi}° / ${lo}°F`;
-        dashboardWeatherDetail.textContent = `${rain}% chance of precipitation`;
+      if (dashboardWeather && dashboardWeatherDetail) {
+        const key = dateKey();
+        const i = dates.indexOf(key);
+        if (i >= 0) {
+          const hi = Math.round(daily.temperature_2m_max[i]), lo = Math.round(daily.temperature_2m_min[i]);
+          dashboardWeather.textContent = `${weatherCodeLabel(daily.weather_code[i])} • ${hi}°/${lo}°F`;
+          dashboardWeatherDetail.textContent = `${daily.precipitation_probability_max[i] ?? 0}% chance of precipitation`;
+        }
       }
-    }catch(e){
-      body.innerHTML = `<div class="weather-not-ready"><strong>Weather temporarily unavailable</strong><span>The rest of the trip page still works normally. Try refreshing later.</span></div>`;
+    } catch {
+      body.innerHTML = `<div class="weather-not-ready"><strong>Forecast not available yet</strong><span>Trip-day forecasts appear as the dates enter the forecast window. The rest of the page works offline.</span></div>`;
     }
   }
+  document.querySelectorAll(".trip-weather-card").forEach(loadWeather);
 
-  weatherCards.forEach(loadWeather);
+  // Leaflet maps.
+  const maps = [...document.querySelectorAll(".city-map[data-map]")];
+  if (!maps.length) return;
+  const fail = (el,msg) => { el.innerHTML = `<div class="map-error"><strong>Map unavailable</strong><span>${msg}</span></div>`; };
+  if (!window.L) { maps.forEach(el => fail(el,"Refresh the page or use the Directions links.")); return; }
 
-
-  const maps=[...document.querySelectorAll(".city-map[data-map]")];
-  if(!maps.length) return;
-
-  const fail=(el,msg)=>{el.innerHTML=`<div class="map-error"><strong>Map unavailable</strong><span>${msg}</span></div>`;};
-  if(!window.L){ maps.forEach(el=>fail(el,"Refresh the page or use the Directions links.")); return; }
-
-  const styles={
+  const styles = {
     stay:{color:"#fff",weight:3,fillColor:"#6f4e3d",fillOpacity:1,radius:10},
     food:{color:"#fff",weight:2,fillColor:"#b24e3a",fillOpacity:1,radius:8},
     coffee:{color:"#fff",weight:2,fillColor:"#8a684f",fillOpacity:1,radius:8},
@@ -284,110 +222,46 @@ document.addEventListener("DOMContentLoaded",()=>{
     sight:{color:"#fff",weight:2,fillColor:"#7d6d3f",fillOpacity:1,radius:8},
     event:{color:"#fff",weight:2,fillColor:"#9a4f78",fillOpacity:1,radius:9}
   };
-
-  const labels={stay:"Our stay",food:"Restaurant",coffee:"Coffee",grocery:"Grocery",pharmacy:"Pharmacy",station:"Transit",parking:"Parking",sight:"Sight",event:"Event"};
-  const directions=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
-  const kmBetween=(a,b)=>{
-    const R=6371, toRad=x=>x*Math.PI/180;
-    const dLat=toRad(Number(b.lat)-Number(a.lat));
-    const dLng=toRad(Number(b.lng)-Number(a.lng));
-    const la1=toRad(Number(a.lat)), la2=toRad(Number(b.lat));
+  const labels = {stay:"Stay area",food:"Restaurant",coffee:"Coffee",grocery:"Grocery",pharmacy:"Pharmacy",station:"Transit",parking:"Parking",sight:"Sight",event:"Event"};
+  const directions = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+  const kmBetween = (a,b) => {
+    const R=6371,toRad=x=>x*Math.PI/180;
+    const dLat=toRad(Number(b.lat)-Number(a.lat)),dLng=toRad(Number(b.lng)-Number(a.lng));
+    const la1=toRad(Number(a.lat)),la2=toRad(Number(b.lat));
     const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
     return 2*R*Math.asin(Math.sqrt(h));
   };
-
-  const distanceFromStay=(item,stay)=>{
-    if(!stay || item.kind==="stay") return "";
-    // Straight-line distance adjusted upward to better approximate a real walking route.
-    const routeKm=kmBetween(stay,item)*1.18;
-    const miles=routeKm*0.621371;
-    if(routeKm<=4.5){
-      const mins=Math.max(2,Math.round((routeKm/4.7)*60/2)*2);
-      return `<span class="walk-estimate">≈ ${mins} min walk • ${miles.toFixed(miles<1?1:1)} mi from stay</span>`;
+  const distanceFromStay = (item,stay) => {
+    if (!stay || item.kind === "stay") return "";
+    const routeKm = kmBetween(stay,item)*1.18, miles = routeKm*0.621371;
+    if (routeKm <= 4.5) {
+      const mins = Math.max(2,Math.round((routeKm/4.7)*60/2)*2);
+      return `<span class="walk-estimate">≈ ${mins} min walk • ${miles.toFixed(1)} mi from stay area</span>`;
     }
-    return `<span class="walk-estimate">≈ ${miles.toFixed(1)} mi from stay</span>`;
+    return `<span class="walk-estimate">≈ ${miles.toFixed(1)} mi from stay area</span>`;
+  };
+  const popup = (item,stay) => {
+    const address = item.address || "", q = address || item.name || `${item.lat},${item.lng}`;
+    const date = item.date ? `<span class="event-date">${item.date}</span>` : "";
+    const distance = distanceFromStay(item,stay);
+    const info = item.url ? `<a target="_blank" rel="noopener" href="${item.url}">Event info ↗</a>` : "";
+    const directionLink = item.kind === "stay" && item.privateApprox
+      ? `<span style="display:block;margin-top:.35rem;font-size:.78rem">Exact lodging directions are in Private Trip Mode.</span>`
+      : `<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>`;
+    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${distance}${address?`<span>${address}</span>`:""}${directionLink}${info}</div>`;
   };
 
-  const popup=(item,stay)=>{
-    const address=item.address||"";
-    const q=address||item.name||`${item.lat},${item.lng}`;
-    const date=item.date?`<span class="event-date">${item.date}</span>`:"";
-    const distance=distanceFromStay(item,stay);
-    const info=item.url?`<a target="_blank" rel="noopener" href="${item.url}">Event info ↗</a>`:"";
-    return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${distance}${address?`<span>${address}</span>`:""}<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>${info}</div>`;
-  };
-
-  const overpassEndpoint="https://overpass-api.de/api/interpreter";
-  const practicalKinds=["coffee","grocery","pharmacy","parking"];
-
-  function overpassQuery(lat,lng){
-    return `[out:json][timeout:12];
-    (
-      nwr(around:1600,${lat},${lng})["amenity"="cafe"];
-      nwr(around:1600,${lat},${lng})["shop"="coffee"];
-      nwr(around:1600,${lat},${lng})["shop"~"supermarket|convenience|grocery"];
-      nwr(around:1600,${lat},${lng})["amenity"="pharmacy"];
-      nwr(around:1600,${lat},${lng})["amenity"="parking"];
-    );
-    out center tags;`;
-  }
-
-  function practicalKind(tags={}){
-    if(tags.amenity==="cafe"||tags.shop==="coffee") return "coffee";
-    if(["supermarket","convenience","grocery"].includes(tags.shop)) return "grocery";
-    if(tags.amenity==="pharmacy") return "pharmacy";
-    if(tags.amenity==="parking") return "parking";
-    return null;
-  }
-
-  async function loadPracticalPlaces(stay){
-    const cacheKey=`sb-practical-v1:${Number(stay.lat).toFixed(4)},${Number(stay.lng).toFixed(4)}`;
-    try{
-      const cached=JSON.parse(localStorage.getItem(cacheKey)||"null");
-      if(cached&&Date.now()-cached.saved<7*86400000) return cached.items;
-    }catch(e){}
-    try{
-      const res=await fetch(overpassEndpoint,{
-        method:"POST",
-        headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
-        body:"data="+encodeURIComponent(overpassQuery(stay.lat,stay.lng))
-      });
-      if(!res.ok) throw new Error("Overpass unavailable");
-      const data=await res.json();
-      const items=(data.elements||[]).map(x=>{
-        const kind=practicalKind(x.tags||{});
-        const lat=x.lat??x.center?.lat, lng=x.lon??x.center?.lon;
-        if(!kind||!Number.isFinite(Number(lat))||!Number.isFinite(Number(lng))) return null;
-        const t=x.tags||{};
-        return {kind,name:t.name||labels[kind],address:[t["addr:housenumber"],t["addr:street"]].filter(Boolean).join(" "),lat:Number(lat),lng:Number(lng)};
-      }).filter(Boolean);
-
-      // Keep the closest useful results so the map does not get cluttered.
-      const distance2=x=>(x.lat-stay.lat)**2+(x.lng-stay.lng)**2;
-      const trimmed=practicalKinds.flatMap(kind=>
-        items.filter(x=>x.kind===kind).sort((a,b)=>distance2(a)-distance2(b)).slice(0,4)
-      );
-      try{localStorage.setItem(cacheKey,JSON.stringify({saved:Date.now(),items:trimmed}));}catch(e){}
-      return trimmed;
-    }catch(e){
-      return [];
-    }
-  }
-
-  maps.forEach(async el=>{
-    let d; try{d=JSON.parse(el.dataset.map);}catch(e){fail(el,"Map data could not be read.");return;}
-
-    const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:true});
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
-
-    const layers={};
-    Object.keys(styles).forEach(k=>layers[k]=L.layerGroup().addTo(map));
-
-    const records=[
+  maps.forEach(el => {
+    let d; try { d = JSON.parse(el.dataset.map); } catch { fail(el,"Map data could not be read."); return; }
+    const map = L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:true});
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
+    const layers = {};
+    Object.keys(styles).forEach(k => layers[k] = L.layerGroup().addTo(map));
+    const records = [
       {kind:"stay",...d.stay},
       ...(d.restaurants||[]).map(x=>({kind:"food",...x})),
       ...(d.station?[{kind:"station",...d.station}]:[]),
-      ...(d.sights||[]).map(x=>({kind:"sight",...x})),
+      ...(d.sights||[]).map(x=>({kind:x.kind||"sight",...x})),
       ...(d.events||[]).map(x=>({kind:"event",...x})),
       ...(d.coffee||[]).map(x=>({kind:"coffee",...x})),
       ...(d.grocery||[]).map(x=>({kind:"grocery",...x})),
@@ -395,73 +269,29 @@ document.addEventListener("DOMContentLoaded",()=>{
       ...(d.parking||[]).map(x=>({kind:"parking",...x}))
     ].filter(x=>Number.isFinite(Number(x.lat))&&Number.isFinite(Number(x.lng)));
 
-    const seen=new Set();
-    const addRecord=item=>{
-      const key=`${item.kind}:${item.name}:${Number(item.lat).toFixed(5)},${Number(item.lng).toFixed(5)}`;
-      if(seen.has(key)) return;
-      seen.add(key);
-      records.push(item);
-      L.circleMarker([Number(item.lat),Number(item.lng)],styles[item.kind])
-        .bindPopup(popup(item,d.stay)).addTo(layers[item.kind]);
-    };
-
-    // Render built-in trip pins first.
-    const initial=[...records];
-    records.length=0;
-    initial.forEach(addRecord);
-
-    const fitVisible=filter=>{
-      const pts=records.filter(x=>filter==="all"||x.kind===filter).map(x=>[Number(x.lat),Number(x.lng)]);
-      if(pts.length>1) map.fitBounds(pts,{padding:[34,34],maxZoom:15});
-      else if(pts.length===1) map.setView(pts[0],15);
-    };
-    fitVisible("all");
-
-    const wrap=el.closest(".map-wrap");
-    const buttons=wrap?[...wrap.querySelectorAll(".map-filter")]:[];
-    let activeFilter="all";
-
-    function applyFilter(filter,clicked){
-      activeFilter=filter;
-      buttons.forEach(b=>b.classList.toggle("active",b===clicked||(filter==="all"&&b.dataset.filter==="all")));
-      Object.entries(layers).forEach(([kind,layer])=>{
-        const show=filter==="all"||filter===kind;
-        if(show&&!map.hasLayer(layer)) layer.addTo(map);
-        if(!show&&map.hasLayer(layer)) map.removeLayer(layer);
-      });
-      fitVisible(filter);
-    }
-
-    buttons.forEach(btn=>btn.addEventListener("click",()=>applyFilter(btn.dataset.filter,btn)));
-
-    // Load nearby coffee, groceries, pharmacies and parking without geocoding.
-    // These are real OpenStreetMap places within roughly 1.4 km of the stay.
-    const practical=await loadPracticalPlaces(d.stay);
-    practical.forEach(addRecord);
-
-    // If a practical category has no OSM results, make its button open a Google Maps nearby search.
-    practicalKinds.forEach(kind=>{
-      const btn=buttons.find(b=>b.dataset.filter===kind);
-      if(!btn) return;
-      const has=records.some(x=>x.kind===kind);
-      if(!has){
-        btn.classList.add("empty-filter");
-        btn.title=`No mapped ${labels[kind].toLowerCase()} found nearby`;
-        btn.addEventListener("click",e=>{
-          e.stopImmediatePropagation();
-          applyFilter(kind,btn);
-          const center=[Number(d.stay.lat),Number(d.stay.lng)];
-          L.popup()
-            .setLatLng(center)
-            .setContent(`<div class="map-popup"><small>${labels[kind]}</small><strong>No mapped places found nearby</strong><span>Try a wider Google Maps search.</span><a target="_blank" rel="noopener" href="${directions(`${labels[kind]} near ${d.stay.address||d.stay.name}`)}">Search nearby ↗</a></div>`)
-            .openOn(map);
-        },true);
-      }
+    records.forEach(item => {
+      L.circleMarker([Number(item.lat),Number(item.lng)],styles[item.kind]||styles.sight)
+        .bindPopup(popup(item,d.stay)).addTo(layers[item.kind]||layers.sight);
     });
 
-    // Keep the current category visible after the async practical pins appear.
-    const currentButton=buttons.find(b=>b.dataset.filter===activeFilter) || buttons[0];
-    applyFilter(activeFilter,currentButton);
+    const fitVisible = filter => {
+      const pts = records.filter(x=>filter==="all"||x.kind===filter).map(x=>[Number(x.lat),Number(x.lng)]);
+      if (pts.length>1) map.fitBounds(pts,{padding:[34,34],maxZoom:15});
+      else if (pts.length===1) map.setView(pts[0],15);
+    };
+    fitVisible("all");
+    const wrap = el.closest(".map-wrap");
+    const buttons = wrap ? [...wrap.querySelectorAll(".map-filter")] : [];
+    const applyFilter = (filter,clicked) => {
+      buttons.forEach(b=>b.classList.toggle("active",b===clicked||(filter==="all"&&b.dataset.filter==="all")));
+      Object.entries(layers).forEach(([kind,layer]) => {
+        const show = filter==="all" || filter===kind;
+        if (show && !map.hasLayer(layer)) layer.addTo(map);
+        if (!show && map.hasLayer(layer)) map.removeLayer(layer);
+      });
+      fitVisible(filter);
+    };
+    buttons.forEach(btn=>btn.addEventListener("click",()=>applyFilter(btn.dataset.filter,btn)));
     setTimeout(()=>map.invalidateSize(),250);
   });
 });
