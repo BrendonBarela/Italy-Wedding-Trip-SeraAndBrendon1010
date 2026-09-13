@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=15"></head><body id="top"><header class="site-header">
+<link rel="stylesheet" href="styles.css?v=15"><link rel="stylesheet" href="ux.css?v=20"></head><body id="top"><header class="site-header">
 <a class="brand" href="index.html">S &amp; B</a>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
 <span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span>
@@ -39,6 +39,9 @@
 <div class="address-card"><span>Stay</span><strong>Painted Blue by PortofinoVip</strong><small>Exact address shown</small></div>
 </div>
 
+<div class="transfer-box"><span>🚆 Arrival • booked</span><p><strong>Oct 11:</strong> IC 665 leaves Milano Centrale at <strong>12:10 PM</strong> and arrives Santa Margherita at <strong>2:16 PM</strong>, direct in 1st class. Check-in is <strong>after 3:00 PM</strong>, so there is no need to rush from the station.</p></div>
+<div class="transfer-box"><span>🌊 Easy side trips</span><p><strong>Portofino:</strong> ferry if the weather/coastal service is running, with the 782 bus as the backup. <strong>Camogli:</strong> take a short regional train. Individual tickets make more sense than a weekly rail pass for this three-night stay.</p></div>
+
 <div class="trip-weather-card" id="weather" data-weather="{&quot;name&quot;: &quot;Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919, &quot;start&quot;: &quot;2026-10-11&quot;, &quot;end&quot;: &quot;2026-10-14&quot;}">
   <div class="weather-card-head">
     <div><p class="kicker">Weather</p><h2>Santa Margherita Ligure forecast</h2></div>
@@ -65,7 +68,7 @@
 <button class="map-filter" data-filter="parking" type="button">🅿️ Parking</button>
 <button class="map-filter" data-filter="event" type="button">🎉 Events</button>
 <button class="map-filter" data-filter="sight" type="button">★ Sights</button>
-</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Painted Blue by PortofinoVip&quot;, &quot;address&quot;: &quot;Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Madachí&quot;, &quot;address&quot;: &quot;Via Cairoli 3, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3346, &quot;lng&quot;: 9.2121}, {&quot;name&quot;: &quot;Ristorante Karalis&quot;, &quot;address&quot;: &quot;Corso Matteotti 26, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3339, &quot;lng&quot;: 9.2111}, {&quot;name&quot;: &quot;Zi’ Ninella Ristorante Gourmet&quot;, &quot;address&quot;: &quot;Via Anton Maria Maragliano 15/17, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3352, &quot;lng&quot;: 9.2107}], &quot;station&quot;: {&quot;name&quot;: &quot;Santa Margherita Ligure–Portofino&quot;, &quot;lat&quot;: 44.33275, &quot;lng&quot;: 9.2079}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Durazzo&quot;, &quot;lat&quot;: 44.33455, &quot;lng&quot;: 9.21405}, {&quot;name&quot;: &quot;Waterfront Promenade&quot;, &quot;lat&quot;: 44.3337, &quot;lng&quot;: 9.2128}, {&quot;name&quot;: &quot;Portofino&quot;, &quot;lat&quot;: 44.3032, &quot;lng&quot;: 9.20975}, {&quot;name&quot;: &quot;Paraggi Bay&quot;, &quot;lat&quot;: 44.3111, &quot;lng&quot;: 9.2124}], &quot;events&quot;: [{&quot;name&quot;: &quot;Madonna dei Gotti Festival – Camogli&quot;, &quot;date&quot;: &quot;Oct 11 • nearby day-trip event&quot;, &quot;address&quot;: &quot;Camogli historic center / waterfront&quot;, &quot;lat&quot;: 44.349, &quot;lng&quot;: 9.1547, &quot;url&quot;: &quot;https://lamialiguria.it/eventi/festa-madonna-dei-gotti-camogli/&quot;}]}'></div>
+</div><div class="map city-map" aria-label="Interactive destination map" data-map='{&quot;stay&quot;: {&quot;name&quot;: &quot;Painted Blue by PortofinoVip&quot;, &quot;address&quot;: &quot;Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Madachí&quot;, &quot;address&quot;: &quot;Via Cairoli 3, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3346, &quot;lng&quot;: 9.2121}, {&quot;name&quot;: &quot;Ristorante Karalis&quot;, &quot;address&quot;: &quot;Corso Matteotti 26, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3339, &quot;lng&quot;: 9.2111}, {&quot;name&quot;: &quot;Zi’ Ninella Ristorante Gourmet&quot;, &quot;address&quot;: &quot;Via Anton Maria Maragliano 15/17, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3352, &quot;lng&quot;: 9.2107}], &quot;station&quot;: {&quot;name&quot;: &quot;Santa Margherita Ligure–Portofino&quot;, &quot;lat&quot;: 44.33275, &quot;lng&quot;: 9.2079}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Durazzo&quot;, &quot;lat&quot;: 44.33455, &quot;lng&quot;: 9.21405}, {&quot;name&quot;: &quot;Waterfront Promenade&quot;, &quot;lat&quot;: 44.3337, &quot;lng&quot;: 9.2128}, {&quot;name&quot;: &quot;Portofino&quot;, &quot;lat&quot;: 44.3032, &quot;lng&quot;: 9.20975}, {&quot;name&quot;: &quot;Camogli&quot;, &quot;lat&quot;: 44.349, &quot;lng&quot;: 9.1547}, {&quot;name&quot;: &quot;Paraggi Bay&quot;, &quot;lat&quot;: 44.3111, &quot;lng&quot;: 9.2124}], &quot;events&quot;: [{&quot;name&quot;: &quot;Madonna dei Gotti Festival – Camogli&quot;, &quot;date&quot;: &quot;Oct 11 • nearby day-trip event&quot;, &quot;address&quot;: &quot;Camogli historic center / waterfront&quot;, &quot;lat&quot;: 44.349, &quot;lng&quot;: 9.1547, &quot;url&quot;: &quot;https://lamialiguria.it/eventi/festa-madonna-dei-gotti-camogli/&quot;}]}'></div>
 <div class="map-legend extended-map-legend" aria-label="Map legend">
 <span><i class="legend-dot stay-dot"></i>Our stay</span>
 <span><i class="legend-dot food-dot"></i>Restaurant</span>
@@ -84,10 +87,10 @@
 </section>
 <section class="destination-guide">
 <div class="shell">
-  <div class="guide-heading"><p class="kicker">While we're here</p><h2>Riviera walks, villas & Portofino</h2><p>Santa Margherita gives you the classic Ligurian waterfront without needing to stay in Portofino itself.</p></div>
+  <div class="guide-heading"><p class="kicker">While we're here</p><h2>Santa, Portofino & Camogli</h2><p>Use Santa Margherita as the easy home base, then make Portofino and Camogli relaxed half-day or day trips.</p></div>
   <div class="guide-grid">
-    <div class="sight-list"><article class="sight-card"><span class="sight-number">1</span><div><h3>Villa Durazzo</h3><p>Elegant villa and gardens overlooking the gulf.</p></div></article><article class="sight-card"><span class="sight-number">2</span><div><h3>Waterfront Promenade</h3><p>Palm-lined harbor walk through the center of town.</p></div></article><article class="sight-card"><span class="sight-number">3</span><div><h3>Portofino</h3><p>Iconic harbor village—easy as a half-day outing.</p></div></article><article class="sight-card"><span class="sight-number">4</span><div><h3>Paraggi Bay</h3><p>Pretty cove between Santa Margherita and Portofino.</p></div></article></div>
-    <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Rail hub: Santa Margherita Ligure–Portofino</li><li>Portofino is an easy outing—no need to move hotels</li><li>October can be quieter; ferry schedules may be reduced</li></ul></aside>
+    <div class="sight-list"><article class="sight-card"><span class="sight-number">1</span><div><h3>Villa Durazzo</h3><p>Elegant villa and gardens overlooking the gulf.</p></div></article><article class="sight-card"><span class="sight-number">2</span><div><h3>Portofino</h3><p>Take the ferry if conditions cooperate; use the 782 bus as the reliable backup.</p></div></article><article class="sight-card"><span class="sight-number">3</span><div><h3>Camogli</h3><p>Easy regional-train day trip for colorful waterfront streets, focaccia, and a quieter fishing-village feel.</p></div></article><article class="sight-card"><span class="sight-number">4</span><div><h3>Waterfront Promenade</h3><p>Palm-lined harbor walk through the center of Santa Margherita.</p></div></article></div>
+    <aside class="practical-card"><p class="kicker">Good to know</p><h3>Quick trip notes</h3><ul><li>Rail hub: Santa Margherita Ligure–Portofino</li><li>Portofino has no train station — use ferry or bus</li><li>Camogli is easy by regional train</li><li>Individual tickets beat a weekly rail pass for this stay</li><li>October ferry schedules can be reduced or weather-dependent</li></ul></aside>
   </div>
 </div>
 </section><section class="shell next-stop next-stop-v15">
@@ -95,11 +98,11 @@
 <div class="next-stop-card-v15">
   <div class="next-stop-head"><span>October 14</span><h2>Next: Beaulieu-sur-Mer</h2></div>
   <div class="next-stop-details">
-    <span><small>Leave</small><strong>Checkout 10:00 AM</strong></span>
-    <span><small>Travel</small><strong>Target train ~10:55 AM</strong></span>
-    <span><small>Arrival</small><strong>Ventimiglia transfer → Beaulieu ~2:57 PM</strong></span>
+    <span><small>Leave</small><strong>10:14 AM • booked</strong></span>
+    <span><small>Transfers</small><strong>33 min in Genoa • 28 min in Ventimiglia</strong></span>
+    <span><small>Arrival</small><strong>Beaulieu 3:26 PM</strong></span>
   </div>
-  <a class="button dark" href="transportation.html#oct-14">Open Oct 14 travel plan →</a>
+  <a class="button dark" href="transportation.html#oct-14">Open booked Oct 14 travel plan →</a>
 </div>
 </section></main><footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=15"></script></body></html>
+<script src="script.js?v=15"></script><script src="enhancements.js?v=4"></script><script src="ux.js?v=20"></script></body></html>
