@@ -1,0 +1,26 @@
+VERONA v19 — CHEAT SHEET + PHOTOS
+
+Upload BOTH files from this ZIP to the repository root and replace the existing files:
+
+1. verona.html
+2. sw.js
+
+WHAT CHANGED
+- New Verona Cheat Sheet appears near the top of the page.
+- 9 quick-answer cards: top sight, sunset, Arena night, history, easy dinner,
+  wine, casual lunch, souvenir, and lower-priority Juliet's House.
+- New 4-photo Verona gallery with image credits in each caption.
+- Existing researched options, history/facts, itinerary, events, restaurants,
+  local food/wine, shopping, Verona Card advice, and interactive map are preserved.
+- Service worker cache bumped to v13 so the installed PWA prompts for the update.
+
+AFTER UPLOADING
+1. Refresh the live Verona page once.
+2. Open the installed app.
+3. If "Trip update available" appears, tap Refresh.
+
+NOTE
+The four gallery photos are served from Wikimedia Commons rather than stored in the repo,
+which keeps this update small. If the phone is fully offline, the text, map shell and cached
+site remain available, but gallery photos may require a connection unless already cached
+by the browser.
