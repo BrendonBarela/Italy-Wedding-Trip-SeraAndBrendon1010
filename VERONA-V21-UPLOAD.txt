@@ -1,0 +1,74 @@
+VERONA v21 — DEEP RESEARCH PASS
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. verona.html
+2. sw.js
+
+MAJOR RESEARCH-DRIVEN CHANGES
+
+ARRIVAL
+- Direct taxi is now the default for the four-person arrival group.
+- Current Radio Taxi fixed fare to the Piazza Bra / Piazza Erbe central zone:
+  €30 daytime for up to 4 people (confirm exact private-apartment fare before boarding).
+- Airlink backup: €6/person to Porta Nuova, then a €10 fixed station→center taxi.
+
+EXACT-DATE ITINERARY
+Oct 1 — arrival, easy historic-center walk, Il Vicoletto dinner.
+Oct 2 — Arena morning, Castelvecchio, proper lunch, Bugiardo aperitivo,
+        Castel San Pietro sunset (~18:54), Notre Dame de Paris at 21:00.
+Oct 3 — 10:30 English history tour, Gironda lunch, optional culture stop,
+        optional Lamberti viewpoint, Al Pompiere dinner.
+Oct 4 — coffee / checkout / Parma. No timed sight.
+
+IMPORTANT DATE-SPECIFIC DETAILS
+- Arena closes at 15:00 on Oct 1, 2, 3 and 4 for the musical.
+- Notre Dame de Paris: 21:00 every night Oct 1–4.
+- Castel San Pietro funicular: daily 10:00–21:00 in October.
+- Torre dei Lamberti: special 09:30–21:00 hours through Oct 4.
+- Historical English walking tour: Oct 3 at 10:30, 90 minutes, €15, max 10.
+- Piano Competition corrected:
+  semifinals Sep 30–Oct 1; solo final Oct 2; orchestra final Oct 4.
+- Dorothea Lange added as the stronger serious-art rainy-day option.
+- Frida Kahlo remains a secondary immersive rain backup.
+
+VERONACARD
+- Updated for Sep 1, 2026 digital launch.
+- Base/no-bus version: €29 / 24h and €32 / 48h.
+- With ATV city buses: €33 / 24h and €38 / 48h.
+- Default itinerary math:
+  Arena €12 + Castelvecchio €9 + Lamberti €6 = €27.
+  Therefore skip the card unless adding Juliet's House / another included sight.
+- Airport Airlink is NOT included.
+
+JULIET'S HOUSE
+- Updated to the Apr 1, 2026 Teatro Nuovo entry system.
+- €5 Teatro + courtyard.
+- €12 Teatro + courtyard + house.
+- Online timed reservation required even with VeronaCard.
+- No on-site ticket sales.
+- Page recommends the €5 route if curious.
+
+FOOD
+- Thu: Il Vicoletto arrival dinner.
+- Fri: Locanda 4 Cuochi lunch + Osteria del Bugiardo aperitivo.
+- Sat: Salumeria Gironda lunch + Al Pompiere dinner.
+- Al Pompiere confirmed closed Sunday and should be reserved.
+- Gironda address corrected to Via Ponte Pietra 24.
+- Antica Bottega del Vino retained as the serious wine wildcard.
+
+HISTORY
+- Expanded to 8 fact cards, adding Piazza Erbe's Roman forum,
+  Porta Borsari and Lamberti's civic bells.
+
+MAP
+- Corrected / expanded event pins for Notre Dame, Dorothea Lange and
+  the Verona International Piano Competition.
+
+PWA
+- Service-worker cache bumped to v20.
+
+AFTER UPLOADING
+1. Refresh Verona in the browser.
+2. Reopen the installed app.
+3. If the update toast appears, tap Refresh.
