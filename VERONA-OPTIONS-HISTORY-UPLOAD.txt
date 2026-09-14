@@ -1,0 +1,21 @@
+VERONA OPTIONS + HISTORY UPDATE
+
+Upload BOTH files in this ZIP to the repository root and replace the existing files:
+
+1. verona.html
+2. sw.js
+
+What changed:
+- Research moved to the top as a visible "What do we feel like doing?" options board
+- 8 clear activity modes: classic sights, Arena night, history, romantic/low-energy,
+  food + wine, rainy-day, Romeo & Juliet, and shopping
+- New History & Interesting Facts section with a timeline and researched facts
+- Existing detailed itinerary, events, restaurants, food/wine, shopping, Verona Card,
+  and map remain below
+- Packing link added directly to the Verona navigation
+- enhancements.js reference updated to v6
+- PWA cache bumped to v12 so the installed app picks up the revised Verona page
+
+After uploading:
+- Open the live site and refresh once
+- Open the installed app; if "Trip update available" appears, tap Refresh

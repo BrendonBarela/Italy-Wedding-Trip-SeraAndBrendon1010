@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v11";
+const CACHE_NAME = "sera-brendon-wedding-v12";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
