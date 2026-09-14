@@ -1,0 +1,25 @@
+VERONA PAGE RESEARCH UPDATE
+
+Upload verona.html from this ZIP to the root of:
+BrendonBarela/Italy-Wedding-Trip-SeraAndBrendon1010
+
+Replace the existing verona.html only.
+
+This update keeps:
+- private lodging behavior
+- current navigation
+- current map system
+- current trip timing
+- existing PWA scripts
+
+It adds:
+- Oct 1–4 itinerary
+- exact-date Verona events
+- researched restaurant / wine / coffee recommendations
+- local foods and wines to try
+- what to buy
+- Verona Card guidance
+- expanded curated map
+
+After uploading, refresh the live page. If using the installed PWA,
+close/reopen it once if an older cached page appears.
