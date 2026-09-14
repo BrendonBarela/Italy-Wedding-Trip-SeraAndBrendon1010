@@ -1,0 +1,42 @@
+BEAULIEU / NICE / EZE v20 — DEEP HONEYMOON RESEARCH
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. nice.html
+2. sw.js
+
+RESEARCH-DRIVEN STRUCTURE
+Overview | Beaulieu | Eat & Drink | Nice + Èze | History | Map
+
+DEFAULT HONEYMOON RHYTHM
+Oct 14 — arrive Beaulieu 15:26, settle in, bay/port sunset, dinner close to home
+Oct 15 — Èze by bus 83 from Baie des Fourmis (do NOT default to Nietzsche hike)
+Oct 16 — Villa Kérylos + Maurice Rouvier coastal walk + Villa Ephrussi
+Oct 17 — Nice: Old Town + Niçoise food + Castle Hill + choose one dance event
+Oct 18 — checkout ~09:00, airport for 12:35 flight
+
+KEY RESEARCH INCLUDED
+- Èze Jardin Exotique: October 09:00–18:30, adult €10
+- Current open-GTFS line 83 schedule valid through Oct 19 shows 09:56 from Baie des Fourmis
+  (page explicitly says verify with official Lignes d'Azur the day before)
+- Nietzsche Path: 2.1 km, ~350 m climb, moderate; NOT default for low-effort preference
+- Villa Kérylos: Oct–Mar 10:00–17:00, €15
+- Kérylos + Ephrussi combined ticket: €24, valid 8 days
+- Villa Ephrussi: daily 10:00–18:00 during stay
+- Maurice Rouvier coastal walk: ~30 min toward Saint-Jean-Cap-Ferrat
+- Nice Castle Hill park: 08:30–20:00 through Oct 31
+- Saturday Oct 17 event comparison:
+  • Nice Opera ballet at 20:00, €6–34
+  • CaraïbAzur dance workshops 10:00–12:00, festival 14:00–23:00
+  • Forró de Nice Oct 15–18, larger €89–139 commitment
+- Airport transit backup:
+  Beaulieu TER → Nice Saint-Augustin → airport pedestrian/Grand Arénas connection;
+  tram between Grand Arénas and airport terminals is free
+- Preferred departure-day plan remains prebooked taxi/VTC for lower luggage hassle
+- Private Beaulieu exact address remains private
+- Service-worker cache bumped to v19
+
+AFTER UPLOADING
+1. Refresh the Nice / Beaulieu page.
+2. Open the installed app.
+3. If "Trip update available" appears, tap Refresh.
