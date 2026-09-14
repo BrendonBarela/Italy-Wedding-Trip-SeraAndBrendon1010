@@ -60,3 +60,17 @@ Key replacement files:
 ## Important repository-history note
 
 Removing private details from the current branch does not erase older Git commit history. If old commits contained exact addresses, those historical commits may still be retrievable while the repository remains public. A full history purge is a separate Git operation.
+
+## v16.1 — lodging timing restoration
+- Restored check-in/check-out timing on destination pages, Trip Essentials, and the Today dashboard.
+- Verona, Parma, Ispra Guest Villa, and Villa Eden times were re-verified against booking confirmations.
+- Exact lodging addresses remain encrypted/private; timing remains public because it is useful travel logistics.
+- Beaulieu is labeled as a coordinated arrival/departure plan rather than a hard contractual checkout time.
+
+
+## v16.2 — private budget
+- Added `budget.html` + `budget.js`, visible from the Private Trip Mode bar only after unlock.
+- Prefills confirmed booking totals from the Wedding Plans confirmations where available.
+- Shared/group bookings leave “Our share” blank until the split is decided.
+- Device edits are encrypted in local storage using the same in-session private-trip key.
+- USD and EUR stay separate unless a planning exchange rate is entered.

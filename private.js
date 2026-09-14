@@ -2,9 +2,11 @@
   "use strict";
 
   const SESSION_KEY = "sb-private-trip-session-v1";
+  const SESSION_CRYPTO_KEY = "sb-private-trip-key-v1";
   const DATA_URL = "./private-trip.enc";
   const standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
   let privateData = null;
+  let privateKey = null;
 
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -19,7 +21,7 @@
     style.id = "sb-private-style";
     style.textContent = `
       .sb-private-bar{position:sticky;top:72px;z-index:80;margin:0 auto;width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border:1px solid #decabb;border-radius:0 0 14px 14px;background:#fff8f1;box-shadow:0 8px 22px rgba(63,48,40,.08);font:600 .82rem Inter,system-ui,sans-serif;color:#4f3c32}
-      .sb-private-bar button,.sb-private-card button,.sb-private-modal button{border:0;border-radius:999px;padding:9px 12px;background:#6f4e3d;color:#fff;font:800 .78rem Inter,system-ui,sans-serif;cursor:pointer}
+      .sb-private-bar button,.sb-private-bar a,.sb-private-card button,.sb-private-modal button{border:0;border-radius:999px;padding:9px 12px;background:#6f4e3d;color:#fff;font:800 .78rem Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none}
       .sb-private-bar.is-unlocked{background:#eef3ea;border-color:#c7d7bd}
       .sb-private-card{margin-top:.8rem;padding:.9rem 1rem;border:1px dashed #cdb8aa;border-radius:14px;background:#faf5f0;color:#65564e}
       .sb-private-card.is-unlocked{border-style:solid;border-color:#c7d7bd;background:#f3f7f0}
@@ -59,11 +61,58 @@
       {name:"PBKDF2", salt:decodeB64(envelope.salt), iterations:envelope.iterations, hash:"SHA-256"},
       keyMaterial,
       {name:"AES-GCM", length:256},
-      false,
-      ["decrypt"]
+      true,
+      ["encrypt","decrypt"]
     );
+    privateKey = key;
+    try {
+      const raw = new Uint8Array(await crypto.subtle.exportKey("raw", key));
+      sessionStorage.setItem(SESSION_CRYPTO_KEY, btoa(String.fromCharCode(...raw)));
+    } catch {}
+
     const plaintext = await crypto.subtle.decrypt(
       {name:"AES-GCM", iv:decodeB64(envelope.iv)},
+      key,
+      decodeB64(envelope.data)
+    );
+    return JSON.parse(new TextDecoder().decode(plaintext));
+  };
+
+  const restoreSessionKey = async () => {
+    if (privateKey) return privateKey;
+    try {
+      const saved = sessionStorage.getItem(SESSION_CRYPTO_KEY);
+      if (!saved) return null;
+      privateKey = await crypto.subtle.importKey(
+        "raw",
+        decodeB64(saved),
+        {name:"AES-GCM"},
+        false,
+        ["encrypt","decrypt"]
+      );
+      return privateKey;
+    } catch { return null; }
+  };
+
+  const encodeB64 = bytes => btoa(String.fromCharCode(...bytes));
+
+  const encryptLocal = async (storageKey, value) => {
+    const key = privateKey || await restoreSessionKey();
+    if (!key) throw new Error("Private Trip Mode must be unlocked.");
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const plaintext = new TextEncoder().encode(JSON.stringify(value));
+    const encrypted = new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},key,plaintext));
+    localStorage.setItem(storageKey, JSON.stringify({v:1,iv:encodeB64(iv),data:encodeB64(encrypted)}));
+  };
+
+  const decryptLocal = async storageKey => {
+    const stored = localStorage.getItem(storageKey);
+    if (!stored) return null;
+    const key = privateKey || await restoreSessionKey();
+    if (!key) throw new Error("Private Trip Mode must be unlocked.");
+    const envelope = JSON.parse(stored);
+    const plaintext = await crypto.subtle.decrypt(
+      {name:"AES-GCM",iv:decodeB64(envelope.iv)},
       key,
       decodeB64(envelope.data)
     );
@@ -135,7 +184,7 @@
   };
 
   const lock = () => {
-    try { sessionStorage.removeItem(SESSION_KEY); } catch {}
+    try { sessionStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(SESSION_CRYPTO_KEY); } catch {}
     location.reload();
   };
 
@@ -201,7 +250,7 @@
     if (!bar) return;
     if (privateData) {
       bar.classList.add("is-unlocked");
-      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — exact lodging locations available</span><button type="button">Lock</button>`;
+      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — lodging + budget available</span><span style="display:flex;gap:.45rem;align-items:center"><a href="budget.html">Budget</a><button type="button">Lock</button></span>`;
       bar.querySelector("button").addEventListener("click", lock);
     } else {
       bar.classList.remove("is-unlocked");
@@ -210,7 +259,7 @@
     }
   }
 
-  const init = () => {
+  const init = async () => {
     injectStyles();
 
     document.querySelectorAll("[data-private-stay],[data-private-today]").forEach(renderLockedSlot);
@@ -218,6 +267,7 @@
 
     if (!standalone) return;
 
+    await restoreSessionKey();
     try {
       const saved = sessionStorage.getItem(SESSION_KEY);
       if (saved) hydrate(JSON.parse(saved));
@@ -226,6 +276,14 @@
     ensureBar();
   };
 
-  document.addEventListener("DOMContentLoaded", init);
-  window.SBPrivateTrip = {unlock:showUnlockDialog, lock, isStandalone:standalone};
+  document.addEventListener("DOMContentLoaded", () => { init().catch(()=>{}); });
+  window.SBPrivateTrip = {
+    unlock:showUnlockDialog,
+    lock,
+    isStandalone:standalone,
+    isUnlocked:()=>Boolean(privateData),
+    getData:()=>privateData,
+    encryptLocal,
+    decryptLocal
+  };
 })();

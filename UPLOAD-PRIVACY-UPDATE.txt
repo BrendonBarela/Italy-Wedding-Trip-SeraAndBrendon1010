@@ -36,3 +36,11 @@ Important:
 - Confirmation numbers, ticket numbers, access codes, phone numbers and Wi-Fi passwords are NOT in private-trip.enc.
 - The wedding venue address remains public so guests can find the ceremony.
 - Old Git history may still contain previously committed exact addresses. This upload cleans the current branch/live site but does not rewrite history.
+
+V16.1 FIX: Restores public check-in/check-out timing while keeping exact lodging addresses private. Upload all files again so trip-data.js, script.js, destination pages, Essentials, Today, and sw.js stay in sync.
+
+
+v16.2 adds private Budget:
+- Upload budget.html and budget.js with the rest of this package.
+- Budget values are not present in public HTML/JS; defaults are inside private-trip.enc.
+- Private-mode edits are encrypted on the device.

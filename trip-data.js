@@ -3,12 +3,13 @@ window.SB_TRIP = Object.freeze({
   wedding: "2026-10-10",
   end: "2026-10-18",
   stays: {
-    verona: {name:"Raggio di Luna Apartment", area:"Verona", page:"verona.html"},
-    parma: {name:"Casa Nadia / 150 MQ Apartment + Depandance", area:"Parma", page:"parma.html"},
-    ispraWedding: {name:"Villa Eden 8", area:"Ispra / Lake Maggiore", page:"ispra.html"},
-    gemmas: {name:"Gemma’s Nest", area:"Ispra", page:"ispra.html"},
-    santa: {name:"Painted Blue by PortofinoVip", area:"Santa Margherita Ligure", page:"santa-margherita.html"},
-    beaulieu: {name:"Penthouse for 2", area:"Beaulieu-sur-Mer", page:"nice.html"}
+    verona: {name:"Raggio di Luna Apartment", area:"Verona", page:"verona.html", timing:"Check-in after 12:00 PM on Oct 1 • Checkout by 11:00 AM on Oct 4", timingStatus:"Confirmed booking"},
+    parma: {name:"Casa Nadia / 150 MQ Apartment + Depandance", area:"Parma", page:"parma.html", timing:"Check-in after 3:00 PM on Oct 4 • Checkout by 10:00 AM on Oct 7", timingStatus:"Confirmed booking"},
+    ispraGuest: {name:"Guest / friends villa", area:"Ispra / Lake Maggiore", page:"ispra.html", timing:"Check-in after 3:00 PM on Oct 7 • Checkout by 10:00 AM on Oct 11", timingStatus:"Confirmed booking"},
+    ispraWedding: {name:"Villa Eden 8", area:"Ispra / Lake Maggiore", page:"ispra.html", timing:"Check-in 4:00 PM on Oct 7 • Check-out 10:00 AM on Oct 11", timingStatus:"Confirmed booking"},
+    gemmas: {name:"Gemma’s Nest", area:"Ispra", page:"ispra.html", timing:"Check-in 3:00 PM on Oct 10 • Checkout 10:00 AM on Oct 11", timingStatus:"Current booking details"},
+    santa: {name:"Painted Blue by PortofinoVip", area:"Santa Margherita Ligure", page:"santa-margherita.html", timing:"Check-in after 3:00 PM on Oct 11 • Checkout around 10:00 AM on Oct 14", timingStatus:"Current booking plan"},
+    beaulieu: {name:"Penthouse for 2", area:"Beaulieu-sur-Mer", page:"nice.html", timing:"Host handoff after our 3:26 PM arrival on Oct 14 • Planned departure around 9:00 AM on Oct 18", timingStatus:"Coordinated plan"}
   },
   days: {
     "2026-10-01": {city:"Verona", stayKey:"verona", idea:"Settle in + easy Verona wander", ideaDetail:"Aperitivo and an early night after arrival.", ideaLink:"verona.html#map", transport:"Arrive in Verona", transportDetail:"VRN airport → taxi to our stay", transportLink:"transportation.html#oct-01"},

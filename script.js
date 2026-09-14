@@ -74,6 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Canonical public lodging timing from trip-data.js. Exact addresses remain private.
+  if (trip) {
+    document.querySelectorAll("[data-stay-timing]").forEach(el => {
+      const stay = trip.stays[el.dataset.stayTiming];
+      if (!stay?.timing) return;
+      el.innerHTML = `<strong>${stay.timingStatus || "Stay timing"}:</strong> ${stay.timing}`;
+    });
+  }
+
   // Canonical Today dashboard from trip-data.js.
   const dashboard = document.getElementById("trip-dashboard");
   if (dashboard && trip) {
@@ -94,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     set("dashboard-date", live ? niceDate : "Trip starts Oct 1");
     set("dashboard-location", cfg.city);
     set("dashboard-stay", stay?.name || "Our stay");
+    set("dashboard-stay-timing", stay?.timing ? `${stay.timingStatus || "Stay timing"}: ${stay.timing}` : "");
     set("dashboard-address", "Exact address is private in the installed app.");
     href("dashboard-city-link", stay?.page || "index.html");
     href("dashboard-directions-link", "#private-location");

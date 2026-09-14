@@ -1,9 +1,9 @@
-const CACHE_NAME = "sera-brendon-wedding-v7";
+const CACHE_NAME = "sera-brendon-wedding-v9";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./recommendations.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
-  "./wedding.html","./transportation.html","./credits.html",
-  "./styles.css","./ux.css","./script.js","./enhancements.js","./ux.js","./trip-data.js","./private.js",
+  "./wedding.html","./transportation.html","./budget.html","./credits.html",
+  "./styles.css","./ux.css","./script.js","./enhancements.js","./ux.js","./trip-data.js","./private.js","./budget.js",
   "./private-trip.enc","./manifest.webmanifest",
   "./verona.svg","./parma.svg","./ispra.svg","./santa-margherita.svg","./beaulieu.svg",
   "./app-icon-192.png","./app-icon-512.png"
@@ -48,7 +48,7 @@ const enhanceHtml = async response => {
   if (!html.includes('rel="manifest"')) {
     html = html.replace(/<\/head>/i,'<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png"></head>');
   }
-  if (!html.includes("trip-data.js")) html = html.replace(/<\/body>/i,'<script src="trip-data.js?v=1"></script></body>');
+  if (!html.includes("trip-data.js")) html = html.replace(/<\/body>/i,'<script src="trip-data.js?v=2"></script></body>');
   if (!html.includes("private.js")) html = html.replace(/<\/body>/i,'<script src="private.js?v=1"></script></body>');
 
   const headers = new Headers(response.headers);
