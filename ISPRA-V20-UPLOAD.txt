@@ -1,0 +1,37 @@
+ISPRA v20 — CITY NAVIGATION + TRANSPORTATION
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. ispra.html
+2. sw.js
+
+WHAT CHANGED
+- Same city-navigation system as Verona / Parma, with an Ispra-specific extra tab:
+  Overview | Things to Do | Eat & Drink | Getting Around | History | Map
+- Transportation built into the page:
+  • two-rental-car group strategy
+  • Villa Eden parking for up to 4 cars
+  • lakefront/town parking guidance
+  • waterfront ZTL warning
+  • ferry reality for Oct 7–11
+  • V120 / V121 bus backup
+  • warning that Ispra rail service is currently shown as replacement buses
+  • grocery/supply-run guidance
+- Purposeful images tied to actual visit options:
+  Ispra lakefront, Fornaci, Santa Caterina del Sasso, Rocca di Angera
+- Wedding-week day-by-day rhythm
+- Updated food / coffee / wine recommendations
+- Expanded local history, including Villa Eden's historic furnace connection
+- Map includes a parking filter
+- Private guest-villa and honeymoon-night addresses remain private
+- Service-worker cache bumped to v16
+
+IMPORTANT FERRY FINDING
+The Comune says Ispra boat service is summer-only, and the currently published
+2026 Navigazione Laghi timetable ends Oct 4. The page therefore does NOT rely
+on Ispra ferry service for the Oct 7–11 stay.
+
+AFTER UPLOADING
+1. Refresh the live Ispra page.
+2. Open the installed app.
+3. If "Trip update available" appears, tap Refresh.
