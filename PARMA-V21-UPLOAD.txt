@@ -1,0 +1,16 @@
+PARMA v21 — DEEP RESEARCH PASS
+
+Upload BOTH files to the repository root and replace the existing versions:
+1. parma.html
+2. sw.js
+
+KEY CHANGES
+- Oct 4 first-Sunday Pilotta / Teatro Farnese free-admission opportunity.
+- Pilotta removed from Monday because it is closed Mondays.
+- Camera di San Paolo removed as an active attraction; officially closed from Aug 31, 2026.
+- Monday rebuilt around Piazza Duomo + free Festival Verdi talk + Cocchi dinner.
+- TastyBus added as a premium food-production swap, not an add-on.
+- Tuesday rebuilt around Da Pepèn + Museo Glauco Lombardi + Enoteca Fontana + Regio in Tour.
+- Mercanteinfiera kept as an optional design/antiques half-day with shuttle verification.
+- Food shortlist cleaned up and made schedule-aware.
+- Service-worker cache bumped to v21.
