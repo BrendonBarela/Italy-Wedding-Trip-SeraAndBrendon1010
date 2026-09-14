@@ -1,0 +1,23 @@
+PACKING TAB UPDATE
+==================
+
+Upload these files to the ROOT of the GitHub repository:
+
+NEW
+- packing.html
+- packing.js
+
+REPLACE
+- today.html
+- enhancements.js
+- sw.js
+
+What changes:
+- Adds a top-level Packing tab for Sera + Brendon only.
+- Packing recommendations use live Open-Meteo forecast data when a trip date is within the 16-day forecast window.
+- Before a live forecast exists, the page uses typical October conditions for Verona, Parma, Ispra, Santa Margherita Ligure, and Beaulieu-sur-Mer.
+- Today keeps only the small "Bring today" card and links to the full Packing tab.
+- Laundry plan is built around confirmed in-stay facilities: Verona washer+dryer, Parma washer, Villa Eden washer, Santa Margherita washer+dryer. Beaulieu host guide does not list laundry equipment.
+- Service worker cache is bumped to v11 and includes packing.html + packing.js for offline access.
+
+After uploading, open the live site once while online, then refresh/close/reopen the installed PWA so the v11 service worker takes control.

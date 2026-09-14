@@ -12,6 +12,12 @@
     if(!document.querySelector('link[rel="manifest"]')){const l=document.createElement("link");l.rel="manifest";l.href="manifest.webmanifest";document.head.appendChild(l);}
     if(!document.querySelector('meta[name="mobile-web-app-capable"]')){const m=document.createElement("meta");m.name="mobile-web-app-capable";m.content="yes";document.head.appendChild(m);}
   };
+  const ensurePackingNavigation=()=>{
+    const nav=document.getElementById("site-nav");if(!nav||nav.querySelector('a[href="packing.html"]'))return;
+    const a=document.createElement("a");a.href="packing.html";a.textContent="Packing";
+    const today=nav.querySelector('a[href="today.html"]');
+    if(today&&today.nextSibling)nav.insertBefore(a,today.nextSibling);else if(today)nav.appendChild(a);else nav.prepend(a);
+  };
   const showUpdate=()=>{
     if(document.getElementById("sb-update-toast"))return;
     const t=document.createElement("div");t.id="sb-update-toast";t.className="sb-update-toast";t.innerHTML='<span><strong>Trip update available.</strong> Refresh for the newest plans.</span><button type="button">Refresh</button>';
@@ -33,5 +39,5 @@
     addEventListener("beforeinstallprompt",e=>{e.preventDefault();prompt=e;if(h)h.textContent="Ready to install. Tap Install wedding app.";});
     b.addEventListener("click",async()=>{if(prompt){prompt.prompt();await prompt.userChoice;prompt=null;return;}if(h)h.innerHTML='On Android Chrome: <strong>⋮ → Install and create shortcut → Install</strong>. On iPhone Safari: <strong>Share → Add to Home Screen</strong>.';});
   };
-  injectStyle();ensurePwaMetadata();setupInstall();registerSW();
+  injectStyle();ensurePwaMetadata();ensurePackingNavigation();setupInstall();registerSW();
 })();
