@@ -1,0 +1,58 @@
+ISPRA v21 — DEEP RESEARCH PASS
+
+Upload BOTH files to the repository root and replace the existing versions:
+1. ispra.html
+2. sw.js
+
+MAJOR RESEARCH-DRIVEN CHANGES
+
+STRESA VERDICT
+- Stresa is NOT the default excursion for this wedding week.
+- Drive from Ispra is ~39 km / ~50–51 min each way.
+- Stresa's real payoff is the Borromean Islands.
+- Navigazione Laghi's currently published special island tours end Oct 4, before arrival.
+- Isola Bella and Isola Madre themselves remain open through Nov 8.
+- Recommendation: go only if an autumn public/shared boat service is confirmed.
+- If choosing Stresa, use Thu Oct 8, not wedding-eve Fri Oct 9.
+- Do one island, not an all-day island-collection marathon.
+
+EXCURSION RANKING
+1. Santa Caterina del Sasso
+   - ~10 km / ~12 min by car/taxi
+   - €5 entry
+   - €1 lift
+   - free parking
+   - best mix of scenery + history + low logistics
+2. Rocca di Angera
+   - very close to Ispra / Angera ~6 km away
+   - open 10:00–18:00 during stay
+   - €18 adult
+   - history-first alternative
+3. Stresa
+   - conditional on autumn island transport
+
+WEEK RHYTHM
+Oct 7 — arrive / groceries / settle in
+Oct 8 — Santa Caterina default; Stresa only as confirmed-boat swap
+Oct 9 — Ispra local + optional Angera; wedding-eve buffer
+Oct 10 — wedding; no excursion
+Oct 11 — return cars / Santa Margherita train
+
+TRANSPORT
+- Rental cars remain the backbone.
+- Villa Eden parking capacity still covers the two-car setup.
+- Official Ispra/Navigazione public lake timetable currently ends Oct 4.
+- Free VareseCultura2030 Santa Caterina shuttle was published only for September,
+  so it is NOT promised for Oct 8.
+- Waterfront ZTL/parking cautions retained.
+
+FOOD / SUPPLIES
+- Ristorante dei Limoni: featured group dinner.
+- La Betulla Horses: best quieter couple/small-group meal.
+- Ca' Dei Baloss: pizza / takeaway.
+- Enoteca Forni: wine.
+- Gastronomia Le Delizie: picnic / prepared food.
+- Tigros: consolidated supply run.
+
+PWA
+- Service-worker cache bumped to v22.
