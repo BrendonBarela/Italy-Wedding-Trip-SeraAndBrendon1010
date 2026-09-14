@@ -1,0 +1,34 @@
+SANTA MARGHERITA v21 — DEEP HONEYMOON RESEARCH PASS
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. santa-margherita.html
+2. sw.js
+
+MAJOR RESEARCH-DRIVEN CHANGES
+- Portofino is now a late-afternoon/sunset honeymoon outing:
+  ferry out if operating, Castello Brown OR lighthouse, bus 782 back.
+- Exact October sunset context added.
+- Castello Brown: €10; open to 18:00 in October.
+- Portofino lighthouse aperitivo added: open to sunset, weather permitting.
+- 2026–27 AMT winter bus context added; 782 is the reliable evening fallback.
+- San Fruttuoso added as a PERFECT-WEATHER optional upgrade:
+  €24 round-trip from Santa including Portofino stop;
+  abbey open daily in October 10:00–15:45.
+- Camogli reframed as a late-afternoon / sunset trip.
+- Restaurant plan is now schedule-aware:
+  Sunday: DuCoq or Zi'Ninella
+  Monday: Madachì / Karalis
+  Tuesday: Zi'Ninella as final Italy dinner
+- Added Madachì based on its official Monday hours and strong 2026 reviews.
+- Added Izoa as the best researched Camogli dinner option if staying late.
+- De-emphasized Trattoria da Pezzi after mixed 2026 reviews.
+- Added note that La Cervara public guided openings nearest our stay are Oct 4 and Oct 18,
+  so it is not realistically visitable during Oct 11–14.
+- Madonna dei Gotti remains on the page but is explicitly optional after arrival.
+- Service-worker cache bumped to v18.
+
+AFTER UPLOADING
+1. Refresh the Santa Margherita page.
+2. Open the installed PWA.
+3. If "Trip update available" appears, tap Refresh.
