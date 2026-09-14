@@ -114,6 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     set("dashboard-transport-detail", cfg.transportDetail);
     href("dashboard-transport-link", cfg.transportLink);
 
+    const packTitle = document.getElementById("dashboard-pack-title");
+    const packList = document.getElementById("dashboard-pack");
+    if (packTitle) packTitle.textContent = live ? "Bring today" : "Bring on Oct 1";
+    if (packList) packList.innerHTML = (cfg.pack || []).map(item => `<span>${item}</span>`).join("");
+
     const events = cfg.events || [];
     set("dashboard-events", events.length ? events.join(" • ") : "No researched event today");
     set("dashboard-events-detail", events.length ? "Optional event ideas for today." : "Use the destination guide for food, sights and nearby places.");
@@ -131,6 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
         <b>${item.date}</b>
         <span><strong>${item.title}</strong> <em style="font-style:normal;font-size:.75rem;font-weight:800;color:#6f4e3d">• ${item.status}</em><br>${item.detail} <a href="${item.link}">Plan →</a></span>
       </div>`).join("");
+  }
+
+  // Packing guidance: activity-based, useful offline, not a weather forecast.
+  const packingDays = document.getElementById("packing-day-list");
+  if (packingDays && trip) {
+    packingDays.innerHTML = Object.entries(trip.days).map(([key,cfg]) => {
+      const [y,m,d] = key.split("-").map(Number);
+      const date = new Date(y,m-1,d);
+      const label = date.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+      return `<article class="packing-day"><strong>${label} • ${cfg.city}</strong><div>${(cfg.pack || []).map(item=>`<span>${item}</span>`).join("")}</div></article>`;
+    }).join("");
   }
 
   // Build compact daily itinerary if requested.
@@ -152,68 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".day-card[data-date]").forEach(card => {
     if (card.dataset.date === todayKey) card.classList.add("is-today");
   });
-
-  // Weather.
-  const weatherCodeLabel = code => {
-    if (code === 0) return "Clear";
-    if ([1,2].includes(code)) return "Mostly clear";
-    if (code === 3) return "Cloudy";
-    if ([45,48].includes(code)) return "Fog";
-    if ([51,53,55,56,57].includes(code)) return "Drizzle";
-    if ([61,63,65,66,67,80,81,82].includes(code)) return "Rain";
-    if ([71,73,75,77,85,86].includes(code)) return "Snow";
-    if ([95,96,99].includes(code)) return "Thunderstorms";
-    return "Forecast";
-  };
-  const fToC = f => Math.round((f-32)*5/9);
-
-  async function loadWeather(card) {
-    let cfg;
-    try {
-      if (card.dataset.weather) cfg = JSON.parse(card.dataset.weather);
-      else if (card.dataset.weatherRoute) {
-        const route = JSON.parse(card.dataset.weatherRoute);
-        const key = dateKey();
-        cfg = route.find(x => key >= x.start && key <= x.end) || route[0];
-      }
-    } catch {}
-    if (!cfg) return;
-    const body = card.querySelector(".weather-body");
-    if (!body) return;
-
-    const start = cfg.start, end = cfg.end;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(cfg.lat)}&longitude=${encodeURIComponent(cfg.lng)}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&timezone=auto&start_date=${start}&end_date=${end}`;
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("weather");
-      const data = await res.json();
-      const daily = data.daily || {};
-      const dates = daily.time || [];
-      if (!dates.length) throw new Error("range");
-      body.innerHTML = `<div class="weather-forecast-strip">${dates.map((date,i) => {
-        const d = new Date(`${date}T12:00:00`);
-        const high = Math.round(daily.temperature_2m_max?.[i]);
-        const low = Math.round(daily.temperature_2m_min?.[i]);
-        const rain = daily.precipitation_probability_max?.[i] ?? 0;
-        const code = daily.weather_code?.[i];
-        return `<article class="weather-day"><strong>${d.toLocaleDateString("en-US",{weekday:"short"})}</strong><span>${d.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><b>${weatherCodeLabel(code)}</b><span>${high}° / ${low}°F</span><small>${fToC(high)}° / ${fToC(low)}°C • ${rain}% precip.</small></article>`;
-      }).join("")}</div>`;
-      const dashboardWeather = document.getElementById("dashboard-weather");
-      const dashboardWeatherDetail = document.getElementById("dashboard-weather-detail");
-      if (dashboardWeather && dashboardWeatherDetail) {
-        const key = dateKey();
-        const i = dates.indexOf(key);
-        if (i >= 0) {
-          const hi = Math.round(daily.temperature_2m_max[i]), lo = Math.round(daily.temperature_2m_min[i]);
-          dashboardWeather.textContent = `${weatherCodeLabel(daily.weather_code[i])} • ${hi}°/${lo}°F`;
-          dashboardWeatherDetail.textContent = `${daily.precipitation_probability_max[i] ?? 0}% chance of precipitation`;
-        }
-      }
-    } catch {
-      body.innerHTML = `<div class="weather-not-ready"><strong>Forecast not available yet</strong><span>Trip-day forecasts appear as the dates enter the forecast window. The rest of the page works offline.</span></div>`;
-    }
-  }
-  document.querySelectorAll(".trip-weather-card").forEach(loadWeather);
 
   // Leaflet maps.
   const maps = [...document.querySelectorAll(".city-map[data-map]")];

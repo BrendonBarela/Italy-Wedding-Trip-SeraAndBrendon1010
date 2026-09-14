@@ -33,15 +33,8 @@
         </div>
       </div>
       <a class="ux-nav-link" href="wedding.html" data-page="wedding.html">Wedding</a>
-      <div class="ux-nav-group" data-pages="recommendations.html,essentials.html,transportation.html,credits.html">
-        <button class="ux-nav-group-toggle" type="button" aria-expanded="false">More <span aria-hidden="true">⌄</span></button>
-        <div class="ux-nav-menu">
-          <a href="recommendations.html">Food & Events</a>
-          <a href="essentials.html">Essentials</a>
-          <a href="transportation.html">Transport</a>
-          <a href="credits.html">Photo credits</a>
-        </div>
-      </div>`;
+      <a class="ux-nav-link" href="transportation.html" data-page="transportation.html">Transport</a>
+      <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>`;
 
     const page = currentPage();
     nav.querySelectorAll("[data-page]").forEach(link => {
@@ -104,85 +97,12 @@
     if (["#map","#restaurants"].includes(window.location.hash)) setOpen(true);
   };
 
-  const collapseRecommendations = () => {
-    document.querySelectorAll(".reco-block").forEach(block => {
-      const grid = block.querySelector(".pick-grid");
-      if (!grid || grid.children.length < 2 || grid.dataset.uxReady === "true") return;
-      grid.dataset.uxReady = "true";
-      grid.classList.add("ux-pick-grid");
-      [...grid.children].forEach((card,i)=>card.classList.toggle("ux-extra-pick",i>0));
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "ux-show-more";
-      button.setAttribute("aria-expanded","false");
-      const extra = grid.children.length - 1;
-      button.textContent = `See ${extra} more ${extra===1?"option":"options"}`;
-      block.insertBefore(button,grid.nextSibling);
-      button.addEventListener("click",()=>{
-        const expanded = grid.classList.toggle("ux-expanded");
-        button.setAttribute("aria-expanded",String(expanded));
-        button.textContent = expanded ? "Show less" : `See ${extra} more ${extra===1?"option":"options"}`;
-      });
-    });
-  };
 
-  const destinationLoveNotes = () => {
-    const notes = {
-      "verona.html":"A Roman city with a 1st-century arena and a love story woven into its identity. Two thousand years of history, but still perfect for an evening walk together.",
-      "parma.html":"Art, opera, Parmigiano, prosciutto and a compact historic center make Parma feel designed for long meals and unhurried days.",
-      "ispra.html":"A quiet Lake Maggiore village where the lake becomes the backdrop for the wedding rather than another thing to schedule.",
-      "santa-margherita.html":"Polished Riviera style without needing to rush — a good base for Portofino, Camogli and long lunches by the water.",
-      "nice.html":"A quieter Riviera base between Nice and Monaco, with Belle Époque atmosphere and easy access to the coast."
-    };
-    const text = notes[currentPage()];
-    const chips = document.querySelector(".destination-chips");
-    if (!text || !chips) return;
-    const note = document.createElement("div");
-    note.className = "destination-love-note";
-    note.innerHTML = `<span>Why it feels like us</span><p>${text}</p>`;
-    chips.replaceWith(note);
-  };
 
-  const privateBookingLocker = () => {
-    const locker = document.getElementById("private-booking-codes");
-    if (!locker) return;
-    const status = document.getElementById("private-code-status");
-    const fields = [...locker.querySelectorAll("[data-private-code]")];
-    fields.forEach(input => {
-      try { input.value = localStorage.getItem(`sb-private-${input.dataset.privateCode}`) || ""; } catch {}
-    });
-    const say = message => {
-      if (!status) return;
-      status.textContent = message;
-      clearTimeout(say.timer);
-      say.timer = setTimeout(()=>{status.textContent="";},3000);
-    };
-    locker.querySelector("[data-save-private]")?.addEventListener("click",()=>{
-      try {
-        fields.forEach(input=>localStorage.setItem(`sb-private-${input.dataset.privateCode}`,input.value.trim()));
-        say("Saved only on this device ✓");
-      } catch { say("This browser could not save the codes."); }
-    });
-    locker.querySelector("[data-clear-private]")?.addEventListener("click",()=>{
-      try {
-        fields.forEach(input=>{localStorage.removeItem(`sb-private-${input.dataset.privateCode}`);input.value="";});
-        say("Private codes cleared from this device.");
-      } catch {}
-    });
-    locker.querySelectorAll("[data-copy-private]").forEach(button=>button.addEventListener("click",async()=>{
-      const input = locker.querySelector(`[data-private-code="${button.dataset.copyPrivate}"]`);
-      if (!input?.value.trim()) { say("Enter and save that code first."); return; }
-      try { await navigator.clipboard.writeText(input.value.trim()); say("Copied ✓"); }
-      catch { input.select(); document.execCommand("copy"); say("Copied ✓"); }
-    }));
-  };
 
   document.addEventListener("DOMContentLoaded",()=>{
     compactNavigation();
-    destinationLoveNotes();
-    privateBookingLocker();
     tripMode();
     destinationProgressiveDisclosure();
-    collapseRecommendations();
   });
 })();

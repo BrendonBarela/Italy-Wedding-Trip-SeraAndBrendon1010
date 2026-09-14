@@ -1,48 +1,18 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#6f4e3d">
-<title>Private Budget | Sera & Brendon</title>
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#6f4e3d">
+<title>Private Spending | Sera & Brendon</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=15"><link rel="stylesheet" href="ux.css?v=20">
 <style>
-.budget-hero{padding:4rem 0 2rem;background:linear-gradient(180deg,#f4e8de,#fbf8f4)}
-.budget-hero h1{margin:.15rem 0 .55rem;font-size:clamp(2.6rem,7vw,5rem)}
-.budget-shell{padding-top:1.4rem;padding-bottom:4rem}
-.budget-lock{max-width:680px;margin:2rem auto;padding:1.25rem;border:1px solid #decabb;border-radius:18px;background:#fff8f1}
-.budget-lock h2{margin-top:0}.budget-lock button,.budget-toolbar button{border:0;border-radius:999px;padding:.7rem 1rem;background:#6f4e3d;color:white;font-weight:800;cursor:pointer}
-.budget-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1rem 0}
-.budget-summary-card{padding:1rem;border:1px solid #e2d4c9;border-radius:16px;background:#fff}
-.budget-summary-card span,.budget-summary-card small{display:block;color:#76655b;font-size:.78rem}.budget-summary-card strong{display:block;margin:.25rem 0;font-size:1.45rem}
-.budget-fx{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;padding:.9rem 1rem;border-radius:14px;background:#f6f1ec;margin-bottom:1rem}
-.budget-fx input{width:110px;padding:.55rem;border:1px solid #cdb8aa;border-radius:10px}
-.budget-toolbar{display:flex;gap:.6rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:1.2rem 0 .8rem}
-.budget-toolbar .secondary{background:#8a6a59}.budget-save-status{font-size:.78rem;color:#52684a;font-weight:800}
-.budget-items{display:grid;gap:.8rem}
-.budget-row{padding:1rem;border:1px solid #e2d4c9;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(63,48,40,.05)}
-.budget-row-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.budget-row-head>div{flex:1}.budget-category{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#8a6a59;font-weight:800}
-.budget-item-name{width:100%;border:0;border-bottom:1px solid #eaded4;background:transparent;padding:.35rem 0;font-size:1.05rem;font-weight:800;color:#3f3028}
-.budget-delete{border:0;background:#f3e8e1;color:#7b433b;border-radius:50%;width:34px;height:34px;font-size:1.3rem;cursor:pointer}
-.budget-grid{display:grid;grid-template-columns:110px repeat(3,1fr);gap:.65rem;margin-top:.8rem}.budget-grid label{font-size:.72rem;color:#76655b;font-weight:700}.budget-grid input,.budget-grid select,.budget-row-foot input,.budget-row-foot select{width:100%;box-sizing:border-box;margin-top:.25rem;padding:.6rem;border:1px solid #d9c9bd;border-radius:10px;background:#fff;font:600 .85rem Inter,sans-serif;color:#3f3028}
-.budget-row-foot{display:grid;grid-template-columns:160px 1fr auto;gap:.65rem;align-items:end;margin-top:.7rem}.budget-status{font-size:.72rem;color:#6f4e3d;background:#f4e8de;border-radius:999px;padding:.5rem .65rem;font-weight:800;white-space:nowrap}
-.budget-note{color:#76655b;line-height:1.6}.budget-note strong{color:#3f3028}
-@media(max-width:760px){.budget-summary{grid-template-columns:1fr}.budget-grid{grid-template-columns:1fr 1fr}.budget-row-foot{grid-template-columns:1fr}.budget-status{justify-self:start}}
+.spending-shell{padding:2rem 0 4rem}.spending-total{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0 1.4rem}.spending-total div{padding:1rem;border:1px solid #e2d4c9;border-radius:16px;background:#fff}.spending-total span{display:block;color:#76655b;font-size:.78rem}.spending-total strong{display:block;font-size:1.7rem;margin-top:.25rem}.spending-list{display:grid;gap:.65rem}.spending-row{display:grid;grid-template-columns:1fr 130px 42px;gap:.7rem;align-items:center;padding:.9rem 1rem;border:1px solid #e2d4c9;border-radius:14px;background:#fff}.spending-row input,.spending-row select{width:100%;box-sizing:border-box;padding:.55rem;border:1px solid #d9c9bd;border-radius:9px;background:#fff;font:600 .86rem Inter,sans-serif}.spending-name{border:0!important;padding-left:0!important;font-weight:800!important}.spending-amount{display:grid;grid-template-columns:72px 1fr;gap:.4rem}.spending-note{grid-column:1 / 3;color:#76655b;font-size:.78rem}.spending-delete{border:0;border-radius:50%;width:34px;height:34px;background:#f3e8e1;color:#7b433b;font-size:1.2rem;cursor:pointer}.spending-toolbar{display:flex;justify-content:space-between;gap:.7rem;align-items:center;margin:1rem 0;flex-wrap:wrap}.spending-toolbar button,.budget-lock button{border:0;border-radius:999px;padding:.7rem 1rem;background:#6f4e3d;color:white;font-weight:800;cursor:pointer}.budget-lock{max-width:650px;margin:2rem auto;padding:1.2rem;border:1px solid #decabb;border-radius:18px;background:#fff8f1}.save-status{font-size:.78rem;color:#52684a;font-weight:700}@media(max-width:700px){.spending-total{grid-template-columns:1fr}.spending-row{grid-template-columns:1fr 42px}.spending-row .spending-amount{grid-column:1}.spending-note{grid-column:1}.spending-delete{grid-column:2;grid-row:1}}
 </style></head><body id="top">
 <header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a href="today.html">Today</a><a href="wedding.html">Wedding</a><a href="transportation.html">Transport</a></nav></header>
-<main>
-<section class="budget-hero"><div class="shell"><p class="eyebrow">Private Trip Mode</p><h1>Trip Budget</h1><p>Booked totals, our share, planned spending, and trip expenses — kept out of the public website.</p></div></section>
-<section class="shell budget-shell">
-<div id="budget-locked" class="budget-lock">
-<h2>🔒 Budget locked</h2><p id="budget-lock-note">Unlock Private Trip Mode to view the budget. Amounts are stored in the encrypted private trip payload and device-only edits are encrypted before they are saved locally.</p>
-<button id="budget-unlock" type="button">Unlock Private Trip Mode</button>
-</div>
+<main><section class="mini-hero"><div class="shell"><p class="eyebrow">Private Trip Mode</p><h1>What we've spent</h1><p>A simple itemized record of trip purchases so far.</p></div></section>
+<section class="shell spending-shell">
+<div id="budget-locked" class="budget-lock"><h2>🔒 Spending record locked</h2><p id="budget-lock-note">Unlock Private Trip Mode to view the itemized spending record.</p><button id="budget-unlock" type="button">Unlock Private Trip Mode</button></div>
 <div id="budget-app" hidden>
-<p class="budget-note"><strong>How totals work:</strong> “Booking total” is the full confirmed charge when we know it. “Our share” is what counts toward Sera &amp; Brendon’s trip total. Shared/group bookings are intentionally left blank until we decide the split.</p>
-<div id="budget-summary" class="budget-summary"></div>
-<div class="budget-fx"><label for="eur-rate"><strong>Planning exchange rate</strong> — €1 = $</label><input id="eur-rate" inputmode="decimal" type="number" min="0" step="0.0001" placeholder="optional"><span id="combined-total">Enter a rate for a combined estimate.</span></div>
-<div class="budget-toolbar"><div><button id="add-budget-item" type="button">+ Add expense</button> <button id="reset-budget" class="secondary" type="button">Reset defaults</button></div><span id="budget-save-status" class="budget-save-status"></span></div>
-<div id="budget-items" class="budget-items"></div>
-</div>
-</section></main>
+<div id="spending-total" class="spending-total"></div>
+<div class="spending-toolbar"><button id="add-spending-item" type="button">+ Add expense</button><span id="budget-save-status" class="save-status"></span></div>
+<div id="spending-list" class="spending-list"></div>
+</div></section></main>
 <footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="today.html">Today</a><a href="index.html">Home</a></span></div></footer>
-<script src="trip-data.js?v=2"></script><script src="script.js?v=17"></script><script src="enhancements.js?v=4"></script><script src="ux.js?v=21"></script><script src="private.js?v=2"></script><script src="budget.js?v=1"></script></body></html>
+<script src="trip-data.js?v=3"></script><script src="script.js?v=18"></script><script src="enhancements.js?v=5"></script><script src="ux.js?v=21"></script><script src="private.js?v=3"></script><script src="budget.js?v=2"></script></body></html>

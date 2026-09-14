@@ -1,226 +1,65 @@
 (() => {
   "use strict";
+  const STORAGE_KEY="sb-private-budget-v2";
+  let state=null, saveTimer=null;
+  const $=s=>document.querySelector(s);
+  const clone=v=>JSON.parse(JSON.stringify(v));
+  const numberValue=v=>{ if(v===""||v==null) return null; const n=Number(v); return Number.isFinite(n)?Math.max(0,n):null; };
+  const money=(n,c)=>new Intl.NumberFormat("en-US",{style:"currency",currency:c,maximumFractionDigits:2}).format(n||0);
+  const esc=v=>String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 
-  const STORAGE_KEY = "sb-private-budget-v1";
-  let state = null;
-  let saveTimer = null;
+  const defaults=data=>({version:2,items:clone(data?.budget?.items||[])});
+  const totals=()=>state.items.reduce((a,i)=>{ const n=numberValue(i.amount); if(n!==null) a[i.currency]=(a[i.currency]||0)+n; return a; },{USD:0,EUR:0});
 
-  const $ = sel => document.querySelector(sel);
-  const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[ch]));
-
-  const money = (value,currency) => {
-    const n = Number(value);
-    if (!Number.isFinite(n)) return "—";
-    return new Intl.NumberFormat("en-US",{style:"currency",currency,maximumFractionDigits:2}).format(n);
+  const renderTotals=()=>{
+    const t=totals();
+    $("#spending-total").innerHTML=`<div><span>USD spent</span><strong>${money(t.USD,"USD")}</strong></div><div><span>EUR spent</span><strong>${money(t.EUR,"EUR")}</strong></div>`;
   };
+  const row=i=>`<article class="spending-row" data-id="${esc(i.id)}">
+    <input class="spending-name" data-field="item" value="${esc(i.item)}" aria-label="Expense description">
+    <button class="spending-delete" type="button" aria-label="Remove item">×</button>
+    <div class="spending-amount"><select data-field="currency"><option value="USD"${i.currency==="USD"?" selected":""}>USD</option><option value="EUR"${i.currency==="EUR"?" selected":""}>EUR</option></select><input type="number" min="0" step="0.01" inputmode="decimal" data-field="amount" value="${i.amount??""}" aria-label="Amount"></div>
+    <input class="spending-note" data-field="note" value="${esc(i.note||"")}" placeholder="Optional note">
+  </article>`;
+  const render=()=>{ $("#spending-list").innerHTML=state.items.map(row).join(""); renderTotals(); };
 
-  const numberValue = value => {
-    if (value === "" || value === null || value === undefined) return null;
-    const n = Number(value);
-    return Number.isFinite(n) ? Math.max(0,n) : null;
-  };
-
-  const clone = value => JSON.parse(JSON.stringify(value));
-
-  const defaultsFromPrivateData = data => {
-    const budget = data?.budget;
-    if (!budget) return {version:1, fx:{eurToUsd:null}, items:[]};
-    return clone(budget);
-  };
-
-  const calculate = () => {
-    const items = state?.items || [];
-    const sum = (field,currency) => items.reduce((total,item) => {
-      const n = numberValue(item[field]);
-      return item.currency === currency && n !== null ? total+n : total;
-    },0);
-    const knownShareUSD = sum("ourShare","USD");
-    const knownShareEUR = sum("ourShare","EUR");
-    const plannedUSD = sum("planned","USD");
-    const plannedEUR = sum("planned","EUR");
-    const needsSplit = items.filter(item => numberValue(item.bookingTotal)!==null && numberValue(item.ourShare)===null).length;
-    return {knownShareUSD,knownShareEUR,plannedUSD,plannedEUR,needsSplit};
-  };
-
-  const summaryCard = (label,usd,eur) => `
-    <article class="budget-summary-card">
-      <span>${escapeHtml(label)}</span>
-      <strong>${money(usd,"USD")}</strong>
-      <small>${money(eur,"EUR")}</small>
-    </article>`;
-
-  const renderSummary = () => {
-    const el=$("#budget-summary");
-    if (!el || !state) return;
-    const t=calculate();
-    el.innerHTML = [
-      summaryCard("Our known share",t.knownShareUSD,t.knownShareEUR),
-      summaryCard("Planned budget",t.plannedUSD,t.plannedEUR),
-      `<article class="budget-summary-card"><span>Needs a split</span><strong>${t.needsSplit}</strong><small>group/shared bookings</small></article>`
-    ].join("");
-
-    const rate = numberValue(state.fx?.eurToUsd);
-    const combined = $("#combined-total");
-    if (combined) {
-      if (rate) {
-        const actual = t.knownShareUSD + t.knownShareEUR*rate;
-        const planned = t.plannedUSD + t.plannedEUR*rate;
-        combined.innerHTML = `<strong>${money(actual,"USD")}</strong> known share • ${money(planned,"USD")} planned using €1 = $${rate.toFixed(4)}`;
-      } else {
-        combined.textContent = "Enter a planning exchange rate if you want a combined USD estimate.";
-      }
-    }
-  };
-
-  const rowHtml = item => `
-    <article class="budget-row" data-id="${escapeHtml(item.id)}">
-      <div class="budget-row-head">
-        <div>
-          <span class="budget-category">${escapeHtml(item.category || "Other")}</span>
-          <input class="budget-item-name" data-field="item" value="${escapeHtml(item.item || "")}" aria-label="Budget item">
-        </div>
-        <button class="budget-delete" type="button" title="Remove item" aria-label="Remove ${escapeHtml(item.item || "item")}">×</button>
-      </div>
-      <div class="budget-grid">
-        <label>Currency
-          <select data-field="currency">
-            <option value="USD"${item.currency==="USD"?" selected":""}>USD</option>
-            <option value="EUR"${item.currency==="EUR"?" selected":""}>EUR</option>
-          </select>
-        </label>
-        <label>Booking total
-          <input inputmode="decimal" type="number" min="0" step="0.01" data-field="bookingTotal" value="${item.bookingTotal ?? ""}" placeholder="—">
-        </label>
-        <label>Our share
-          <input inputmode="decimal" type="number" min="0" step="0.01" data-field="ourShare" value="${item.ourShare ?? ""}" placeholder="Needs split">
-        </label>
-        <label>Planned
-          <input inputmode="decimal" type="number" min="0" step="0.01" data-field="planned" value="${item.planned ?? ""}" placeholder="Optional">
-        </label>
-      </div>
-      <div class="budget-row-foot">
-        <select data-field="category" aria-label="Category">
-          ${["Flights","Lodging","Rail & transit","Rental car","Food & drinks","Activities","Wedding","Shopping","Other"].map(c=>`<option${item.category===c?" selected":""}>${c}</option>`).join("")}
-        </select>
-        <input data-field="note" value="${escapeHtml(item.note || "")}" placeholder="Private note">
-        <span class="budget-status">${escapeHtml(item.status || "")}</span>
-      </div>
-    </article>`;
-
-  const renderRows = () => {
-    const list=$("#budget-items");
-    if (!list || !state) return;
-    list.innerHTML = (state.items || []).map(rowHtml).join("");
-  };
-
-  const showLocked = () => {
-    $("#budget-locked")?.removeAttribute("hidden");
-    $("#budget-app")?.setAttribute("hidden","");
-    const unlock=$("#budget-unlock");
-    if (unlock) {
-      if (window.SBPrivateTrip?.isStandalone) {
-        unlock.hidden=false;
-        unlock.onclick=()=>window.SBPrivateTrip.unlock();
-      } else {
-        unlock.hidden=true;
-        const note=$("#budget-lock-note");
-        if (note) note.textContent="Budget is available only inside the installed app after Private Trip Mode is unlocked.";
-      }
-    }
-  };
-
-  const showUnlocked = async data => {
-    $("#budget-locked")?.setAttribute("hidden","");
-    $("#budget-app")?.removeAttribute("hidden");
-    if (!state) {
-      try { state = await window.SBPrivateTrip.decryptLocal(STORAGE_KEY); } catch {}
-      if (!state) state = defaultsFromPrivateData(data);
-    }
-    renderRows();
-    renderSummary();
-    const rate=$("#eur-rate");
-    if (rate) rate.value = state.fx?.eurToUsd ?? "";
-  };
-
-  const save = async () => {
-    if (!state) return;
-    try {
+  const save=async()=>{
+    try{
       await window.SBPrivateTrip.encryptLocal(STORAGE_KEY,state);
-      const status=$("#budget-save-status");
-      if (status) {
-        status.textContent="Saved encrypted on this device ✓";
-        clearTimeout(save.statusTimer);
-        save.statusTimer=setTimeout(()=>status.textContent="",1800);
-      }
-    } catch {}
+      const el=$("#budget-save-status"); if(el){el.textContent="Saved encrypted on this device ✓"; setTimeout(()=>{if(el)el.textContent="";},1500);}
+    }catch{}
+  };
+  const queueSave=()=>{clearTimeout(saveTimer);saveTimer=setTimeout(save,250);};
+
+  const showLocked=()=>{
+    $("#budget-locked")?.removeAttribute("hidden"); $("#budget-app")?.setAttribute("hidden","");
+    const b=$("#budget-unlock");
+    if(window.SBPrivateTrip?.isStandalone){b.hidden=false;b.onclick=()=>window.SBPrivateTrip.unlock();}
+    else {b.hidden=true; const n=$("#budget-lock-note"); if(n)n.textContent="The spending record is available only inside the installed app after unlocking Private Trip Mode.";}
+  };
+  const showUnlocked=async data=>{
+    $("#budget-locked")?.setAttribute("hidden",""); $("#budget-app")?.removeAttribute("hidden");
+    if(!state){try{state=await window.SBPrivateTrip.decryptLocal(STORAGE_KEY);}catch{} if(!state)state=defaults(data);}
+    render();
   };
 
-  const queueSave = () => {
-    clearTimeout(saveTimer);
-    saveTimer=setTimeout(save,250);
-  };
+  document.addEventListener("input",e=>{
+    const c=e.target.closest("[data-field]"); if(!c||!state)return;
+    const r=c.closest(".spending-row"); if(!r)return;
+    const i=state.items.find(x=>x.id===r.dataset.id); if(!i)return;
+    i[c.dataset.field]=c.dataset.field==="amount"?numberValue(c.value):c.value; renderTotals(); queueSave();
+  });
+  document.addEventListener("change",e=>{
+    if(e.target.matches("[data-field]")) e.target.dispatchEvent(new Event("input",{bubbles:true}));
+  });
+  document.addEventListener("click",e=>{
+    if(e.target.id==="add-spending-item"){
+      const id="expense-"+Date.now().toString(36); state.items.push({id,item:"New expense",currency:"EUR",amount:null,note:""}); render(); queueSave();
+      document.querySelector(`[data-id="${id}"] .spending-name`)?.focus();
+    }
+    const del=e.target.closest(".spending-delete"); if(del&&state){const r=del.closest(".spending-row");state.items=state.items.filter(x=>x.id!==r.dataset.id);render();queueSave();}
+  });
 
-  const updateFromControl = control => {
-    const row=control.closest(".budget-row");
-    if (!row) return;
-    const item=state.items.find(x=>x.id===row.dataset.id);
-    if (!item) return;
-    const field=control.dataset.field;
-    if (["bookingTotal","ourShare","planned"].includes(field)) item[field]=numberValue(control.value);
-    else item[field]=control.value;
-    renderSummary();
-    queueSave();
-  };
-
-  const addItem = () => {
-    const id = "custom-" + Date.now().toString(36);
-    state.items.push({id,category:"Other",item:"New expense",currency:"EUR",bookingTotal:null,ourShare:null,planned:null,status:"Private entry",note:""});
-    renderRows();
-    renderSummary();
-    queueSave();
-    document.querySelector(`[data-id="${id}"] .budget-item-name`)?.focus();
-  };
-
-  const reset = async () => {
-    if (!confirm("Reset the budget to the confirmed/default starting entries? Your device-only edits will be replaced.")) return;
-    state = defaultsFromPrivateData(window.SBPrivateTrip.getData());
-    await save();
-    renderRows(); renderSummary();
-    const rate=$("#eur-rate"); if (rate) rate.value="";
-  };
-
-  const wire = () => {
-    $("#budget-items")?.addEventListener("input",e=>{
-      if (e.target.matches("[data-field]")) updateFromControl(e.target);
-    });
-    $("#budget-items")?.addEventListener("change",e=>{
-      if (e.target.matches("[data-field]")) updateFromControl(e.target);
-    });
-    $("#budget-items")?.addEventListener("click",e=>{
-      const button=e.target.closest(".budget-delete");
-      if (!button) return;
-      const row=button.closest(".budget-row");
-      state.items=state.items.filter(x=>x.id!==row.dataset.id);
-      renderRows(); renderSummary(); queueSave();
-    });
-    $("#add-budget-item")?.addEventListener("click",addItem);
-    $("#reset-budget")?.addEventListener("click",reset);
-    $("#eur-rate")?.addEventListener("input",e=>{
-      state.fx = state.fx || {};
-      state.fx.eurToUsd = numberValue(e.target.value);
-      renderSummary(); queueSave();
-    });
-  };
-
-  const init = async () => {
-    wire();
-    const data=window.SBPrivateTrip?.getData?.();
-    if (window.SBPrivateTrip?.isStandalone && data) await showUnlocked(data);
-    else showLocked();
-  };
-
-  document.addEventListener("sb:private-unlocked",event=>{ showUnlocked(event.detail).catch(()=>{}); });
-  document.addEventListener("DOMContentLoaded",()=>{ init().catch(()=>showLocked()); });
+  document.addEventListener("sb:private-unlocked",e=>{showUnlocked(e.detail).catch(()=>{});});
+  document.addEventListener("DOMContentLoaded",()=>{const d=window.SBPrivateTrip?.getData?.(); if(window.SBPrivateTrip?.isStandalone&&d)showUnlocked(d); else showLocked();});
 })();

@@ -250,7 +250,7 @@
     if (!bar) return;
     if (privateData) {
       bar.classList.add("is-unlocked");
-      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — lodging + budget available</span><span style="display:flex;gap:.45rem;align-items:center"><a href="budget.html">Budget</a><button type="button">Lock</button></span>`;
+      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — lodging + spending available</span><span style="display:flex;gap:.45rem;align-items:center"><a href="budget.html">Budget</a><button type="button">Lock</button></span>`;
       bar.querySelector("button").addEventListener("click", lock);
     } else {
       bar.classList.remove("is-unlocked");

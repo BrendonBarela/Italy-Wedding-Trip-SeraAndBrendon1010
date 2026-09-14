@@ -1,0 +1,19 @@
+LEAN UPDATE — UPLOAD ALL FILES IN THIS PACKAGE
+
+1. Open the GitHub repository.
+2. Upload every file from this ZIP into the repository root.
+3. Allow GitHub to replace files with matching names.
+4. Commit the upload.
+5. Open the live website once in the browser and refresh.
+6. Open the installed app and refresh once so the new service worker replaces the old cache.
+
+This update:
+- removes weather
+- adds daily packing guidance
+- simplifies the private spending page
+- revamps Transport into numbered steps
+- simplifies Home/navigation
+- removes Food & Events as a major site feature
+- preserves encrypted private lodging
+
+Do NOT delete styles.css, ux.css, wedding.html, manifest.webmanifest, icons or SVG assets. They are not included because they are unchanged.
