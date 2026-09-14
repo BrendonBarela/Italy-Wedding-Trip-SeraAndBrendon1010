@@ -1,0 +1,21 @@
+VERONA v20 — CITY NAVIGATION + PURPOSEFUL PHOTOS
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. verona.html
+2. sw.js
+
+WHAT CHANGED
+- The generic mid-page photo gallery is gone.
+- The hero now uses the Castel San Pietro / Ponte Pietra view — a place on your actual plan.
+- Four large “What we’ll see” photo cards now explain Arena, Ponte Pietra/Castel San Pietro, Piazza delle Erbe and Castelvecchio.
+- New sticky city navigation: Overview | Things to Do | Eat & Drink | History | Map.
+- Only one city section is shown at a time, so the page no longer feels like one giant wall of research.
+- Overview is intentionally short: six quick picks, four visual places, and the default Friday/Saturday rhythm.
+- All existing detailed research remains under the appropriate city tab.
+- The map gets a resize event when its tab opens so Leaflet renders correctly.
+- Packing remains in the main trip navigation.
+- Service worker bumped to v14.
+
+AFTER UPLOADING
+Refresh the live site once. In the installed PWA, tap Refresh if the update toast appears.
