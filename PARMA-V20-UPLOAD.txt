@@ -1,0 +1,30 @@
+PARMA v20 — SAME CITY FLOW AS VERONA
+
+Upload BOTH files to the repository root and replace the existing versions:
+
+1. parma.html
+2. sw.js
+
+WHAT CHANGED
+- Same sticky city navigation as Verona:
+  Overview | Things to Do | Eat & Drink | History | Map
+- Short Overview instead of one long research page
+- Purposeful photos tied to places/experiences we would actually visit
+- Updated exact-date Oct 4–7, 2026 event research:
+  Festival Verdi + Mercanteinfiera
+- Suggested two-day Parma rhythm
+- Expanded food research with schedule-aware choices:
+  Cocchi, Ai Due Platani, Da Pepèn, Osteria dei Servi, Cortex, Tribunale
+- Local dishes, drinks and compact souvenirs
+- Parma history timeline + interesting facts
+- Existing private lodging behavior retained
+- Existing transport timing retained
+- Service worker cache bumped to v15
+
+PHOTO SOURCES
+All visual cards use Wikimedia Commons files with attribution shown on-page.
+
+AFTER UPLOADING
+1. Refresh the live Parma page.
+2. Open the installed app.
+3. If "Trip update available" appears, tap Refresh.
