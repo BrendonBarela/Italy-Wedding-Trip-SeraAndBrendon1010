@@ -1,0 +1,67 @@
+SITE v23 — CONSOLIDATED DEEP-RESEARCH RELEASE
+
+UPLOAD THESE FILES TO THE REPOSITORY ROOT:
+
+NEW
+- city-guide.css
+- city-guide.js
+
+REPLACE
+- index.html
+- verona.html
+- parma.html
+- ispra.html
+- santa-margherita.html
+- nice.html
+- transportation.html
+- trip-data.js
+- sw.js
+
+WHAT THIS RELEASE DOES
+
+1. CONSOLIDATES ALL FIVE DEEP-DIVE DESTINATION GUIDES
+- Verona v21 deep research
+- Parma v21 deep research
+- Ispra v21 deep research
+- Santa Margherita v21 honeymoon deep research
+- Beaulieu / Nice / Eze v20 deep research
+
+2. SYNCHRONIZES TODAY / CANONICAL TRIP DATA
+Key corrected daily plan:
+- Oct 2: Verona Arena + sunset + Notre Dame
+- Oct 3: Verona history + Al Pompiere
+- Oct 4: Parma arrival + free Farnese/Pilotta if energy allows
+- Oct 5: Parma Duomo + Verdi + Cocchi
+- Oct 6: Pepen + Maria Luigia + Regio
+- Oct 8: Santa Caterina default
+- Oct 9: Ispra/Fornaci + optional Angera
+- Oct 12: Portofino late afternoon / sunset
+- Oct 13: Camogli golden hour
+- Oct 15: Eze by bus 83
+- Oct 16: Kerylos + Ephrussi
+- Oct 17: Nice + ballet/CaraibAzur
+- Oct 18: taxi/VTC airport comfort default
+
+3. UPDATES TRANSPORTATION
+- Verona direct taxi default after flight
+- Ispra car strategy and Oct ferry caution
+- Santa: ferry to Portofino + 782 bus return / Camogli by train
+- Beaulieu: bus 83 to Eze / TER to Nice
+- Oct 18 prebooked taxi/VTC default; train + free airport tram as backup
+
+4. SHARED CITY CODE
+- Extracted common city page styling to city-guide.css
+- Replaced five nearly identical inline tab scripts with city-guide.js
+- Generic hash/tab behavior now supports nested links like #events, #eze and #nice-day
+- Common city CSS duplication reduced by about 40.5 KB in source
+- All touched pages use enhancements.js?v=6
+- Home and Transportation hard-code the Packing nav item
+- PWA cache bumped to v23 and caches city-guide.css/js
+
+PRIVACY
+- Exact private lodging data remains encrypted / Private Trip Mode only.
+- Villa Eden remains public intentionally for wedding guests.
+
+IMPORTANT
+The connected GitHub integration returned HTTP 403 on write, so these files were NOT pushed automatically.
+Upload all files together so city pages do not reference city-guide.css/js before those assets exist.

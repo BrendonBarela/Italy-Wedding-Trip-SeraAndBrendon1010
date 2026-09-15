@@ -1,9 +1,9 @@
-const CACHE_NAME = "sera-brendon-wedding-v22";
+const CACHE_NAME = "sera-brendon-wedding-v23";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
   "./wedding.html","./transportation.html","./budget.html","./credits.html",
-  "./styles.css","./ux.css","./script.js","./enhancements.js","./ux.js","./trip-data.js","./private.js","./budget.js","./packing.js",
+  "./styles.css","./ux.css","./city-guide.css","./script.js","./city-guide.js","./enhancements.js","./ux.js","./trip-data.js","./private.js","./budget.js","./packing.js",
   "./private-trip.enc","./manifest.webmanifest",
   "./verona.svg","./parma.svg","./ispra.svg","./santa-margherita.svg","./beaulieu.svg",
   "./app-icon-192.png","./app-icon-512.png"
