@@ -1,10 +1,10 @@
-const CACHE_NAME = "sera-brendon-wedding-v23";
+const CACHE_NAME = "sera-brendon-wedding-v24-contacts";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
   "./wedding.html","./transportation.html","./budget.html","./credits.html",
   "./styles.css","./ux.css","./city-guide.css","./script.js","./city-guide.js","./enhancements.js","./ux.js","./trip-data.js","./private.js","./budget.js","./packing.js",
-  "./private-trip.enc","./manifest.webmanifest",
+  "./contacts.html","./contacts.js","./private-trip.enc","./manifest.webmanifest",
   "./verona.svg","./parma.svg","./ispra.svg","./santa-margherita.svg","./beaulieu.svg",
   "./app-icon-192.png","./app-icon-512.png"
 ];
@@ -41,3 +41,4 @@ self.addEventListener("fetch", event => {
   if(/\.(?:js|css|webmanifest)$/i.test(url.pathname)||url.pathname.endsWith("/private-trip.enc")){event.respondWith(networkFirst(event.request));return;}
   event.respondWith((async()=>{const cached=await cacheMatch(event.request);if(cached)return cached;try{const r=await fetch(event.request);if(r&&r.ok)(await caches.open(CACHE_NAME)).put(event.request,r.clone()).catch(()=>{});return r;}catch{return cached;}})());
 });
+

@@ -1,0 +1,18 @@
+CONTACTS UPDATE — September 19, 2026
+
+1. Extract this ZIP.
+2. Open BrendonBarela/Italy-Wedding-Trip-SeraAndBrendon1010 on GitHub.
+3. Choose Add file > Upload files in the repository root.
+4. Upload the seven site files from this folder (not the ZIP itself), replacing files with matching names. Commit the changes.
+5. Wait for GitHub Pages to finish deploying, then reopen the installed wedding app online.
+6. Open Contacts and unlock Private Trip Mode using the existing trip password. If already unlocked, tap Lock and unlock again to load the new numbers.
+
+Includes all 11 supplied contacts, alphabetically sorted, with call, text and WhatsApp links using +1 country codes. WhatsApp works only for contacts who use it.
+
+Phone numbers remain encrypted in private-trip.enc. The existing password and encryption key remain unchanged, so existing encrypted budget entries remain compatible. Existing lodging data is preserved.
+
+The public Contacts page explains how to access contacts in the installed app. Numbers are displayed only after unlocking Private Trip Mode.
+
+Validation: JavaScript syntax, encrypted payload decryption, 11 exact name/number pairs, 33 action URLs, locked rendering and plaintext leakage checks passed. Browser layout verification was unavailable in this environment.
+
+Based on repository commit 718b084aa4b334f4a74476e585c57c3b9b0a2eb6. This package changes only Contacts, home/navigation links, the private data payload and the app cache version.

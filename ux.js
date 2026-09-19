@@ -34,7 +34,8 @@
       </div>
       <a class="ux-nav-link" href="wedding.html" data-page="wedding.html">Wedding</a>
       <a class="ux-nav-link" href="transportation.html" data-page="transportation.html">Transport</a>
-      <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>`;
+      <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>
+      <a class="ux-nav-link" href="contacts.html" data-page="contacts.html">Contacts</a>`;
 
     const page = currentPage();
     nav.querySelectorAll("[data-page]").forEach(link => {
