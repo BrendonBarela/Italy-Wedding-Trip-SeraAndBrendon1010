@@ -138,6 +138,7 @@
       <div style="margin-top:.35rem">${escapeHtml(stay.address)}</div>
       ${extra ? `<div style="margin-top:.35rem;font-size:.82rem">${extra}</div>` : ""}
       <div class="sb-private-actions">
+        <a href="properties.html">All property listings</a>
         <a target="_blank" rel="noopener" href="${directions(stay.address)}">Directions home ↗</a>
         <button type="button" data-copy-address>Copy address</button>
       </div>`;
@@ -250,7 +251,7 @@
     if (!bar) return;
     if (privateData) {
       bar.classList.add("is-unlocked");
-      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — lodging + spending available</span><span style="display:flex;gap:.45rem;align-items:center"><a href="budget.html">Budget</a><button type="button">Lock</button></span>`;
+      bar.innerHTML = `<span>🔓 <strong>Private Trip Mode</strong> — lodging + contacts available</span><span style="display:flex;gap:.45rem;align-items:center"><a href="properties.html">Properties</a><a href="contacts.html">Contacts</a><button type="button">Lock</button></span>`;
       bar.querySelector("button").addEventListener("click", lock);
     } else {
       bar.classList.remove("is-unlocked");

@@ -41,3 +41,4 @@
   };
   injectStyle();ensurePwaMetadata();ensurePackingNavigation();setupInstall();registerSW();
 })();
+
