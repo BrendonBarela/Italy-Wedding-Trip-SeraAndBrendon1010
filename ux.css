@@ -87,3 +87,6 @@
 @media(min-width:801px){html body .mobile-nav-toggle{display:none!important}}
 .home-today-cta{flex-wrap:wrap}
 .home-today-cta>.button{flex:0 0 auto;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+
+/* Website shortcut appears in the installed app menu. */
+.ux-nav .ux-website-link[hidden]{display:none!important}

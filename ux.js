@@ -36,7 +36,16 @@
       <a class="ux-nav-link" href="transportation.html" data-page="transportation.html">Transport</a>
       <a class="ux-nav-link" href="properties.html" data-page="properties.html">Properties</a>
       <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>
-      <a class="ux-nav-link" href="contacts.html" data-page="contacts.html">Contacts</a>`;
+      <a class="ux-nav-link" href="contacts.html" data-page="contacts.html">Contacts</a>
+      <a class="ux-nav-link ux-website-link" href="https://brendonbarela.github.io/Italy-Wedding-Trip-SeraAndBrendon1010/" target="_blank" rel="noopener noreferrer" aria-label="Open full trip website in a new window" hidden>Open website ↗</a>`;
+
+    const websiteLink = nav.querySelector(".ux-website-link");
+    const appMode = window.matchMedia("(display-mode: standalone)");
+    const updateWebsiteLink = () => {
+      websiteLink.hidden = !(appMode.matches || window.navigator.standalone === true);
+    };
+    updateWebsiteLink();
+    appMode.addEventListener?.("change", updateWebsiteLink);
 
     const page = currentPage();
     nav.querySelectorAll("[data-page]").forEach(link => {
