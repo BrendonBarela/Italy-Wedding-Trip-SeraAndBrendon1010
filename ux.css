@@ -76,3 +76,14 @@
 .private-code-row{display:flex;gap:7px}.private-code-row input{min-width:0;flex:1;border:1px solid #d4c5ba;border-radius:10px;padding:10px 11px;font:750 .92rem Inter,system-ui,sans-serif;text-transform:uppercase;background:#fff}.private-code-row button,.private-code-actions button{border:0;border-radius:999px;padding:9px 12px;font:800 .76rem Inter,system-ui,sans-serif;cursor:pointer}.private-code-row button{background:#6f4e3d;color:#fff}.private-code-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.private-code-actions [data-save-private]{background:#6f4e3d;color:#fff}.private-code-actions [data-clear-private]{background:#f0e7df;color:#6f4e3d}.private-code-status{font-size:.78rem;font-weight:750;color:#4f6b43;min-height:1.2em}
 .flight-leg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.flight-leg{padding:16px;border:1px solid #e1d4ca;border-radius:16px;background:#fff}.flight-leg span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;color:#6f4e3d}.flight-leg strong{display:block;font-size:1.05rem;margin:5px 0}.flight-leg small{display:block;color:#716a63}.rental-confirmed{border-left:4px solid #6f4e3d!important}
 @media(max-width:760px){.private-booking-locker>summary{align-items:flex-start}.private-booking-locker>summary span{display:none}.private-code-grid,.flight-leg-grid{grid-template-columns:1fr}.destination-love-note{font-size:.95rem}}
+
+/* Direct-access lodging and contact cards. */
+.sb-private-card{margin-top:.8rem;padding:1rem;border:1px solid #decabb;border-radius:14px;background:#fff8f1;color:#65564e}
+.sb-private-card strong{color:#3f3028}
+.sb-private-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.65rem}
+.sb-private-actions a,.sb-private-actions button{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;text-decoration:none;border:0;border-radius:999px;padding:.65rem .85rem;background:#6f4e3d;color:#fff!important;font:700 .8rem Inter,system-ui,sans-serif;cursor:pointer}
+
+/* Keep desktop navigation and home actions from crowding. */
+@media(min-width:801px){html body .mobile-nav-toggle{display:none!important}}
+.home-today-cta{flex-wrap:wrap}
+.home-today-cta>.button{flex:0 0 auto;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;justify-content:center}

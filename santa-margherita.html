@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <link href="styles.css?v=15" rel="stylesheet"/>
-<link href="ux.css?v=20" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
+<link href="ux.css?v=28" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
 <style>
 .hero-photo-credit{display:inline-block;margin-top:.55rem;font-size:.68rem;color:rgba(255,255,255,.72)}
 .hero-photo-credit a{color:inherit;text-decoration:underline}
@@ -51,10 +51,10 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Painted Blue by PortofinoVip</h2>
-<p><strong>Public view:</strong> Santa Margherita Ligure. The exact address and one-tap Directions Home stay in Private Trip Mode.</p>
+<p><strong>Our base:</strong> Santa Margherita Ligure. Find the address and directions below.</p>
 <p data-stay-timing="santa"></p><div data-private-stay="santa" id="private-location"></div>
 <p class="stay-listing"><a class="button stay-button" href="https://vrbo.onelink.me/ItNz/9pc2qq6n" rel="noopener" target="_blank">View our stay listing ↗</a></p></div>
-<div class="address-card"><span>Honeymoon base</span><strong>Santa Margherita Ligure</strong><small>Exact location is private in the app</small></div>
+<div class="address-card"><span>Honeymoon base</span><strong>Santa Margherita Ligure</strong><small>Address and directions below</small></div>
 </div>
 <div class="city-subnav-wrap"><nav aria-label="Santa Margherita sections" class="city-subnav">
 <button class="active" data-city-tab="overview" type="button">Overview</button>
@@ -234,7 +234,7 @@ I would <strong>not</strong> spend a full day in Portofino.
 </p>
 </section>
 <section class="city-tab-panel" hidden="" id="map" style="margin-top:2.6rem">
-<div class="city-panel-head"><p class="kicker">Home base + two easy excursions</p><h2>Map</h2><p>Santa's waterfront, Villa Durazzo, ferry/train points, Portofino/Paraggi, Camogli and a few dinner choices. Our exact apartment stays private.</p></div>
+<div class="city-panel-head"><p class="kicker">Home base + two easy excursions</p><h2>Map</h2><p>Santa's waterfront, Villa Durazzo, ferry/train points, Portofino/Paraggi, Camogli and a few dinner choices. Our apartment is marked on the map.</p></div>
 <div class="city-map-layout">
 <div class="map-wrap">
 <div aria-label="Map filters" class="map-filter-bar"><span>Riviera map</span>
@@ -245,9 +245,9 @@ I would <strong>not</strong> spend a full day in Portofino.
 <button class="map-filter" data-filter="event" type="button">🎉 Event</button>
 <button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div>
-<div aria-label="Interactive Santa Margherita and Riviera map" class="map city-map" data-map='{"stay": {"name": "Our Santa Margherita stay area (approx.)", "address": "Santa Margherita Ligure, Italy", "lat": 44.3345, "lng": 9.212, "privateApprox": true}, "restaurants": [{"name": "Ristorante Karalis", "address": "Corso Matteotti 26, Santa Margherita Ligure", "lat": 44.3339, "lng": 9.2111}, {"name": "DuCoq", "address": "Via Cairoli 11, Santa Margherita Ligure", "lat": 44.3347, "lng": 9.2119}, {"name": "Trattoria da Pezzi", "address": "Via Cavour 21, Santa Margherita Ligure", "lat": 44.3342, "lng": 9.2106}], "station": {"name": "Santa Margherita Ligure–Portofino Station", "lat": 44.33275, "lng": 9.2079}, "sights": [{"name": "Villa Durazzo", "lat": 44.33455, "lng": 9.21405}, {"name": "Santa Margherita waterfront", "lat": 44.3337, "lng": 9.2128}, {"name": "Santa Margherita ferry boarding", "lat": 44.3332, "lng": 9.2142, "kind": "station"}, {"name": "Paraggi Bay", "lat": 44.3111, "lng": 9.2124}, {"name": "Portofino", "lat": 44.3032, "lng": 9.20975}, {"name": "Castello Brown", "lat": 44.302, "lng": 9.214}, {"name": "Camogli waterfront", "lat": 44.349, "lng": 9.1547}], "events": [{"name": "Madonna dei Gotti Festival — Camogli", "date": "Oct 11 • final afternoon", "address": "Camogli historic center / harbor", "lat": 44.349, "lng": 9.1547, "url": "https://lamialiguria.it/eventi/festa-madonna-dei-gotti-camogli/"}]}'></div>
-<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Approx. stay area</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
-<p class="map-help">The public map uses an approximate Santa stay area. Unlock Private Trip Mode for the exact apartment address.</p>
+<div aria-label="Interactive Santa Margherita and Riviera map" class="map city-map" data-map="{&quot;stay&quot;: {&quot;name&quot;: &quot;Painted Blue by PortofinoVip&quot;, &quot;address&quot;: &quot;Via Partigiani D&#x27;Italia, 25, 16038 Santa Margherita Ligure, Liguria, Italy&quot;, &quot;lat&quot;: 44.333911, &quot;lng&quot;: 9.212919}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Ristorante Karalis&quot;, &quot;address&quot;: &quot;Corso Matteotti 26, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3339, &quot;lng&quot;: 9.2111}, {&quot;name&quot;: &quot;DuCoq&quot;, &quot;address&quot;: &quot;Via Cairoli 11, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3347, &quot;lng&quot;: 9.2119}, {&quot;name&quot;: &quot;Trattoria da Pezzi&quot;, &quot;address&quot;: &quot;Via Cavour 21, Santa Margherita Ligure&quot;, &quot;lat&quot;: 44.3342, &quot;lng&quot;: 9.2106}], &quot;station&quot;: {&quot;name&quot;: &quot;Santa Margherita Ligure–Portofino Station&quot;, &quot;lat&quot;: 44.33275, &quot;lng&quot;: 9.2079}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Durazzo&quot;, &quot;lat&quot;: 44.33455, &quot;lng&quot;: 9.21405}, {&quot;name&quot;: &quot;Santa Margherita waterfront&quot;, &quot;lat&quot;: 44.3337, &quot;lng&quot;: 9.2128}, {&quot;name&quot;: &quot;Santa Margherita ferry boarding&quot;, &quot;lat&quot;: 44.3332, &quot;lng&quot;: 9.2142, &quot;kind&quot;: &quot;station&quot;}, {&quot;name&quot;: &quot;Paraggi Bay&quot;, &quot;lat&quot;: 44.3111, &quot;lng&quot;: 9.2124}, {&quot;name&quot;: &quot;Portofino&quot;, &quot;lat&quot;: 44.3032, &quot;lng&quot;: 9.20975}, {&quot;name&quot;: &quot;Castello Brown&quot;, &quot;lat&quot;: 44.302, &quot;lng&quot;: 9.214}, {&quot;name&quot;: &quot;Camogli waterfront&quot;, &quot;lat&quot;: 44.349, &quot;lng&quot;: 9.1547}], &quot;events&quot;: [{&quot;name&quot;: &quot;Madonna dei Gotti Festival — Camogli&quot;, &quot;date&quot;: &quot;Oct 11 • final afternoon&quot;, &quot;address&quot;: &quot;Camogli historic center / harbor&quot;, &quot;lat&quot;: 44.349, &quot;lng&quot;: 9.1547, &quot;url&quot;: &quot;https://lamialiguria.it/eventi/festa-madonna-dei-gotti-camogli/&quot;}]}"></div>
+<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Our stay</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
+<p class="map-help">Tap a place for details and directions. Use the lodging address above for your arrival.</p>
 </div>
 </div>
 </section>
@@ -257,11 +257,11 @@ I would <strong>not</strong> spend a full day in Portofino.
 <footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer>
 
 <script src="city-guide.js?v=1"></script><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="trip-data.js?v=25"></script>
-<script src="script.js?v=18"></script>
+<script src="trip-data.js?v=28"></script>
+<script src="script.js?v=28"></script>
 <script src="enhancements.js?v=6"></script>
 <script src="ux.js?v=25"></script>
-<script src="private.js?v=25"></script>
+<script src="private.js?v=28"></script>
 </body>
 </html>
 

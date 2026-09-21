@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <link href="styles.css?v=15" rel="stylesheet"/>
-<link href="ux.css?v=20" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
+<link href="ux.css?v=28" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
 <style>
 .hero-photo-credit{display:inline-block;margin-top:.55rem;font-size:.68rem;color:rgba(255,255,255,.72)}
 .hero-photo-credit a{color:inherit;text-decoration:underline}
@@ -62,10 +62,10 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Mila — Penthouse for 2</h2>
-<p><strong>Public view:</strong> Beaulieu-sur-Mer. The exact address and one-tap Directions Home stay in Private Trip Mode.</p>
+<p><strong>Our base:</strong> Beaulieu-sur-Mer. Find the address and directions below.</p>
 <p data-stay-timing="beaulieu"></p><div data-private-stay="beaulieu" id="private-location"></div>
 <p class="stay-listing"><a class="button stay-button" href="https://vrbo.onelink.me/ItNz/cnrblsn1" rel="noopener" target="_blank">View our stay listing ↗</a></p></div>
-<div class="address-card"><span>Honeymoon base</span><strong>Beaulieu-sur-Mer</strong><small>Exact location is private in the app</small></div>
+<div class="address-card"><span>Honeymoon base</span><strong>Beaulieu-sur-Mer</strong><small>Address and directions below</small></div>
 </div>
 <div class="city-subnav-wrap"><nav aria-label="French Riviera sections" class="city-subnav">
 <button class="active" data-city-tab="overview" type="button">Overview</button>
@@ -210,7 +210,7 @@
 </p>
 </section>
 <section class="city-tab-panel" hidden="" id="map" style="margin-top:2.6rem">
-<div class="city-panel-head"><p class="kicker">One base, two easy excursions</p><h2>Map</h2><p>Beaulieu/Cap-Ferrat, Èze and Nice in one view, including the bus start for Èze and the Saturday dance-event choices. Exact apartment location remains private.</p></div>
+<div class="city-panel-head"><p class="kicker">One base, two easy excursions</p><h2>Map</h2><p>Beaulieu/Cap-Ferrat, Èze and Nice in one view, including the bus start for Èze and the Saturday dance-event choices. Our apartment is marked on the map.</p></div>
 <div class="city-map-layout"><div class="map-wrap">
 <div aria-label="Map filters" class="map-filter-bar"><span>French Riviera map</span>
 <button class="map-filter active" data-filter="all" type="button">All</button>
@@ -220,9 +220,9 @@
 <button class="map-filter" data-filter="event" type="button">💃 Events</button>
 <button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div>
-<div aria-label="Interactive Beaulieu Nice Eze map" class="map city-map" data-map="{&quot;stay&quot;: {&quot;name&quot;: &quot;Our Beaulieu-sur-Mer stay area (approx.)&quot;, &quot;address&quot;: &quot;Beaulieu-sur-Mer, France&quot;, &quot;lat&quot;: 43.7065, &quot;lng&quot;: 7.3315, &quot;privateApprox&quot;: true}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Le Trois Quarts&quot;, &quot;address&quot;: &quot;Port de Plaisance, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7033, &quot;lng&quot;: 7.3329}, {&quot;name&quot;: &quot;Le Café des Saveurs&quot;, &quot;address&quot;: &quot;35 Boulevard Marinoni, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7068, &quot;lng&quot;: 7.3314}, {&quot;name&quot;: &quot;Les Vents d'Anges&quot;, &quot;address&quot;: &quot;15 Boulevard du Maréchal Joffre, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7065, &quot;lng&quot;: 7.3299}, {&quot;name&quot;: &quot;Chez Pipo&quot;, &quot;address&quot;: &quot;13 Rue Bavastro, Nice&quot;, &quot;lat&quot;: 43.7015, &quot;lng&quot;: 7.2839}], &quot;station&quot;: {&quot;name&quot;: &quot;Beaulieu-sur-Mer Station&quot;, &quot;lat&quot;: 43.70675, &quot;lng&quot;: 7.3311}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Kérylos&quot;, &quot;address&quot;: &quot;Rue Gustave Eiffel, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7018, &quot;lng&quot;: 7.3338}, {&quot;name&quot;: &quot;Baie des Fourmis&quot;, &quot;lat&quot;: 43.7009, &quot;lng&quot;: 7.3322}, {&quot;name&quot;: &quot;Baie des Fourmis — Bus 83 for Èze&quot;, &quot;lat&quot;: 43.7012, &quot;lng&quot;: 7.3326, &quot;kind&quot;: &quot;station&quot;}, {&quot;name&quot;: &quot;Villa Ephrussi de Rothschild&quot;, &quot;address&quot;: &quot;1 Avenue Ephrussi de Rothschild, Saint-Jean-Cap-Ferrat&quot;, &quot;lat&quot;: 43.6961, &quot;lng&quot;: 7.3289}, {&quot;name&quot;: &quot;Èze Village&quot;, &quot;lat&quot;: 43.7278, &quot;lng&quot;: 7.3619}, {&quot;name&quot;: &quot;Jardin Exotique d'Èze&quot;, &quot;lat&quot;: 43.7273, &quot;lng&quot;: 7.3614}, {&quot;name&quot;: &quot;Vieux Nice / Cours Saleya&quot;, &quot;lat&quot;: 43.696, &quot;lng&quot;: 7.2751}, {&quot;name&quot;: &quot;Castle Hill&quot;, &quot;lat&quot;: 43.6967, &quot;lng&quot;: 7.2797}, {&quot;name&quot;: &quot;Promenade des Anglais&quot;, &quot;lat&quot;: 43.6957, &quot;lng&quot;: 7.2656}], &quot;events&quot;: [{&quot;name&quot;: &quot;Forró de Nice&quot;, &quot;date&quot;: &quot;Oct 15–18 • starts 7 PM&quot;, &quot;address&quot;: &quot;Stockfish, 5 Avenue François Mitterrand, Nice&quot;, &quot;lat&quot;: 43.7136, &quot;lng&quot;: 7.2908, &quot;url&quot;: &quot;https://www.explorenicecotedazur.com/evenement/forro-de-nice/&quot;}, {&quot;name&quot;: &quot;Festival CaraïbAzur Nice&quot;, &quot;date&quot;: &quot;Oct 17 • workshops 10–12 • festival 2–11 PM&quot;, &quot;address&quot;: &quot;Théâtre de Verdure, Nice&quot;, &quot;lat&quot;: 43.6955, &quot;lng&quot;: 7.2656, &quot;url&quot;: &quot;https://www.explorenicecotedazur.com/en/event/festival-caraibazur-nice/&quot;}, {&quot;name&quot;: &quot;Ballet — Maillot &amp; Mandafounis&quot;, &quot;date&quot;: &quot;Oct 17 • 8 PM&quot;, &quot;address&quot;: &quot;Opéra Nice Côte d'Azur, 4-6 Rue Saint-François de Paule, Nice&quot;, &quot;lat&quot;: 43.6954, &quot;lng&quot;: 7.2728, &quot;url&quot;: &quot;https://www.opera-nice.org/agenda/jean-christophe-maillot-ioannis-mandafounis/&quot;}]}"></div>
-<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Approx. stay area</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
-<p class="map-help">Our public map uses only an approximate Beaulieu stay area. Unlock Private Trip Mode for the exact penthouse address.</p>
+<div aria-label="Interactive Beaulieu Nice Eze map" class="map city-map" data-map="{&quot;stay&quot;: {&quot;name&quot;: &quot;Penthouse for 2&quot;, &quot;address&quot;: &quot;13 Boulevard Eugène Gauthier, Les Constellations – Bloc C, 06310 Beaulieu-sur-Mer, France&quot;, &quot;lat&quot;: 43.70889, &quot;lng&quot;: 7.3309}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Le Trois Quarts&quot;, &quot;address&quot;: &quot;Port de Plaisance, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7033, &quot;lng&quot;: 7.3329}, {&quot;name&quot;: &quot;Le Café des Saveurs&quot;, &quot;address&quot;: &quot;35 Boulevard Marinoni, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7068, &quot;lng&quot;: 7.3314}, {&quot;name&quot;: &quot;Les Vents d&#x27;Anges&quot;, &quot;address&quot;: &quot;15 Boulevard du Maréchal Joffre, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7065, &quot;lng&quot;: 7.3299}, {&quot;name&quot;: &quot;Chez Pipo&quot;, &quot;address&quot;: &quot;13 Rue Bavastro, Nice&quot;, &quot;lat&quot;: 43.7015, &quot;lng&quot;: 7.2839}], &quot;station&quot;: {&quot;name&quot;: &quot;Beaulieu-sur-Mer Station&quot;, &quot;lat&quot;: 43.70675, &quot;lng&quot;: 7.3311}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Villa Kérylos&quot;, &quot;address&quot;: &quot;Rue Gustave Eiffel, Beaulieu-sur-Mer&quot;, &quot;lat&quot;: 43.7018, &quot;lng&quot;: 7.3338}, {&quot;name&quot;: &quot;Baie des Fourmis&quot;, &quot;lat&quot;: 43.7009, &quot;lng&quot;: 7.3322}, {&quot;name&quot;: &quot;Baie des Fourmis — Bus 83 for Èze&quot;, &quot;lat&quot;: 43.7012, &quot;lng&quot;: 7.3326, &quot;kind&quot;: &quot;station&quot;}, {&quot;name&quot;: &quot;Villa Ephrussi de Rothschild&quot;, &quot;address&quot;: &quot;1 Avenue Ephrussi de Rothschild, Saint-Jean-Cap-Ferrat&quot;, &quot;lat&quot;: 43.6961, &quot;lng&quot;: 7.3289}, {&quot;name&quot;: &quot;Èze Village&quot;, &quot;lat&quot;: 43.7278, &quot;lng&quot;: 7.3619}, {&quot;name&quot;: &quot;Jardin Exotique d&#x27;Èze&quot;, &quot;lat&quot;: 43.7273, &quot;lng&quot;: 7.3614}, {&quot;name&quot;: &quot;Vieux Nice / Cours Saleya&quot;, &quot;lat&quot;: 43.696, &quot;lng&quot;: 7.2751}, {&quot;name&quot;: &quot;Castle Hill&quot;, &quot;lat&quot;: 43.6967, &quot;lng&quot;: 7.2797}, {&quot;name&quot;: &quot;Promenade des Anglais&quot;, &quot;lat&quot;: 43.6957, &quot;lng&quot;: 7.2656}], &quot;events&quot;: [{&quot;name&quot;: &quot;Forró de Nice&quot;, &quot;date&quot;: &quot;Oct 15–18 • starts 7 PM&quot;, &quot;address&quot;: &quot;Stockfish, 5 Avenue François Mitterrand, Nice&quot;, &quot;lat&quot;: 43.7136, &quot;lng&quot;: 7.2908, &quot;url&quot;: &quot;https://www.explorenicecotedazur.com/evenement/forro-de-nice/&quot;}, {&quot;name&quot;: &quot;Festival CaraïbAzur Nice&quot;, &quot;date&quot;: &quot;Oct 17 • workshops 10–12 • festival 2–11 PM&quot;, &quot;address&quot;: &quot;Théâtre de Verdure, Nice&quot;, &quot;lat&quot;: 43.6955, &quot;lng&quot;: 7.2656, &quot;url&quot;: &quot;https://www.explorenicecotedazur.com/en/event/festival-caraibazur-nice/&quot;}, {&quot;name&quot;: &quot;Ballet — Maillot &amp; Mandafounis&quot;, &quot;date&quot;: &quot;Oct 17 • 8 PM&quot;, &quot;address&quot;: &quot;Opéra Nice Côte d&#x27;Azur, 4-6 Rue Saint-François de Paule, Nice&quot;, &quot;lat&quot;: 43.6954, &quot;lng&quot;: 7.2728, &quot;url&quot;: &quot;https://www.opera-nice.org/agenda/jean-christophe-maillot-ioannis-mandafounis/&quot;}]}"></div>
+<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Our stay</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
+<p class="map-help">Tap a place for details and directions. Use the lodging address above for your arrival.</p>
 </div></div>
 </section>
 </section>
@@ -241,11 +241,11 @@
 <footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy &amp; France Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer>
 
 <script src="city-guide.js?v=1"></script><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="trip-data.js?v=25"></script>
-<script src="script.js?v=18"></script>
+<script src="trip-data.js?v=28"></script>
+<script src="script.js?v=28"></script>
 <script src="enhancements.js?v=6"></script>
 <script src="ux.js?v=25"></script>
-<script src="private.js?v=25"></script>
+<script src="private.js?v=28"></script>
 </body>
 </html>
 

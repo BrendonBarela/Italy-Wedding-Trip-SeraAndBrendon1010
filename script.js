@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Canonical public lodging timing from trip-data.js. Exact addresses remain private.
+  // Canonical lodging timing from trip-data.js.
   if (trip) {
     document.querySelectorAll("[data-stay-timing]").forEach(el => {
       const stay = trip.stays[el.dataset.stayTiming];
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     set("dashboard-location", cfg.city);
     set("dashboard-stay", stay?.name || "Our stay");
     set("dashboard-stay-timing", stay?.timing ? `${stay.timingStatus || "Stay timing"}: ${stay.timing}` : "");
-    set("dashboard-address", "Exact address is private in the installed app.");
+    set("dashboard-address", "Lodging address and directions below.");
     href("dashboard-city-link", stay?.page || "index.html");
     href("dashboard-directions-link", "#private-location");
     set("dashboard-idea", cfg.idea);
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const distance = distanceFromStay(item,stay);
     const info = item.url ? `<a target="_blank" rel="noopener" href="${item.url}">Event info ↗</a>` : "";
     const directionLink = item.kind === "stay" && item.privateApprox
-      ? `<span style="display:block;margin-top:.35rem;font-size:.78rem">Exact lodging directions are in Private Trip Mode.</span>`
+      ? `<span style="display:block;margin-top:.35rem;font-size:.78rem">Use the lodging address above for directions.</span>`
       : `<a target="_blank" rel="noopener" href="${directions(q)}">Directions ↗</a>`;
     return `<div class="map-popup"><small>${labels[item.kind]||""}</small><strong>${item.name}</strong>${date}${distance}${address?`<span>${address}</span>`:""}${directionLink}${info}</div>`;
   };

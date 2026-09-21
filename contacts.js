@@ -3,7 +3,6 @@
   function render(data) {
     const contacts = data?.contacts;
     if (!Array.isArray(contacts) || !contacts.length) {
-      document.getElementById('contacts-help').textContent = 'If you already unlocked the app, tap Lock and unlock again to load the new contacts.';
       return;
     }
     const list = document.getElementById('contacts-list');
@@ -31,17 +30,7 @@
       card.append(title, number, actions);
       list.append(card);
     });
-    document.getElementById('contacts-locked').hidden = true;
     document.getElementById('contacts-content').hidden = false;
   }
-  document.addEventListener('sb:private-unlocked', event => render(event.detail));
-  document.addEventListener('DOMContentLoaded', () => {
-    const api = window.SBPrivateTrip;
-    if (!api?.isStandalone) return;
-    const unlock = document.getElementById('contacts-unlock');
-    unlock.hidden = false;
-    unlock.addEventListener('click', () => api.unlock());
-    if (api.isUnlocked()) render(api.getData());
-  });
+  document.addEventListener('DOMContentLoaded', () => render(window.SB_TRIP));
 })();
-

@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <link href="styles.css?v=15" rel="stylesheet"/>
-<link href="ux.css?v=20" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
+<link href="ux.css?v=28" rel="stylesheet"/><link href="city-guide.css?v=1" rel="stylesheet"/>
 <style>
 .hero-photo-credit{display:inline-block;margin-top:.55rem;font-size:.68rem;color:rgba(255,255,255,.72)}
 .hero-photo-credit a{color:inherit;text-decoration:underline}
@@ -50,10 +50,10 @@
 <section class="shell section city-page">
 <div class="city-intro">
 <div><p class="kicker">Where we're staying</p><h2>Casa Nadia / 150 MQ Apartment + Depandance</h2>
-<p><strong>Public view:</strong> Historic Parma. The exact address and one-tap Directions Home stay in Private Trip Mode.</p>
+<p><strong>Our base:</strong> Historic Parma. Find the address and directions below.</p>
 <p data-stay-timing="parma"></p><div data-private-stay="parma" id="private-location"></div>
 <p class="stay-listing"><a class="button stay-button" href="https://www.airbnb.com/rooms/1684795982326693057" rel="noopener" target="_blank">View our stay listing ↗</a></p></div>
-<div class="address-card"><span>Stay</span><strong>Historic Parma</strong><small>Exact location is private in the app</small></div>
+<div class="address-card"><span>Stay</span><strong>Historic Parma</strong><small>Address and directions below</small></div>
 </div>
 <div class="city-subnav-wrap"><nav aria-label="Parma sections" class="city-subnav">
 <button class="active" data-city-tab="overview" type="button">Overview</button>
@@ -189,7 +189,7 @@ Research sources:
 </p>
 </section>
 <section class="city-tab-panel" hidden="" id="map" style="margin-top:2.6rem">
-<div class="city-panel-head"><p class="kicker">Everything in one place</p><h2>Map</h2><p>Core sights, a few known food pins, transit and exact-date events. Private Trip Mode still keeps our exact apartment location off the public site.</p></div>
+<div class="city-panel-head"><p class="kicker">Everything in one place</p><h2>Map</h2><p>Core sights, a few known food pins, transit and exact-date events. Our lodging pin includes directions home.</p></div>
 <div class="city-map-layout">
 <div class="map-wrap">
 <div aria-label="Map filters" class="map-filter-bar"><span>Parma map</span>
@@ -200,9 +200,9 @@ Research sources:
 <button class="map-filter" data-filter="event" type="button">🎉 Events</button>
 <button class="map-filter" data-filter="sight" type="button">★ Sights</button>
 </div>
-<div aria-label="Interactive Parma map" class="map city-map" data-map="{&quot;stay&quot;: {&quot;name&quot;: &quot;Our Parma stay area (approx.)&quot;, &quot;address&quot;: &quot;Historic Parma, Italy&quot;, &quot;lat&quot;: 44.8015, &quot;lng&quot;: 10.3279, &quot;privateApprox&quot;: true}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Cortex Bistrot&quot;, &quot;address&quot;: &quot;Borgo del Correggio 20/B, Parma&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.33025}, {&quot;name&quot;: &quot;Angiol d'Or&quot;, &quot;address&quot;: &quot;Via Scutellari 1, Parma&quot;, &quot;lat&quot;: 44.80315, &quot;lng&quot;: 10.32965}, {&quot;name&quot;: &quot;Trattoria Corrieri Parma&quot;, &quot;address&quot;: &quot;Strada Conservatorio 1, Parma&quot;, &quot;lat&quot;: 44.79905, &quot;lng&quot;: 10.32645}], &quot;station&quot;: {&quot;name&quot;: &quot;Parma Station&quot;, &quot;lat&quot;: 44.80955, &quot;lng&quot;: 10.32805}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Parma Cathedral&quot;, &quot;lat&quot;: 44.80305, &quot;lng&quot;: 10.33055}, {&quot;name&quot;: &quot;Baptistery of Parma&quot;, &quot;lat&quot;: 44.80318, &quot;lng&quot;: 10.33005}, {&quot;name&quot;: &quot;Palazzo della Pilotta / Teatro Farnese&quot;, &quot;lat&quot;: 44.80515, &quot;lng&quot;: 10.32625}, {&quot;name&quot;: &quot;Teatro Regio&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.32695}, {&quot;name&quot;: &quot;Piazza Garibaldi&quot;, &quot;lat&quot;: 44.80155, &quot;lng&quot;: 10.32825}, {&quot;name&quot;: &quot;Museo Glauco Lombardi&quot;, &quot;address&quot;: &quot;Strada Giuseppe Garibaldi 15, Parma&quot;, &quot;lat&quot;: 44.8049, &quot;lng&quot;: 10.3278}, {&quot;name&quot;: &quot;Mercanteinfiera — Fiere di Parma&quot;, &quot;address&quot;: &quot;Viale delle Esposizioni 393A, Parma&quot;, &quot;lat&quot;: 44.846, &quot;lng&quot;: 10.3235}], &quot;events&quot;: [{&quot;name&quot;: &quot;Free Sunday — Pilotta / Teatro Farnese&quot;, &quot;date&quot;: &quot;Oct 4 • free admission&quot;, &quot;address&quot;: &quot;Piazzale della Pilotta 15, Parma&quot;, &quot;lat&quot;: 44.80515, &quot;lng&quot;: 10.32625, &quot;url&quot;: &quot;https://complessopilotta.it/en/2026/12/31/free-days-guaranteed-itineraries-2026/&quot;}, {&quot;name&quot;: &quot;Giuseppe Verdi Antropologo del Mediterraneo&quot;, &quot;date&quot;: &quot;Oct 5 • 11 AM • free&quot;, &quot;address&quot;: &quot;Teatro Regio, Parma&quot;, &quot;lat&quot;: 44.8044, &quot;lng&quot;: 10.3278, &quot;url&quot;: &quot;https://teatroregioparma.it/en/show/giuseppe-verdi-antropologo-del-mediterraneo/&quot;}, {&quot;name&quot;: &quot;Regio in Tour&quot;, &quot;date&quot;: &quot;Oct 6 • 8:30 PM&quot;, &quot;address&quot;: &quot;Teatro Regio, Parma&quot;, &quot;lat&quot;: 44.8044, &quot;lng&quot;: 10.3278, &quot;url&quot;: &quot;https://teatroregioparma.it/en/calendar/?c_month=10&amp;c_year=2026&quot;}, {&quot;name&quot;: &quot;Mercanteinfiera&quot;, &quot;date&quot;: &quot;Oct 3–11 • 10 AM–7 PM&quot;, &quot;address&quot;: &quot;Fiere di Parma, Viale delle Esposizioni 393A, Parma&quot;, &quot;lat&quot;: 44.846, &quot;lng&quot;: 10.3235, &quot;url&quot;: &quot;https://www.mercanteinfiera.it/en&quot;}]}"></div>
-<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Approx. stay area</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
-<p class="map-help">The public map intentionally uses an approximate stay area. Unlock the installed app for the exact address and Directions Home.</p>
+<div aria-label="Interactive Parma map" class="map city-map" data-map="{&quot;stay&quot;: {&quot;name&quot;: &quot;Casa Nadia / 150 MQ Apartment + Depandance&quot;, &quot;address&quot;: &quot;Borgo Montassù, 3, Parma, Emilia-Romagna, Italy&quot;, &quot;lat&quot;: 44.80315, &quot;lng&quot;: 10.33055}, &quot;restaurants&quot;: [{&quot;name&quot;: &quot;Cortex Bistrot&quot;, &quot;address&quot;: &quot;Borgo del Correggio 20/B, Parma&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.33025}, {&quot;name&quot;: &quot;Angiol d&#x27;Or&quot;, &quot;address&quot;: &quot;Via Scutellari 1, Parma&quot;, &quot;lat&quot;: 44.80315, &quot;lng&quot;: 10.32965}, {&quot;name&quot;: &quot;Trattoria Corrieri Parma&quot;, &quot;address&quot;: &quot;Strada Conservatorio 1, Parma&quot;, &quot;lat&quot;: 44.79905, &quot;lng&quot;: 10.32645}], &quot;station&quot;: {&quot;name&quot;: &quot;Parma Station&quot;, &quot;lat&quot;: 44.80955, &quot;lng&quot;: 10.32805}, &quot;sights&quot;: [{&quot;name&quot;: &quot;Parma Cathedral&quot;, &quot;lat&quot;: 44.80305, &quot;lng&quot;: 10.33055}, {&quot;name&quot;: &quot;Baptistery of Parma&quot;, &quot;lat&quot;: 44.80318, &quot;lng&quot;: 10.33005}, {&quot;name&quot;: &quot;Palazzo della Pilotta / Teatro Farnese&quot;, &quot;lat&quot;: 44.80515, &quot;lng&quot;: 10.32625}, {&quot;name&quot;: &quot;Teatro Regio&quot;, &quot;lat&quot;: 44.80405, &quot;lng&quot;: 10.32695}, {&quot;name&quot;: &quot;Piazza Garibaldi&quot;, &quot;lat&quot;: 44.80155, &quot;lng&quot;: 10.32825}, {&quot;name&quot;: &quot;Museo Glauco Lombardi&quot;, &quot;address&quot;: &quot;Strada Giuseppe Garibaldi 15, Parma&quot;, &quot;lat&quot;: 44.8049, &quot;lng&quot;: 10.3278}, {&quot;name&quot;: &quot;Mercanteinfiera — Fiere di Parma&quot;, &quot;address&quot;: &quot;Viale delle Esposizioni 393A, Parma&quot;, &quot;lat&quot;: 44.846, &quot;lng&quot;: 10.3235}], &quot;events&quot;: [{&quot;name&quot;: &quot;Free Sunday — Pilotta / Teatro Farnese&quot;, &quot;date&quot;: &quot;Oct 4 • free admission&quot;, &quot;address&quot;: &quot;Piazzale della Pilotta 15, Parma&quot;, &quot;lat&quot;: 44.80515, &quot;lng&quot;: 10.32625, &quot;url&quot;: &quot;https://complessopilotta.it/en/2026/12/31/free-days-guaranteed-itineraries-2026/&quot;}, {&quot;name&quot;: &quot;Giuseppe Verdi Antropologo del Mediterraneo&quot;, &quot;date&quot;: &quot;Oct 5 • 11 AM • free&quot;, &quot;address&quot;: &quot;Teatro Regio, Parma&quot;, &quot;lat&quot;: 44.8044, &quot;lng&quot;: 10.3278, &quot;url&quot;: &quot;https://teatroregioparma.it/en/show/giuseppe-verdi-antropologo-del-mediterraneo/&quot;}, {&quot;name&quot;: &quot;Regio in Tour&quot;, &quot;date&quot;: &quot;Oct 6 • 8:30 PM&quot;, &quot;address&quot;: &quot;Teatro Regio, Parma&quot;, &quot;lat&quot;: 44.8044, &quot;lng&quot;: 10.3278, &quot;url&quot;: &quot;https://teatroregioparma.it/en/calendar/?c_month=10&amp;c_year=2026&quot;}, {&quot;name&quot;: &quot;Mercanteinfiera&quot;, &quot;date&quot;: &quot;Oct 3–11 • 10 AM–7 PM&quot;, &quot;address&quot;: &quot;Fiere di Parma, Viale delle Esposizioni 393A, Parma&quot;, &quot;lat&quot;: 44.846, &quot;lng&quot;: 10.3235, &quot;url&quot;: &quot;https://www.mercanteinfiera.it/en&quot;}]}"></div>
+<div class="map-legend extended-map-legend"><span><i class="legend-dot stay-dot"></i>Our stay</span><span><i class="legend-dot food-dot"></i>Food</span><span><i class="legend-dot station-dot"></i>Transit</span><span><i class="legend-dot event-dot"></i>Event</span><span><i class="legend-dot sight-dot"></i>Sight</span></div>
+<p class="map-help">Tap a place for details and directions. Use the lodging address above for your arrival.</p>
 </div>
 </div>
 </section>
@@ -212,11 +212,11 @@ Research sources:
 <footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="credits.html">Photo credits</a><a href="index.html">Home</a></span></div></footer>
 
 <script src="city-guide.js?v=1"></script><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="trip-data.js?v=25"></script>
-<script src="script.js?v=18"></script>
+<script src="trip-data.js?v=28"></script>
+<script src="script.js?v=28"></script>
 <script src="enhancements.js?v=6"></script>
 <script src="ux.js?v=25"></script>
-<script src="private.js?v=25"></script>
+<script src="private.js?v=28"></script>
 </body>
 </html>
 
