@@ -10,47 +10,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=15">
 <link rel="stylesheet" href="ux.css?v=28">
-</head>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+.wedding-jumps{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.wedding-plan{max-width:960px;scroll-margin-top:100px}
+.wedding-plan .day-timeline article{grid-template-columns:160px minmax(0,1fr)}
+.wedding-plan .wedding-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wedding-plan .wedding-task h3{font-size:1.8rem;margin:6px 0}
+.wedding-plan .wedding-task p{margin-bottom:0}
+.wedding-cues{padding-left:24px}.wedding-cues li{margin:16px 0}
+.wedding-plan details{scroll-margin-top:100px}
+.wedding-plan summary{min-height:48px;cursor:pointer}
+@media(max-width:600px){.wedding-plan .day-timeline article{grid-template-columns:1fr;gap:8px}.wedding-plan .wedding-task-grid{grid-template-columns:1fr}.wedding-jumps .button{font-size:.85rem}}
+</style></head>
 <body id="top">
 <header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a class="today-nav trip-today-link" href="today.html" hidden>Today</a><a href="verona.html">Verona</a><a href="parma.html">Parma</a><a href="ispra.html">Ispra</a><a href="santa-margherita.html">Santa Margherita</a><a href="nice.html">Nice</a><a href="wedding.html">Wedding</a><a href="transportation.html">Transport</a></nav></header>
 <main>
-<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">October 10, 2026 • Villa Eden • Ispra</p><h1>Wedding Day</h1><p>Lake Maggiore light, a 4:00 PM ceremony, champagne, our first dance, dinner, and celebrating together.</p></div></section>
-
-<section class="shell section">
-<p class="kicker">Guest quick view</p><h2>The important part</h2>
-<div class="three-notes">
-<div><span>Venue</span><strong>Villa Eden 8</strong><p>Via Valcanale 504, Ispra. Ceremony, photos and aperitivo are at the villa; dinner is at Ristorante dei Limoni.</p></div>
-<div><span>Ceremony</span><strong>4:00–4:30 PM</strong><p>Please be settled before the processional begins. Sera’s dad walks her out and Brendon’s sister officiates.</p></div>
-<div><span>After ceremony</span><strong>6:00 PM onward</strong><p>Champagne and first dance at the villa, followed by dinner around 8:00 PM at Ristorante dei Limoni.</p></div>
-</div>
-<div class="ceremony-callout"><div><p class="kicker">Our wedding-day plan · All times local to Italy</p><h2>Photography from 3:00–7:00 PM</h2><p>We’re following Marta Guenzi’s September 15 schedule for October 10, 2026: getting ready, ceremony, couple and group portraits, then aperitivo and our first dance. No first look is planned.</p><p>Marta recommends protecting the 4:00–6:00 PM window for the best natural light. Official sunset is around 6:49 PM, but the surrounding mountains can hide the sun roughly an hour earlier.</p></div><div class="big-time"><span>Photos</span><strong>3–7</strong><small>PM</small></div></div>
-<div class="day-timeline">
-<article><time>3:00–4:00 PM</time><div><h3>Getting ready photos</h3><p>Getting-ready moments, details, rings, attire, flowers, villa details, and candid photos.</p><div class="music">♫ Gathering: Linda Ronstadt — “I Love You for Sentimental Reasons”</div></div></article>
-<article class="highlight"><time>4:00–4:30 PM</time><div><h3>Ceremony</h3><p>Sera’s dad walks her down the aisle; Brendon’s sister officiates. Alex is the ring bearer and hands over the rings when the officiant cues him. Colleen controls the music: start the processional when Sera and her dad are ready, fade it as they reach the front, and start the recessional immediately after the pronouncement.</p><div class="music">♫ Processional: “La Vie en Rose” — instrumental</div><div class="music">♫ Recessional: “This Will Be (An Everlasting Love)”</div></div></article>
-<article class="gold"><time>4:30–6:00 PM</time><div><h3>Couple &amp; group photos</h3><p>Portraits and family photos after the ceremony while the light is at its best.</p></div></article>
-<article><time>6:00–7:00 PM</time><div><h3>Champagne, aperitivo & first dance</h3><p>Champagne first, congratulations, candid guest photos, and the first dance before Marta’s coverage ends at 7:00 PM. Colleen cues “Your Song” when Sera and Brendon are ready.</p><div class="music">♫ First dance: Elton John — “Your Song”</div></div></article>
-<article><time>7:00–8:00 PM</time><div><h3>Get ready for dinner</h3><p>Photography wraps at 7:00 PM. Allow time to freshen up and arrange rides to the restaurant.</p></div></article>
-<article class="highlight" id="dinner"><time>Around 8:00 PM</time><div><h3>Wedding dinner · Ristorante dei Limoni</h3><p><strong>Confirmed for 11 people · Saturday, October 10.</strong> Celebrate together in Ispra after the villa ceremony and aperitivo. The restaurant confirmed our request by email on September 20.</p><p><a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Ristorante%20dei%20Limoni%20Ispra" target="_blank" rel="noopener">Restaurant directions ↗</a></p></div></article>
-</div>
-<div class="three-notes"><div><span>Best light</span><strong>About 4:00–6:00 PM</strong><p>The mountains shorten the usable evening sunlight at the villa.</p></div><div><span>Sunset</span><strong>About 6:49 PM</strong><p>The sun may disappear behind the landscape roughly an hour before official sunset.</p></div><div><span>Weather</span><strong>3B Meteo + MeteoSwiss</strong><p>Marta recommends these for the Ispra area.</p></div></div>
-</section>
-
-<section class="shell section wedding-crew-section">
-<p class="kicker">Wedding crew</p><h2>Who's Doing What?</h2><p class="section-lede">A simple wedding-day checklist so Sera and Brendon don't have to manage the little things themselves.</p>
-<div class="wedding-task-grid">
-<article class="wedding-task assigned"><span>💍 Ceremony</span><h3>Officiate the wedding</h3><strong>Brendon's sister</strong><p>Ceremony script ready before October 10.</p></article>
-<article class="wedding-task assigned"><span>👰 Processional</span><h3>Walk Sera out</h3><strong>Sera's dad</strong><p>Be ready before the processional begins.</p></article>
-<article class="wedding-task open"><span>🥂 Champagne</span><h3>Pick up & chill champagne</h3><strong>Needs an owner</strong><p>Have it cold and ready before the 6:00–7:00 PM aperitivo/photo block.</p></article>
-<article class="wedding-task open"><span>🥂 Champagne</span><h3>Glasses & pouring</h3><strong>Needs an owner</strong><p>Set out glasses and handle the toast after the ceremony.</p></article>
-<article class="wedding-task assigned"><span>🎵 Music</span><h3>Speaker &amp; playlist</h3><strong>Colleen</strong><p>Charge and test the speaker, download the songs, and control the gathering, processional, recessional, and first-dance music. Rehearse the start, fade, and stop cues with the officiant.</p></article>
-<article class="wedding-task assigned"><span>💍 Rings</span><h3>Ring bearer</h3><strong>Alex</strong><p>Keep both rings safe before the ceremony and hand them over when the officiant cues the ring exchange. Practice the handoff at rehearsal.</p></article>
-<article class="wedding-task open"><span>📸 Photos</span><h3>Photographer contact</h3><strong>Needs an owner</strong><p>Meet Marta at 3:00 PM, keep the group-photo list handy, and help gather people quickly.</p></article>
-<article class="wedding-task open"><span>🌿 Setup</span><h3>Ceremony setup</h3><strong>Needs an owner</strong><p>Check chairs, décor, ceremony area, and last-minute details.</p></article>
-<article class="wedding-task open"><span>🧹 End of night</span><h3>Cleanup crew</h3><strong>Needs an owner</strong><p>A few people handle glasses, décor, and anything that needs bringing inside.</p></article>
-</div>
-</section>
-</main>
+<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">Saturday, October 10, 2026 · Ispra</p><h1>Our wedding day</h1><p>Villa Eden 8 · Via Valcanale 504<br>All times are local to Italy.</p><nav class="wedding-jumps" aria-label="Wedding page sections"><a class="button" href="#timeline">The timeline</a><a class="button" href="#roles">Who’s doing what</a><a class="button" href="#rehearsal">Music &amp; rehearsal</a></nav></div></section>
+<section class="shell section wedding-plan" id="timeline"><p class="kicker">One plan for the day</p><h2>The timeline</h2><p>Following Marta’s 3:00–7:00 PM photography schedule. Please be seated before the 4:00 PM ceremony.</p><div class="day-timeline"><article><time>3:00–4:00 PM</time><div><h3>Getting-ready photos</h3><p>Anna meets Marta at 3:00 PM. Getting-ready moments and detail photos at the villa; no first look.</p></div></article>
+<article><time>Before 4:00 PM</time><div><h3>Get settled</h3><p>Guests take their seats. Colleen, Alex and Sierra check that the ceremony, rings and music are ready.</p></div></article>
+<article class="highlight"><time>4:00–4:30 PM</time><div><h3>Ceremony</h3><p>Sera enters with her dad. Colleen officiates; Alex holds the rings; Sierra handles the music.</p></div></article>
+<article><time>4:30–6:00 PM</time><div><h3>Couple &amp; group photos</h3><p>Stay nearby for portraits and family photos. Anna helps gather each group so Marta can make the most of the light.</p></div></article>
+<article><time>6:00–7:00 PM</time><div><h3>Champagne &amp; first dance</h3><p>Cindy pours champagne first. Sierra cues “Your Song” for the first dance. Aperitivo and candid photos continue until Marta finishes at 7:00 PM.</p></div></article>
+<article><time>From 7:00 PM</time><div><h3>Freshen up &amp; leave for dinner</h3><p>Megan gathers everyone and keeps departure on track. <strong>Exact leave-by time: to confirm with rides and travel time.</strong></p></div></article>
+<article id="dinner"><time>Around 8:00 PM</time><div><h3>Dinner at Ristorante dei Limoni</h3><p>Confirmed for 11 people on October 10. <a href="https://www.google.com/maps/search/?api=1&amp;query=Ristorante%20dei%20Limoni%20Ispra" target="_blank" rel="noopener">Restaurant directions ↗</a></p></div></article></div></section>
+<section class="shell section wedding-plan" id="roles"><p class="kicker">Our wedding crew</p><h2>Who’s doing what</h2><div class="wedding-task-grid"><article class="wedding-task assigned"><span>Officiant</span><h3>Colleen</h3><p>Lead the ceremony and give the ring and music cues.</p></article>
+<article class="wedding-task assigned"><span>Best man · rings</span><h3>Alex</h3><p>Keep both rings safe and hand them over on Colleen’s cue.</p></article>
+<article class="wedding-task assigned"><span>Music</span><h3>Sierra</h3><p>Test the speaker, download all four songs, and handle every music cue.</p></article>
+<article class="wedding-task assigned"><span>Photographer welcome</span><h3>Anna</h3><p>Meet Marta at 3:00 PM, show her where everyone is getting ready, and help gather photo groups.</p></article>
+<article class="wedding-task assigned"><span>Champagne</span><h3>Cindy</h3><p>Arrange champagne, chill it, set out glasses, and pour before the first dance.</p></article>
+<article class="wedding-task assigned"><span>Restaurant departure</span><h3>Megan</h3><p>Confirm rides and the leave-by time, give everyone a reminder, and get the group out on time.</p></article>
+<article class="wedding-task assigned"><span>Walk Sera down the aisle</span><h3>Sera’s dad</h3><p>Be ready with Sera before the ceremony begins.</p></article></div></section>
+<section class="shell section wedding-plan">
+<details class="ux-details" id="rehearsal"><summary>Music &amp; rehearsal cues</summary><div class="ux-details-body"><p><strong>Sierra runs the music; Colleen gives the ceremony cues.</strong> Agree on the signals at rehearsal. Download the exact recordings, charge the speaker, test the connection and silence notifications.</p>
+<ol class="wedding-cues">
+<li><strong>Guests gather:</strong> Linda Ronstadt — “I Love You for Sentimental Reasons.”</li>
+<li><strong>Sera’s entrance:</strong> Fade the gathering song and start the instrumental “La Vie en Rose” when Sera and her dad are ready. Fade out when they reach the front.</li>
+<li><strong>Vows &amp; rings:</strong> Music off. Alex hands over the rings when Colleen asks.</li>
+<li><strong>Pronouncement &amp; exit:</strong> Start “This Will Be (An Everlasting Love)” immediately after Colleen’s pronouncement. Practice the exact cue, kiss and exit.</li>
+<li><strong>Champagne &amp; first dance:</strong> Cindy pours first. When the couple is ready, Sierra starts Elton John’s “Your Song,” before Marta finishes at 7:00 PM.</li>
+</ol><p>At rehearsal, walk through everyone’s positions, the entrance, ring handoff and exit. Use placeholders for private vows.</p></div></details>
+<details class="ux-details"><summary>Final checks &amp; photographer notes</summary><div class="ux-details-body"><ul><li>Megan: confirm the restaurant leave-by time and rides.</li><li>Agree on helpers for ceremony setup and end-of-night cleanup.</li><li>Confirm the ceremony location and rain plan at the villa.</li></ul><p>Marta recommends protecting 4:00–6:00 PM for natural-light portraits. Sunset is around 6:49 PM, but the mountains can hide the sun earlier. Her suggested local forecasts are 3B Meteo and MeteoSwiss.</p></div></details>
+<p><a href="today.html">← Back to the app’s Today page</a> · <a href="index.html">Trip homepage</a></p></section></main>
 <footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="#top">Back to top ↑</a></div></footer>
-<script src="script.js?v=28"></script><script src="enhancements.js?v=4"></script><script src="ux.js?v=25"></script>
+<script src="script.js?v=28"></script><script src="enhancements.js?v=6"></script><script src="ux.js?v=25"></script>
 </body></html>
+
 
