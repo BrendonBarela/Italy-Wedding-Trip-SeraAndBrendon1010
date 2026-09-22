@@ -1,0 +1,1 @@
+Upload transportation.html and sw.js to the root of the existing GitHub repository, replacing the same two files. Do not delete other files. After deployment, reopen the app while online to receive the updated page. Airport trains are suggestions to recheck, not bookings. No reservations were changed.
