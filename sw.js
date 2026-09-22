@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v34-mxp-transport";
+const CACHE_NAME = "sera-brendon-wedding-v35-travel-grid";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
@@ -41,6 +41,7 @@ self.addEventListener("fetch", event => {
   if(/\.(?:js|css|webmanifest)$/i.test(url.pathname)||url.pathname.endsWith("/private-trip.enc")){event.respondWith(networkFirst(event.request));return;}
   event.respondWith((async()=>{const cached=await cacheMatch(event.request);if(cached)return cached;try{const r=await fetch(event.request);if(r&&r.ok)(await caches.open(CACHE_NAME)).put(event.request,r.clone()).catch(()=>{});return r;}catch{return cached;}})());
 });
+
 
 
 
