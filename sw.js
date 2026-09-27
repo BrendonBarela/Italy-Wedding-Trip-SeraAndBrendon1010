@@ -1,6 +1,6 @@
-const CACHE_NAME = "sera-brendon-wedding-v40-email-consistency";
+const CACHE_NAME = "sera-brendon-wedding-v41-italian-phrasebook";
 const CORE_ASSETS = [
-  "./","./index.html","./today.html","./packing.html","./essentials.html",
+  "./","./index.html","./today.html","./packing.html","./essentials.html","./italian.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
   "./wedding.html","./transportation.html","./properties.html","./credits.html",
   "./styles.css","./ux.css","./city-guide.css","./script.js","./city-guide.js","./enhancements.js","./ux.js","./trip-data.js","./private.js","./packing.js",
