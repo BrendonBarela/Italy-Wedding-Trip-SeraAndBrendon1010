@@ -32,8 +32,33 @@
           <a href="nice.html">French Riviera <small>Oct 14–18</small></a>
         </div>
       </div>
-      <a class="ux-nav-link" href="wedding.html" data-page="wedding.html">Wedding</a>
-      <a class="ux-nav-link" href="transportation.html" data-page="transportation.html">Transport</a>
+      <div class="ux-nav-group" data-pages="wedding.html">
+        <button class="ux-nav-group-toggle" type="button" aria-expanded="false">Wedding <span aria-hidden="true">⌄</span></button>
+        <div class="ux-nav-menu">
+          <a href="wedding.html#timeline">Timeline <small>Wedding day</small></a>
+          <a href="wedding.html#roles">Roles <small>Who does what</small></a>
+          <a href="wedding.html#food">Megan’s Kitchen <small>Oct 8–10</small></a>
+          <a href="wedding.html#shopping">Shopping <small>Ingredient plan</small></a>
+          <a href="wedding.html#photos">Photos <small>Shot list</small></a>
+          <a href="wedding.html#rehearsal">Music <small>Cues + rehearsal</small></a>
+          <a href="wedding.html#day-reminders">Final Prep <small>Last decisions</small></a>
+        </div>
+      </div>
+      <div class="ux-nav-group" data-pages="transportation.html">
+        <button class="ux-nav-group-toggle" type="button" aria-expanded="false">Transport <span aria-hidden="true">⌄</span></button>
+        <div class="ux-nav-menu">
+          <a href="transportation.html#travel-schedule">Travel Days <small>Full schedule</small></a>
+          <a href="transportation.html#oct-01">Oct 1 <small>Denver → Verona</small></a>
+          <a href="transportation.html#oct-04">Oct 4 <small>Verona → Parma</small></a>
+          <a href="transportation.html#oct-07">Oct 7 <small>Parma → Ispra</small></a>
+          <a href="transportation.html#oct-10">Oct 10 <small>Wedding night</small></a>
+          <a href="transportation.html#oct-11">Oct 11 <small>Ispra → Santa</small></a>
+          <a href="transportation.html#oct-14">Oct 14 <small>Santa → Beaulieu</small></a>
+          <a href="transportation.html#oct-18">Oct 18 <small>Fly home</small></a>
+          <a href="transportation.html#baggage">Baggage <small>Flights + trains</small></a>
+          <a href="transportation.html#local-riviera">Local Transport <small>Ispra + Riviera</small></a>
+        </div>
+      </div>
       <a class="ux-nav-link" href="properties.html" data-page="properties.html">Properties</a>
       <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>
       <a class="ux-nav-link" href="contacts.html" data-page="contacts.html">Contacts</a>
