@@ -15,41 +15,233 @@
 .wedding-jumps{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .wedding-plan{max-width:960px;scroll-margin-top:100px}
 .wedding-plan .day-timeline article{grid-template-columns:160px minmax(0,1fr)}
-.wedding-plan .wedding-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.wedding-plan .wedding-task h3{font-size:1.8rem;margin:6px 0}
-.wedding-plan .wedding-task p{margin-bottom:0}
 .wedding-cues{padding-left:24px}.wedding-cues li{margin:16px 0}
-.wedding-plan details{scroll-margin-top:100px}
-.wedding-plan summary{min-height:48px;cursor:pointer}
-@media(max-width:600px){.wedding-plan .day-timeline article{grid-template-columns:1fr;gap:8px}.wedding-plan .wedding-task-grid{grid-template-columns:1fr}.wedding-jumps .button{font-size:.85rem}}
+.wedding-plan details{scroll-margin-top:100px}.wedding-plan summary{min-height:48px;cursor:pointer}
 .timing-note{display:block;font:500 .75rem Inter,system-ui,sans-serif;margin-top:6px}
 .role-list{margin:20px 0}.role-list>div{display:grid;grid-template-columns:180px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid #ddcbbb}.role-list dt{font-weight:700}.role-list dd{margin:0}
 .wedding-plan .day-timeline p{line-height:1.6}
-@media(max-width:600px){.role-list>div{grid-template-columns:1fr;gap:4px}.wedding-plan .day-timeline time{font-size:1rem}}
+.menu-grid,.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0}
+.menu-card,.photo-card{padding:18px;border:1px solid #ddcbbb;border-radius:16px;background:#fff}
+.menu-card h3,.photo-card h3{margin-top:0}.menu-card ul,.photo-card ul{padding-left:20px}
+.chef-note{padding:16px 18px;border-radius:16px;background:#f4ebe4;margin:16px 0}
+@media(max-width:600px){.wedding-plan .day-timeline article{grid-template-columns:1fr;gap:8px}.wedding-jumps .button{font-size:.85rem}.role-list>div{grid-template-columns:1fr;gap:4px}.wedding-plan .day-timeline time{font-size:1rem}.menu-grid,.photo-grid{grid-template-columns:1fr}}
+
+.kitchen-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.kitchen-step{padding:16px;border:1px solid #ddcbbb;border-radius:16px;background:#fff}
+.kitchen-step strong{display:block;margin:5px 0}.kitchen-step small{font-weight:700;color:#806a5d}
+.shop-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.shop-group{padding:16px;border:1px solid #ddcbbb;border-radius:16px;background:#fff}
+.shop-group h3{margin-top:0}.shop-group label{display:flex;gap:9px;align-items:flex-start;margin:9px 0;line-height:1.4}
+.shop-group input{margin-top:4px;accent-color:#6f4e3d}
+.store-card{padding:14px 16px;border-left:4px solid #6f4e3d;background:#f7f1ec;margin:10px 0;border-radius:10px}
+.italian-help{font-size:.83rem;color:#725f54}
+@media(max-width:700px){.kitchen-steps,.shop-list{grid-template-columns:1fr}}
 </style></head>
 <body id="top">
 <header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a class="today-nav trip-today-link" href="today.html" hidden>Today</a><a href="verona.html">Verona</a><a href="parma.html">Parma</a><a href="ispra.html">Ispra</a><a href="santa-margherita.html">Santa Margherita</a><a href="nice.html">Nice</a><a href="wedding.html">Wedding</a><a href="transportation.html">Transport</a></nav></header>
 <main>
-<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">Saturday, October 10, 2026 · Ispra</p><h1>Our wedding day</h1><p>Villa Eden 8 · Via Valcanale 504<br>All times local to Italy.</p><p><strong>Ceremony 4:00 PM · Dinner around 8:00 PM</strong></p><nav class="wedding-jumps" aria-label="Wedding sections"><a class="button" href="#timeline">Timeline</a><a class="button" href="#roles">Our roles</a><a class="button" href="#rehearsal">Music cues</a></nav></div></section>
-<section class="shell section wedding-plan" id="timeline"><p class="kicker">The day at a glance</p><h2>One simple timeline</h2><p>Marta’s photography: 3:00–7:00 PM. Earlier preparation and seating times are suggested.</p><div class="day-timeline">
-<article><time>12:30–1:30 PM<small class="timing-note">Suggested</small></time><div><h3>Lunch & water</h3><p>Megan arranges lunch, snacks and drinks.</p></div></article>
+<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">Saturday, October 10, 2026 · Ispra</p><h1>Our wedding day</h1><p>Villa Eden 8 · Via Valcanale 504<br>All times local to Italy.</p><p><strong>Ceremony 4:00 PM · Dinner around 8:00 PM</strong></p><nav class="wedding-jumps" aria-label="Wedding sections"><a class="button" href="#timeline">Timeline</a><a class="button" href="#roles">Our roles</a><a class="button" href="#food">Megan's kitchen</a><a class="button" href="#shopping">Shopping list</a><a class="button" href="#photos">Photos</a><a class="button" href="#rehearsal">Music cues</a></nav></div></section>
+
+<section class="shell section wedding-plan" id="timeline"><p class="kicker">The day at a glance</p><h2>One simple timeline</h2><p>Marta’s photography: 3:00–7:00 PM. Brunch is intentionally flexible so nobody has to stop getting ready just to eat.</p><div class="day-timeline">
+<article><time>Late morning–afternoon<small class="timing-note">Flexible</small></time><div><h3>Megan’s rolling brunch</h3><p>Family-style offerings come out in waves and stay available into the late afternoon. Grab food whenever it works for you.</p></div></article>
 <article><time>1:30–3:00 PM<small class="timing-note">Suggested</small></time><div><h3>Help Sera get ready</h3><p>Anna, Katie and Gina help with Sera’s dress and finishing touches.</p></div></article>
-<article><time>3:00–3:45 PM</time><div><h3>Getting-ready photos</h3><p>Marta arrives at 3:00 PM. Have rings, vows and flowers ready for detail photos. No first look.</p></div></article>
+<article><time>3:00–3:45 PM</time><div><h3>Getting-ready photos</h3><p>Marta arrives at 3:00 PM. <strong>Gina meets her and acts as the photographer liaison</strong>, showing her the spaces and helping locate people. Have rings, vows and flowers ready for detail photos. No first look.</p></div></article>
 <article><time>3:45–4:00 PM<small class="timing-note">Suggested seating time</small></time><div><h3>Guests take their seats</h3><p>Mike gets ready with Sera. Sierra and Brendon take their places; Alex has the rings.</p></div></article>
 <article class="highlight"><time>4:00–4:30 PM</time><div><h3>The ceremony</h3><p>Mike walks Sera down the aisle. Sierra officiates and controls the music. Alex hands over the rings on Sierra’s cue.</p></div></article>
-<article><time>4:30–6:00 PM</time><div><h3>Couple & group photos</h3><p>Stay nearby until your photos are finished. Give Marta the must-have group list beforehand.</p></div></article>
-<article><time>6:00–7:00 PM</time><div><h3>Champagne & first dance</h3><p>Cindy pours champagne first. Sierra starts “Your Song” when the couple is ready. Finish the dance before Marta leaves at 7:00 PM.</p></div></article>
-<article><time>From 7:00 PM</time><div><h3>Freshen up & leave for dinner</h3><p>Katie coordinates rides and gathers everyone. Exact leave-by time still needs to be confirmed.</p></div></article>
+<article><time>4:30–6:00 PM</time><div><h3>Couple &amp; group photos</h3><p>Gina helps Marta gather the next people while the current group is being photographed. Keep the must-have list below handy.</p></div></article>
+<article><time>6:00–7:00 PM</time><div><h3>Champagne &amp; first dance</h3><p>Cindy pours champagne first. Sierra starts “Your Song” when the couple is ready. Finish the dance before Marta leaves at 7:00 PM.</p></div></article>
+<article><time>From 7:00 PM</time><div><h3>Freshen up &amp; leave for dinner</h3><p>Katie coordinates rides and gathers everyone. Exact leave-by time still needs to be confirmed.</p></div></article>
 <article id="dinner"><time>Around 8:00 PM</time><div><h3>Dinner at Ristorante dei Limoni</h3><p>Reservation for 11 people. <a href="https://www.google.com/maps/search/?api=1&amp;query=Ristorante%20dei%20Limoni%20Ispra" target="_blank" rel="noopener">Restaurant directions ↗</a></p></div></article>
 </div></section>
-<section class="shell section wedding-plan" id="roles"><p class="kicker">Our wedding crew</p><h2>Who’s doing what</h2><dl class="role-list"><div><dt>Sierra</dt><dd>Officiant &amp; music</dd></div>
+
+<section class="shell section wedding-plan" id="roles"><p class="kicker">Our wedding crew</p><h2>Who’s doing what</h2><dl class="role-list">
+<div><dt>Sierra</dt><dd>Officiant &amp; music</dd></div>
 <div><dt>Alex</dt><dd>Best man &amp; rings</dd></div>
 <div><dt>Mike</dt><dd>Walk Sera down the aisle</dd></div>
-<div><dt>Anna, Katie &amp; Gina</dt><dd>Help Sera get ready</dd></div>
+<div><dt>Anna &amp; Katie</dt><dd>Help Sera get ready</dd></div>
+<div><dt>Gina</dt><dd>Help Sera get ready, then meet Marta at 3:00 PM and serve as photographer liaison / group wrangler</dd></div>
 <div><dt>Katie</dt><dd>Also coordinate rides &amp; dinner departure</dd></div>
 <div><dt>Cindy</dt><dd>Champagne, glasses &amp; pouring</dd></div>
-<div><dt>Megan</dt><dd>Lunch, snacks &amp; water</dd></div>
-<div><dt>Colleen</dt><dd>Suggested: setup &amp; weather backup — to confirm</dd></div></dl></section>
+<div><dt>Megan</dt><dd>Chef — rehearsal dinner, rolling wedding brunch, ingredient shopping &amp; food prep</dd></div>
+<div><dt>Colleen</dt><dd>Suggested: setup &amp; weather backup — to confirm</dd></div>
+</dl></section>
+
+<section class="shell section wedding-plan" id="food"><p class="kicker">Megan’s kitchen</p><h2>Food plan · October 8–10</h2>
+<div class="chef-note"><strong>The strategy:</strong> Megan plans to shop for the main ingredient load in Ispra on October 8, start prep that day, and be ready for the 9th and 10th. Specialty ingredients such as EVOO, balsamic and cheese may be picked up in Parma or along the way. She has already identified markets near Ispra and will have shopping lists ready.</div>
+<div class="menu-grid">
+<article class="menu-card"><h3>Oct 9 · Rehearsal dinner</h3><ul>
+<li><strong>Antipasti platter:</strong> Italian cheese, cured meats, olives, marinated vegetables, breadsticks</li>
+<li><strong>Vellutata di Zucca:</strong> pumpkin, potato, beef broth, roasted chestnuts, fresh herbs</li>
+<li><strong>Stracotto:</strong> red-wine-braised beef, soffritto, tomato</li>
+<li><strong>Salad:</strong> shaved fennel &amp; carrots, lemon, olive oil, pistachios</li>
+<li><strong>Celeriac purée:</strong> celeriac, milk, garlic, butter</li>
+<li><strong>Funghi Trifolati:</strong> sautéed porcini mushrooms, fresh herbs, olive oil</li>
+<li><strong>Peas:</strong> sautéed leeks, peas, butter, garlic</li>
+<li><strong>Focaccia:</strong> warm focaccia &amp; whipped truffle butter</li>
+<li><strong>Torta di Miele:</strong> rustic apple cake, powdered sugar</li>
+<li><strong>Budino:</strong> chocolate custard, whipped cream, sea salt</li>
+</ul></article>
+<article class="menu-card"><h3>Oct 10 · Wedding brunch</h3><p><strong>Friendly sit-out food served in waves into the late afternoon.</strong></p><h4>First offerings</h4><ul>
+<li>Coffee, juice &amp; tea</li>
+<li>Frittata — pancetta, mushrooms, Parmigiano, eggs</li>
+<li>Fresh blackberry-lemon scones with yogurt</li>
+</ul><h4>Second offerings</h4><ul>
+<li>Harvest board — seasonal fruit, fresh cheese, pickled vegetables</li>
+<li>Radicchio &amp; pear salad — pistachios, citrus vinaigrette</li>
+<li>Roasted carrots — honey-lemon dressing, roasted chestnut crumble</li>
+<li>Erbazzone — Swiss chard, Parmigiano Reggiano, savory pie crust</li>
+<li>Mortadella finger sandwiches — mortadella, provolone, Dijon, aioli, fresh bread</li>
+<li>Mixed marinated olives</li>
+<li>Warm bread with olive oil-balsamic dip</li>
+</ul></article>
+</div></section>
+
+
+<section class="shell section wedding-plan" id="shopping">
+<p class="kicker">Make Megan's life easier</p>
+<h2>Shopping plan</h2>
+<p>Keep this simple: one main shop on <strong>Thursday, Oct. 8</strong>, one specialty stop for the beef if Megan wants it, and a quick fresh-bread pickup closer to service. The checkboxes work on a phone during the shopping run.</p>
+
+<div class="kitchen-steps">
+<article class="kitchen-step"><small>STEP 1 · BEFORE ISPRA</small><strong>Parma specialties</strong><p>Only buy special items Megan actually wants to carry: Parmigiano Reggiano, good balsamic and/or EVOO. Everything else can wait.</p></article>
+<article class="kitchen-step"><small>STEP 2 · OCT 8</small><strong>Main grocery run</strong><p>Start at TIGROS and buy almost everything in one pass. Megan makes the quality calls; a helper pushes the cart, bags and loads the car.</p></article>
+<article class="kitchen-step"><small>STEP 3 · OCT 9–10</small><strong>Fresh top-up</strong><p>Fresh bread/focaccia and anything Megan decides she wants fresher after prep begins. Avoid turning this into another full grocery trip.</p></article>
+</div>
+
+<details class="ux-details" open><summary>Oct. 8 · Main checklist</summary><div class="ux-details-body">
+<div class="shop-list">
+<article class="shop-group"><h3>🥕 Produce</h3>
+<label><input type="checkbox"> Pumpkin / squash <span class="italian-help">zucca</span></label>
+<label><input type="checkbox"> Potatoes <span class="italian-help">patate</span></label>
+<label><input type="checkbox"> Chestnuts <span class="italian-help">castagne</span></label>
+<label><input type="checkbox"> Fennel <span class="italian-help">finocchio</span></label>
+<label><input type="checkbox"> Carrots <span class="italian-help">carote</span></label>
+<label><input type="checkbox"> Celeriac <span class="italian-help">sedano rapa</span></label>
+<label><input type="checkbox"> Porcini / mushrooms <span class="italian-help">funghi / porcini</span></label>
+<label><input type="checkbox"> Leeks <span class="italian-help">porri</span></label>
+<label><input type="checkbox"> Peas <span class="italian-help">piselli</span></label>
+<label><input type="checkbox"> Radicchio</label>
+<label><input type="checkbox"> Pears <span class="italian-help">pere</span></label>
+<label><input type="checkbox"> Blackberries <span class="italian-help">more</span></label>
+<label><input type="checkbox"> Lemons / citrus <span class="italian-help">limoni / agrumi</span></label>
+<label><input type="checkbox"> Swiss chard <span class="italian-help">bietole</span></label>
+<label><input type="checkbox"> Seasonal fruit for harvest board</label>
+<label><input type="checkbox"> Garlic + fresh herbs</label>
+</article>
+
+<article class="shop-group"><h3>🥩 Meat &amp; deli</h3>
+<label><input type="checkbox"> Beef for slow-braised Stracotto <span class="italian-help">manzo da brasato / stracotto</span></label>
+<label><input type="checkbox"> Pancetta</label>
+<label><input type="checkbox"> Mortadella</label>
+<label><input type="checkbox"> Cured meats for antipasti <span class="italian-help">salumi</span></label>
+</article>
+
+<article class="shop-group"><h3>🧀 Dairy &amp; eggs</h3>
+<label><input type="checkbox"> Parmigiano Reggiano</label>
+<label><input type="checkbox"> Provolone</label>
+<label><input type="checkbox"> Fresh cheese for harvest board</label>
+<label><input type="checkbox"> Eggs <span class="italian-help">uova</span></label>
+<label><input type="checkbox"> Milk <span class="italian-help">latte</span></label>
+<label><input type="checkbox"> Cream <span class="italian-help">panna</span></label>
+<label><input type="checkbox"> Butter <span class="italian-help">burro</span></label>
+<label><input type="checkbox"> Yogurt</label>
+</article>
+
+<article class="shop-group"><h3>🥖 Bakery</h3>
+<label><input type="checkbox"> Breadsticks <span class="italian-help">grissini</span></label>
+<label><input type="checkbox"> Fresh bread for sandwiches</label>
+<label><input type="checkbox"> Focaccia</label>
+<label><input type="checkbox"> Warm bread for olive-oil/balsamic dip</label>
+<p class="italian-help"><strong>Tip:</strong> buy shelf-stable bakery items Oct. 8; consider a fresh bread/focaccia top-up Oct. 9–10.</p>
+</article>
+
+<article class="shop-group"><h3>🫒 Pantry &amp; cooking</h3>
+<label><input type="checkbox"> Olive oil / EVOO</label>
+<label><input type="checkbox"> Balsamic vinegar</label>
+<label><input type="checkbox"> Olives + marinated vegetables</label>
+<label><input type="checkbox"> Pickled vegetables</label>
+<label><input type="checkbox"> Pistachios</label>
+<label><input type="checkbox"> Flour + baking ingredients</label>
+<label><input type="checkbox"> Dijon mustard</label>
+<label><input type="checkbox"> Aioli / mayonnaise ingredients</label>
+<label><input type="checkbox"> Honey</label>
+<label><input type="checkbox"> Chocolate / cocoa for Budino</label>
+<label><input type="checkbox"> Powdered sugar</label>
+<label><input type="checkbox"> Beef broth / stock ingredients</label>
+<label><input type="checkbox"> Red wine for Stracotto</label>
+<label><input type="checkbox"> Truffle butter ingredients / truffle product</label>
+<label><input type="checkbox"> Salt, pepper + basic seasonings</label>
+</article>
+
+<article class="shop-group"><h3>☕ Drinks &amp; support</h3>
+<label><input type="checkbox"> Coffee</label>
+<label><input type="checkbox"> Tea</label>
+<label><input type="checkbox"> Juice</label>
+<label><input type="checkbox"> Still + sparkling water</label>
+<label><input type="checkbox"> Food-storage bags / wrap / foil if villa needs them</label>
+<label><input type="checkbox"> Paper towels / napkins if needed</label>
+</article>
+</div>
+<p><strong>Quantity note:</strong> Megan should set quantities. Her source menu gives the dishes and ingredients, but not enough information to responsibly invent chef-level purchasing amounts.</p>
+</div></details>
+
+<details class="ux-details"><summary>Where to shop in Ispra</summary><div class="ux-details-body">
+<div class="store-card"><strong>1. Main stop — TIGROS di Ispra</strong><br>Via Roma 505 · full grocery run. Use this for produce, dairy, deli, pantry, drinks and most meat needs. <a href="https://www.google.com/maps/search/?api=1&amp;query=Tigros%20Via%20Roma%20505%20Ispra" target="_blank" rel="noopener">Directions ↗</a></div>
+<div class="store-card"><strong>2. Optional butcher — La Macelleria di Ispra / Bergamaschi</strong><br>Via Marconi 45 · useful if Megan wants to choose the Stracotto beef at a butcher counter. Ask for <em>manzo adatto a brasato/stracotto</em>. <a href="https://www.google.com/maps/search/?api=1&amp;query=Macelleria%20Via%20Marconi%2045%20Ispra" target="_blank" rel="noopener">Directions ↗</a></div>
+<div class="store-card"><strong>3. Fresh bread — Panificio Carera</strong><br>Via Milite Ignoto 166 · practical fresh-bread/focaccia stop closer to service. <a href="https://www.google.com/maps/search/?api=1&amp;query=Panificio%20Carera%20Ispra" target="_blank" rel="noopener">Directions ↗</a></div>
+<div class="store-card"><strong>Backup / harder-to-find items — Alimentari Vegé</strong><br>Via Piave 102 · useful fallback if Megan needs something the larger supermarket doesn't have. <a href="https://www.google.com/maps/search/?api=1&amp;query=Alimentari%20Vege%20Ispra" target="_blank" rel="noopener">Directions ↗</a></div>
+<p class="italian-help">Store hours can change. Check the linked listing shortly before leaving the villa.</p>
+</div></details>
+
+<details class="ux-details"><summary>Italian cheat sheet for the harder ingredients</summary><div class="ux-details-body">
+<p><strong>Celeriac</strong> = sedano rapa · <strong>Swiss chard</strong> = bietole · <strong>leeks</strong> = porri · <strong>peas</strong> = piselli · <strong>fennel</strong> = finocchio · <strong>blackberries</strong> = more · <strong>chestnuts</strong> = castagne · <strong>beef for braising</strong> = manzo da brasato · <strong>cured meats</strong> = salumi · <strong>breadsticks</strong> = grissini.</p>
+<p>Useful phrase: <em>“Sto preparando uno stracotto per undici persone. Quale taglio di manzo mi consiglia?”</em><br>“I'm making stracotto for eleven people. Which cut of beef do you recommend?”</p>
+</div></details>
+
+<div class="chef-note"><strong>Best helper setup:</strong> Megan + one dedicated shopping helper on Oct. 8. Megan chooses ingredients; the helper handles cart, bags, loading, navigation and any second-stop run. That keeps Megan's attention on the food instead of logistics.</div>
+</section>
+
+<section class="shell section wedding-plan" id="photos"><p class="kicker">Marta + Gina</p><h2>Must-have people photos</h2><p>Keep this list focused enough that the formal groups move quickly and leave plenty of time for candid photos and portraits of Sera and Brendon.</p>
+<div class="photo-grid">
+<article class="photo-card"><h3>Core groups</h3><ul>
+<li>Sera + Brendon — formal portrait</li>
+<li>Sera + Brendon — laughing / candid</li>
+<li>Sera + Brendon — walking together</li>
+<li>Sera + Brendon — lake / villa backdrop</li>
+<li>Sera + Brendon — rings / hands detail</li>
+<li>All 11 together — one traditional</li>
+<li>All 11 together — one fun / candid</li>
+</ul></article>
+<article class="photo-card"><h3>Family &amp; wedding crew</h3><ul>
+<li>Sera + Mike</li>
+<li>Sera + Brendon + Mike</li>
+<li>Brendon + Alex</li>
+<li>Sera + Brendon + Alex</li>
+<li>Sera + Sierra</li>
+<li>Brendon + Sierra</li>
+<li>Sera + Brendon + Sierra</li>
+<li>Sera + Anna + Gina + Katie</li>
+<li>Sera + Megan</li>
+<li>Sera + Brendon + Megan</li>
+<li>Sera + Brendon with each guest individually</li>
+</ul></article>
+</div>
+<details class="ux-details"><summary>Candid moments worth catching</summary><div class="ux-details-body"><ul>
+<li>Megan cooking, prepping and setting out brunch</li>
+<li>Everyone casually eating brunch while getting ready</li>
+<li>Anna, Katie and Gina helping Sera get ready</li>
+<li>Gina greeting Marta</li>
+<li>Mike seeing Sera dressed</li>
+<li>Sierra preparing for the ceremony</li>
+<li>Alex with the rings</li>
+<li>Mike and Sera just before walking down the aisle</li>
+<li>Guest reactions during the ceremony</li>
+<li>Champagne being poured</li>
+<li>The first dance and reactions around it</li>
+<li>Everyone relaxing around the villa between formal moments</li>
+</ul></div></details>
+</section>
+
 <section class="shell section wedding-plan">
 <details class="ux-details" id="rehearsal"><summary>Music cues &amp; rehearsal</summary><div class="ux-details-body"><p><strong>Sierra officiates and runs the music.</strong> These playback lengths are suggested; rehearse with the exact recordings.</p><ol class="wedding-cues">
 <li><strong>Guests gather · Full song</strong><br>Linda Ronstadt — “I Love You for Sentimental Reasons.” Have extra gentle music ready if needed.</li>
@@ -59,16 +251,27 @@
 <li><strong>First dance · About 2½ minutes</strong><br>Elton John — “Your Song.” Champagne first; start when the couple is ready. Fade at a natural musical pause.</li>
 </ol><p>Use a gentle 3–5-second fade. Download the songs, charge the speaker, silence notifications and keep the phone or remote within Sierra’s reach.</p></div></details>
 <details class="ux-details" id="day-reminders"><summary>Before the day: final decisions</summary><div class="ux-details-body"><ul>
-<li><strong>Katie:</strong> confirm rides, drivers and the exact restaurant leave-by time.</li>
+<li><strong>Megan:</strong> Oct 8 main ingredient shop + prep; identify any specialty ingredients worth buying before Ispra.</li>
+<li><strong>Gina:</strong> meet Marta at 3:00 PM, orient her and help gather photo groups.</li>
+<li><strong>Katie:</strong> confirm rides, drivers and exact restaurant leave-by time.</li>
 <li><strong>Colleen:</strong> confirm whether she will handle setup and the weather backup.</li>
-<li>Choose a bouquet and dress helper from Anna, Katie and Gina.</li>
+<li>Choose a bouquet / dress helper from Anna and Katie.</li>
 <li>Choose a music backup and two people for quick cleanup before dinner.</li>
-<li>Confirm the ceremony spot and rain plan; send Marta the group-photo list.</li>
+<li>Confirm ceremony spot and rain plan; send Marta the group-photo list.</li>
 </ul></div></details>
 <details class="ux-details"><summary>Small things to have ready</summary><div class="ux-details-body"><p>Rings, vows, flowers, water, an alcohol-free drink option, tissues, safety pins, touch-up items, a charger and comfortable shoes.</p><p>Protect the 4:00–6:00 PM photo window: the mountains can shorten the evening light. If the schedule allows, take a few quiet minutes together before dinner.</p></div></details>
 <p><a href="today.html">← Back to Today</a> · <a href="index.html">Full trip website</a></p>
 </section></main>
 <footer><div class="shell footer-inner"><div><strong>Sera & Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><a href="#top">Back to top ↑</a></div></footer>
 <script src="script.js?v=28"></script><script src="enhancements.js?v=6"></script><script src="ux.js?v=25"></script>
+<script>
+(function(){
+  const boxes=[...document.querySelectorAll('#shopping input[type="checkbox"]')];
+  boxes.forEach((box,i)=>{
+    const key='sb-megan-shop-'+i;
+    box.checked=localStorage.getItem(key)==='1';
+    box.addEventListener('change',()=>localStorage.setItem(key,box.checked?'1':'0'));
+  });
+})();
+</script>
 </body></html>
-

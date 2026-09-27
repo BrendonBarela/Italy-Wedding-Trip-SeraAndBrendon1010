@@ -1,0 +1,10 @@
+Replace the repository-root wedding.html with the included wedding.html.
+
+New section: Shopping List
+- Three-step plan: Parma specialties -> Oct 8 main shop -> Oct 9/10 fresh top-up
+- Phone-friendly checkboxes that persist on that device/browser
+- Shopping list organized by department
+- Italian ingredient translations
+- Ispra store plan with one main stop + optional butcher/bakery/back-up grocery
+- No invented quantities: Megan retains control of quantities because her menu source does not specify them
+- Existing wedding timeline, roles, menus, photo plan and music are retained
