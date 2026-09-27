@@ -12,7 +12,10 @@
 <link rel="stylesheet" href="ux.css?v=28">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
-.wedding-jumps{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.wedding-jumps{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding:12px;border-radius:18px;background:rgba(55,35,26,.34);backdrop-filter:blur(8px);max-width:860px}
+.wedding-jumps .button{min-height:46px;display:inline-flex;align-items:center;justify-content:center;background:#fff8f1!important;color:#4a3329!important;border:2px solid rgba(255,255,255,.92)!important;box-shadow:0 8px 24px rgba(28,18,13,.22);font-weight:800;text-shadow:none}
+.wedding-jumps .button:hover,.wedding-jumps .button:focus-visible{background:#6f4e3d!important;color:#fff!important;border-color:#fff!important;transform:translateY(-1px)}
+.wedding-jumps .button:focus-visible{outline:3px solid #f5d7bf;outline-offset:3px}
 .wedding-plan{max-width:960px;scroll-margin-top:100px}
 .wedding-plan .day-timeline article{grid-template-columns:160px minmax(0,1fr)}
 .wedding-cues{padding-left:24px}.wedding-cues li{margin:16px 0}
@@ -24,7 +27,7 @@
 .menu-card,.photo-card{padding:18px;border:1px solid #ddcbbb;border-radius:16px;background:#fff}
 .menu-card h3,.photo-card h3{margin-top:0}.menu-card ul,.photo-card ul{padding-left:20px}
 .chef-note{padding:16px 18px;border-radius:16px;background:#f4ebe4;margin:16px 0}
-@media(max-width:600px){.wedding-plan .day-timeline article{grid-template-columns:1fr;gap:8px}.wedding-jumps .button{font-size:.85rem}.role-list>div{grid-template-columns:1fr;gap:4px}.wedding-plan .day-timeline time{font-size:1rem}.menu-grid,.photo-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.wedding-plan .day-timeline article{grid-template-columns:1fr;gap:8px}.wedding-jumps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.wedding-jumps .button{font-size:.82rem;width:100%;padding:10px 8px}.role-list>div{grid-template-columns:1fr;gap:4px}.wedding-plan .day-timeline time{font-size:1rem}.menu-grid,.photo-grid{grid-template-columns:1fr}}
 
 .kitchen-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
 .kitchen-step{padding:16px;border:1px solid #ddcbbb;border-radius:16px;background:#fff}
@@ -36,11 +39,14 @@
 .store-card{padding:14px 16px;border-left:4px solid #6f4e3d;background:#f7f1ec;margin:10px 0;border-radius:10px}
 .italian-help{font-size:.83rem;color:#725f54}
 @media(max-width:700px){.kitchen-steps,.shop-list{grid-template-columns:1fr}}
+
+.button,.mobile-nav-toggle{min-height:44px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #b77a54;outline-offset:3px}
 </style></head>
 <body id="top">
-<header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a class="today-nav trip-today-link" href="today.html" hidden>Today</a><a href="verona.html">Verona</a><a href="parma.html">Parma</a><a href="ispra.html">Ispra</a><a href="santa-margherita.html">Santa Margherita</a><a href="nice.html">Nice</a><a href="wedding.html">Wedding</a><a href="transportation.html">Transport</a></nav></header>
+<header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a class="today-nav trip-today-link" href="today.html" hidden>Today</a><a href="packing.html">Packing</a><a href="verona.html">Verona</a><a href="parma.html">Parma</a><a href="ispra.html">Ispra</a><a href="santa-margherita.html">Santa Margherita</a><a href="nice.html">Nice</a><a href="wedding.html">Wedding</a><a href="transportation.html">Transport</a></nav></header>
 <main>
-<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">Saturday, October 10, 2026 · Ispra</p><h1>Our wedding day</h1><p>Villa Eden 8 · Via Valcanale 504<br>All times local to Italy.</p><p><strong>Ceremony 4:00 PM · Dinner around 8:00 PM</strong></p><nav class="wedding-jumps" aria-label="Wedding sections"><a class="button" href="#timeline">Timeline</a><a class="button" href="#roles">Our roles</a><a class="button" href="#food">Megan's kitchen</a><a class="button" href="#shopping">Shopping list</a><a class="button" href="#photos">Photos</a><a class="button" href="#rehearsal">Music cues</a></nav></div></section>
+<section class="page-hero wedding-hero"><div class="shell"><p class="eyebrow">Saturday, October 10, 2026 · Ispra</p><h1>Our wedding day</h1><p>Villa Eden 8 · Via Valcanale 504<br>All times local to Italy.</p><p><strong>Ceremony 4:00 PM · Dinner around 8:00 PM</strong></p><nav class="wedding-jumps" aria-label="Wedding sections"><a class="button" href="#timeline">Timeline</a><a class="button" href="#roles">Roles</a><a class="button" href="#food">Megan’s Kitchen</a><a class="button" href="#shopping">Shopping</a><a class="button" href="#photos">Photos</a><a class="button" href="#rehearsal">Music</a></nav></div></section>
 
 <section class="shell section wedding-plan" id="timeline"><p class="kicker">The day at a glance</p><h2>One simple timeline</h2><p>Marta’s photography: 3:00–7:00 PM. Brunch is intentionally flexible so nobody has to stop getting ready just to eat.</p><div class="day-timeline">
 <article><time>Late morning–afternoon<small class="timing-note">Flexible</small></time><div><h3>Megan’s rolling brunch</h3><p>Family-style offerings come out in waves and stay available into the late afternoon. Grab food whenever it works for you.</p></div></article>

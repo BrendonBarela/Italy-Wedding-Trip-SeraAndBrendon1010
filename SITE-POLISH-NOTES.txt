@@ -1,0 +1,20 @@
+SITE POLISH PASS
+
+Implemented in wedding-polished.html
+- High-contrast cream Wedding Day jump buttons over the hero.
+- Dark-brown hover/focus state.
+- Stronger shadows/borders so the buttons read as controls.
+- 46px minimum tap height.
+- Two-column mobile button grid.
+- Shorter mobile-friendly labels.
+- Added Packing to the Wedding page navigation for consistency.
+- Added clearer keyboard focus outlines.
+
+Recommended next shared-site improvements
+1. Apply the same 44px tap-target and focus-visible rules globally in ux.css.
+2. Surface Megan's Oct 8 shopping/prep and Oct 9 rehearsal dinner on the Today dashboard.
+3. Update the Home Wedding card copy to mention Megan's Kitchen / Shopping.
+4. Keep private check-in links, host phone numbers, and access details out of the public site.
+
+GitHub push note
+The linked GitHub integration is still returning HTTP 403 on writes, so this package is for manual upload.
