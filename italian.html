@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#6f4e3d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sera & Brendon">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="app-icon-192.png">
+<title>English → Italian | Sera &amp; Brendon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="ux.css?v=28">
+<style>
+.lang-hero{padding:7rem 0 3.25rem;background:linear-gradient(135deg,#6f4e3d,#3f3028);color:#fff}
+.lang-hero h1{font-size:clamp(3rem,7vw,5.4rem);margin:.2rem 0 .8rem}
+.lang-hero p{max-width:760px;line-height:1.6}
+.lang-tip{display:inline-flex;padding:.48rem .7rem;border:1px solid rgba(255,255,255,.4);border-radius:999px;font:800 .75rem Inter,system-ui,sans-serif}
+.lang-tools{position:sticky;top:68px;z-index:75;background:rgba(251,248,244,.97);backdrop-filter:blur(12px);border-bottom:1px solid #e3d7cd;padding:.7rem 0}
+.lang-tools-inner{display:flex;gap:.65rem;align-items:center}
+.lang-search{width:100%;min-height:46px;border:1px solid #d8c9be;border-radius:13px;background:#fff;padding:.7rem .9rem;font:600 .9rem Inter,system-ui,sans-serif;color:#45362e}
+.lang-jumps{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none}
+.lang-jumps::-webkit-scrollbar{display:none}
+.lang-jumps a{flex:0 0 auto;padding:.55rem .72rem;border:1px solid #ddcfc4;border-radius:999px;background:#fff;color:#5b4034;text-decoration:none;font:800 .72rem Inter,system-ui,sans-serif;white-space:nowrap}
+.lang-section{padding:2.6rem 0;border-bottom:1px solid #e7ddd5;scroll-margin-top:145px}
+.lang-section h2{margin:.1rem 0 .45rem;font-size:clamp(2rem,5vw,3rem)}
+.lang-section-lede{max-width:760px;color:#6d5c52;line-height:1.55;margin:0 0 1rem}
+.phrase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.phrase{position:relative;background:#fff;border:1px solid #e3d6cc;border-radius:16px;padding:1rem 3rem 1rem 1rem;box-shadow:0 7px 22px rgba(64,46,37,.04)}
+.phrase .english{display:block;color:#77665c;font:800 .68rem Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+.phrase .italian{display:block;margin:.3rem 0 .2rem;color:#3d2e27;font:700 1.34rem "Cormorant Garamond",Georgia,serif;line-height:1.1}
+.phrase .say{display:block;color:#8a7060;font:600 .72rem Inter,system-ui,sans-serif}
+.copy-phrase{position:absolute;right:.6rem;top:.65rem;width:34px;height:34px;border:1px solid #e1d4c9;border-radius:10px;background:#faf6f2;color:#6f4e3d;cursor:pointer}
+.must-know{background:#fff7ef;border:1px solid #d9c3b4;border-radius:20px;padding:1.1rem;margin-top:1.2rem}
+.must-know h2{margin:.1rem 0 .6rem}
+.word-bank{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem}
+.word{background:#fff;border:1px solid #e4d8ce;border-radius:13px;padding:.75rem}
+.word b{display:block;color:#3f3028}
+.word span{color:#75655b;font-size:.78rem}
+.quick-rule{padding:.85rem 1rem;border-left:4px solid #8d6854;background:#f8f1eb;border-radius:0 12px 12px 0;color:#5d4c43;line-height:1.55;margin:1rem 0}
+.no-results{display:none;padding:1rem;border-radius:14px;background:#f8f1eb;color:#66564d}
+@media(max-width:780px){.lang-tools{top:64px}.lang-tools-inner{display:block}.lang-jumps{margin-top:.55rem}.phrase-grid{grid-template-columns:1fr}.word-bank{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.word-bank{grid-template-columns:1fr}}
+</style>
+</head>
+<body id="top">
+<header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"></nav></header>
+<main>
+<section class="lang-hero"><div class="shell"><span class="lang-tip">🇮🇹 Built for our trip</span><p class="eyebrow">Quick phrasebook</p><h1>English → Italian</h1><p>Useful phrases for trains, restaurants, villas, rental cars, Megan’s shopping runs and the wedding. Pronunciations are simple approximations for English speakers — close enough to get the phrase out confidently.</p></div></section>
+
+<div class="lang-tools"><div class="shell lang-tools-inner">
+<input id="phrase-search" class="lang-search" type="search" placeholder="Search: train, bathroom, reservation, beef…" aria-label="Search Italian phrases">
+<nav class="lang-jumps" aria-label="Phrase categories">
+<a href="#basics">Basics</a><a href="#directions">Directions</a><a href="#trains">Trains</a><a href="#car">Car</a><a href="#lodging">Lodging</a><a href="#food">Food</a><a href="#shopping">Shopping</a><a href="#wedding">Wedding</a><a href="#emergency">Emergency</a>
+</nav></div></div>
+
+<section class="shell">
+<div class="must-know"><p class="kicker">The eight I’d memorize</p><h2>Most useful phrases</h2>
+<div class="phrase-grid">
+<article class="phrase" data-search="hello good day greeting"><span class="english">Hello / good day</span><strong class="italian">Buongiorno</strong><span class="say">bwohn-JOR-noh</span></article>
+<article class="phrase" data-search="please"><span class="english">Please</span><strong class="italian">Per favore</strong><span class="say">pehr fah-VOH-reh</span></article>
+<article class="phrase" data-search="thank you thanks"><span class="english">Thank you</span><strong class="italian">Grazie</strong><span class="say">GRAHT-tsyeh</span></article>
+<article class="phrase" data-search="excuse me sorry attention"><span class="english">Excuse me</span><strong class="italian">Mi scusi</strong><span class="say">mee SKOO-zee</span></article>
+<article class="phrase" data-search="english speak"><span class="english">Do you speak English?</span><strong class="italian">Parla inglese?</strong><span class="say">PAR-lah een-GLAY-zeh?</span></article>
+<article class="phrase" data-search="understand don't"><span class="english">I don’t understand</span><strong class="italian">Non capisco</strong><span class="say">nohn kah-PEE-skoh</span></article>
+<article class="phrase" data-search="bathroom toilet restroom"><span class="english">Where is the bathroom?</span><strong class="italian">Dov’è il bagno?</strong><span class="say">doh-VEH eel BAHN-yoh?</span></article>
+<article class="phrase" data-search="help"><span class="english">Can you help me?</span><strong class="italian">Mi può aiutare?</strong><span class="say">mee pwoh ah-yoo-TAH-reh?</span></article>
+</div></div>
+<p id="no-results" class="no-results">No phrase matched that search. Try a simpler word.</p>
+</section>
+
+<section class="lang-section" id="basics"><div class="shell"><p class="kicker">Polite basics</p><h2>Start here</h2><p class="lang-section-lede">A greeting plus <em>per favore</em> and <em>grazie</em> gets you a long way.</p><div class="phrase-grid">
+<article class="phrase" data-search="good evening hello"><span class="english">Good evening</span><strong class="italian">Buonasera</strong><span class="say">bwoh-nah-SEH-rah</span></article>
+<article class="phrase" data-search="goodbye bye"><span class="english">Goodbye</span><strong class="italian">Arrivederci</strong><span class="say">ah-ree-veh-DEHR-chee</span></article>
+<article class="phrase" data-search="yes"><span class="english">Yes</span><strong class="italian">Sì</strong><span class="say">see</span></article>
+<article class="phrase" data-search="no"><span class="english">No</span><strong class="italian">No</strong><span class="say">noh</span></article>
+<article class="phrase" data-search="sorry apology"><span class="english">I’m sorry</span><strong class="italian">Mi dispiace</strong><span class="say">mee dee-SPYAH-cheh</span></article>
+<article class="phrase" data-search="slow slowly speak"><span class="english">Can you speak more slowly?</span><strong class="italian">Può parlare più lentamente?</strong><span class="say">pwoh par-LAH-reh pyoo len-tah-MEN-teh?</span></article>
+<article class="phrase" data-search="repeat again"><span class="english">Can you repeat that?</span><strong class="italian">Può ripetere?</strong><span class="say">pwoh ree-PEH-teh-reh?</span></article>
+<article class="phrase" data-search="write write it down"><span class="english">Can you write it down?</span><strong class="italian">Può scriverlo, per favore?</strong><span class="say">pwoh SKREE-vehr-loh, pehr fah-VOH-reh?</span></article>
+</div></div></section>
+
+<section class="lang-section" id="directions"><div class="shell"><p class="kicker">Getting around</p><h2>Directions</h2><div class="phrase-grid">
+<article class="phrase" data-search="where station"><span class="english">Where is the station?</span><strong class="italian">Dov’è la stazione?</strong><span class="say">doh-VEH lah stah-TSYOH-neh?</span></article>
+<article class="phrase" data-search="far distance"><span class="english">Is it far?</span><strong class="italian">È lontano?</strong><span class="say">eh lohn-TAH-noh?</span></article>
+<article class="phrase" data-search="walk walking foot"><span class="english">Can we walk there?</span><strong class="italian">Si può andare a piedi?</strong><span class="say">see pwoh an-DAH-reh ah PYEH-dee?</span></article>
+<article class="phrase" data-search="map show"><span class="english">Can you show me on the map?</span><strong class="italian">Può mostrarmelo sulla mappa?</strong><span class="say">pwoh moh-STRAHR-meh-loh SOOL-lah MAHP-pah?</span></article>
+<article class="phrase" data-search="right direction"><span class="english">To the right</span><strong class="italian">A destra</strong><span class="say">ah DEH-strah</span></article>
+<article class="phrase" data-search="left direction"><span class="english">To the left</span><strong class="italian">A sinistra</strong><span class="say">ah see-NEE-strah</span></article>
+<article class="phrase" data-search="straight direction"><span class="english">Straight ahead</span><strong class="italian">Dritto</strong><span class="say">DREET-toh</span></article>
+<article class="phrase" data-search="easiest way route arrive"><span class="english">What’s the easiest way to get there?</span><strong class="italian">Qual è il modo più facile per arrivarci?</strong><span class="say">kwahl eh eel MOH-doh pyoo FAH-chee-leh pehr ah-ree-VAHR-chee?</span></article>
+</div></div></section>
+
+<section class="lang-section" id="trains"><div class="shell"><p class="kicker">Verona → Parma → Milan → Riviera</p><h2>Trains &amp; stations</h2><div class="phrase-grid">
+<article class="phrase" data-search="platform binario milan train"><span class="english">Which platform for Milan?</span><strong class="italian">Da quale binario parte il treno per Milano?</strong><span class="say">dah KWAH-leh bee-NAH-ryoh PAR-teh eel TREH-noh pehr mee-LAH-noh?</span></article>
+<article class="phrase" data-search="is this train for goes to"><span class="english">Is this the train for …?</span><strong class="italian">È questo il treno per …?</strong><span class="say">eh KWEH-stoh eel TREH-noh pehr …?</span></article>
+<article class="phrase" data-search="change transfer train"><span class="english">Do we need to change trains?</span><strong class="italian">Dobbiamo cambiare treno?</strong><span class="say">dohb-BYAH-moh kahm-BYAH-reh TREH-noh?</span></article>
+<article class="phrase" data-search="where change transfer"><span class="english">Where do we change?</span><strong class="italian">Dove dobbiamo cambiare?</strong><span class="say">DOH-veh dohb-BYAH-moh kahm-BYAH-reh?</span></article>
+<article class="phrase" data-search="delay late train"><span class="english">Is the train delayed?</span><strong class="italian">Il treno è in ritardo?</strong><span class="say">eel TREH-noh eh een ree-TAR-doh?</span></article>
+<article class="phrase" data-search="ticket tickets already"><span class="english">We already have tickets</span><strong class="italian">Abbiamo già i biglietti</strong><span class="say">ahb-BYAH-moh jah ee bee-LYEHT-tee</span></article>
+<article class="phrase" data-search="luggage bags train"><span class="english">Where do we put the luggage?</span><strong class="italian">Dove mettiamo i bagagli?</strong><span class="say">DOH-veh met-TYAH-moh ee bah-GAHL-yee?</span></article>
+<article class="phrase" data-search="seat free available"><span class="english">Is this seat free?</span><strong class="italian">Questo posto è libero?</strong><span class="say">KWEH-stoh POH-stoh eh LEE-beh-roh?</span></article>
+</div></div></section>
+
+<section class="lang-section" id="car"><div class="shell"><p class="kicker">MXP + Ispra</p><h2>Rental car &amp; parking</h2><div class="phrase-grid">
+<article class="phrase" data-search="Hertz counter rental airport"><span class="english">Where is the Hertz counter?</span><strong class="italian">Dov’è il banco Hertz?</strong><span class="say">doh-VEH eel BAHN-koh Hertz?</span></article>
+<article class="phrase" data-search="rental car reservation"><span class="english">We have a rental-car reservation</span><strong class="italian">Abbiamo una prenotazione per un’auto a noleggio</strong><span class="say">ahb-BYAH-moh OO-nah pren-oh-tah-TSYOH-neh pehr oon OW-toh ah noh-LEHJ-joh</span></article>
+<article class="phrase" data-search="automatic car transmission"><span class="english">Is the car automatic?</span><strong class="italian">L’auto è automatica?</strong><span class="say">LOW-toh eh ow-toh-MAH-tee-kah?</span></article>
+<article class="phrase" data-search="return rental car"><span class="english">Where do we return the car?</span><strong class="italian">Dove restituiamo l’auto?</strong><span class="say">DOH-veh reh-stee-too-YAH-moh LOW-toh?</span></article>
+<article class="phrase" data-search="parking where"><span class="english">Where can we park?</span><strong class="italian">Dove possiamo parcheggiare?</strong><span class="say">DOH-veh pohs-SYAH-moh par-kehj-JAH-reh?</span></article>
+<article class="phrase" data-search="parking paid payment"><span class="english">Is this parking paid?</span><strong class="italian">Questo parcheggio è a pagamento?</strong><span class="say">KWEH-stoh par-KEHJ-joh eh ah pah-gah-MEN-toh?</span></article>
+<article class="phrase" data-search="parking free"><span class="english">Is the parking free?</span><strong class="italian">Il parcheggio è gratuito?</strong><span class="say">eel par-KEHJ-joh eh grah-TOO-ee-toh?</span></article>
+<article class="phrase" data-search="ztl limited traffic zone car drive"><span class="english">Is this a ZTL?</span><strong class="italian">Questa è una ZTL?</strong><span class="say">KWEH-stah eh OO-nah zee-tee-EHL-leh?</span></article>
+</div></div></section>
+
+<section class="lang-section" id="lodging"><div class="shell"><p class="kicker">Apartments + villas</p><h2>Checking in</h2><div class="phrase-grid">
+<article class="phrase" data-search="reservation hotel villa apartment name Barela"><span class="english">We have a reservation under Barela</span><strong class="italian">Abbiamo una prenotazione a nome Barela</strong><span class="say">ahb-BYAH-moh OO-nah pren-oh-tah-TSYOH-neh ah NOH-meh Barela</span></article>
+<article class="phrase" data-search="check in now"><span class="english">Can we check in now?</span><strong class="italian">Possiamo fare il check-in adesso?</strong><span class="say">pohs-SYAH-moh FAH-reh eel check-in ah-DEHS-soh?</span></article>
+<article class="phrase" data-search="leave bags luggage"><span class="english">Can we leave our bags here?</span><strong class="italian">Possiamo lasciare i bagagli qui?</strong><span class="say">pohs-SYAH-moh lah-SHAH-reh ee bah-GAHL-yee kwee?</span></article>
+<article class="phrase" data-search="wifi password internet"><span class="english">What is the Wi-Fi password?</span><strong class="italian">Qual è la password del Wi-Fi?</strong><span class="say">kwahl eh lah PASS-word del WEE-fee?</span></article>
+<article class="phrase" data-search="gate open key"><span class="english">How do we open the gate?</span><strong class="italian">Come si apre il cancello?</strong><span class="say">KOH-meh see AH-preh eel kahn-CHEL-loh?</span></article>
+<article class="phrase" data-search="keys key"><span class="english">Where are the keys?</span><strong class="italian">Dove sono le chiavi?</strong><span class="say">DOH-veh SOH-noh leh KYAH-vee?</span></article>
+</div></div></section>
+
+<section class="lang-section" id="food"><div class="shell"><p class="kicker">Restaurants, cafés &amp; aperitivo</p><h2>Eating &amp; drinking</h2><div class="phrase-grid">
+<article class="phrase" data-search="table two restaurant"><span class="english">A table for two, please</span><strong class="italian">Un tavolo per due, per favore</strong><span class="say">oon TAH-voh-loh pehr DOO-eh, pehr fah-VOH-reh</span></article>
+<article class="phrase" data-search="recommend food restaurant"><span class="english">What do you recommend?</span><strong class="italian">Cosa ci consiglia?</strong><span class="say">KOH-zah chee kohn-SEEL-yah?</span></article>
+<article class="phrase" data-search="I would like order"><span class="english">I would like …</span><strong class="italian">Vorrei …</strong><span class="say">vohr-RAY …</span></article>
+<article class="phrase" data-search="still water natural water"><span class="english">Still water</span><strong class="italian">Acqua naturale</strong><span class="say">AHK-kwah nah-too-RAH-leh</span></article>
+<article class="phrase" data-search="sparkling water fizzy"><span class="english">Sparkling water</span><strong class="italian">Acqua frizzante</strong><span class="say">AHK-kwah freet-TSAHN-teh</span></article>
+<article class="phrase" data-search="bill check restaurant"><span class="english">The bill, please</span><strong class="italian">Il conto, per favore</strong><span class="say">eel KON-toh, pehr fah-VOH-reh</span></article>
+<article class="phrase" data-search="card pay credit card"><span class="english">Can we pay by card?</span><strong class="italian">Possiamo pagare con la carta?</strong><span class="say">pohs-SYAH-moh pah-GAH-reh kohn lah KAR-tah?</span></article>
+<article class="phrase" data-search="contains ingredient food allergy"><span class="english">Does this contain …?</span><strong class="italian">Contiene …?</strong><span class="say">kohn-TYEH-neh …?</span></article>
+</div>
+<div class="quick-rule"><strong>Useful restaurant rhythm:</strong> start with “Buonasera,” ask for what you need, then add “per favore.” “Grazie” works constantly.</div>
+</div></section>
+
+<section class="lang-section" id="shopping"><div class="shell"><p class="kicker">Megan’s kitchen</p><h2>Groceries, butcher &amp; bakery</h2><p class="lang-section-lede">These are tailored to the rehearsal dinner and wedding brunch shopping plan.</p><div class="phrase-grid">
+<article class="phrase" data-search="ingredients cooking eleven people shopping"><span class="english">We’re buying ingredients to cook for eleven people</span><strong class="italian">Cerchiamo ingredienti per cucinare per undici persone</strong><span class="say">chehr-KYAH-moh een-greh-DYEN-tee pehr koo-chee-NAH-reh pehr OON-dee-chee pehr-SOH-neh</span></article>
+<article class="phrase" data-search="butcher macelleria where"><span class="english">Where is the butcher?</span><strong class="italian">Dov’è la macelleria?</strong><span class="say">doh-VEH lah mah-chel-leh-REE-ah?</span></article>
+<article class="phrase" data-search="bakery panetteria where bread"><span class="english">Where is the bakery?</span><strong class="italian">Dov’è la panetteria?</strong><span class="say">doh-VEH lah pah-net-teh-REE-ah?</span></article>
+<article class="phrase" data-search="beef braising stracotto butcher"><span class="english">Do you have beef for braising?</span><strong class="italian">Avete manzo da brasato?</strong><span class="say">ah-VEH-teh MAHN-zoh dah brah-ZAH-toh?</span></article>
+<article class="phrase" data-search="recommend cut beef stracotto butcher"><span class="english">What cut of beef do you recommend for stracotto?</span><strong class="italian">Quale taglio di manzo mi consiglia per uno stracotto?</strong><span class="say">KWAH-leh TAHL-yoh dee MAHN-zoh mee kohn-SEEL-yah pehr OO-noh strah-KOT-toh?</span></article>
+<article class="phrase" data-search="kilo kilogram quantity"><span class="english">I’d like one kilo</span><strong class="italian">Ne vorrei un chilo</strong><span class="say">neh vohr-RAY oon KEE-loh</span></article>
+<article class="phrase" data-search="half kilo quantity"><span class="english">I’d like half a kilo</span><strong class="italian">Ne vorrei mezzo chilo</strong><span class="say">neh vohr-RAY MET-tsoh KEE-loh</span></article>
+<article class="phrase" data-search="price kilo cost"><span class="english">How much is it per kilo?</span><strong class="italian">Quanto costa al chilo?</strong><span class="say">KWAN-toh KOH-stah al KEE-loh?</span></article>
+<article class="phrase" data-search="slice thin salumi deli"><span class="english">Can you slice it thin?</span><strong class="italian">Può affettarlo sottile?</strong><span class="say">pwoh ah-fet-TAR-loh sot-TEE-leh?</span></article>
+<article class="phrase" data-search="cut pieces beef butcher"><span class="english">Can you cut it into pieces?</span><strong class="italian">Può tagliarlo a pezzi?</strong><span class="say">pwoh tahl-YAR-loh ah PET-tsee?</span></article>
+</div>
+<p class="kicker" style="margin-top:1.6rem">Ingredient cheat sheet</p>
+<div class="word-bank">
+<div class="word"><b>zucca</b><span>pumpkin / squash</span></div>
+<div class="word"><b>patate</b><span>potatoes</span></div>
+<div class="word"><b>castagne</b><span>chestnuts</span></div>
+<div class="word"><b>finocchio</b><span>fennel</span></div>
+<div class="word"><b>carote</b><span>carrots</span></div>
+<div class="word"><b>sedano rapa</b><span>celeriac</span></div>
+<div class="word"><b>funghi</b><span>mushrooms</span></div>
+<div class="word"><b>porri</b><span>leeks</span></div>
+<div class="word"><b>piselli</b><span>peas</span></div>
+<div class="word"><b>pere</b><span>pears</span></div>
+<div class="word"><b>more</b><span>blackberries</span></div>
+<div class="word"><b>bietole</b><span>Swiss chard</span></div>
+<div class="word"><b>salumi</b><span>cured meats</span></div>
+<div class="word"><b>grissini</b><span>breadsticks</span></div>
+<div class="word"><b>pane fresco</b><span>fresh bread</span></div>
+<div class="word"><b>focaccia</b><span>focaccia</span></div>
+</div>
+</div></section>
+
+<section class="lang-section" id="wedding"><div class="shell"><p class="kicker">October 10</p><h2>Wedding &amp; honeymoon</h2><div class="phrase-grid">
+<article class="phrase" data-search="getting married today wedding"><span class="english">We’re getting married today!</span><strong class="italian">Ci sposiamo oggi!</strong><span class="say">chee spoh-ZYAH-moh OJ-jee!</span></article>
+<article class="phrase" data-search="got married today wedding"><span class="english">We got married today!</span><strong class="italian">Ci siamo sposati oggi!</strong><span class="say">chee SYAH-moh spoh-ZAH-tee OJ-jee!</span></article>
+<article class="phrase" data-search="celebrating wedding marriage"><span class="english">We’re celebrating our wedding</span><strong class="italian">Stiamo festeggiando il nostro matrimonio</strong><span class="say">STYAH-moh feh-stehj-JAHN-doh eel NOH-stroh mah-tree-MOH-nyoh</span></article>
+<article class="phrase" data-search="honeymoon"><span class="english">It’s our honeymoon</span><strong class="italian">È la nostra luna di miele</strong><span class="say">eh lah NOH-strah LOO-nah dee MYEH-leh</span></article>
+<article class="phrase" data-search="restaurant reservation eleven eight Barela wedding dinner"><span class="english">We have a reservation for eleven at eight, under Barela</span><strong class="italian">Abbiamo una prenotazione per undici persone alle otto, a nome Barela</strong><span class="say">ahb-BYAH-moh OO-nah pren-oh-tah-TSYOH-neh pehr OON-dee-chee pehr-SOH-neh AHL-leh OT-toh, ah NOH-meh Barela</span></article>
+<article class="phrase" data-search="sit together table group wedding"><span class="english">Can we all sit together?</span><strong class="italian">Possiamo sederci tutti insieme?</strong><span class="say">pohs-SYAH-moh seh-DEHR-chee TOO-tee een-SYEH-meh?</span></article>
+<article class="phrase" data-search="photo picture take photo"><span class="english">Can you take a photo of us?</span><strong class="italian">Può farci una foto?</strong><span class="say">pwoh FAR-chee OO-nah FOH-toh?</span></article>
+<article class="phrase" data-search="cheers toast salute"><span class="english">Cheers!</span><strong class="italian">Salute!</strong><span class="say">sah-LOO-teh!</span></article>
+<article class="phrase" data-search="heartfelt thank you"><span class="english">Thank you from the heart</span><strong class="italian">Grazie di cuore</strong><span class="say">GRAHT-tsyeh dee KWOH-reh</span></article>
+</div></div></section>
+
+<section class="lang-section" id="emergency"><div class="shell"><p class="kicker">When you really need it</p><h2>Problems &amp; emergencies</h2><div class="phrase-grid">
+<article class="phrase" data-search="help emergency"><span class="english">Help!</span><strong class="italian">Aiuto!</strong><span class="say">ah-YOO-toh!</span></article>
+<article class="phrase" data-search="urgent emergency"><span class="english">It’s urgent</span><strong class="italian">È urgente</strong><span class="say">eh oor-JEN-teh</span></article>
+<article class="phrase" data-search="doctor medical"><span class="english">I need a doctor</span><strong class="italian">Ho bisogno di un medico</strong><span class="say">oh bee-ZOHN-yoh dee oon MEH-dee-koh</span></article>
+<article class="phrase" data-search="pharmacy nearest medicine"><span class="english">Where is the nearest pharmacy?</span><strong class="italian">Dov’è la farmacia più vicina?</strong><span class="say">doh-VEH lah far-mah-CHEE-ah pyoo vee-CHEE-nah?</span></article>
+<article class="phrase" data-search="call 112 emergency"><span class="english">Call 112, please</span><strong class="italian">Chiami il 112, per favore</strong><span class="say">KYAH-mee eel OO-noh-OO-noh-DOO-eh, pehr fah-VOH-reh</span></article>
+<article class="phrase" data-search="passport lost"><span class="english">I lost my passport</span><strong class="italian">Ho perso il passaporto</strong><span class="say">oh PEHR-soh eel pahs-sah-POR-toh</span></article>
+<article class="phrase" data-search="not feeling well sick"><span class="english">I don’t feel well</span><strong class="italian">Non mi sento bene</strong><span class="say">nohn mee SEN-toh BEH-neh</span></article>
+<article class="phrase" data-search="police"><span class="english">I need the police</span><strong class="italian">Ho bisogno della polizia</strong><span class="say">oh bee-ZOHN-yoh DEL-lah poh-lee-TSEE-ah</span></article>
+</div>
+<div class="quick-rule"><strong>Emergency number:</strong> 112 works in Italy and throughout the EU. For a genuine emergency, calling is more important than getting the Italian perfect.</div>
+</div></section>
+
+<section class="lang-section"><div class="shell"><p class="kicker">Tiny number cheat sheet</p><h2>Numbers you’ll hear a lot</h2><div class="word-bank">
+<div class="word"><b>uno</b><span>1</span></div><div class="word"><b>due</b><span>2</span></div><div class="word"><b>tre</b><span>3</span></div><div class="word"><b>quattro</b><span>4</span></div><div class="word"><b>cinque</b><span>5</span></div><div class="word"><b>sei</b><span>6</span></div><div class="word"><b>sette</b><span>7</span></div><div class="word"><b>otto</b><span>8</span></div><div class="word"><b>nove</b><span>9</span></div><div class="word"><b>dieci</b><span>10</span></div><div class="word"><b>undici</b><span>11</span></div><div class="word"><b>dodici</b><span>12</span></div>
+</div><p style="margin-top:1.2rem"><a href="#top">Back to top ↑</a></p></div></section>
+</main>
+<footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="essentials.html">Essentials</a><a href="index.html">Home</a></span></div></footer>
+<script src="script.js?v=28"></script>
+<script src="enhancements.js?v=6"></script>
+<script src="ux.js?v=35"></script>
+<script>
+(() => {
+  const phrases=[...document.querySelectorAll('.phrase')];
+  phrases.forEach(card=>{
+    const button=document.createElement('button');
+    button.type='button'; button.className='copy-phrase'; button.title='Copy Italian'; button.setAttribute('aria-label','Copy Italian phrase'); button.textContent='⧉';
+    button.addEventListener('click',async()=>{
+      const text=card.querySelector('.italian')?.textContent?.trim()||'';
+      try{await navigator.clipboard.writeText(text);button.textContent='✓';setTimeout(()=>button.textContent='⧉',1200);}catch{}
+    });
+    card.append(button);
+  });
+  const input=document.getElementById('phrase-search');
+  const empty=document.getElementById('no-results');
+  input?.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    let shown=0;
+    phrases.forEach(card=>{
+      const hay=(card.textContent+' '+(card.dataset.search||'')).toLowerCase();
+      const show=!q||hay.includes(q);
+      card.hidden=!show; if(show) shown++;
+    });
+    document.querySelectorAll('.lang-section').forEach(section=>{
+      const cards=[...section.querySelectorAll('.phrase')];
+      if(cards.length) section.hidden=q && !cards.some(card=>!card.hidden);
+    });
+    empty.style.display=q && !shown?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
