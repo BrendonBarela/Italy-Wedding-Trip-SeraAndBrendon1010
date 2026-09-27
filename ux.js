@@ -61,6 +61,7 @@
       </div>
       <a class="ux-nav-link" href="properties.html" data-page="properties.html">Properties</a>
       <a class="ux-nav-link" href="essentials.html" data-page="essentials.html">Essentials</a>
+      <a class="ux-nav-link" href="italian.html" data-page="italian.html">Italian</a>
       <a class="ux-nav-link ux-website-link" href="https://brendonbarela.github.io/Italy-Wedding-Trip-SeraAndBrendon1010/" target="_blank" rel="noopener noreferrer" aria-label="Open full trip website in a new window" hidden>Open website ↗</a>`;
 
     const websiteLink = nav.querySelector(".ux-website-link");
