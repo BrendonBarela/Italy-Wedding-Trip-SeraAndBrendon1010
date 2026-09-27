@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v35-travel-grid";
+const CACHE_NAME = "sera-brendon-wedding-v36-stay-weather";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
