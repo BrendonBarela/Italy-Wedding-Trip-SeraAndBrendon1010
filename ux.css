@@ -120,3 +120,49 @@
 .forecast-source-links{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
 .forecast-source-links a{display:inline-flex;align-items:center;min-height:38px;padding:.45rem .65rem;border:1px solid #d8c8bd;border-radius:999px;background:#fff;color:#6f4e3d!important;text-decoration:none;font-size:.74rem;font-weight:850}
 @media(max-width:620px){.forecast-source-links{justify-content:flex-start;margin-top:.75rem}}
+
+
+/* v30 — shared Wedding / Transport section navigation */
+.page-subnav-wrap{
+  position:sticky;
+  top:68px;
+  z-index:86;
+  padding:.58rem max(16px,5vw);
+  background:rgba(251,248,244,.97);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(111,78,61,.08);
+  border-bottom:1px solid rgba(111,78,61,.16);
+  box-shadow:0 7px 22px rgba(55,39,31,.05);
+}
+.page-subnav{
+  display:flex;
+  gap:.45rem;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  max-width:1200px;
+  margin:0 auto;
+}
+.page-subnav::-webkit-scrollbar{display:none}
+.page-subnav a{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:.6rem .88rem;
+  border:1px solid #ddcfc4;
+  border-radius:999px;
+  background:#fff;
+  color:#5b4034;
+  text-decoration:none;
+  font:800 .78rem Inter,system-ui,sans-serif;
+  white-space:nowrap;
+}
+.page-subnav a:hover,.page-subnav a:focus-visible,.page-subnav a.active{
+  background:#5b4034;
+  border-color:#5b4034;
+  color:#fff;
+}
+#wedding-day,.wedding-plan,#travel-schedule,.travel-day,#baggage,#local-riviera{scroll-margin-top:140px}
+@media(max-width:820px){.page-subnav-wrap{top:64px;padding-left:16px;padding-right:16px}}
