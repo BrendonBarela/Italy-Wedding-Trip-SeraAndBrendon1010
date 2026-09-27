@@ -115,3 +115,8 @@
 @media(max-width:900px){.forecast-days,.forecast-days.five{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.stay-forecast-head,.forecast-bottom{display:block}.forecast-confidence{display:inline-block;margin-top:.65rem}.forecast-days,.forecast-days.five{grid-template-columns:1fr 1fr}.forecast-bottom a{display:inline-block;margin-top:.8rem}}
 @media(max-width:390px){.forecast-days,.forecast-days.five{grid-template-columns:1fr}}
+
+.forecast-source-note{display:block;margin-top:.35rem;font-size:.74rem;color:#7a6a60}
+.forecast-source-links{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
+.forecast-source-links a{display:inline-flex;align-items:center;min-height:38px;padding:.45rem .65rem;border:1px solid #d8c8bd;border-radius:999px;background:#fff;color:#6f4e3d!important;text-decoration:none;font-size:.74rem;font-weight:850}
+@media(max-width:620px){.forecast-source-links{justify-content:flex-start;margin-top:.75rem}}
