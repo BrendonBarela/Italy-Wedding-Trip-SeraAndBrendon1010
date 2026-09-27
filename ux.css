@@ -90,3 +90,28 @@
 
 /* Website shortcut appears in the installed app menu. */
 .ux-nav .ux-website-link[hidden]{display:none!important}
+
+
+/* v29 — trip-date weather outlook cards */
+.stay-forecast{margin:0 0 1.6rem;padding:1.15rem 1.2rem;border:1px solid #dfd1c6;border-radius:22px;background:linear-gradient(135deg,#fffaf5,#f6eee7);box-shadow:0 10px 30px rgba(62,43,32,.06)}
+.stay-forecast-head{display:flex;justify-content:space-between;gap:1.25rem;align-items:flex-start}
+.stay-forecast-head h2{margin:.15rem 0 .35rem;font-size:clamp(1.65rem,4vw,2.25rem)}
+.stay-forecast-head p{margin:.15rem 0;color:#66584f;max-width:760px;line-height:1.55}
+.forecast-confidence{flex:0 0 auto;padding:.45rem .65rem;border-radius:999px;font-size:.68rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.forecast-confidence.high{background:#e7f0df;color:#4e6344}
+.forecast-confidence.medium{background:#f5ead4;color:#775f32}
+.forecast-confidence.outlook{background:#eee8e3;color:#6d5c52}
+.forecast-days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.forecast-days.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.forecast-days article{padding:.85rem .9rem;border:1px solid #e2d6cc;border-radius:15px;background:#fff;min-width:0}
+.forecast-days article.wedding-weather{border:2px solid #9a6d55;background:#fff7ef}
+.forecast-days time{display:block;color:#80695c;font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.forecast-days b{display:block;margin:.32rem 0 .4rem;color:#4e392f;font-size:.82rem}
+.forecast-days strong{display:block;font:700 1.45rem "Cormorant Garamond",Georgia,serif;color:#352720;white-space:nowrap}
+.forecast-days small{display:block;margin-top:.15rem;color:#7b6c63;font-size:.72rem}
+.forecast-bottom{display:flex;justify-content:space-between;align-items:end;gap:1rem;padding-top:.15rem}
+.forecast-bottom p{margin:0;color:#65564d;line-height:1.5}
+.forecast-bottom a{flex:0 0 auto;font-size:.76rem;font-weight:850;color:#6f4e3d;text-decoration:none}
+@media(max-width:900px){.forecast-days,.forecast-days.five{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.stay-forecast-head,.forecast-bottom{display:block}.forecast-confidence{display:inline-block;margin-top:.65rem}.forecast-days,.forecast-days.five{grid-template-columns:1fr 1fr}.forecast-bottom a{display:inline-block;margin-top:.8rem}}
+@media(max-width:390px){.forecast-days,.forecast-days.five{grid-template-columns:1fr}}
