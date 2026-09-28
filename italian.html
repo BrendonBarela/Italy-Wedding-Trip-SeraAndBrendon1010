@@ -31,11 +31,14 @@
 .lang-section h2{margin:.1rem 0 .45rem;font-size:clamp(2rem,5vw,3rem)}
 .lang-section-lede{max-width:760px;color:#6d5c52;line-height:1.55;margin:0 0 1rem}
 .phrase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
-.phrase{position:relative;background:#fff;border:1px solid #e3d6cc;border-radius:16px;padding:1rem 3rem 1rem 1rem;box-shadow:0 7px 22px rgba(64,46,37,.04)}
+.phrase{position:relative;background:#fff;border:1px solid #e3d6cc;border-radius:16px;padding:1rem 5.4rem 1rem 1rem;box-shadow:0 7px 22px rgba(64,46,37,.04)}
 .phrase .english{display:block;color:#77665c;font:800 .68rem Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.05em}
 .phrase .italian{display:block;margin:.3rem 0 .2rem;color:#3d2e27;font:700 1.34rem "Cormorant Garamond",Georgia,serif;line-height:1.1}
 .phrase .say{display:block;color:#8a7060;font:600 .72rem Inter,system-ui,sans-serif}
-.copy-phrase{position:absolute;right:.6rem;top:.65rem;width:34px;height:34px;border:1px solid #e1d4c9;border-radius:10px;background:#faf6f2;color:#6f4e3d;cursor:pointer}
+.copy-phrase,.speak-phrase{position:absolute;top:.65rem;width:34px;height:34px;border:1px solid #e1d4c9;border-radius:10px;background:#faf6f2;color:#6f4e3d;cursor:pointer;display:grid;place-items:center;font-size:1rem}
+.copy-phrase{right:.6rem}
+.speak-phrase{right:3.05rem}
+.speak-phrase:hover,.speak-phrase:focus-visible,.speak-phrase.is-speaking{background:#6f4e3d;color:#fff;border-color:#6f4e3d}
 .must-know{background:#fff7ef;border:1px solid #d9c3b4;border-radius:20px;padding:1.1rem;margin-top:1.2rem}
 .must-know h2{margin:.1rem 0 .6rem}
 .word-bank{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem}
@@ -51,7 +54,7 @@
 <body id="top">
 <header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"></nav></header>
 <main>
-<section class="lang-hero"><div class="shell"><span class="lang-tip">🇮🇹 Built for our trip</span><p class="eyebrow">Quick phrasebook</p><h1>English → Italian</h1><p>Useful phrases for trains, restaurants, villas, rental cars, Megan’s shopping runs and the wedding. Pronunciations are simple approximations for English speakers — close enough to get the phrase out confidently.</p></div></section>
+<section class="lang-hero"><div class="shell"><span class="lang-tip">🇮🇹 Built for our trip</span><p class="eyebrow">Quick phrasebook</p><h1>English → Italian</h1><p>Useful phrases for trains, restaurants, villas, rental cars, Megan’s shopping runs and the wedding. Pronunciations are simple approximations for English speakers — and tap 🔊 on any phrase to hear it spoken in Italian.</p></div></section>
 
 <div class="lang-tools"><div class="shell lang-tools-inner">
 <input id="phrase-search" class="lang-search" type="search" placeholder="Search: train, bathroom, reservation, beef…" aria-label="Search Italian phrases">
@@ -209,14 +212,42 @@
 <script>
 (() => {
   const phrases=[...document.querySelectorAll('.phrase')];
+  let italianVoice=null;
+  const chooseItalianVoice=()=>{
+    if(!('speechSynthesis' in window)) return;
+    const voices=speechSynthesis.getVoices();
+    italianVoice=voices.find(v=>/^it-IT$/i.test(v.lang)) || voices.find(v=>/^it/i.test(v.lang)) || null;
+  };
+  chooseItalianVoice();
+  if('speechSynthesis' in window) speechSynthesis.addEventListener?.('voiceschanged',chooseItalianVoice);
+
   phrases.forEach(card=>{
+    const text=()=>card.querySelector('.italian')?.textContent?.trim()||'';
+
+    const speak=document.createElement('button');
+    speak.type='button'; speak.className='speak-phrase'; speak.title='Hear Italian'; speak.setAttribute('aria-label','Hear Italian pronunciation'); speak.textContent='🔊';
+    if(!('speechSynthesis' in window)){speak.disabled=true;speak.title='Speech playback is not supported by this browser';}
+    speak.addEventListener('click',()=>{
+      if(!('speechSynthesis' in window) || !text()) return;
+      speechSynthesis.cancel();
+      const utterance=new SpeechSynthesisUtterance(text());
+      utterance.lang='it-IT';
+      utterance.rate=.86;
+      utterance.pitch=1;
+      if(italianVoice) utterance.voice=italianVoice;
+      document.querySelectorAll('.speak-phrase.is-speaking').forEach(b=>b.classList.remove('is-speaking'));
+      speak.classList.add('is-speaking');
+      utterance.onend=()=>speak.classList.remove('is-speaking');
+      utterance.onerror=()=>speak.classList.remove('is-speaking');
+      speechSynthesis.speak(utterance);
+    });
+
     const button=document.createElement('button');
     button.type='button'; button.className='copy-phrase'; button.title='Copy Italian'; button.setAttribute('aria-label','Copy Italian phrase'); button.textContent='⧉';
     button.addEventListener('click',async()=>{
-      const text=card.querySelector('.italian')?.textContent?.trim()||'';
-      try{await navigator.clipboard.writeText(text);button.textContent='✓';setTimeout(()=>button.textContent='⧉',1200);}catch{}
+      try{await navigator.clipboard.writeText(text());button.textContent='✓';setTimeout(()=>button.textContent='⧉',1200);}catch{}
     });
-    card.append(button);
+    card.append(speak,button);
   });
   const input=document.getElementById('phrase-search');
   const empty=document.getElementById('no-results');
