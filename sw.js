@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v41-italian-phrasebook";
+const CACHE_NAME = "sera-brendon-wedding-v42-italian-audio";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./packing.html","./essentials.html","./italian.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
