@@ -1,4 +1,4 @@
-const CACHE_NAME = "sera-brendon-wedding-v43-no-packing-page";
+const CACHE_NAME = "sera-brendon-wedding-v44-verona-airlink";
 const CORE_ASSETS = [
   "./","./index.html","./today.html","./essentials.html","./italian.html",
   "./verona.html","./parma.html","./ispra.html","./santa-margherita.html","./nice.html",
