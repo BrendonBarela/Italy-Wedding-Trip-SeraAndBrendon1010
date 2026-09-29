@@ -173,7 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const maps = [...document.querySelectorAll(".city-map[data-map]")];
   if (!maps.length) return;
   const fail = (el,msg) => { el.innerHTML = `<div class="map-error"><strong>Map unavailable</strong><span>${msg}</span></div>`; };
-  if (!window.L) { maps.forEach(el => fail(el,"Refresh the page or use the Directions links.")); return; }
+  if (!navigator.onLine) {
+    maps.forEach(el => fail(el,"You're offline. The trip guide is saved on this device, but live map tiles need a connection."));
+    return;
+  }
+  if (!window.L) { maps.forEach(el => fail(el,"Refresh the page or use the address and directions links.")); return; }
 
   const styles = {
     stay:{color:"#fff",weight:3,fillColor:"#6f4e3d",fillOpacity:1,radius:10},
