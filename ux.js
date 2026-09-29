@@ -32,6 +32,16 @@
           <a href="nice.html">French Riviera <small>Oct 14–18</small></a>
         </div>
       </div>
+      <div class="ux-nav-group" data-pages="history.html">
+        <button class="ux-nav-group-toggle" type="button" aria-expanded="false">History <span aria-hidden="true">⌄</span></button>
+        <div class="ux-nav-menu">
+          <a href="history.html#verona">Verona <small>Roman + Scaliger</small></a>
+          <a href="history.html#parma">Parma <small>Farnese + opera</small></a>
+          <a href="history.html#ispra">Ispra <small>Lake + JRC</small></a>
+          <a href="history.html#santa">Santa / Portofino / Camogli <small>Maritime Liguria</small></a>
+          <a href="history.html#riviera">Beaulieu / Èze / Nice <small>Riviera layers</small></a>
+        </div>
+      </div>
       <div class="ux-nav-group" data-pages="wedding.html">
         <button class="ux-nav-group-toggle" type="button" aria-expanded="false">Wedding <span aria-hidden="true">⌄</span></button>
         <div class="ux-nav-menu">
