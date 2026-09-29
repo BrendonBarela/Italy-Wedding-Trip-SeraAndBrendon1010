@@ -5,6 +5,21 @@
 @media(max-width:720px){.route-card{grid-template-columns:1fr;gap:.3rem}.route-date strong{display:inline;margin-left:.35rem;font-size:1.4rem}.route-head{display:block}.route-status{display:inline-block;margin:.25rem 0}.route-steps li{grid-template-columns:32px 1fr}.route-time{grid-column:2}.route-step{grid-column:2}.local-grid{grid-template-columns:1fr}}
 .transfer-table{overflow-x:auto;margin-top:1rem}.transfer-table table{width:100%;border-collapse:collapse;font-size:.85rem}.transfer-table caption{text-align:left;font-weight:700;padding:.7rem 0}.transfer-table th,.transfer-table td{text-align:left;padding:.65rem;border-bottom:1px solid #e4d9d0;vertical-align:top}.transfer-table th{background:#f8f3ee}.transfer-table tbody tr:nth-child(even){background:#fcfaf7}
 
+
+/* v32 — travel-day transfer instructions */
+#travel-schedule .transfer-box{margin:18px 0 4px;padding:16px 17px;border:1px solid #d9cbbf;border-left:4px solid #6f4e3d;border-radius:14px;background:#fbf7f2}
+#travel-schedule .transfer-box-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+#travel-schedule .transfer-box-head strong{font-size:.98rem;color:#49352c}
+#travel-schedule .transfer-buffer{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:#efe4da;color:#6f4e3d;font-size:.7rem;font-weight:850;letter-spacing:.04em}
+#travel-schedule .transfer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#travel-schedule .transfer-step{padding:10px 11px;border-radius:11px;background:#fff;border:1px solid #e7ddd5}
+#travel-schedule .transfer-step small{display:block;margin-bottom:3px;color:#80695c;font-size:.66rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+#travel-schedule .transfer-step b{display:block;color:#49352c;font-size:.84rem;line-height:1.35}
+#travel-schedule .transfer-step span{display:block;margin-top:4px;color:#6d6057;font-size:.76rem;line-height:1.45}
+#travel-schedule .transfer-box-note{margin:10px 0 0!important;color:#6d6057;font-size:.75rem;line-height:1.5}
+#travel-schedule .transfer-box a{font-weight:800}
+@media(max-width:740px){#travel-schedule .transfer-grid{grid-template-columns:1fr}#travel-schedule .transfer-box-head{align-items:flex-start;flex-direction:column}.transfer-buffer{align-self:flex-start}}
+
 /* Travel-day overview: desktop grid, stacked phone layout. */
 #travel-schedule{--schedule-ink:#3f3028;--schedule-muted:#6d6057;--schedule-line:#e4d9d0;color:var(--schedule-ink)}
 #travel-schedule .schedule-intro{max-width:900px;margin-bottom:24px}
@@ -43,7 +58,17 @@
 <div><div class="label">Depart</div><p><strong>Sept. 30 · 4:05 PM</strong></p><p>Denver flight departure</p></div>
 <div><div class="label">Booked flights + AirLink</div><p>Munich arrival <strong>9:40 AM Oct. 1</strong></p><p>Munich → Verona <strong>11:45 AM–12:45 PM</strong></p><p class="text-small text-muted">Collect bags, then take Verona AirLink line 199 to Porta Nuova and walk the short distance to Raggio di Luna.</p></div>
 <div><div class="label">Check in</div><p><strong>After 12:00 PM · Oct. 1</strong></p><p>Raggio di Luna, Verona</p></div>
-</div><details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
+</div>
+<div class="transfer-box" aria-label="Munich transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Munich</strong><span class="transfer-buffer">2 hr 5 min available</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Arrival</small><b>Stay inside Terminal 2</b><span>Follow <strong>Connecting Flights / Transfer</strong> signs after leaving the Denver flight. Bags should stay checked through to Verona if they are tagged VRN.</span></div>
+<div class="transfer-step"><small>Process</small><b>Passport control + possible satellite shuttle</b><span>You enter the Schengen Area in Munich, so passport control happens here. If your next gate is in the T2 Satellite, use the underground shuttle.</span></div>
+<div class="transfer-step"><small>Walking target</small><b>Allow ~30–60 min total</b><span>Gate-to-gate walking itself is usually modest; passport control is the variable part. Check the departure board immediately for EN 8210.</span></div>
+</div>
+<p class="transfer-box-note">Exact gates are assigned later. The connection is comfortably above what we need if the Denver flight is close to on time. <a href="https://www.munich-airport.com/connecting-flights-260553" target="_blank" rel="noopener">Munich Airport transfer guide ↗</a></p>
+</div>
+<details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
 <li><span class="route-time">4:05 PM</span><div class="route-step"><strong>Depart Denver (DEN)</strong><small>UA 9458 operated by Lufthansa.</small></div></li>
 <li><span class="route-time">9:40 AM</span><div class="route-step"><strong>Arrive Munich (MUC) on Oct 1</strong><small>Follow connecting-flight signs; bags should remain checked through if tagged to Verona.</small></div></li>
 <li><span class="route-time">11:45 AM</span><div class="route-step"><strong>Fly Munich → Verona</strong><small>EN 8210 operated by Air Dolomiti.</small></div></li>
@@ -58,7 +83,17 @@
 <div><div class="label">Check out</div><p><strong>By 11:00 AM</strong></p><p>Raggio di Luna</p></div>
 <div><div class="label">Flexible train</div><p>Verona Porta Nuova → Parma</p><p class="text-small text-muted">Departure still to choose; aim to arrive near 3:00 PM.</p></div>
 <div><div class="label">Check in</div><p><strong>After 3:00 PM</strong></p><p>Casa Nadia, Parma</p></div>
-</div><details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
+</div>
+<div class="transfer-box" aria-label="Verona to Parma transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Verona → Parma</strong><span class="transfer-buffer">Train still flexible</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Before leaving</small><b>Choose the train first</b><span>The exact platform cannot be added until we pick the Verona → Parma departure. Keep this day flexible around the 3 PM Parma check-in.</span></div>
+<div class="transfer-step"><small>At Porta Nuova</small><b>Aim for ~20 min early</b><span>With wedding-trip luggage, arrive before the platform rush rather than timing it tightly. Check the station board for the final platform.</span></div>
+<div class="transfer-step"><small>At Parma</small><b>Simple station exit</b><span>Once off the train, leave together with the bags; use a taxi for the short final transfer if carrying everything feels annoying.</span></div>
+</div>
+<p class="transfer-box-note">Once we select the Oct. 4 train, this box can become platform-specific.</p>
+</div>
+<details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
 <li><span class="route-time">By 11:00</span><div class="route-step"><strong>Check out in Verona</strong><small>Keep the morning easy.</small></div></li>
 <li><span class="route-time">Late morning</span><div class="route-step"><strong>Go to Verona Porta Nuova</strong><small>Use a taxi if luggage makes the walk annoying.</small></div></li>
 <li><span class="route-time">Flexible</span><div class="route-step"><strong>Take a comfortable train to Parma</strong><small>Aim to land close to the 3:00 PM check-in window.</small></div></li>
@@ -72,6 +107,16 @@
 <div><div class="label">Train + rental car</div><div class="leg"><strong>10:39 AM–12:15 PM</strong><p>Parma → Milano Centrale · IC 580 · Booked</p></div><div class="leg"><strong>~12:55–1:48 PM</strong><p>Centrale → MXP Terminal 1</p></div><p>Hertz counter <strong>~2:00–2:15 PM</strong></p><p>Booked car pickup <strong>3:00 PM</strong></p><p class="text-small text-muted">Then ~35–45 minutes driving after collecting the car.</p></div>
 <div><div class="label">Check in</div><p><strong>4:00 PM</strong> · Villa Eden</p><p><strong>After 3:00 PM</strong> · Friends’ villa</p></div>
 </div>
+<div class="transfer-box" aria-label="Milan and Malpensa transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Milano Centrale → MXP</strong><span class="transfer-buffer">40 min in Milan</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Centrale</small><b>IC 580 → Malpensa Express</b><span>All mainline tracks meet the same head concourse. Allow roughly <strong>8–12 min</strong> with luggage to cross the station.</span></div>
+<div class="transfer-step"><small>Airport train</small><b>Look for the low-numbered tracks</b><span>The :55 Malpensa Express has been publishing from track 1 in the current pattern. Verify the board on Oct. 7 rather than relying on a saved platform.</span></div>
+<div class="transfer-step"><small>MXP Terminal 1</small><b>Train → Hertz: ~15–25 min</b><span>Follow Terminal 1 / rental-car signs, then allow extra time for the Hertz queue and paperwork.</span></div>
+</div>
+<p class="transfer-box-note"><strong>Do not stop for a sit-down meal in Milan.</strong> Forty minutes is comfortable for the transfer; food should be grab-and-go if convenient.</p>
+</div>
+
 <details><summary>Backup train &amp; Hertz deadline</summary><p class="text-small">Suggested backup: 1:25 PM from Centrale → ~2:18 PM at MXP T1 → Hertz ~2:30–2:45 PM. The voucher gives a one-hour pickup grace period, through 4:00 PM. If delayed, call Hertz before 3:00 PM: +39 02 5858 1081.</p></details>
 <details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps"><li><span class="route-time">By 10:00 AM</span><div class="route-step"><strong>Check out and reach Parma station</strong><small>Allow time for luggage and boarding.</small></div></li><li><span class="route-time">10:39 AM</span><div class="route-step"><strong>Booked: Intercity 580 to Milano Centrale</strong><small>Arrives 12:15 PM. Your booked Parma–Milan train.</small></div></li><li><span class="route-time">12:15 PM</span><div class="route-step"><strong>Change platforms at Milano Centrale</strong><small>40 minutes until the suggested airport train; grab food to go if time allows.</small></div></li><li><span class="route-time">~12:55 PM</span><div class="route-step"><strong>Suggested: Malpensa Express to Terminal 1</strong><small>Expected arrival around 1:48 PM. Stay on to Malpensa Aeroporto T1.</small></div></li><li><span class="route-time">~2:00–2:15 PM</span><div class="route-step"><strong>Reach the Hertz counter at Terminal 1</strong><small>Allow 15–25 minutes after the train for the walk and finding the counter; queue time is extra. Early vehicle release is not guaranteed.</small></div></li><li><span class="route-time">3:00 PM</span><div class="route-step"><strong>Booked Hertz pickup</strong><small>Bring physical license, IDP, passport, voucher and a physical credit card in the main driver’s name.</small></div></li><li><span class="route-time">After pickup</span><div class="route-step"><strong>Drive to Ispra</strong><small>Allow roughly 35–45 minutes driving, plus paperwork and collecting the car.</small></div></li></ol><div class="route-note"><strong>Pickup deadline:</strong> the voucher gives a one-hour grace period, through 4:00 PM. After that, a no-show could mean losing the car and prepaid rental payment. If delayed, call Hertz before 3:00 PM at <a href="tel:+390258581081">+39 02 5858 1081</a> and confirm they will hold the automatic car. We are arriving by train; do not rely on flight-delay protection.</div><div class="transfer-table" tabindex="0" role="region" aria-label="October 7 · Suggested airport train options"><table><caption>October 7 · Suggested airport train options</caption><thead><tr><th scope="col">Leave Centrale</th><th scope="col">Arrive MXP T1</th><th scope="col">Expected at Hertz</th></tr></thead><tbody><tr><td>12:55 PM · Recommended</td><td>~1:48 PM</td><td>~2:00–2:15 PM</td></tr><tr><td>1:25 PM · Backup</td><td>~2:18 PM</td><td>~2:30–2:45 PM</td></tr></tbody></table></div><p class="route-note"><strong>Airport trains are suggested, not booked.</strong> Times below reflect the service pattern checked September 22, 2026, not confirmed departures for our October travel dates. Recheck the <a href="https://www.malpensaexpress.it/en/">Malpensa Express planner</a> and <a href="https://www.trenord.it/en/">Trenord live updates</a> before travel. All times are local Italy time. Driving, walking and car-return times are planning estimates.</p><div class="route-private" data-private-stay="ispraWedding"></div></div></details></section>
 <section class="travel-day" id="oct-10" aria-label="October 10, local move in Ispra">
@@ -81,7 +126,16 @@
 <div><div class="label">Local move</div><p>Coordinate bags and keys</p><p class="text-small text-muted">Villa booking continues through Oct. 11.</p></div>
 <div><div class="label">Local transport</div><p>Car or taxi to Gemma’s Nest</p><p class="text-small text-muted">Arrange the handoff around wedding preparations.</p></div>
 <div><div class="label">Check in</div><p><strong>3:00 PM</strong></p><p>Gemma’s Nest</p></div>
-</div></section>
+</div>
+<div class="transfer-box" aria-label="Wedding night local transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Wedding night</strong><span class="transfer-buffer">Local move only</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Before ceremony</small><b>Pack the overnight bag early</b><span>Have the Gemma's Nest bag, keys and anything needed after dinner separated before getting-ready time starts.</span></div>
+<div class="transfer-step"><small>During the day</small><b>No station or airport transfer</b><span>Keep both cars available for wedding logistics; avoid creating a special mid-day lodging run unless it is necessary.</span></div>
+<div class="transfer-step"><small>After dinner</small><b>Car / taxi to Gemma's Nest</b><span>Katie's timing role can include making sure the overnight bag and ride are where they need to be.</span></div>
+</div>
+</div>
+</section>
 <section class="travel-day" id="oct-11" aria-label="October 11, Ispra to Santa Margherita">
 <div class="dayhead"><span class="viz-badge">OCT 11 · SUN</span><h3>Ispra → Santa Margherita</h3></div>
 <div class="wake"><div class="label">Suggested wake-up</div><p><strong>6:30 AM</strong></p><p class="text-small">Two hours before the 8:30 AM departure. Aim to be dressed and packed by 8:00 AM, leaving 30 minutes for bags, keys and the room check.</p></div>
@@ -90,6 +144,16 @@
 <div><div class="label">Car return + trains</div><div class="leg"><strong>9:15–9:30 AM</strong><p>Reach Hertz T1 after refueling</p></div><div class="leg"><strong>~10:11–11:07 AM</strong><p>MXP T1 → Milano Centrale</p><p class="text-small text-muted">63-minute connection buffer</p></div><strong>12:10–2:16 PM</strong><p>Centrale → Santa Margherita · IC 665 · Booked</p></div>
 <div><div class="label">Check in</div><p><strong>After 3:00 PM</strong></p><p>Painted Blue</p><p class="text-small text-muted">44 minutes after station arrival; allow for the transfer.</p></div>
 </div>
+<div class="transfer-box" aria-label="Malpensa and Milan transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · MXP → Milano Centrale</strong><span class="transfer-buffer">63 min in Milan</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Car return</small><b>Hertz → MXP train: allow 40–55 min</b><span>Return, inspection, unloading and walking to the Terminal 1 rail station are the real buffer before the Malpensa Express.</span></div>
+<div class="transfer-step"><small>Centrale</small><b>Low tracks → IC 665 side of station</b><span>The airport train normally arrives on a low-numbered track; IC 665 is currently publishing from track 21. Allow about <strong>10–12 min</strong> with luggage.</span></div>
+<div class="transfer-step"><small>Use the extra time</small><b>Board calmly at 12:10</b><span>After finding the platform, use the remaining buffer for restroom / food rather than wandering first and checking the track later.</span></div>
+</div>
+<p class="transfer-box-note">Platform assignments can change. Recheck the Centrale departure board after the Malpensa Express arrives.</p>
+</div>
+
 <div class="notice"><strong>Return early: the reserved 11:30 AM car return is too late for your booked train.</strong></div>
 <details><summary>Earlier option &amp; backup train</summary><p class="text-small">Relaxed option: ~9:41–10:37 AM, requiring an earlier car return. Backup: ~10:41–11:37 AM, leaving 33 minutes in Milan. Do not plan on 11:11 AM: arrival at 12:07 PM leaves only 3 minutes.</p></details>
 <details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps"><li><span class="route-time">~8:30 AM</span><div class="route-step"><strong>Leave Ispra</strong><small>Allow time to drive to MXP and refuel near the airport; retain the fuel receipt.</small></div></li><li><span class="route-time">9:15–9:30 AM</span><div class="route-step"><strong>Reach Hertz rental return at Terminal 1</strong><small>Allow roughly 40–55 minutes for handoff, inspection, luggage and the walk to the train. Confirm the earlier handoff with Hertz.</small></div></li><li><span class="route-time">~10:11 AM</span><div class="route-step"><strong>Recommended: Malpensa Express to Milano Centrale</strong><small>Expected arrival 11:07 AM. Choose Centrale, not Cadorna.</small></div></li><li><span class="route-time">~11:07 AM</span><div class="route-step"><strong>Arrive Milano Centrale</strong><small>About 63 minutes to change platforms and get food before the booked Intercity.</small></div></li><li><span class="route-time">12:10 PM</span><div class="route-step"><strong>Booked: Intercity 665, first class</strong><small>Direct to Santa Margherita Ligure–Portofino.</small></div></li><li><span class="route-time">2:16 PM</span><div class="route-step"><strong>Arrive Santa Margherita Ligure–Portofino</strong><small>Continue to the accommodation; check-in is later.</small></div></li></ol><div class="route-note"><strong>Return earlier than the reservation time.</strong> The rental booking says 11:30 AM; returning then is too late for our 12:10 PM train from Milan. Our plan is to reach Hertz at 9:15–9:30 AM. This is a travel plan, not a change to the rental reservation.</div><div class="transfer-table" tabindex="0" role="region" aria-label="October 11 · Suggested airport train options"><table><caption>October 11 · Suggested airport train options</caption><thead><tr><th scope="col">Leave MXP T1</th><th scope="col">Arrive Centrale</th><th scope="col">Before 12:10 train</th><th scope="col">Use</th></tr></thead><tbody><tr><td>9:41 AM</td><td>10:37 AM</td><td>1 hr 33 min</td><td>Relaxed option; return the car earlier</td></tr><tr><td>10:11 AM</td><td>11:07 AM</td><td>1 hr 3 min</td><td>Recommended</td></tr><tr><td>10:41 AM</td><td>11:37 AM</td><td>33 min</td><td>Backup; less room for delays</td></tr><tr><td>11:11 AM</td><td>12:07 PM</td><td>3 min</td><td>Too tight — do not plan on this</td></tr></tbody></table></div><p class="route-note"><strong>Airport trains are suggested, not booked.</strong> Times below reflect the service pattern checked September 22, 2026, not confirmed departures for our October travel dates. Recheck the <a href="https://www.malpensaexpress.it/en/">Malpensa Express planner</a> and <a href="https://www.trenord.it/en/">Trenord live updates</a> before travel. All times are local Italy time. Driving, walking and car-return times are planning estimates.</p><p class="route-note"><strong>If keeping an 11:30 AM car return:</strong> change the onward Intercity before departure. The Omio confirmation lists a changeable Base fare; a fare difference may apply. No ticket changes have been made.</p><div class="route-private" data-private-stay="santa"></div></div></details></section>
@@ -101,6 +165,16 @@
 <div><div class="label">Three booked trains</div><div class="leg"><strong>10:14–11:02 AM</strong><p>Santa Margherita → Genova Brignole</p><p class="text-small text-muted">33-minute connection</p></div><div class="leg"><strong>11:35 AM–2:12 PM</strong><p>Genova Brignole → Ventimiglia</p><p class="text-small text-muted">28-minute connection</p></div><strong>2:40–3:26 PM</strong><p>Ventimiglia → Beaulieu-sur-Mer</p></div>
 <div><div class="label">Check in</div><p><strong>After 3:26 PM arrival</strong></p><p>Mila penthouse</p><p class="text-small text-muted">Host handoff time to confirm.</p></div>
 </div>
+<div class="transfer-box" aria-label="Genoa and Ventimiglia transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Genova + Ventimiglia</strong><span class="transfer-buffer">33 min + 28 min</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Genova Brignole</small><b>Current pattern: track 2 → track 1</b><span>Allow roughly <strong>3–6 min</strong> with luggage. This is a compact change; elevators serve the passenger platforms.</span></div>
+<div class="transfer-step"><small>Ventimiglia</small><b>Find TER / ZOU! 86048</b><span>The French train is currently publishing from track 3. RV 3368's arrival track can vary, so check the board as soon as you step off.</span></div>
+<div class="transfer-step"><small>Walking target</small><b>Allow ~5–8 min</b><span>Twenty-eight minutes is a healthy buffer in Ventimiglia even if you need the elevator and have all the luggage.</span></div>
+</div>
+<p class="transfer-box-note"><strong>No need to sprint.</strong> Keep the group together, check the board first, then move. Saved platform numbers are planning aids only and can change operationally.</p>
+</div>
+
 <div class="notice"><strong>Aim to reach the station around 9:50 AM.</strong></div>
 <details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
 <li><span class="route-time">Before 10:00</span><div class="route-step"><strong>Check out early and reach the station</strong><small>10:00 AM is the checkout deadline, not the time to leave. Allow the journey to the station and a boarding buffer for the 10:14 AM train.</small></div></li>
@@ -118,7 +192,17 @@
 <div><div class="label">Check out</div><p><strong>~9:00 AM planned</strong></p><p>Mila penthouse</p><p class="text-small text-muted">Vrbo booking allows checkout until 12:00 PM; 9:00 AM is our earlier airport plan.</p></div>
 <div><div class="label">Airport + booked flight</div><p>Taxi/VTC to Nice Airport · arrange in advance</p><p><strong>12:35 PM flight departure</strong></p><p>Nice → Montreal → Denver</p></div>
 <div><div class="label">Destination</div><p>Home</p></div>
-</div><details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
+</div>
+<div class="transfer-box" aria-label="Nice and Montreal airport transfer instructions">
+<div class="transfer-box-head"><strong>🔁 Transfer instructions · Nice + Montréal</strong><span class="transfer-buffer">1 hr 50 min at YUL</span></div>
+<div class="transfer-grid">
+<div class="transfer-step"><small>Nice Airport</small><b>Verify Air Canada terminal in the app</b><span>The exact NCE departure gate and terminal can change. Arrive early enough that check-in/security, not the gate walk, is the easy part.</span></div>
+<div class="transfer-step"><small>Montréal</small><b>Follow “Connections to USA”</b><span>Do not treat this as a normal gate change: you will go through the U.S.-connection path, security and <strong>U.S. preclearance</strong> before the Denver gate.</span></div>
+<div class="transfer-step"><small>Best shortcut</small><b>Use Mobile Passport Control</b><span>Set up MPC profiles before the trip. At YUL, submit after arrival and use the eligible priority process if offered.</span></div>
+</div>
+<p class="transfer-box-note">The booked <strong>1 hr 50 min</strong> connection is above Air Canada's published international→U.S. minimum, but this is the transfer where a late inbound flight matters most. Bags should transfer automatically unless CBP requests inspection. <a href="https://yulsatisfaction.admtl.com/hc/en-ca/articles/360000913078-I-m-arriving-from-an-international-city-and-I-have-a-connecting-flight-to-a-U-S-destination" target="_blank" rel="noopener">YUL connection instructions ↗</a></p>
+</div>
+<details class="full-route"><summary>Full route details, links &amp; reminders</summary><div><ol class="route-steps">
 <li><span class="route-time">~9:00 AM</span><div class="route-step"><strong>Planned departure / taxi or VTC pickup (arrange in advance)</strong><small>The Vrbo reservation permits checkout until noon; we are leaving earlier to keep the airport morning comfortable.</small></div></li>
 <li><span class="route-time">Morning</span><div class="route-step"><strong>Drive directly to NCE (verify departure terminal)</strong><small>Leave generous buffer for the 12:35 PM international itinerary.</small></div></li>
 <li><span class="route-time">12:35 PM</span><div class="route-step"><strong>Fly home</strong><small>Nice → Montreal → Denver.</small></div></li>
