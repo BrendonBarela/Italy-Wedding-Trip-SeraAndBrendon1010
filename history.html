@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#6f4e3d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sera & Brendon">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="app-icon-192.png">
+<title>History Along Our Route | Sera &amp; Brendon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="ux.css?v=28">
+<link rel="stylesheet" href="city-guide.css?v=1">
+<style>
+.history-hero{padding:7rem 0 3.5rem;background:linear-gradient(135deg,#49362d,#82604d);color:#fff}
+.history-hero h1{font-size:clamp(3.2rem,7vw,5.8rem);margin:.25rem 0 .75rem}
+.history-hero p{max-width:780px;line-height:1.65;color:rgba(255,255,255,.9)}
+.history-jumps-wrap{position:sticky;top:68px;z-index:70;background:rgba(251,248,244,.96);backdrop-filter:blur(12px);border-bottom:1px solid #e3d7cd}
+.history-jumps{display:flex;gap:.5rem;overflow-x:auto;padding:.75rem 0;scrollbar-width:none}.history-jumps::-webkit-scrollbar{display:none}
+.history-jumps a{flex:0 0 auto;text-decoration:none;padding:.62rem .85rem;border:1px solid #d9ccc2;border-radius:999px;background:#fff;color:#5b4034;font:800 .76rem Inter,system-ui,sans-serif}
+.history-city{padding:4rem 0;border-bottom:1px solid #e7ddd5;scroll-margin-top:130px}
+.history-city-title{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.history-city-title h2{font-size:clamp(2.6rem,5vw,4rem);margin:.1rem 0 0}
+.history-guide-link{font-weight:800;text-decoration:none;white-space:nowrap}
+.history-city .city-panel-head{max-width:850px}.history-city .city-panel-head .kicker{margin-top:0}
+.history-city .fact-grid{margin-top:1.3rem}
+.history-city .history-sources{margin-top:1rem}
+.history-back{margin-top:1.2rem}
+@media(max-width:700px){.history-city-title{align-items:flex-start;flex-direction:column}.history-hero{padding-top:6rem}.history-city{padding:3rem 0}}
+</style>
+</head>
+<body id="top">
+<header class="site-header"><a class="brand" href="index.html">S &amp; B</a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="mobile-nav-label">Menu</span><span class="mobile-nav-icon" aria-hidden="true">☰</span></button><nav id="site-nav" class="site-nav single-trip-nav" aria-label="Trip navigation"><a href="index.html">Home</a><a href="history.html">History</a><a href="transportation.html">Transport</a></nav></header>
+<main>
+<section class="history-hero"><div class="shell"><p class="eyebrow">The stories behind the trip</p><h1>History along our route</h1><p>All of the fun history that used to live inside the destination pages is collected here, with extra facts for the places we'll actually walk through—from Roman Verona and Farnese Parma to Ispra's lime kilns, Ligurian sailing towns and the winter-resort Riviera.</p></div></section>
+<div class="history-jumps-wrap"><nav class="shell history-jumps" aria-label="Jump to destination history">
+<a href="#verona">Verona</a><a href="#parma">Parma</a><a href="#ispra">Ispra</a><a href="#santa">Santa / Portofino / Camogli</a><a href="#riviera">Beaulieu / Èze / Nice</a>
+</nav></div>
+<div class="shell">
+<section class="history-city" id="verona">
+  <div class="history-city-title">
+    <div><p class="kicker">Oct 1–4</p><h2>Verona</h2></div>
+    <a class="history-guide-link" href="verona.html">Open city guide →</a>
+  </div>
+  <div class="city-panel-head">
+<p class="kicker">The context behind the streets</p>
+
+<p>Verona works especially well if you know what survives underneath the postcard: a Roman forum, an imperial gate, a medieval dynasty, a rebuilt Roman bridge and a 20th-century Juliet myth layered onto a real medieval house.</p>
+</div>
+<div class="history-timeline">
+<div class="history-era"><strong>Roman Verona</strong><span>1st century BCE onward • street grid, gates, Ponte Pietra and the Arena</span></div>
+<div class="history-era"><strong>Scaliger Verona</strong><span>13th–14th centuries • Della Scala rule, Castelvecchio, fortified bridges and Dante</span></div>
+<div class="history-era"><strong>Venetian rule</strong><span>1405–1797 • Verona becomes a key fortified city of the Republic of Venice</span></div>
+<div class="history-era"><strong>Austrian era</strong><span>19th century • military importance continues under the Habsburgs</span></div>
+<div class="history-era"><strong>Kingdom of Italy</strong><span>1866 • Verona joins unified Italy</span></div>
+<div class="history-era"><strong>UNESCO</strong><span>2000 • historic Verona is inscribed as a World Heritage Site</span></div>
+</div>
+<div class="fact-grid"><article class="fact-card"><b>🏟️ The Arena was built for crowds</b><p>Built around the middle of the 1st century AD, the Arena could hold roughly 30,000 spectators and originally stood outside the Roman walls so huge event crowds did not clog the city center.</p></article><article class="fact-card"><b>🧭 Piazza delle Erbe is the Roman forum</b><p>The oldest square in Verona occupies the site of the Roman forum—the political, commercial and social center of ancient Verona. So when we wander the market square, we are still standing in the city's original civic core.</p></article><article class="fact-card"><b>🚪 Porta Borsari was the main Roman entrance</b><p>The surviving monumental façade dates to the 1st century AD. In the imperial city it was the principal gateway and was originally called Porta Iovia after a nearby temple of Jupiter.</p></article><article class="fact-card"><b>🌉 Ponte Pietra is ancient and reconstructed</b><p>The bridge site is Roman, but retreating German troops destroyed the structure in 1945. Verona rebuilt it using stones and bricks recovered from the Adige.</p></article><article class="fact-card"><b>🏰 Castelvecchio's bridge was also an escape route</b><p>Cangrande II della Scala built the fortified bridge in the 1350s partly so he could flee toward Tyrol if political enemies or a city revolt turned against him.</p></article><article class="fact-card"><b>📖 Dante really lived in Verona</b><p>After exile from Florence, Dante spent years in Verona under Scaliger patronage. Cangrande della Scala became an important patron, and Verona is closely connected with the writing and dedication of parts of the <em>Paradiso</em>.</p></article><article class="fact-card"><b>🔔 Lamberti's bells had civic jobs</b><p>The tower's medieval bells were not decorative: the Marangona marked work time and warned of fire; the Rengo called the city council and summoned citizens to arms.</p></article><article class="fact-card"><b>❤️ The balcony is a 20th-century addition</b><p>Juliet's house is genuinely medieval, but the famous balcony was added during the 1939–40 restoration. The 2026 visitor route now leans into that distinction by starting inside Teatro Nuovo with interpretation of the Shakespeare myth.</p></article><article class="fact-card"><b>🎼 The Arena's opera tradition is much younger than the building</b><p>The Roman amphitheatre is nearly two millennia old, but the famous open-air opera tradition began in 1913 with Verdi's <em>Aida</em>, staged for the centenary of the composer's birth.</p></article>
+<article class="fact-card"><b>🧱 The Arena spent centuries being recycled</b><p>After Rome, parts of the outer ring were dismantled for fortifications and the monument was used as a source of building stone. The surviving “Ala” is only a fragment of the original outer façade.</p></article>
+<article class="fact-card"><b>🏛️ Verona has one of Europe's oldest public lapidary museums</b><p>The Maffeiano Lapidary Museum was established in 1745. Its collections of Greek, Etruscan, Roman and other inscriptions grew from the work of Veronese scholar Scipione Maffei.</p></article>
+<article class="fact-card"><b>🕳️ There is another Verona under the streets</b><p>The Scaliger Excavations preserve Roman houses, mosaics, roads, drainage and later Lombard and medieval layers beneath the modern center—a literal cross-section through about two thousand years of city life.</p></article></div>
+<p class="history-sources">
+Research sources:
+<a href="https://www.visitverona.it/en/poi/arena-amphitheatre" rel="noopener" target="_blank">Arena ↗</a> •
+<a href="https://www.visitverona.it/en/poi/piazza-erbe" rel="noopener" target="_blank">Piazza Erbe ↗</a> •
+<a href="https://www.visitverona.it/en/poi/borsari-gate" rel="noopener" target="_blank">Porta Borsari ↗</a> •
+<a href="https://www.visitverona.it/en/explore/juliet-s-courtyard-and-house-new-access-starting-april-1-2026" rel="noopener" target="_blank">Juliet 2026 route ↗</a> •
+<a href="https://www.torredeilamberti.it/en/" rel="noopener" target="_blank">Lamberti Tower ↗</a>
+</p>
+  <p class="history-sources"><strong>More research:</strong> <a href="https://www.visitverona.it/en/explore/a-treasure-trove-of-history-art-and-culture" rel="noopener" target="_blank">Verona through the centuries ↗</a> • <a href="https://www.visitverona.it/en/poi/arena-amphitheatre" rel="noopener" target="_blank">Arena history ↗</a> • <a href="https://www.visitverona.it/en/events/archaeological-guided-tour-of-the-scaligeri-excavations-4" rel="noopener" target="_blank">Scaliger excavations ↗</a></p>
+  <p class="history-back"><a href="#top">Back to all cities ↑</a></p>
+</section>
+<section class="history-city" id="parma">
+  <div class="history-city-title">
+    <div><p class="kicker">Oct 4–7</p><h2>Parma</h2></div>
+    <a class="history-guide-link" href="parma.html">Open city guide →</a>
+  </div>
+  <div class="city-panel-head">
+<p class="kicker">Food, art and court ambition</p>
+
+<p>Parma makes more sense when the food and monuments are treated as the same story: Roman streets, medieval sculpture, Farnese spectacle, Correggio's illusionism, Maria Luigia's court and a modern food economy recognized by UNESCO.</p>
+</div>
+<div class="history-timeline">
+<div class="history-era"><strong>Roman Parma</strong><span>183 BCE • Roman colony on the Via Emilia</span></div>
+<div class="history-era"><strong>Medieval city</strong><span>11th–13th c. • Cathedral, Antelami and the Baptistery</span></div>
+<div class="history-era"><strong>Farnese Duchy</strong><span>1545–1731 • Pilotta and court culture</span></div>
+<div class="history-era"><strong>Maria Luigia</strong><span>1816–1847 • Napoleon's second wife rules Parma</span></div>
+<div class="history-era"><strong>United Italy</strong><span>1860s • Duchy becomes part of Italy</span></div>
+<div class="history-era"><strong>Food City</strong><span>2015 • UNESCO Creative City of Gastronomy</span></div>
+</div>
+<div class="fact-grid"><article class="fact-card"><b>🏛️ Parma's Roman core still shapes the center</b><p>Parma began as a Roman colony in the 2nd century BCE. The Via Emilia and the old civic center help explain why the modern historic core is so compact and walkable.</p></article><article class="fact-card"><b>⛪ Antelami's Baptistery bridges two architectural worlds</b><p>Benedetto Antelami began the Baptistery in 1196. Its pink Verona marble and sculptural program sit right at the transition from Romanesque to early Gothic architecture.</p></article><article class="fact-card"><b>🎨 Correggio made the Cathedral dome look open to heaven</b><p>The Assumption fresco, painted in the 1520s, uses radical foreshortening and swirling figures that later Baroque painters studied and imitated.</p></article><article class="fact-card"><b>🎭 Teatro Farnese was built for a guest who never arrived</b><p>The theater was prepared for a planned visit by Cosimo II de' Medici, but the visit was cancelled. It was finally inaugurated in 1628 for a Medici-Farnese wedding.</p></article><article class="fact-card"><b>🌊 The Farnese once flooded their own theater</b><p>For the 1628 inauguration, the theater hosted spectacular court entertainment that included a staged naval battle in a flooded arena—an expensive reason it was used only rarely.</p></article><article class="fact-card"><b>💣 What we see is also a postwar reconstruction</b><p>Allied bombing in 1944 devastated Teatro Farnese. The postwar rebuilding reused surviving original material where possible, so today's space is both 17th-century theater and restoration story.</p></article><article class="fact-card"><b>👑 Maria Luigia reshaped Parma after Napoleon</b><p>Napoleon's second wife ruled Parma from 1816 to 1847 and became deeply associated with the city's civic works, Teatro Regio and the violets that still carry her name.</p></article><article class="fact-card"><b>🧀 Parma's food identity is officially part of its modern history</b><p>UNESCO named Parma a Creative City of Gastronomy in 2015, recognizing a food culture that is still central to the region's economy as well as its tourism.</p></article><article class="fact-card"><b>🎶 Maria Luigia gave Parma its great opera house</b><p>The Teatro Regio began as the Nuovo Teatro Ducale at the request of Duchess Maria Luigia. It opened on May 16, 1829 with Bellini's <em>Zaira</em>.</p></article>
+<article class="fact-card"><b>🔥 The opera house had heating hidden under the foyer</b><p>The Teatro Regio's foyer floor still shows trapdoors through which heat was distributed—an unexpectedly practical detail inside one of Italy's most elegant opera houses.</p></article>
+<article class="fact-card"><b>🪵 Teatro Farnese is theatrical illusion all the way down</b><p>The enormous court theater was built rapidly from lightweight materials such as wood and painted plaster. Its monumental stone-like appearance is itself a piece of stagecraft.</p></article>
+<article class="fact-card"><b>📚 The 1944 bombing hit Parma's books as well as its theater</b><p>Bombing of the Pilotta damaged the Farnese Theatre and Palatine Library; roughly 15,000 books were lost. The theater was later reconstructed, with surviving original fragments put back into the rebuilt structure.</p></article></div>
+<p class="history-sources">
+Research sources:
+<a href="https://complessopilotta.it/en/the-farnese-theatre/" rel="noopener" target="_blank">Teatro Farnese ↗</a> •
+<a href="https://parmawelcome.it/en/place/cathedral/" rel="noopener" target="_blank">Parma Cathedral ↗</a> •
+<a href="https://www.unesco.org/en/creative-cities/parma" rel="noopener" target="_blank">UNESCO Gastronomy ↗</a> •
+<a href="https://parmawelcome.it/evento/napoleone-in-caricatura/" rel="noopener" target="_blank">Glauco Lombardi exhibit ↗</a>
+</p>
+  <p class="history-sources"><strong>More research:</strong> <a href="https://teatroregioparma.it/en/the-theatre/history/" rel="noopener" target="_blank">Teatro Regio history ↗</a> • <a href="https://complessopilotta.it/en/the-farnese-theatre/" rel="noopener" target="_blank">Teatro Farnese ↗</a> • <a href="https://complessopilotta.it/en/2024/05/13/may-13th-1944-2024-80anniversary-of-the-bombing-of-the-pilotta/" rel="noopener" target="_blank">1944 bombing ↗</a></p>
+  <p class="history-back"><a href="#top">Back to all cities ↑</a></p>
+</section>
+<section class="history-city" id="ispra">
+  <div class="history-city-title">
+    <div><p class="kicker">Oct 7–11</p><h2>Ispra</h2></div>
+    <a class="history-guide-link" href="ispra.html">Open city guide →</a>
+  </div>
+  <div class="city-panel-head">
+<p class="kicker">The lake before the wedding</p>
+
+<p>Ispra's real story is local: medieval power struggles, a strategic border, limestone extraction and lime furnaces. The grand Borromean-resort story belongs more to Angera and Stresa—which is exactly why those work as contrasting excursions.</p>
+</div>
+<div class="history-timeline">
+<div class="history-era"><strong>826</strong><span>Earliest surviving document naming Ispra</span></div>
+<div class="history-era"><strong>13th century</strong><span>Seven churches/chapels recorded in the settlement</span></div>
+<div class="history-era"><strong>1276</strong><span>Torriani and Visconti forces fight near the Quassera</span></div>
+<div class="history-era"><strong>Borromeo era</strong><span>Ispra becomes part of the family's feudal holdings</span></div>
+<div class="history-era"><strong>Austrian period</strong><span>Customs post on the Lombardy–Piedmont frontier</span></div>
+<div class="history-era"><strong>19th–20th c.</strong><span>Limestone quarries and lime kilns shape the shoreline</span></div>
+</div>
+<div class="fact-grid">
+<article class="fact-card"><b>📜 Ispra is documented at least as early as 826</b><p>The town's municipal history page cites an 826 parchment now kept in Milan's State Archive as the oldest known document naming Ispra.</p></article>
+<article class="fact-card"><b>⛪ Medieval Ispra had a surprising number of churches</b><p>By the 13th century, records indicate seven churches or chapels in the settlement, reflecting the area's strong religious life.</p></article>
+<article class="fact-card"><b>⚔️ A power struggle for Milan reached Ispra</b><p>In 1276 a bloody battle near the Quassera involved the Torriani and supporters of Archbishop Ottone Visconti in the struggle for control of Milan.</p></article>
+<article class="fact-card"><b>🏰 The Borromeo connection is older than the tourist sites</b><p>In the early modern period Ispra formed part of the Borromeo family's feudal territory—the same family still associated with major Lake Maggiore landmarks.</p></article>
+<article class="fact-card"><b>🛂 Ispra once sat on a meaningful border</b><p>Under Austrian rule it hosted a customs station because the area lay on the frontier between Lombardy and Piedmont.</p></article>
+<article class="fact-card"><b>🔥 Lime—not tourism—shaped much of the waterfront</b><p>From the 19th into the early 20th century, local limestone was quarried and burned in numerous furnaces. Several survive along the lakeshore today.</p></article>
+<article class="fact-card"><b>💍 Villa Eden literally sits on that industrial history</b><p>The official property description says Villa Eden stands on the remains of a 19th-century furnace; its distinctive octagonal roofs echo the form of the old kilns.</p></article>
+<article class="fact-card"><b>🌊 The lakefront is longer and wilder than the town center suggests</b><p>The Comune notes that much of Ispra's shoreline can be walked, with old docks, quarries, furnaces, small harbors and natural areas appearing along the route.</p></article>
+<article class="fact-card"><b>⚛️ Italy's first research reactor was built in Ispra</b><p>The Ispra-1 research reactor was completed and inaugurated in 1959. It became a landmark in the early history of Italian and European nuclear research.</p></article>
+<article class="fact-card"><b>🇪🇺 Ispra became part of the European science project almost immediately</b><p>The Euratom Treaty of 1957 called for a Joint Nuclear Research Centre, and the Ispra site was formally launched in 1959. Today's European Commission Joint Research Centre grew from that postwar push for shared research.</p></article>
+<article class="fact-card"><b>🔬 The town's modern identity is unusually international</b><p>The JRC brought scientists and technical staff from across Europe to a small Lake Maggiore town, adding a distinctly European research layer to Ispra's older fishing, quarrying and border history.</p></article></div>
+<p class="history-sources">Research sources:
+<a href="https://comune.ispra.va.it/un-po-di-storia/" rel="noopener" target="_blank">Comune di Ispra history ↗</a> •
+<a href="https://comune.ispra.va.it/il-lago/" rel="noopener" target="_blank">Ispra lakefront ↗</a> •
+<a href="https://www.emmavillas.com/en/lombardy/villa-eden-8" rel="noopener" target="_blank">Villa Eden history ↗</a>
+</p>
+  <p class="history-sources"><strong>More research:</strong> <a href="https://joint-research-centre.ec.europa.eu/jrc-news-and-updates/60-years-european-nuclear-research-2023-11-23_en" rel="noopener" target="_blank">JRC nuclear research history ↗</a> • <a href="https://joint-research-centre.ec.europa.eu/60-years-jrc-nuclear-safety-and-security_en" rel="noopener" target="_blank">JRC timeline ↗</a></p>
+  <p class="history-back"><a href="#top">Back to all cities ↑</a></p>
+</section>
+<section class="history-city" id="santa">
+  <div class="history-city-title">
+    <div><p class="kicker">Oct 11–14</p><h2>Santa Margherita, Portofino & Camogli</h2></div>
+    <a class="history-guide-link" href="santa-margherita.html">Open city guide →</a>
+  </div>
+  <div class="city-panel-head"><p class="kicker">Three towns, three personalities</p><p>Santa, Portofino and Camogli look like one postcard coastline today, but they grew out of fishing, maritime trade, defensive forts and very different relationships with tourism.</p></div>
+<div class="history-timeline">
+<div class="history-era"><strong>Roman traces</strong><span>Santa has evidence suggesting settlement in Roman times</span></div>
+<div class="history-era"><strong>Medieval coast</strong><span>Fishing villages, Saracen raids and defensive castles</span></div>
+<div class="history-era"><strong>Genoese world</strong><span>Maritime trade ties the coast to the Republic of Genoa</span></div>
+<div class="history-era"><strong>1813</strong><span>Santa's villages briefly unified as “Porto Napoleone”</span></div>
+<div class="history-era"><strong>Late 1800s</strong><span>Road + railway launch Riviera tourism</span></div>
+<div class="history-era"><strong>Modern Riviera</strong><span>Santa becomes the practical base; Portofino the icon; Camogli preserves seafaring identity</span></div>
+</div>
+<div class="fact-grid">
+<article class="fact-card"><b>🏘️ Santa Margherita wasn't always one town</b><p>The area developed around separate villages including Pescino and Corte. In 1813, under Napoleon, they were unified as “Porto Napoleone”; the modern Santa Margherita name was confirmed later in the 19th century.</p></article>
+<article class="fact-card"><b>🌿 Villa Durazzo began as a summer estate</b><p>The Durazzo family built the villa in 1678. Its gardens, sea loggia and later grand-hotel history capture Santa's shift from coastal town to elegant resort.</p></article>
+<article class="fact-card"><b>🚂 The railway changed Santa's destiny</b><p>The railway and new road toward Portofino opened the coastline to travelers and triggered the age of grand hotels and villas that still defines Santa's look.</p></article>
+<article class="fact-card"><b>🚤 Portofino was genuinely isolated</b><p>Until the late 19th century, Portofino could essentially be reached only by sea or difficult hill paths. A carriage road finally began breaking that isolation in the 1880s.</p></article>
+<article class="fact-card"><b>🏰 An English consul helped make Portofino fashionable</b><p>Montagu Brown acquired the old San Giorgio fortress—today Castello Brown—and his hospitality helped draw British and Genoese high society to what had been a fishing village.</p></article>
+<article class="fact-card"><b>⛵ Camogli was the “Town of a Thousand White Sailboats”</b><p>Its 17th–19th century maritime tradition produced shipowners and trading vessels far beyond what the village's small size suggests today.</p></article>
+<article class="fact-card"><b>🎨 Camogli's facades are part architecture, part illusion</b><p>Like much of Liguria, buildings use trompe-l'oeil painted architectural details—false cornices, stonework and even shutters—to make tall coastal facades more elaborate.</p></article>
+<article class="fact-card"><b>🙏 Madonna dei Gotti is a sailors' tradition</b><p>The Camogli festival centers on a votive shrine to the Madonna of the Good Voyage, protector of fishermen and sailors; the “Gotti” nickname recalls the old taverns around the harbor.</p></article>
+<article class="fact-card"><b>🏺 Santa has a Roman clue sitting inside its basilica</b><p>A 3rd-century cinerary urn with a Latin inscription, found locally and preserved in the Basilica of Santa Margherita, is one of the pieces of evidence for settlement here in Roman times.</p></article>
+<article class="fact-card"><b>🛤️ Portofino's first public road transport was horse-drawn</b><p>After the new carriage road reduced the village's isolation, a public horse-drawn coach service began in 1888. Before that, bad weather could make the hill paths effectively unusable.</p></article>
+<article class="fact-card"><b>🎭 Camogli's theater was funded by families who got rich at sea</b><p>The Teatro Sociale opened in 1876 after an initiative by 60 local bourgeois families whose fortunes came from Camogli's maritime economy.</p></article>
+<article class="fact-card"><b>🏺 Camogli's story goes back far beyond its sailing-ship boom</b><p>Archaeological finds from the Castellaro area include material dated to the 12th–13th centuries BCE, plus later Roman-period evidence of trade by road and sea.</p></article>
+<article class="fact-card"><b>⚓ Camogli preserved the paperwork of a maritime powerhouse</b><p>Its maritime museum holds navigation objects, ship models and manuscripts including the 1853 statutes of Camogli's Maritime Mutual Insurance, along with letters connected to Garibaldi and the Expedition of the Thousand.</p></article></div>
+<p class="history-sources">Research sources:
+<a href="https://www.smlturismo.it/en/content/la-citt%C3%A0" rel="noopener" target="_blank">Santa tourism history ↗</a> •
+<a href="https://villadurazzo.it/en/visit-the-villa/" rel="noopener" target="_blank">Villa Durazzo ↗</a> •
+<a href="https://www.welcomecamogli.it/en/discover-camogli/the-village/" rel="noopener" target="_blank">Camogli ↗</a> •
+<a href="https://www.regione.liguria.it/homepage-attivita-istituzionale/archivi-biblioteche/archivio-storico/archivio-mostra/il-tigullio-ieri-e-oggi-aguzza-la-vista/portofino-ieri.html" rel="noopener" target="_blank">Portofino history ↗</a>
+</p>
+  <p class="history-sources"><strong>More research:</strong> <a href="https://www.smlturismo.it/en/content/la-citt%C3%A0" rel="noopener" target="_blank">Santa history ↗</a> • <a href="https://www.regione.liguria.it/homepage-attivita-istituzionale/archivi-biblioteche/archivio-storico/archivio-mostra/il-tigullio-ieri-e-oggi-aguzza-la-vista/portofino-ieri.html" rel="noopener" target="_blank">Portofino history ↗</a> • <a href="https://www.welcomecamogli.it/en/experience-camogli/art-and-culture/" rel="noopener" target="_blank">Camogli art + maritime history ↗</a></p>
+  <p class="history-back"><a href="#top">Back to all cities ↑</a></p>
+</section>
+<section class="history-city" id="riviera">
+  <div class="history-city-title">
+    <div><p class="kicker">Oct 14–18</p><h2>Beaulieu, Èze & Nice</h2></div>
+    <a class="history-guide-link" href="nice.html">Open city guide →</a>
+  </div>
+  <div class="city-panel-head"><p class="kicker">Why this coast feels so layered</p><p>This stretch of the Riviera compresses ancient Greece, medieval Savoy, Victorian winter tourism and Belle Époque fantasy architecture into a few train stops.</p></div>
+<div class="history-timeline">
+<div class="history-era"><strong>Ancient coast</strong><span>Greek and Roman settlement leave traces around Nice and Beaulieu</span></div>
+<div class="history-era"><strong>Medieval Èze</strong><span>Fortified eagle's-nest village above the sea</span></div>
+<div class="history-era"><strong>Savoy / Sardinia</strong><span>Nice remains tied to the House of Savoy for centuries</span></div>
+<div class="history-era"><strong>1860</strong><span>Nice becomes definitively French</span></div>
+<div class="history-era"><strong>Belle Époque</strong><span>Beaulieu and Nice flourish as winter resorts</span></div>
+<div class="history-era"><strong>2021</strong><span>Nice's winter-resort heritage enters UNESCO's World Heritage List</span></div>
+</div>
+<div class="fact-grid">
+<article class="fact-card"><b>🏖️ Beaulieu was once just a small hamlet</b><p>It became an independent commune in 1891. The Belle Époque transformed it into a fashionable winter resort for royalty, wealthy European families and artists. Its motto is <em>Pax in pulchritudine</em>—“peace in beauty.”</p></article>
+<article class="fact-card"><b>🏛️ Kérylos is Belle Époque architecture pretending to be ancient Greece—in the best way</b><p>Built from 1902–1908, it recreates the atmosphere of a noble Delos house from around the 2nd century BC while quietly integrating early-20th-century comfort.</p></article>
+<article class="fact-card"><b>🌸 Villa Ephrussi is really nine gardens, not one</b><p>The pink Rothschild villa on Cap-Ferrat is surrounded by French, Spanish, Florentine, Japanese, exotic, Provençal and other themed gardens overlooking the sea.</p></article>
+<article class="fact-card"><b>🏰 Èze's best viewpoint sits in a destroyed fortress</b><p>The Exotic Garden occupies the summit ruins of the medieval castle, around 429 m above the Mediterranean. The military site became a cactus-and-succulent garden with one of the coast's widest views.</p></article>
+<article class="fact-card"><b>🧠 Nietzsche's name is attached to a genuinely steep trail</b><p>The path between Èze-sur-Mer and the village climbs roughly 350 m. Nietzsche stayed on the Riviera in the 1880s, and local tradition connects the trail with his work on the third part of <em>Thus Spoke Zarathustra</em>.</p></article>
+<article class="fact-card"><b>🇮🇹 Nice's “Italian” feel is historical, not decorative</b><p>Before 1860, Nice had long belonged to the House of Savoy and then the Kingdom of Sardinia. France annexed the County of Nice in 1860 after the Treaty of Turin and a popular vote.</p></article>
+<article class="fact-card"><b>🇬🇧 The Promenade des Anglais really does come from the English</b><p>In 1824, British Reverend Lewis Way encouraged construction of a seaside path that also provided work for local residents after a difficult winter. It evolved into today's nearly 7 km promenade.</p></article>
+<article class="fact-card"><b>🌴 UNESCO protects Nice partly because tourism changed the city</b><p>Nice joined the World Heritage List in 2021 as the “Winter Resort Town of the Riviera,” recognizing the architecture, gardens, promenades and urban form created by centuries of international winter visitors.</p></article>
+<article class="fact-card"><b>📐 Nice was deliberately redesigned for winter visitors</b><p>In 1832, while Nice was still in the Kingdom of Sardinia, the Consiglio d'Ornato created planning and architectural rules meant to make the city more attractive to foreign residents and visitors.</p></article>
+<article class="fact-card"><b>🚂 The railway helped turn Nice into an international resort</b><p>After Nice became French in 1860, connection to the European rail network accelerated the arrival of winter visitors and the construction of new districts beyond the medieval old town.</p></article>
+<article class="fact-card"><b>🏨 A Beaulieu hotel advertised cutting-edge plumbing and an elevator in 1885</b><p>The Palais des Anglais was among the town's early luxury hotels; local Belle Époque history notes that it was an early adopter of toilets and a hydraulic lift—technology worth advertising to wealthy winter guests.</p></article>
+<article class="fact-card"><b>🗼 Gustave Eiffel became a Beaulieu homeowner</b><p>After members of the Eiffel family stayed at Villa Durandy in the 1890s, Gustave Eiffel liked the house enough to buy it. The residence became part of Beaulieu's extraordinary Belle Époque roll call.</p></article>
+<article class="fact-card"><b>❄️ The Riviera was a winter destination before it was a summer one</b><p>Nice's UNESCO story centers on winter tourism from the mid-18th century through the 1930s. Only later did the image of the Riviera shift decisively toward summer beaches and seaside holidays.</p></article></div>
+<p class="history-sources">Research sources:
+<a href="https://destination.beaulieusurmer.fr/en/" rel="noopener" target="_blank">Beaulieu tourism ↗</a> •
+<a href="https://www.villakerylos.fr/en/home/" rel="noopener" target="_blank">Villa Kérylos ↗</a> •
+<a href="https://www.villa-ephrussi.com/en" rel="noopener" target="_blank">Villa Ephrussi ↗</a> •
+<a href="https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/eze/" rel="noopener" target="_blank">Èze tourism ↗</a> •
+<a href="https://www.explorenicecotedazur.com/en/explore/unesco-and-heritage/nice-a-winter-resort/" rel="noopener" target="_blank">Nice UNESCO heritage ↗</a>
+</p>
+  <p class="history-sources"><strong>More research:</strong> <a href="https://whc.unesco.org/en/list/1635" rel="noopener" target="_blank">UNESCO: Nice winter resort ↗</a> • <a href="https://www.explorenicecotedazur.com/en/culture/promenade-des-anglais/" rel="noopener" target="_blank">Promenade des Anglais history ↗</a> • <a href="https://destination.beaulieusurmer.fr/wp-content/uploads/sites/3/2025/05/Following-the-footsteps-of-the-Belle-Epoque.pdf" rel="noopener" target="_blank">Beaulieu Belle Époque walk ↗</a></p>
+  <p class="history-back"><a href="#top">Back to all cities ↑</a></p>
+</section>
+</div>
+</main>
+<footer><div class="shell footer-inner"><div><strong>Sera &amp; Brendon</strong><span>Italy Wedding Trip • October 2026</span></div><span class="footer-links"><a href="essentials.html">Essentials</a><a href="index.html">Home</a></span></div></footer>
+<script src="script.js?v=28"></script>
+<script src="enhancements.js?v=6"></script>
+<script src="ux.js?v=35"></script>
+</body>
+</html>
