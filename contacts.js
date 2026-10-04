@@ -10,7 +10,7 @@
     Anna: ['The Fixer', "Bride prep specialist. If something's crooked, wrinkled, or missing—she handles it."],
     Gina: ['The Finisher', 'Part of the bride-prep crew. Handles the details nobody else noticed.'],
     Katie: ['The Clock', "Bride prep and schedule enforcement. When she says it's time to move, we move."],
-    Cindy: ['The Cleaner', 'Something went wrong? Not anymore.'],
+    Cindy: ['The Bubbly Boss', 'Champagne chief. Keeps the bottles cold, the glasses full, and the celebration flowing right on cue.'],
     Colleen: ['The Wildcard', 'No fixed assignment. Exactly where you want her when the plan goes sideways.']
   };
   function render(data) {
