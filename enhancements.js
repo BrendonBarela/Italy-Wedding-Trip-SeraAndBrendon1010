@@ -72,8 +72,7 @@
       overlay.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(35,27,23,.58);display:flex;align-items:flex-end;justify-content:center;padding:18px;";
       const safariNote=isIOSSafari
         ?"You’re in Safari — follow these steps:"
-        ? "You’re in Safari — follow these steps:"
-        : "First open this wedding site in Safari, then follow these steps:";
+        :"First open this wedding site in Safari, then follow these steps:";
       overlay.innerHTML=`
         <div style="width:min(100%,520px);background:#fffaf6;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.28);color:#3e302a;font-family:Inter,system-ui,sans-serif;">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
