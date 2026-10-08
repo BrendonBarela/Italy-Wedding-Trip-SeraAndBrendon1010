@@ -58,19 +58,71 @@
     if(!b)return;
     let prompt=null;
     const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+    const ua=navigator.userAgent||"";
+    const isIOS=/iPad|iPhone|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+    const isIOSSafari=isIOS&&/Safari/i.test(ua)&&!/CriOS|FxiOS|EdgiOS|OPiOS/i.test(ua);
+
+    const showIOSInstallHelp=()=>{
+      document.getElementById("sb-ios-install-help")?.remove();
+      const overlay=document.createElement("div");
+      overlay.id="sb-ios-install-help";
+      overlay.setAttribute("role","dialog");
+      overlay.setAttribute("aria-modal","true");
+      overlay.setAttribute("aria-labelledby","sb-ios-install-title");
+      overlay.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(35,27,23,.58);display:flex;align-items:flex-end;justify-content:center;padding:18px;";
+      const safariNote=isIOSSafari
+        ?"You’re in Safari — follow these steps:"
+        ? "You’re in Safari — follow these steps:"
+        : "First open this wedding site in Safari, then follow these steps:";
+      overlay.innerHTML=`
+        <div style="width:min(100%,520px);background:#fffaf6;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.28);color:#3e302a;font-family:Inter,system-ui,sans-serif;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+            <div>
+              <div style="font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:#8b6d5e;font-weight:700;">iPhone install</div>
+              <h2 id="sb-ios-install-title" style="margin:5px 0 8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;line-height:1;">Add the wedding app</h2>
+            </div>
+            <button type="button" data-close-ios-install aria-label="Close" style="border:0;background:#efe2d8;border-radius:999px;width:38px;height:38px;font-size:1.35rem;color:#5b4438;">×</button>
+          </div>
+          <p style="margin:0 0 14px;color:#6b554a;line-height:1.5;">${safariNote}</p>
+          <ol style="margin:0;padding-left:1.35rem;line-height:1.65;font-size:.98rem;">
+            <li>Tap Safari’s <strong>Page Menu</strong> or <strong>Share</strong> button.</li>
+            <li>Tap <strong>Add to Home Screen</strong>.</li>
+            <li>Turn on <strong>Open as Web App</strong>.</li>
+            <li>Tap <strong>Add</strong>.</li>
+          </ol>
+          <p style="margin:14px 0 0;padding:12px 14px;border-radius:12px;background:#f3e8df;color:#6b554a;font-size:.86rem;line-height:1.45;">There is no App Store download for this private trip app. The Home Screen version opens like a normal app and goes straight to Today.</p>
+          <button type="button" data-close-ios-install style="margin-top:16px;width:100%;border:0;border-radius:12px;background:#6f4e3d;color:white;padding:13px 16px;font-weight:700;font-size:1rem;">Got it</button>
+        </div>`;
+      overlay.addEventListener("click",e=>{
+        if(e.target===overlay||e.target.closest("[data-close-ios-install]"))overlay.remove();
+      });
+      document.body.appendChild(overlay);
+      overlay.querySelector("[data-close-ios-install]")?.focus();
+    };
+
     if(standalone){
       b.textContent="Wedding app installed ✓";
       b.disabled=true;
       if(h)h.textContent="Open Sera & Brendon from your home screen or app drawer.";
       return;
     }
+
+    if(isIOS){
+      b.textContent="Install on iPhone";
+      if(h)h.textContent=isIOSSafari
+        ?"Tap for the iPhone install steps."
+        :"For iPhone installation, open this page in Safari first.";
+    }
+
     addEventListener("beforeinstallprompt",e=>{
       e.preventDefault();prompt=e;
-      if(h)h.textContent="Ready to install. Tap Install wedding app.";
+      if(!isIOS&&h)h.textContent="Ready to install. Tap Install wedding app.";
     });
+
     b.addEventListener("click",async()=>{
+      if(isIOS){showIOSInstallHelp();return;}
       if(prompt){prompt.prompt();await prompt.userChoice;prompt=null;return;}
-      if(h)h.innerHTML='On Android Chrome: <strong>⋮ → Install app</strong>. On iPhone Safari: <strong>Share → Add to Home Screen</strong>.';
+      if(h)h.innerHTML='On Android Chrome: <strong>⋮ → Install app</strong>. On iPhone Safari: <strong>Share → Add to Home Screen → Open as Web App → Add</strong>.';
     });
   };
 
