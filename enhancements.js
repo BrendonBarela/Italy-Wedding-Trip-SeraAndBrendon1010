@@ -13,6 +13,15 @@
       .sb-offline-status{flex-basis:100%;display:flex;align-items:center;gap:8px;max-width:760px;padding:9px 12px;border-radius:12px;background:#edf2e8;color:#49613f;font:750 .76rem Inter,system-ui,sans-serif}
       .sb-offline-status[data-state="saving"]{background:#f4e9df;color:#6b554a}
       .sb-offline-status[data-state="needs-save"]{background:#f5eee7;color:#6b554a}
+      .sb-install-promo{position:relative;z-index:90;display:flex;align-items:center;justify-content:center;gap:16px;padding:13px 18px;background:linear-gradient(135deg,#6f4e3d,#4d352b);color:#fff;box-shadow:0 5px 18px rgba(50,35,25,.18);font-family:Inter,system-ui,sans-serif}
+      .sb-install-promo-inner{width:min(1120px,100%);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:13px}
+      .sb-install-promo-icon{width:48px;height:48px;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.22);background:#fff}
+      .sb-install-promo-copy strong{display:block;font-size:1rem;line-height:1.2;letter-spacing:.01em}
+      .sb-install-promo-copy span{display:block;margin-top:3px;font-size:.78rem;line-height:1.35;color:rgba(255,255,255,.82)}
+      .sb-install-promo button{border:1px solid rgba(255,255,255,.8);border-radius:999px;padding:11px 16px;background:#fff;color:#5b4034;font:800 .82rem Inter,system-ui,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.14)}
+      .sb-install-promo button:active{transform:translateY(1px)}
+      .sb-install-promo-help{grid-column:2 / -1;font-size:.72rem;color:rgba(255,255,255,.74);line-height:1.35;min-height:0}
+      @media(max-width:640px){.sb-install-promo{padding:11px 12px}.sb-install-promo-inner{grid-template-columns:auto 1fr;gap:9px 10px}.sb-install-promo-icon{width:42px;height:42px}.sb-install-promo-copy strong{font-size:.92rem}.sb-install-promo-copy span{font-size:.72rem}.sb-install-promo button{grid-column:1 / -1;width:100%;padding:11px 14px}.sb-install-promo-help{grid-column:1 / -1;text-align:center}}
       body.sb-is-offline .visit-card img{display:none}
     `;
     document.head.appendChild(s);
@@ -53,14 +62,45 @@
   };
 
   const setupInstall=()=>{
-    const b=document.getElementById("install-app-button");
-    const h=document.getElementById("install-app-help");
-    if(!b)return;
     let prompt=null;
     const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
     const ua=navigator.userAgent||"";
     const isIOS=/iPad|iPhone|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
     const isIOSSafari=isIOS&&/Safari/i.test(ua)&&!/CriOS|FxiOS|EdgiOS|OPiOS/i.test(ua);
+
+    let b=document.getElementById("install-app-button");
+    let h=document.getElementById("install-app-help");
+
+    if(standalone){
+      b?.remove();
+      h?.remove();
+      document.getElementById("sb-install-promo")?.remove();
+      return;
+    }
+
+    let promo=document.getElementById("sb-install-promo");
+    if(!promo){
+      promo=document.createElement("section");
+      promo.id="sb-install-promo";
+      promo.className="sb-install-promo";
+      promo.setAttribute("aria-label","Install wedding app");
+      promo.innerHTML=`<div class="sb-install-promo-inner">
+        <img class="sb-install-promo-icon" src="app-icon-192.png" alt="" width="48" height="48">
+        <div class="sb-install-promo-copy"><strong>Put the Wedding App on your phone</strong><span>Open the itinerary, wedding schedule and transport in one tap.</span></div>
+        <button id="sb-global-install-button" type="button">${isIOS?"Add to iPhone":"Install App"}</button>
+        <div id="sb-global-install-help" class="sb-install-promo-help" aria-live="polite"></div>
+      </div>`;
+      const header=document.querySelector(".site-header");
+      if(header)header.insertAdjacentElement("afterend",promo);else document.body.prepend(promo);
+    }
+
+    const globalButton=promo.querySelector("#sb-global-install-button");
+    const globalHelp=promo.querySelector("#sb-global-install-help");
+
+    if(b){
+      b.style.display="none";
+      if(h)h.style.display="none";
+    }
 
     const showIOSInstallHelp=()=>{
       document.getElementById("sb-ios-install-help")?.remove();
@@ -69,60 +109,50 @@
       overlay.setAttribute("role","dialog");
       overlay.setAttribute("aria-modal","true");
       overlay.setAttribute("aria-labelledby","sb-ios-install-title");
-      overlay.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(35,27,23,.58);display:flex;align-items:flex-end;justify-content:center;padding:18px;";
+      overlay.style.cssText="position:fixed;inset:0;z-index:10001;background:rgba(35,27,23,.62);display:flex;align-items:flex-end;justify-content:center;padding:18px;";
       const safariNote=isIOSSafari
-        ?"You’re in Safari — follow these steps:"
-        :"First open this wedding site in Safari, then follow these steps:";
+        ?"Apple requires one final system step on iPhone:"
+        :"Open this page in Safari first. Apple requires one final system step:";
       overlay.innerHTML=`
         <div style="width:min(100%,520px);background:#fffaf6;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.28);color:#3e302a;font-family:Inter,system-ui,sans-serif;">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
-            <div>
-              <div style="font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:#8b6d5e;font-weight:700;">iPhone install</div>
-              <h2 id="sb-ios-install-title" style="margin:5px 0 8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;line-height:1;">Add the wedding app</h2>
-            </div>
+            <div><div style="font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:#8b6d5e;font-weight:700;">Install on iPhone</div><h2 id="sb-ios-install-title" style="margin:5px 0 8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;line-height:1;">Almost there</h2></div>
             <button type="button" data-close-ios-install aria-label="Close" style="border:0;background:#efe2d8;border-radius:999px;width:38px;height:38px;font-size:1.35rem;color:#5b4438;">×</button>
           </div>
-          <p style="margin:0 0 14px;color:#6b554a;line-height:1.5;">${safariNote}</p>
-          <ol style="margin:0;padding-left:1.35rem;line-height:1.65;font-size:.98rem;">
-            <li>Tap Safari’s <strong>Page Menu</strong> or <strong>Share</strong> button.</li>
-            <li>Tap <strong>Add to Home Screen</strong>.</li>
-            <li>Turn on <strong>Open as Web App</strong>.</li>
-            <li>Tap <strong>Add</strong>.</li>
-          </ol>
-          <p style="margin:14px 0 0;padding:12px 14px;border-radius:12px;background:#f3e8df;color:#6b554a;font-size:.86rem;line-height:1.45;">There is no App Store download for this private trip app. The Home Screen version opens like a normal app and goes straight to Today.</p>
-          <button type="button" data-close-ios-install style="margin-top:16px;width:100%;border:0;border-radius:12px;background:#6f4e3d;color:white;padding:13px 16px;font-weight:700;font-size:1rem;">Got it</button>
+          <p style="margin:0 0 12px;color:#6b554a;line-height:1.5;">${safariNote}</p>
+          <div style="padding:14px;border-radius:14px;background:#f3e8df;font-weight:700;line-height:1.55;">Tap <strong>Share</strong> → <strong>Add to Home Screen</strong> → <strong>Add</strong>.</div>
+          <p style="margin:12px 0 0;color:#80685b;font-size:.82rem;line-height:1.45;">iOS does not allow a website button to trigger this installer directly. Once added, it opens full-screen like an app and uses the wedding-app icon.</p>
+          <button type="button" data-close-ios-install style="margin-top:16px;width:100%;border:0;border-radius:12px;background:#6f4e3d;color:white;padding:13px 16px;font-weight:700;font-size:1rem;">Close</button>
         </div>`;
-      overlay.addEventListener("click",e=>{
-        if(e.target===overlay||e.target.closest("[data-close-ios-install]"))overlay.remove();
-      });
+      overlay.addEventListener("click",e=>{if(e.target===overlay||e.target.closest("[data-close-ios-install]"))overlay.remove();});
       document.body.appendChild(overlay);
       overlay.querySelector("[data-close-ios-install]")?.focus();
     };
 
-    if(standalone){
-      b.textContent="Wedding app installed ✓";
-      b.disabled=true;
-      if(h)h.textContent="Open Sera & Brendon from your home screen or app drawer.";
-      return;
-    }
-
-    if(isIOS){
-      b.textContent="Install on iPhone";
-      if(h)h.textContent=isIOSSafari
-        ?"Tap for the iPhone install steps."
-        :"For iPhone installation, open this page in Safari first.";
-    }
-
     addEventListener("beforeinstallprompt",e=>{
-      e.preventDefault();prompt=e;
-      if(!isIOS&&h)h.textContent="Ready to install. Tap Install wedding app.";
+      e.preventDefault();
+      prompt=e;
+      if(globalHelp)globalHelp.textContent="Ready — tap Install App.";
     });
 
-    b.addEventListener("click",async()=>{
-      if(isIOS){showIOSInstallHelp();return;}
-      if(prompt){prompt.prompt();await prompt.userChoice;prompt=null;return;}
-      if(h)h.innerHTML='On Android Chrome: <strong>⋮ → Install app</strong>. On iPhone Safari: <strong>Share → Add to Home Screen → Open as Web App → Add</strong>.';
-    });
+    const install=async()=>{
+      if(isIOS){
+        showIOSInstallHelp();
+        return;
+      }
+      if(prompt){
+        prompt.prompt();
+        const choice=await prompt.userChoice;
+        if(choice?.outcome==="accepted")promo.remove();
+        prompt=null;
+        return;
+      }
+      if(globalHelp)globalHelp.textContent="Use your browser menu and choose Install app / Add to Home screen.";
+    };
+
+    globalButton?.addEventListener("click",install);
+    b?.addEventListener("click",install);
+    addEventListener("appinstalled",()=>promo?.remove());
   };
 
   const setupConnectivity=()=>{
